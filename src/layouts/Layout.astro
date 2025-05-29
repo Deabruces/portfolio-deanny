@@ -1,3 +1,13 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Clima from "../components/Clima.astro";
+import Hora from "../components/Hora.astro";
+import Navigation from "../components/Navigation.astro";
+
+
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -8,7 +18,13 @@
 		<title>Astro Basics</title>
 	</head>
 	<body>
+    <Header>
+      <Clima slot="widget-left" />
+      <Navigation />
+      <Hora slot="widget-right" />
+    </Header>
 		<slot />
+    <Footer></Footer>
 	</body>
 </html>
 
