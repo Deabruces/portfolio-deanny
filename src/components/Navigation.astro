@@ -1,11 +1,54 @@
+---
+import Home from "../assets/iconos/home.svg"
+import Moon from "../assets/iconos/moon.svg"
+
+---
+
 <nav>
   <ul>
-    <li>Home</li>
-    <li><span class="separator"></span></li>
+    <li><Home /></li>
+    <li><span class="separator">|</span></li>
     <li><a href="#">About</a></li>
     <li><a href="#">Projects</a></li>
     <li><a href="#">Blog</a></li>
-    <li><span class="separator"></span></li>
-    <li><button>Mode toggler</button></li>
+    <li><span class="separator">|</span></li>
+    <li><button><Moon /></button></li>
   </ul>
 </nav>
+
+<style>
+  nav {
+    display: flex;
+    background-color: #2d0c4b5e;
+    color: white;
+    border: 1px solid #180628;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+  }
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    padding-inline-start: 0px;
+    padding: 10px;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  a {
+    color: white;
+  }
+
+  button {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 0;
+    display: block;
+  }
+</style>
