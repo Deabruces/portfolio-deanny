@@ -1,20 +1,44 @@
 ---
-import Home from "../assets/iconos/home.svg"
-import Moon from "../assets/iconos/moon.svg"
-
+import Home from "../assets/icons/home.svg";
+import Moon from "../assets/icons/moon.svg";
+import Person from "../assets/icons/person.svg";
+import Projects from "../assets/icons/projects.svg";
+import Blog from "../assets/icons/blog.svg";
+import "../assets/styles/reset.css";
+import "../assets/styles/global.css";
+import Send from "../assets/icons/send.svg";
+import type { AstroComponentInstance } from "astro/runtime/server/index.js";
+const actualPage=Astro.url.pathname;
+interface MenuElement {
+  name: string;
+  icon: ImageMetadata; // Replace with the actual type of your icons if available
+  path: string;
+}
+const menuElements:MenuElement[]=[
+  { name: "About", icon: Person, path: "/about-me" },
+  { name: "Projects", icon: Projects, path: "/projects" },
+  { name: "Blog", icon: Blog, path: "/blog" },
+  { name: "Contact", icon: Send, path: "/contact" }
+]
+const isActualPage=(element:Partial<MenuElement>) => {
+  return Astro.url.pathname === element.path;
+}
 ---
 
 <nav>
   <ul>
-    <li><Home /></li>
-    <li><span class="separator">|</span></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Projects</a></li>
-    <li><a href="#">Blog</a></li>
-    <li><span class="separator">|</span></li>
+    <li class:list={["li__home",{active:isActualPage({path:'/'})}]}><a href="/"><Home /></a></li>
+    <li class="li__separador"><span class="separator"></span></li>
+    {menuElements.map((element) => (
+          <li class:list={["li__nav",{active:isActualPage(element)}]}>
+            <element.icon/><a href={element.path}>{element.name}</a>
+          </li>
+      ))}
+    <li class="li__separador"><span class="separator"></span></li>
     <li><button><Moon /></button></li>
   </ul>
 </nav>
+
 
 <style>
   nav {
@@ -22,25 +46,49 @@ import Moon from "../assets/iconos/moon.svg"
     background-color: #2d0c4b5e;
     color: white;
     border: 1px solid #180628;
-    border-radius: 25px;
+    border-radius: 20px;
     backdrop-filter: blur(10px);
+    font-size: 20px;
   }
   ul {
-    display: flex;
+        display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
-    gap: 10px;
+    gap: 3px;
     padding-inline-start: 0px;
-    padding: 10px;
+    padding: 3px 3px;
+  }
+
+  .separator {
+    background: #180628;
+    height: 1lh;
+    display: block;
+    width: 1px;
+    border-radius: 5px;
   }
 
   li {
     list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 15px;
+  }
+  li.active{
+    font-weight: bold;
+    color: var(--secondary-color);
   }
 
   a {
-    color: white;
+    color: inherit;
+  }
+
+  .li__nav:hover {
+    border: 1px solid #62586a;
+    border-radius: 20px;
+    padding: 5px 17px;
   }
 
   button {
@@ -50,5 +98,23 @@ import Moon from "../assets/iconos/moon.svg"
     color: white;
     padding: 0;
     display: block;
+  }
+
+  .li__home {
+    border: 1px solid #62586a;
+    border-radius: 19px;
+    padding: 8px 17px;
+    background-color: rgb(40 47 107 / 30%);
+    transition: background-color 300ms linear;
+  }
+
+  .li__home:hover {
+    background-color: rgb(40 47 107 / 50%);
+  }
+
+  .li__separador {
+    display: flex;
+    align-items: center;
+    padding: 0;
   }
 </style>

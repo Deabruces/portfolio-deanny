@@ -1,16 +1,15 @@
-<header>
+<div class="header">
   <slot name="widget-left" />
   <slot />
   <slot name="widget-right" />
-</header>
+</div>
 
 <style>
-  header {
+  .header {
     background-color: transparent;
     color: rgb(255, 255, 255);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     padding: 20px;
   }
 </style>

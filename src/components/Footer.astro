@@ -1,1 +1,81 @@
-<h1>Footer</h1>
+---
+import Love from "../assets/icons/love.svg";
+import Github from "../assets/icons/github.svg";
+import Linkedin from "../assets/icons/linkedin.svg";
+import Twitter from "../assets/icons/twitter.svg";
+import Instagram from "../assets/icons/instagram.svg";
+---
+<div class="footer">
+  <p class="text">
+    &copy; 2025 | Made with <span><Love /></span> by Deanny Bruces
+  </p>
+  <div class="social-icons">
+    <a class="icons"><Github /></a>
+    <a class="icons"><Linkedin /></a>
+    <a class="icons"><Twitter /></a>
+    <a class="icons"><Instagram /></a>
+  </div>
+</div>
+  
+
+<style>
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    background-color: #2d0c4b5e;
+    color: #ffffff;
+    border-top: 1px solid #180628;
+    backdrop-filter: blur(10px);
+    font-size: 14px;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  .text svg {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+  }
+
+  .icons {
+    margin: 5px;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 0%;
+    transition: background-color 0.3s ease,scale 0.3s ease,border-radius 0.3s ease;
+  }
+
+  .icons:hover {
+    scale: 1.2;
+    border-radius: 50%;
+    background-color: rgb(40 47 107 / 50%);
+    border: 1px solid var(--border-color);
+  }
+
+  span {
+    margin: 5px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .social-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+</style>
