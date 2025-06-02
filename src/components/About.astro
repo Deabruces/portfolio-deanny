@@ -1,0 +1,198 @@
+---
+import "../assets/styles/reset.css";
+import "../assets/styles/global.css";
+import Dea from "../assets/images/dea.jpg";
+import Location from "../assets/icons/location.svg";
+import Github from "../assets/icons/github.svg";
+import Linkedin from "../assets/icons/linkedin.svg";
+import Twitter from "../assets/icons/twitter.svg";
+import Instagram from "../assets/icons/instagram.svg";
+import Email from "../assets/icons/email.svg";
+---
+
+<div class="about">
+  <div class="about__right">
+    <div class="about__image">
+      <img src={Dea.src} alt="foto de Deanny" class="profile-image" />
+      <div class="about__location">
+        <Location /><span>Santiago / Chile</span>
+      </div>
+    </div>
+    <div class="about__languages">
+      <span class="language">Spanish</span>
+      <span class="language">English</span>
+    </div>
+  </div>
+
+  <div class="about__description">
+    <h1 class="description__title">Deanny Bruces</h1>
+    <p class="description__text description__text--profession">
+      Front-end Developer / Industrial Engineer
+    </p>
+
+    <div class="social-icons">
+      <a href="#" class="icons"><Github />Github</a>
+      <a href="#" class="icons"><Linkedin />LinkedIn</a>
+      <a href="#" class="icons"><Twitter />X</a>
+      <a href="#" class="icons"><Instagram />Instagram</a>
+      <a href="#" class="icons"><Email />Email</a>
+    </div>
+
+    <p class="description__text">
+      A front-end developer passionate about creating intuitive, accessible, and
+      visually compelling web experiences. I specialize in building modern
+      interfaces using technologies such as HTML, CSS, JavaScript, and
+      frameworks like React and Vue.
+    </p>
+
+    <p class="description__text">
+      My approach combines design and code: I like to think about the user
+      experience from the first sketch to the last line of code. I firmly
+      believe that a well-made website should not only look good but also
+      function quickly, be accessible, and adapt to any device.
+    </p>
+
+    <p class="description__text">
+      I've worked on projects focused on the Chilean market, understanding local
+      needs such as mobile optimization, integration with national services, and
+      functionality-focused design. I love to constantly learn and improve, and
+      that's why I continue to hone my skills in web performance, best
+      practices, and usability.
+    </p>
+    <p class="description__text">
+      In addition to programming, I enjoy collaborating with multidisciplinary
+      teams, contributing creative ideas, and maintaining clear and empathetic
+      communication. I seek to add real value through every project I
+      participate in. Shall we connect?
+    </p>
+  </div>
+</div>
+
+<style>
+  .about {
+    display: grid;
+    grid-template-areas: "right description";
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    padding: 40px;
+    color: #fff;
+  }
+
+  .profile-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-sizing: content-box;
+    object-fit: cover;
+    margin: 35px 40px 0 40px;
+  }
+
+  .about__title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  .about__description {
+    grid-area: description;
+  }
+
+  .description__text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    padding: 20px 60px;
+  }
+
+  .description__title {
+    font-weight: 800;
+    font-size: 80px;
+    color: var(--secondary-color);
+    padding: 0 60px;
+  }
+
+  .about__right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-area: right;
+  }
+
+  .about__image {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .about__location {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #fff;
+    margin-top: 10px;
+  }
+  .image__text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-top: 10px;
+  }
+
+  .description__text--profession {
+    font-weight: bold;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--border-color);
+    padding-top: 0;
+  }
+
+  .about__languages {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .language {
+    color: #fff;
+    padding: 3px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+  }
+
+  .social-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 0px 60px 20px 60px;
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    text-decoration: none;
+    transition:
+      background-color 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .icons:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+  }
+</style>
