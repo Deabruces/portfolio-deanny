@@ -1,0 +1,18 @@
+:root{
+    --primary-color: #2d0c4b;
+    --secondary-color: #c38cf6;
+    --background-color: #2d0c4b5e;
+    --background-color-hover: rgb(40 47 107 / 30%);
+    --text-color: #fff;
+    --font-family: 'Arial', sans-serif;
+    --border-color: #62586a;
+    --border-radius: 20px;
+}
+
+
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
