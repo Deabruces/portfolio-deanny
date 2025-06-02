@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Layout from "../layouts/Layout.astro"
+---
+
+<Layout>
+    <section class="projects">
+        <h2 class="projects_title">Some of my <span>Recent Projects</span></h2>
+        <div class="cards">
+             <Card description={`Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi suscipit
+      accusantium omnis tempore et minus quisquam perspiciatis nobis! Nam,
+      voluptatibus tempore ipsum accusamus minima dolore corporis similique
+      omnis repellendus enim?
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi suscipit
+      accusantium omnis tempore et minus quisquam perspiciatis nobis! Nam,
+      voluptatibus tempore ipsum accusamus minima dolore corporis similique
+      omnis repellendus enim?
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi suscipit
+      accusantium omnis tempore et minus quisquam perspiciatis nobis! Nam,
+      voluptatibus tempore ipsum accusamus minima dolore corporis similique
+      omnis repellendus enim?
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi suscipit
+      accusantium omnis tempore et minus quisquam perspiciatis nobis! Nam,
+      voluptatibus tempore ipsum accusamus minima dolore corporis similique
+      omnis repellendus enim?
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi suscipit
+      accusantium omnis tempore et minus quisquam perspiciatis nobis! Nam,
+      voluptatibus tempore ipsum accusamus minima dolore corporis similique
+      omnis repellendus enim?`}/>
+      
+             <Card description={`deanny`}/>
+             <Card description={`Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi suscipit
+      accusantium omnis tempore et minus quisquam perspiciatis nobis! Nam,
+      voluptatibus tempore ipsum accusamus minima dolore corporis similique
+      omnis repellendus enim?
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi suscipit
+      accusantium omnis tempore et minus quisquam perspiciatis nobis! Nam,
+      voluptatibus tempore ipsum accusamus minima dolore corporis similique
+      omnis repellendus enim?`}/>
+             <Card description={`Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi suscipit
+      accusantium omnis tempore et minus quisquam perspiciatis nobis! Nam,
+      voluptatibus tempore ipsum accusamus minima dolore corporis similique
+      omnis repellendus enim?`}/>
+             <Card description={`Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi suscipit
+      accusantium omnis tempore et minus quisquam perspiciatis nobis! Nam,
+      voluptatibus tempore ipsum accusamus minima dolore corporis similique
+      omnis repellendus enim?`}/>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .projects {
+        padding: 40px;
+    }
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: masonry;
+        gap: 20px;
+    }
+    .projects_title {
+        text-align: center;
+        font-size: 50px;
+        color: var(--text-color);
+        font-weight: 600;
+        margin: 20px 0px;
+    }
+    .projects_title span {
+        color: var(--secondary-color);
+    }
+
+</style>

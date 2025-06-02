@@ -1,0 +1,67 @@
+---
+const {description}=Astro.props;
+---
+<article class="card">
+  <header class="card__header">
+    <img class="card__img" src="https://picsum.photos/200/300" alt="" />
+    <h2 class="header__title">Proyecto 1</h2>
+  </header>
+  <div class="card__content">
+    <p class="content__text">
+      {description}
+    </p>
+  </div>
+  <foote class="card__footer"><a href="#">Leer mas...</a></foote>
+</article>
+
+<style>
+  .card {
+    max-width: 800px;
+    background-color: var(--border-color);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card:hover{
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: var(--border-color);
+  }
+
+  .card__header {
+    color: var(--text-color);
+    padding: 10px;
+  }
+  .header__title {
+    margin-top: 5px;
+    font-size: 1.5em;
+  }
+  .card__img {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  .card__content {
+    color: #fff;
+    padding: 15px;
+    flex-grow: 1;
+  }
+  .content__text {
+    font-size: 1em;
+    color: var(--text-color);
+    overflow: hidden;
+  }
+  .card__footer {
+    color: var(--text-color);
+    font-weight: 400;
+    padding: 10px;
+    text-align: end;
+  }
+  .card__footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+  }
+</style>
