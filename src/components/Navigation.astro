@@ -1,6 +1,7 @@
 ---
 import Home from "../assets/icons/home.svg";
 import Moon from "../assets/icons/moon.svg";
+import Sun from "../assets/icons/sun.svg";
 import Person from "../assets/icons/person.svg";
 import Projects from "../assets/icons/projects.svg";
 import Blog from "../assets/icons/blog.svg";
@@ -35,7 +36,10 @@ const isActualPage=(element:Partial<MenuElement>) => {
           </li>
       ))}
     <li class="li__separador"><span class="separator"></span></li>
-    <li><button><Moon /></button></li>
+    <li class="toggle__theme">
+      <button class="theme__btn btn__dark"><Moon /></button>
+      <button class="theme__btn btn__light"><Sun /></button>
+    </li>
   </ul>
 </nav>
 
@@ -51,7 +55,7 @@ const isActualPage=(element:Partial<MenuElement>) => {
     font-size: 20px;
   }
   ul {
-        display: flex;
+    display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
@@ -91,14 +95,7 @@ const isActualPage=(element:Partial<MenuElement>) => {
     padding: 5px 17px;
   }
 
-  button {
-    appearance: none;
-    background-color: transparent;
-    border: none;
-    color: white;
-    padding: 0;
-    display: block;
-  }
+  
 
   .li__home {
     border: 1px solid #62586a;
@@ -116,5 +113,26 @@ const isActualPage=(element:Partial<MenuElement>) => {
     display: flex;
     align-items: center;
     padding: 0;
+  }
+
+  .toggle__theme {
+    border: 1px solid var(--border-color);
+    border-radius: 19px;
+    padding: 8px 17px;
+  }
+
+  .theme__btn {
+    appearance: none;
+    border: none;
+    border-radius: 19px;
+    color: white;
+    display: block;
+    background-color: rgb(40 47 107 / 30%);
+    transition: all 300ms linear;
+  }
+
+  .theme__btn:hover {
+    background-color: rgb(40 47 107 / 50%);
+    color: var(--secondary-color);
   }
 </style>

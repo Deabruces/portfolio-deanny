@@ -1,5 +1,18 @@
 <span class="clima">Clima</span>
 
+
+<style>
+  .clima {
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    color: #fff; 
+  }
+  
+</style>
+
+
 <script>
 fetch('https://www.meteosource.com/api/v1/free/point?place_id=santiago&sections=current&language=en&units=auto&key=z87pseeg5odtg7e4ej39pvlgzyzqun5xffzyup0v', {
   headers: {
@@ -19,16 +32,4 @@ fetch('https://www.meteosource.com/api/v1/free/point?place_id=santiago&sections=
     document.querySelector('.clima').textContent = 'Error al obtener el clima'; // Mostramos un mensaje de error en el elemento con clase 'clima'
   })
 
-  //key API: z87pseeg5odtg7e4ej39pvlgzyzqun5xffzyup0v
 </script>
-
-<style>
-  .clima {
-    font-size: 20px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    color: #fff; /* Cambia el color del texto */
-  }
-  
-</style>
