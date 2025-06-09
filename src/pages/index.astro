@@ -3,6 +3,17 @@ import Layout from '../layouts/Layout.astro';
 import '../assets/styles/reset.css';
 import '../assets/styles/global.css';
 import About from '../components/About.astro';
+import Quote from '../components/Quote.astro';
+import { getCollection } from "astro:content";
+import { quotelessJson } from 'astro:schema';
+const quotes = await getCollection("quotes")
+
+interface Props {
+  quote: string;
+  author: string;
+}
+
+const { quote, author } = Astro.props;
 ---
 
 <Layout>
@@ -12,8 +23,19 @@ import About from '../components/About.astro';
   <h1 class="title">Frontend Developer</h1>
 
   <p class="frase">"I code efficient, accessible, and delightful web experiences."</p>
-  
-  <button class="btn__contact">Connect with me</button>
+  <section class="slider" id="slider" >
+    {
+      quotes.map((quote)=>{
+        return (
+        <Quote 
+        quote={quote.data.quote} 
+        author={quote.data.author} 
+        id={quote.id}
+        />
+        )
+      })
+    }
+  </section>
 
 </Layout>
 
@@ -68,9 +90,34 @@ import About from '../components/About.astro';
     border-radius: 20px;
     padding: 0 10px;
     border: 1px solid var(--border-color); 
-
+  /* Slider of quotes */
+  
+  .slider {
+    width: 100%;
+    max-width: 120em;
   }
-
+  .slider {
+    width: 80dvw;
+    margin: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 1em;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    scroll-marker-group: after;
+    scroll-behavior: smooth;
+    anchor-name: --slider;
+    margin-bottom: 3lh;
+    scroll-snap-stop: always;
+  }
+  .slider::scroll-marker-group{
+    display: flex;
+    position: fixed;
+    position-anchor: --slider;
+    position-area: bottom center;
+  }
 </style>
 
 <script is:inline>
@@ -91,4 +138,32 @@ import About from '../components/About.astro';
     alert('Thank you for your interest! I will get back to you soon.');
   });
 
+  
+  //Slider phrases
+  function autoScroll(){
+    const slider = document.querySelector("#slider");
+    const quotes = slider.querySelectorAll('.quote');
+    let initial=0;
+    function autoScrollInterval(){
+      return setInterval(function(){
+        if(initial>(quotes.length-1)){
+          initial=0
+        }
+        const quoteTo=quotes[initial]
+        slider.scrollTo(quoteTo.offsetLeft,0);
+        initial++;
+      }, 3000);
+    }
+    let interval=autoScrollInterval()
+    
+    slider.addEventListener("mouseenter",()=>{
+      clearInterval(interval);
+    })
+    slider.addEventListener("mouseleave",()=>{
+      interval = autoScrollInterval();
+    })
+  }
+  autoScroll();
 </script>
+
+
