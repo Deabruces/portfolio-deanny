@@ -24,7 +24,7 @@ import "../assets/styles/global.css";
     <title>Portfolio Deanny</title>
   </head>
   <body>
-    <header>
+    <header class="header">
       <Header>
         <Clima slot="widget-left" />
         <Navigation />
@@ -32,9 +32,9 @@ import "../assets/styles/global.css";
       </Header>
     </header>
 
-    <main><slot /></main>
+    <main class="main"><slot /></main>
 
-    <footer><Footer /></footer>
+    <footer class="footer"><Footer /></footer>
   </body>
 </html>
 
@@ -47,12 +47,12 @@ import "../assets/styles/global.css";
   }
 
   body {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    background: linear-gradient(10deg, #2b1533, #421b51, #010414, #1e5a96);
+    background: linear-gradient(134deg, #000020, #4c007d);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
     height: 100vh;
+    display: grid;
+    align-content: space-between
   }
 
   @keyframes gradient {
