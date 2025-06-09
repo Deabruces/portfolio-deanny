@@ -1,0 +1,93 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../assets/styles/reset.css";
+import "../assets/styles/global.css";
+import Formulario from "../components/Formulario.astro";
+import DeaContact from "../assets/images/dea3.jpeg";
+import SocialIcons from "../components/SocialIcons.astro";
+---
+
+<Layout>
+  <div class="contact">
+    <div class="contact__img">
+      <img src={DeaContact.src} alt="foto de deanny" />
+    </div>
+    <div class="contact__description">
+        <h3 class="description__title">Let’s create something meaningful together!</h3>  
+        <p>
+            I’d love to hear from you—whether you have a project in mind, a question, or just want to say hi.
+            I believe in the power of collaboration, empathy, and well-crafted experiences.
+            Send me a message, and I’ll get back to you as soon as I can!
+        </p>
+        <p class="contact__description__email">
+          If you prefer to write to me by email, you can do so here: deannybruces@gmail.com
+        </p>
+        <div class="social-icons">
+          <SocialIcons />
+        </div>
+    </div>
+    <div class="contact__form"><Formulario /></div>
+  </div>
+  
+</Layout>
+
+<style>
+  .contact {
+    display: grid;
+    width: 100%;
+    height: auto;
+    grid-template-areas:
+      "img text"
+      "img form";
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    color: var(--text-color);
+    align-items: center;
+    justify-items: stretch;
+    margin-top: 1.8rem;
+    margin-bottom: 5rem;
+  }
+
+  .contact__img {
+    grid-area: img;
+    width: 100%;
+    height: auto;
+  }
+
+  .contact__img img {
+    height: auto;
+    width: 100%;
+    box-sizing: content-box;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .contact__description {
+    grid-area: text;
+    padding: 0 3rem 0 3rem;
+    font-size: 1.3rem;
+  }
+
+  .description__title{
+    width: 100%;
+    font-size: 30px;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+  }
+
+  .contact__description__email {
+    margin-top: 1.3rem;
+    font-weight: 500;
+  }
+
+  .social-icons{
+    padding: 2rem 0rem;
+  }
+
+  .contact__form {
+    grid-area: form;
+    padding: 0 3rem 0 3rem;
+  }
+</style>
+
+

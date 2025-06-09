@@ -1,0 +1,149 @@
+
+
+<form class="form" action="https://formsubmit.co/deannybruces@gmail.com" method="POST">
+  <ul class="form__ul">
+    <li class="form__li">
+      <label class="form__label" for="name" >Name:</label>
+      <input class="form__input" type="text" id="name" name="user_name" placeholder="your first and last name" required />
+    </li>
+    <li class="form__li">
+      <label class="form__label" for="mail" >Email:</label>
+      <input class="form__input" type="email" id="mail" name="email" placeholder="the contact email" required />
+    </li>
+    <li class="form__li">
+      <label class="form__label" for="msg">Message:</label>
+      <textarea class="form__textarea" id="msg" name="user_message" placeholder='Ej.: What’s on your mind?' rows="6" required ></textarea>
+    </li>
+    <div class="form__send">
+      <input class="form__input__btn" type="submit" value="Let’s talk!" />
+      <q>I usually reply within 1–2 business days.</q>
+    </div>
+  </ul>
+  <input type="hidden" name="_captcha" value="false">
+</form>
+
+<div class="gratitude hidden">
+  Thank you for your message! I’ll be in touch soon 😊
+</div>
+<div class="error hidden">
+  I am having some troubles to deliver your message. please try again in a while.
+</div>
+
+
+<style>
+  .hidden{
+    opacity: 0;
+  }
+  .form__ul{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-inline-start: 0px;
+  }
+  
+  .form__li {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+  
+  .form__input{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--text-color);
+    outline: none;
+  }
+  
+  .form__input:focus, .form__textarea:focus {
+    border: 2px solid var(--secondary-color);
+  }
+  
+  .form__textarea {
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .form__input::placeholder, .form__textarea::placeholder {
+    opacity: 0.5;
+    color: var(--border-color);
+    padding: 1rem;
+  }
+  
+  .form__send{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .form__input__btn{
+    width: 152px;
+    height: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-weight: 500;
+  }
+  .form__input__btn[disabled]{
+    background-color: var(--border-color);
+    cursor: not-allowed;
+  }
+  .form__input__btn:hover {
+    background-color: var(--border-color);
+  }
+  
+  .gratitude{
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 5px;
+    transition: opacity 0.3s;
+  }
+  .error{
+    border: 1px solid red;
+    padding: 1rem;
+    border-radius: 5px;
+    transition: opacity 0.3s;
+
+  }
+  
+</style>
+
+
+<script>
+  
+  let form = document.querySelector<HTMLFormElement>(".form");
+    let ok = document.querySelector(".gratitude");
+    let errorM = document.querySelector(".error");
+    
+    const showGratitude = (e:SubmitEvent) => {
+      e.preventDefault();
+      console.log('enviando')
+      let button = document.querySelector<HTMLButtonElement>(".form__input__btn");
+        button!.disabled=true;
+        const formulario=e.target as HTMLFormElement;
+        const data=new FormData(formulario);
+        const url=formulario.action;
+        const method= formulario.method;
+        fetch(url,{body:data,method})
+        .then(()=>{
+          ok?.classList.remove('hidden')
+          console.log('enviado')
+        }).catch(()=>{
+          errorM?.classList.remove('hidden')
+          
+        }).finally(()=>{
+        button!.disabled=false;
+          formulario.reset();
+          setTimeout(() => {
+            ok?.classList.add('hidden')
+            errorM?.classList.add('hidden')
+          }, 3000);
+        })
+      }
+      form?.addEventListener("submit", showGratitude);
+      
+      
+    </script>

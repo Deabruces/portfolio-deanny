@@ -1,0 +1,59 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  id: string;
+}
+const { quote, author, id } = Astro.props;
+---
+
+<blockquote class="quote" id={id}>
+  <p class="quote__text">{quote}</p>
+  <footer class="quote__author">- {author}</footer>
+</blockquote>
+
+<style>
+  .quote {
+    width: 80dvw;
+                flex-shrink: 0;
+                scroll-snap-align: center;
+                background-color: var(--primary-color);
+                border: 1px solid var(--border-color);
+                border-radius: 20px;
+                margin-inline:3rem;padding: 25px;
+                height: 8rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+  }
+  .quote::scroll-marker {
+    content: " ";
+    width: 1em;
+    height: 1em;
+    background-color: var(--border-color);
+    margin: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .quote::scroll-marker:target-current {
+    background-color: var(--secondary-color);
+  }
+  .quote__text {
+    font-size: 28px;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    opacity: 0.6;
+  }
+  .quote__author {
+    font-size: 12px;
+    color: var(--border-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: right;
+  }
+</style>

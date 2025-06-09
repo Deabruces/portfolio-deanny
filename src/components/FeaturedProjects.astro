@@ -1,0 +1,44 @@
+
+
+<section class="featured-projects">
+    <div class="featured-Projects__card featured-1"></div>
+    <div class="featured-Projects__card featured-2"></div>
+    <div class="featured-Projects__card featured-3"></div>
+</section>
+
+
+<style>
+    .featured-projects {
+        display: grid;
+        width: 75%;
+        height: 400px;
+        padding: 10px;
+        grid-template-areas: "featured1 featured2" "featured1 featured3";
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .featured-Projects__card{
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+    }
+
+    .featured-1 {
+        grid-area: featured1;
+        background-color: brown;
+    }
+
+    .featured-2 {
+        grid-area: featured2;
+        background-color: rgb(42, 165, 104);
+    }
+
+    .featured-3 {
+        grid-area: featured3;
+        background-color: rgb(151, 233, 58);
+    }
+
+
+
+</style>

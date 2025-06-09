@@ -1,0 +1,31 @@
+---
+import Html from "../assets/icons/html.svg"
+import Css from "../assets/icons/css.svg"
+import Js from "../assets/icons/js.svg"
+import Typescript from "../assets/icons/typescript.svg"
+import Astro from "../assets/icons/astro.svg"
+import Angular from "../assets/icons/angular.svg"
+import React from "../assets/icons/react.svg"
+import Vue from "../assets/icons/vue.svg"
+import Tailwind from "../assets/icons/tailwind.svg"
+
+const {name} = Astro.props;
+const Iconos={
+    html:Html,
+    css:Css,
+    javascript:Js,
+    typescript: Typescript,
+    astro: Astro,
+    angular: Angular,
+    react: React,
+    vue: Vue,
+    tailwind: Tailwind
+}
+const Icono = Iconos[name];
+---
+
+
+
+
+{Icono && <Icono></Icono>}
+{!Icono && <p>no existe</p>}

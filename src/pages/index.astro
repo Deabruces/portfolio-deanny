@@ -4,6 +4,8 @@ import '../assets/styles/reset.css';
 import '../assets/styles/global.css';
 import About from '../components/About.astro';
 import Quote from '../components/Quote.astro';
+import Send from '../assets/icons/send.svg';
+
 import { getCollection } from "astro:content";
 import { quotelessJson } from 'astro:schema';
 const quotes = await getCollection("quotes")
@@ -14,15 +16,19 @@ interface Props {
 }
 
 const { quote, author } = Astro.props;
+
+import FeaturedProjects from '../components/FeaturedProjects.astro';
 ---
 
 <Layout>
-
-  <h2 class="saludo">Hi <span class="greeting"></span>, I'm Deanny!</h2>
-
-  <h1 class="title">Frontend Developer</h1>
-
-  <p class="frase">"I code efficient, accessible, and delightful web experiences."</p>
+  
+  <section class="hero">
+    <h2 class="saludo">Hi <span class="greeting"></span>, I'm Deanny!</h2>
+    <h1 class="title">Frontend Developer</h1>
+    <p class="frase">"I code efficient, accessible, and delightful web experiences."</p>
+    <button class="btn__contact btn--action">Connect with me</button>
+  </section>
+  
   <section class="slider" id="slider" >
     {
       quotes.map((quote)=>{
@@ -37,10 +43,34 @@ const { quote, author } = Astro.props;
     }
   </section>
 
+  <section class="featured-projects-index">
+
+    <h2 class="subtitle">Some My <span class="subtitle__span">Featured Projects</span></h2>
+    
+    <FeaturedProjects />
+
+  </section>
+
+  <section class="connect">
+    <button class="btn--action">
+      Let's get in touch <Send />
+    </button>
+  </section>
+  
+  
 </Layout>
 
 
 <style>
+  /*Hero*/
+  .hero {
+    height: 90dvh;
+    display: grid;
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+  }
 
   .title {
     font-size: 5rem;
@@ -53,21 +83,18 @@ const { quote, author } = Astro.props;
     font-weight: 600;
     color: #fff;
     text-align: center;
-    margin-top: 100px;
-
+    
   }
   .frase {
     font-size: 2.2rem;
     font-style: italic;
     color: #fff;
     text-align: center;
-    margin: auto
     max-width: 600px;
   }
-
+  
   .btn__contact {
     display: block;
-    margin: 50px auto;
     padding: 15px 30px;
     font-size: 1.5rem;
     font-weight: 600;
@@ -77,19 +104,22 @@ const { quote, author } = Astro.props;
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
   }
-
+  
   .btn__contact:hover {
     background-color: var(--background-color-hover);
     transform: scale(1.05);
   }
-
+  
   .greeting {
     font-weight: 600;
     color: var(--secondary-color); 
     border-radius: 20px;
     padding: 0 10px;
     border: 1px solid var(--border-color); 
+  }
+  
   /* Slider of quotes */
   
   .slider {
@@ -118,9 +148,95 @@ const { quote, author } = Astro.props;
     position-anchor: --slider;
     position-area: bottom center;
   }
+  
+  /*Section: Featured-projects*/
+  
+  .subtitle {
+    width: 100%;
+    font-size: 3.5rem;
+    color: var(--text-color);
+    text-align: center;
+  }
+
+  .subtitle__span {
+    color: var(--secondary-color);
+  }
+
+  .featured-projects-index {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 5rem;
+    
+  }
+
+  /* Section: Connect*/
+
+  .connect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+  }
+
+  .btn--action {
+    width: auto;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    position: relative;
+    gap: 5px;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 21px;
+  }
+
+  @property --angulo {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+  .btn--action::after, .btn--action::before {
+    content: '';
+    background: conic-gradient(from var(--angulo), #390f74, #c38cf6, #390f74 );
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -5;
+    padding: 2px;
+    box-sizing:unset;
+    border-radius: 20px;
+    animation: girar 3s linear infinite;
+  }
+
+  .btn--action::before {
+    filter: blur(64px);
+    opacity: 0.5;
+  }
+
+  @keyframes girar {
+    0%{
+      --angulo: 0deg;
+    }
+    100%{
+      --angulo: 360deg;
+    }
+  }
 </style>
 
+
+
+
 <script is:inline>
+  
   function obtenerSaludo() {
     const horaActual = new Date().getHours();
     if (horaActual < 12) {
@@ -131,13 +247,13 @@ const { quote, author } = Astro.props;
       return "Good evening";
     }
   }
-
+  
   document.querySelector('.greeting').textContent = obtenerSaludo();
-
+  
   document.querySelector('.btn__contact').addEventListener('click', () => {
     alert('Thank you for your interest! I will get back to you soon.');
   });
-
+  
   
   //Slider phrases
   function autoScroll(){
