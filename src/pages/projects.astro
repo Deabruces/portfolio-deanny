@@ -9,17 +9,20 @@ const projects = await getCollection("projects");
   <section class="projects">
     <h2 class="projects_title">Some of my <span>Recent Projects</span></h2>
     <div class="cards">
-      {projects.map(project => {
-        return (
-          <Card
-            image={project.data.image}
-            title={project.data.title}
-            summary={project.data.summary}
-            date={project.data.date}
-            tags={project.data.tags||[]}
-          />
-        );
-      })}
+      {
+        projects.map((project) => {
+          return (
+            <Card
+              link={`/projects/${project.id}`}
+              image={project.data.image}
+              title={project.data.title}
+              summary={project.data.summary}
+              date={project.data.date}
+              tags={project.data.tags || []}
+            />
+          );
+        })
+      }
     </div>
   </section>
 </Layout>
@@ -30,8 +33,8 @@ const projects = await getCollection("projects");
   }
   .cards {
     display: grid;
-    grid-template-columns: repeat(2, 400px);
-    gap: 20px;
+    grid-template-columns: repeat(3, 388px);
+    gap: 40px;
     padding: 0px;
     justify-content: center;
   }

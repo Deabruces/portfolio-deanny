@@ -1,9 +1,9 @@
 ---
-title: "Calendario de eventos culturales en Chile"
-image: "https://picsum.photos/200?a"
-summary: "Lorem Ipsum is simply dummy text of the printing and typesetting indusLorem Ipsum is simply dummy text of the printing andLorem Ipsum is  "
+title: "My Green Taste — Healthy Cooking Blog"
+image: "../src/assets/images/mygreentaste.jpg"
+summary: "Healthy cooking blog developed with WordPress and customized with the Kadence Theme. Includes custom design, optimization, legal policies, and a functional contact form."
 date: "02-06-2025"
-tags: ["html", "css", "javascript", "vue"]
+tags: ["html", "css", "wordpress"]
 ---
 
 Lorem Ipsum
