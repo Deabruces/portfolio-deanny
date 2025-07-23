@@ -4,6 +4,7 @@ image: "../src/assets/images/mygreentaste.jpg"
 summary: "Healthy cooking blog developed with WordPress and customized with the Kadence Theme. Includes custom design, optimization, legal policies, and a functional contact form."
 date: "02-06-2025"
 tags: ["html", "css", "wordpress"]
+starred: true
 ---
 
 Lorem Ipsum

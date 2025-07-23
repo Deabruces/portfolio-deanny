@@ -9,7 +9,8 @@ const projects = defineCollection({
         image: z.string(),
         summary: z.string(),
         date: z.string(),
-        tags: z.array(z.string()).optional()
+        tags: z.array(z.string()).optional(),
+        starred: z.boolean().optional(),
     })
 })
 

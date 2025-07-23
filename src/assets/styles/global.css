@@ -7,6 +7,7 @@
     --font-family: 'Arial', sans-serif;
     --border-color: #62586a;
     --border-radius: 20px;
+    --background-section: #461672;
 }
 
 
@@ -15,4 +16,6 @@ body {
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal;
+
+  
 }

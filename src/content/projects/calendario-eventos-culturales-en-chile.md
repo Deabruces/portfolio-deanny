@@ -4,6 +4,7 @@ image: "https://picsum.photos/200?a"
 summary: "Lorem Ipsum is simply dummy text of the printing and typesetting indusLorem Ipsum is simply dummy text of the printing andLorem Ipsum is  "
 date: "02-06-2025"
 tags: ["html", "css", "javascript", "vue"]
+starred: true
 ---
 
 Lorem Ipsum
