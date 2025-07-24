@@ -5,7 +5,9 @@ import Clima from "../components/Clima.astro";
 import Hora from "../components/Hora.astro";
 import Navigation from "../components/Navigation.astro";
 import "../assets/styles/reset.css";
+import "../assets/styles/grid.css";
 import "../assets/styles/global.css";
+import BurgerMenu from "../components/BurgerMenu.astro";
 ---
 
 <!doctype html>
@@ -26,11 +28,11 @@ import "../assets/styles/global.css";
   <body>
     <header>
       <div class="header-desktop">
-      <Header>
-        <Clima slot="widget-left" />
-        <Navigation />
-        <Hora slot="widget-right" />
-      </Header>
+        <Header>
+          <Clima slot="widget-left" />
+          <Navigation />
+          <Hora slot="widget-right" />
+        </Header>
       </div>
 
       <div class="header-mobile">
@@ -40,7 +42,7 @@ import "../assets/styles/global.css";
       </div>
     </header>
 
-    <main class="main"><slot /></main>
+    <main class="content-grid"><slot /></main>
 
     <footer class="footer"><Footer /></footer>
   </body>
@@ -51,28 +53,28 @@ import "../assets/styles/global.css";
   body {
     background-color: var(--primary-color);
 
-      font-family: "Inter", sans-serif;
-      color: white;
-    }
+    font-family: "Inter", sans-serif;
+    color: white;
+  }
 
   :global(.opened) + main {
     padding-top: 68px;
     @media (width >= 48rem) {
       padding: 0;
-      }
     }
+  }
 
   header {
     width: 100%;
-      position: fixed;
-      top: 0;
+    position: fixed;
+    top: 0;
     z-index: 100;
   }
   .header-desktop {
     display: none;
   }
   .header-mobile {
-      width: 100%;
+    width: 100%;
     padding: 15px;
     background-color: var(--primary-color);
     opacity: 0.8;
@@ -81,7 +83,7 @@ import "../assets/styles/global.css";
   .burger-menu {
     display: flex;
     justify-content: end;
-      }
+  }
 
   @media (min-width: 768px) {
     .header-desktop {
