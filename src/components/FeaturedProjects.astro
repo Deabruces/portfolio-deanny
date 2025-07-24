@@ -16,6 +16,7 @@ const projects = await getCollection("projects");
               image={project.data.image}
               title={project.data.title}
               date={project.data.date}
+              summary={project.data.summary}
               tags={project.data.tags || []}
             />
           );
@@ -25,9 +26,12 @@ const projects = await getCollection("projects");
 </section>
 
 <style>
+  .featured-projects {
+    width: 100%;
+  }
   .cards {
     display: grid;
-    grid-template-columns: repeat(3, 388px);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     padding: 0px;
     justify-content: center;
