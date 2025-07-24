@@ -1,0 +1,97 @@
+---
+import Dea from "../assets/images/dea.jpg";
+---
+
+<h2 class="about-me__title">About me</h2>
+<div class="about-me__body">
+  <div class="about-me__photo">
+    <img class="about-me__photo-img" src={Dea.src} alt="foto de Deanny" />
+  </div>
+  <div class="about-me__text">
+    <p class="about-me__text--description">Hi, I’m Deanny,</p>
+    <p class="about-me__text--description">
+      A frontend web developer passionate about creating clean, functional, and
+      user-friendly websites.
+    </p>
+    <p class="about-me__text--description">
+      I enjoy turning ideas into digital experiences by combining thoughtful
+      design with solid code.
+    </p>
+    <p class="about-me__text--description">
+      I’m always eager to learn, solve problems, and help people and businesses
+      tell their story online.
+    </p>
+    <p class="about-me__text--description">
+      I believe every detail matters when building meaningful digital
+      experiences, and I’m committed to helping others succeed through my work.
+    </p>
+  </div>
+</div>
+
+<style>
+  .about-me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-me__title {
+    color: var(--text-color);
+    font-size: 3rem;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+
+  .about-me__body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .about-me__photo {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .about-me__photo-img {
+    width: 300px;
+    border-radius: 10%;
+  }
+
+  .about-me__text {
+    width: 60%;
+  }
+
+  .about-me__text--description {
+    color: var(--text-color);
+    font-size: 1.8rem;
+    line-height: 1.3;
+    padding-bottom: 30px;
+  }
+
+  @media (min-width: 768px) {
+    .about-me__body {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .about-me__photo {
+      width: 40%;
+    }
+
+    .about-me__text {
+      width: 50%;
+    }
+  }
+</style>
