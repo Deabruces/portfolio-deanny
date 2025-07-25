@@ -17,5 +17,41 @@ body {
   font-weight: 200;
   font-style: normal;
 
-  
-}
+  }
+
+  h1{
+    font-size: clamp(3rem, 4vw, 5rem);
+
+  }
+  h2{
+    font-size: clamp(2.5rem, 3.5vw, 4rem);
+  }
+  h3{
+    font-size: clamp(2rem, 3vw, 3.5rem);
+  }
+  h4{
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
+  }
+  h5{
+    font-size: clamp(1rem, 2vw, 2.5rem);
+  }
+
+  h6{
+    font-size: clamp(0.8rem, 1.5vw, 2rem);
+  }
+  p{
+    font-size: clamp(1.6rem, 2.5vw, 1.8rem);
+    line-height: 1.3;
+  }
+  a{
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
+    color: var(--secondary-color);
+    transition: color 0.3s ease-in-out;
+  }
+  a:hover{
+    color: var(--primary-color);
+  }
+/* 
+*{
+  outline: 35px rgba(255, 0, 0, 0.06) solid;
+} */
