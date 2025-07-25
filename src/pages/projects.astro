@@ -29,11 +29,13 @@ const projects = await getCollection("projects");
 
 <style>
   .projects {
-    padding: 40px;
+    padding-top: 100px;
+    padding-bottom: 150px;
   }
   .cards {
     display: grid;
-    grid-template-columns: repeat(3, 388px);
+    grid-template-columns: repeat(auto-fit, 340px);
+    flex-wrap: wrap;
     gap: 40px;
     padding: 0px;
     justify-content: center;
