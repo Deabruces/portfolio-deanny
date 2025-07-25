@@ -62,6 +62,7 @@ import AboutMeHome from "../components/AboutMeHome.astro";
       align-items: center;
       align-content: center;
       background: var(--primary-color);
+      isolation: isolate;
     }
 
     .title {
@@ -118,7 +119,6 @@ import AboutMeHome from "../components/AboutMeHome.astro";
 
     .subtitle {
       width: 100%;
-      font-size: 55px;
       color: var(--text-color);
       text-align: center;
       padding-bottom: 50px;
@@ -142,7 +142,6 @@ import AboutMeHome from "../components/AboutMeHome.astro";
     .tech-stack__title {
       color: var(--text-color);
       text-align: center;
-      font-size: 55px;
       padding-bottom: 50px;
     }
 
@@ -153,6 +152,7 @@ import AboutMeHome from "../components/AboutMeHome.astro";
       align-items: center;
       justify-content: center;
       padding: 50px 50px 150px 50px;
+      isolation: isolate;
     }
 
     .btn--action {
@@ -162,14 +162,16 @@ import AboutMeHome from "../components/AboutMeHome.astro";
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      border-radius: 20px;
       position: relative;
-      gap: 5px;
-      border: none;
       background-color: var(--primary-color);
       color: var(--text-color);
+      border-radius: 20px;
+      gap: 5px;
+      border-width: initial;
+      border-style: none;
+      border-color: initial;
+      border-image: initial;
       padding: 21px;
-      z-index: 5;
     }
 
     @property --angulo {
