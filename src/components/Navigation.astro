@@ -9,32 +9,36 @@ import "../assets/styles/reset.css";
 import "../assets/styles/global.css";
 import Send from "../assets/icons/send.svg";
 import type { AstroComponentInstance } from "astro/runtime/server/index.js";
-const actualPage=Astro.url.pathname;
+const actualPage = Astro.url.pathname;
 interface MenuElement {
   name: string;
   icon: ImageMetadata; // Replace with the actual type of your icons if available
   path: string;
 }
-const menuElements:MenuElement[]=[
+const menuElements: MenuElement[] = [
   { name: "About", icon: Person, path: "/about-me" },
   { name: "Projects", icon: Projects, path: "/projects" },
   { name: "Blog", icon: Blog, path: "/blog" },
-  { name: "Contact", icon: Send, path: "/contact" }
-]
-const isActualPage=(element:Partial<MenuElement>) => {
+  { name: "Contact", icon: Send, path: "/contact" },
+];
+const isActualPage = (element: Partial<MenuElement>) => {
   return Astro.url.pathname === element.path;
-}
+};
 ---
 
 <nav>
   <ul>
-    <li class:list={["li__home",{active:isActualPage({path:'/'})}]}><a href="/"><Home /></a></li>
+    <li class:list={["li__home", { active: isActualPage({ path: "/" }) }]}>
+      <a href="/"><Home /></a>
+    </li>
     <li class="li__separador"><span class="separator"></span></li>
-    {menuElements.map((element) => (
-          <li class:list={["li__nav",{active:isActualPage(element)}]}>
-            <element.icon/><a href={element.path}>{element.name}</a>
-          </li>
-      ))}
+    {
+      menuElements.map((element) => (
+        <li class:list={["li__nav", { active: isActualPage(element) }]}>
+          <a href={element.path}>{element.name}</a>
+        </li>
+      ))
+    }
     <li class="li__separador"><span class="separator"></span></li>
     <li class="toggle__theme">
       <button class="theme__btn btn__dark"><Moon /></button>
@@ -42,7 +46,6 @@ const isActualPage=(element:Partial<MenuElement>) => {
     </li>
   </ul>
 </nav>
-
 
 <style>
   nav {
@@ -80,22 +83,27 @@ const isActualPage=(element:Partial<MenuElement>) => {
     gap: 5px;
     padding: 5px 15px;
   }
-  li.active{
+
+  li.active {
     font-weight: bold;
     color: var(--secondary-color);
   }
 
   a {
     color: inherit;
+    font-size: 1.3rem;
+  }
+
+  .li__nav {
+    transition: all 0.3s ease;
   }
 
   .li__nav:hover {
     border: 1px solid #62586a;
     border-radius: 20px;
     padding: 5px 17px;
+    color: var(--secondary-color);
   }
-
-  
 
   .li__home {
     border: 1px solid #62586a;
