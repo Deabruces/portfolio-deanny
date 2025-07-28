@@ -23,38 +23,44 @@ import BurgerMenu from "../components/BurgerMenu.astro";
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <title>Portfolio Deanny</title>
+    <title>Portfolio Deanny Bruces</title>
   </head>
   <body>
-    <header>
+    <header class="content-grid">
       <div class="header-desktop">
         <Header>
-          <Clima slot="widget-left" />
+          <div class="container-logo">
+            <a href="/" class="logo">Deanny Bruces</a>
+          </div>
           <Navigation />
           <Hora slot="widget-right" />
         </Header>
       </div>
-
       <div class="header-mobile">
+        <div class="container-logo">
+          <a href="/" class="logo">Deanny Bruces</a>
+        </div>
         <div class="burger-menu">
           <BurgerMenu />
         </div>
       </div>
     </header>
-
-    <main class="content-grid"><slot /></main>
-
-    <footer class="footer"><Footer /></footer>
   </body>
+
+  <main class="content-grid"><slot /></main>
+
+  <footer class="full-width footer">
+    <Footer />
+  </footer>
 </html>
 
 <style>
   html,
   body {
-    background-color: var(--primary-color);
-
+    background-color: var(--background-color);
     font-family: "Inter", sans-serif;
-    color: white;
+    color: var(--text-color);
+    background-attachment: fixed;
   }
 
   :global(.opened) + main {
@@ -65,8 +71,7 @@ import BurgerMenu from "../components/BurgerMenu.astro";
   }
 
   header {
-    width: 100%;
-    position: fixed;
+    position: sticky;
     top: 0;
     z-index: 100;
   }
@@ -74,8 +79,12 @@ import BurgerMenu from "../components/BurgerMenu.astro";
     display: none;
   }
   .header-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    padding: 15px;
+    padding: 20px;
     background-color: var(--primary-color);
     opacity: 0.8;
   }
@@ -84,6 +93,23 @@ import BurgerMenu from "../components/BurgerMenu.astro";
     display: flex;
     justify-content: end;
   }
+
+  .container-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    text-decoration: underline;
+    text-decoration-thickness: 6px;
+    text-decoration-color: var(--acento-btn-hover);
+  }
+
+
 
   @media (min-width: 768px) {
     .header-desktop {
