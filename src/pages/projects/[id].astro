@@ -1,7 +1,11 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-// 1. Generate a new path for every collection entry
+import "../../assets/styles/reset.css";
+import "../../assets/styles/global.css";
+import "../../assets/styles/md.css";
+import "../../assets/styles/grid.css";
+
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
   return projects.map((project) => ({
@@ -15,8 +19,10 @@ const { Content } = await render(project);
 ---
 
 <Layout>
-  <h1>{project.data.title}</h1>
+  <h1 class="title">{project.data.title}</h1>
+  <div class="project-image">
+    <img src={project.data.image} />
+  </div>
 
-  <img src={project.data.image} />
   <Content />
 </Layout>
