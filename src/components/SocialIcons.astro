@@ -7,39 +7,48 @@ import Email from "../assets/icons/email.svg";
 ---
 
 <div class="social-icons">
-  <a href="#" class="icons"><Github /></a>
-  <a href="#" class="icons"><Linkedin /></a>
-  <a href="#" class="icons"><Twitter /></a>
-  <a href="#" class="icons"><Instagram /></a>
-  <a href="#" class="icons"><Email /></a>
+  <a href="https://github.com/deabruces/" class="icons"><Github /></a>
+  <a href="https://www.linkedin.com/in/deannybruces/" class="icons"
+    ><Linkedin /></a
+  >
+  <a href="https://x.com/deannybruces" class="icons"><Twitter /></a>
+  <a href="https://www.instagram.com/itsdeannybruces" class="icons"
+    ><Instagram /></a
+  >
+
+  <style>
+    .social-icons {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 5px;
+      border-radius: 20px;
+      border: 1px solid var(--acento-btn);
+      background-color: var(--section-dark);
+      color: var(--acento-btn);
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .icons:hover {
+      color: var(--acento-btn-hover);
+      background-color: var(--section-dark-hover);
+      transform: scale(1.05);
+    }
+
+    .icons:hover {
+      background-color: var(--section-light);
+      transform: scale(1.05);
+      border: 1px solid var(--acento-btn-hover);
+    }
+  </style>
 </div>
-
-<style>
-  .social-icons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: start;
-    gap: 20px;
-    margin-top: 20px;
-  }
-
-  .icons {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 5px 20px;
-    border-radius: 20px;
-    border: 1px solid var(--acento-btn);
-    background-color: var(--section-dark);
-    color: var(--acento-btn);
-    text-decoration: none;
-    transition: transform 0.3s ease;
-  }
-
-  .icons:hover {
-    background-color: var(--section-light);
-    transform: scale(1.05);
-    border: 1px solid var(--acento-btn-hover);
-  }
-</style>
