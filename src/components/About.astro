@@ -114,11 +114,11 @@ import SocialIcons from "../components/SocialIcons.astro";
     }
 
     .about__title {
-      font-size: 4rem;
       text-align: center;
       font-weight: 700;
       color: var(--acento-btn);
       margin-bottom: 10px;
+      line-height: 1;
     }
     .description__text--profession {
       font-size: 2rem;
@@ -206,6 +206,10 @@ import SocialIcons from "../components/SocialIcons.astro";
         grid-template-areas: "title" "right" "description";
         grid-template-columns: 1fr;
         padding: 50px 20px;
+      }
+
+      .about__title {
+        font-size: 2.5rem;
       }
 
       .profile-image {
