@@ -4,9 +4,6 @@ import "../assets/styles/reset.css";
 import "../assets/styles/global.css";
 import Send from "../assets/icons/send.svg";
 import { getCollection } from "astro:content";
-import { quotelessJson } from "astro:schema";
-
-const quotes = await getCollection("quotes");
 
 interface Props {
   quote: string;
@@ -21,23 +18,28 @@ import AboutMeHome from "../components/AboutMeHome.astro";
 ---
 
 <Layout>
-  <section class="hero">
-    <h2 class="saludo">Hi <span class="greeting"></span>, I'm Deanny!</h2>
+  <section class="hero full-width">
+    <h2 class="saludo">
+      Hi <span class="greeting"></span>, I'm Deanny!<span
+        style='white-space:nowrap;font-size:1em;font-family:"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+        >👋🏻</span
+      >
+    </h2>
     <h1 class="title">Frontend Developer</h1>
     <p class="frase">
       "I code efficient, accessible, and delightful web experiences."
     </p>
-    <button class="btn__contact btn--action">Connect with me</button>
+    <button class="btn--action">Connect with me</button>
   </section>
 
-  <section class="featured-projects-index">
+  <section class="featured-projects-index breakout">
     <h2 class="subtitle">
       Some of my <span class="subtitle__span">Featured Projects</span>
     </h2>
     <FeaturedProjects />
   </section>
 
-  <section class="tech-stack">
+  <section class="tech-stack full-width">
     <h2 class="tech-stack__title">My Tech Stack</h2>
     <TechStack />
   </section>
@@ -48,183 +50,191 @@ import AboutMeHome from "../components/AboutMeHome.astro";
 
   <section class="connect">
     <button class="btn--action">
-      Let's get in touch <Send />
+      Let's Get in Touch <Send />
     </button>
   </section>
-
-  <style>
-    /*Hero*/
-    .hero {
-      height: 90dvh;
-      display: grid;
-      gap: 10px;
-      justify-items: center;
-      align-items: center;
-      align-content: center;
-      background: var(--primary-color);
-      isolation: isolate;
-    }
-
-    .title {
-      font-size: 5rem;
-      font-weight: 700;
-      color: #fff;
-      text-align: center;
-    }
-    .saludo {
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: #fff;
-      text-align: center;
-      padding-top: 10rem;
-    }
-    .frase {
-      font-size: 2.2rem;
-      font-style: italic;
-      color: #fff;
-      text-align: center;
-      max-width: 600px;
-    }
-
-    .btn__contact {
-      display: block;
-      padding: 15px 30px;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #fff;
-      background-color: var(--background-color);
-      border: 1px solid var(--border-color);
-      border-radius: var(--border-radius);
-      cursor: pointer;
-      transition:
-        background-color 0.3s ease,
-        transform 0.3s ease;
-      margin-top: 20px;
-    }
-
-    .btn__contact:hover {
-      background-color: var(--background-color-hover);
-      transform: scale(1.05);
-    }
-
-    .greeting {
-      font-weight: 600;
-      color: var(--secondary-color);
-      border-radius: 20px;
-      padding: 0 10px;
-      border: 1px solid var(--border-color);
-    }
-
-    /*Section: Featured-projects*/
-
-    .subtitle {
-      width: 100%;
-      color: var(--text-color);
-      text-align: center;
-      padding-bottom: 50px;
-    }
-
-    .subtitle__span {
-      color: var(--secondary-color);
-    }
-
-    .featured-projects-index {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      padding: 5rem;
-    }
-
-    /*teach-stack*/
-    .tech-stack__title {
-      color: var(--text-color);
-      text-align: center;
-      padding-bottom: 50px;
-    }
-
-    /* Section: Connect*/
-
-    .connect {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 50px 50px 150px 50px;
-      isolation: isolate;
-    }
-
-    .btn--action {
-      width: auto;
-      height: 60px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      background-color: var(--primary-color);
-      color: var(--text-color);
-      border-radius: 20px;
-      gap: 5px;
-      border-width: initial;
-      border-style: none;
-      border-color: initial;
-      border-image: initial;
-      padding: 21px;
-    }
-
-    @property --angulo {
-      syntax: "<angle>";
-      inherits: false;
-      initial-value: 0deg;
-    }
-
-    .btn--action::after,
-    .btn--action::before {
-      content: "";
-      background: conic-gradient(from var(--angulo), #390f74, #c38cf6, #390f74);
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      z-index: -5;
-      padding: 2px;
-      box-sizing: unset;
-      border-radius: 20px;
-      animation: girar 3s linear infinite;
-    }
-
-    .btn--action::before {
-      filter: blur(64px);
-      opacity: 0.5;
-    }
-
-    @keyframes girar {
-      0% {
-        --angulo: 0deg;
-      }
-      100% {
-        --angulo: 360deg;
-      }
-    }
-  </style>
-
-  <script is:inline>
-    function obtenerSaludo() {
-      const horaActual = new Date().getHours();
-      if (horaActual < 12) {
-        return "Good morning";
-      } else if (horaActual < 18) {
-        return "Good afternoon";
-      } else {
-        return "Good evening";
-      }
-    }
-
-    document.querySelector(".greeting").textContent = obtenerSaludo();
-
-    document.querySelector(".btn__contact").addEventListener("click", () => {
-      alert("Thank you for your interest! I will get back to you soon.");
-    });
-  </script>
 </Layout>
+
+<style>
+  /*Hero*/
+  .hero {
+    height: 100dvh;
+    display: grid;
+    gap: 15px;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    isolation: isolate;
+    padding-bottom: 8rem;
+  }
+
+  .title {
+    font-weight: 700;
+    text-align: center;
+  }
+  .saludo {
+    font-weight: 600;
+    text-align: center;
+  }
+  .frase {
+    font-style: italic;
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .btn__contact {
+    display: block;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    background-color: var(--background-color);
+    border: 1px solid var(--acento-btn);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition:
+      background-color 0.3s ease,
+      transform 0.3s ease;
+    margin-top: 20px;
+  }
+
+  .btn__contact:hover {
+    background-color: var(--background-color-hover);
+    transform: scale(1.05);
+  }
+
+  .greeting {
+    font-weight: 600;
+    color: var(--acento-btn-hover);
+    border-radius: 20px;
+    border: 1px solid var(--acento-btn-hover);
+  }
+
+  /*Section: Featured-projects*/
+
+  .subtitle {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 50px;
+  }
+
+  .subtitle__span {
+    color: var(--acento-btn);
+  }
+
+  .featured-projects-index {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 5rem;
+  }
+
+  /*teach-stack*/
+  .tech-stack {
+    background-color: var(--section-dark);
+    padding: 5rem;
+  }
+
+  .tech-stack__title {
+    text-align: center;
+    padding-bottom: 50px;
+  }
+
+  /* Section: Connect*/
+
+  .connect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 50px 150px 50px;
+    isolation: isolate;
+  }
+
+  .btn--action {
+    width: auto;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: var(--acento-btn);
+    color: var(--text-color);
+    border-radius: 20px;
+    gap: 5px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    padding: 21px;
+    margin-top: 40px;
+    font-weight: 600;
+  }
+
+  @property --angulo {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  .btn--action::after,
+  .btn--action::before {
+    content: "";
+    background: conic-gradient(
+      from var(--angulo),
+      var(--acento-btn),
+      var(--secondary-color),
+      var(--acento-btn-hover)
+    );
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -5;
+    padding: 2px;
+    box-sizing: unset;
+    border-radius: 20px;
+    animation: girar 3s linear infinite;
+  }
+  .btn--action::after {
+    animation-delay: 0s;
+  }
+  .btn--action::before {
+    filter: blur(64px);
+    opacity: 0.5;
+    animation-delay: 1s;
+  }
+
+  @keyframes girar {
+    0% {
+      --angulo: 0deg;
+    }
+    100% {
+      --angulo: 360deg;
+    }
+  }
+
+  .btn--action:hover {
+    background-color: var(--acento-btn-hover);
+  }
+</style>
+
+<script is:inline>
+  function obtenerSaludo() {
+    const horaActual = new Date().getHours();
+    if (horaActual < 12) {
+      return "Good morning";
+    } else if (horaActual < 18) {
+      return "Good afternoon";
+    } else {
+      return "Good evening";
+    }
+  }
+
+  document.querySelector(".greeting").textContent = obtenerSaludo();
+
+  document.querySelector(".btn__contact").addEventListener("click", () => {
+    alert("Thank you for your interest! I will get back to you soon.");
+  });
+</script>
