@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../assets/styles/reset.css";
+import "../assets/styles/global.css";
+---
+
+<Layout>
+  <section "content-grid">
+    <div class="blog">
+      <h1 class="blog_title">My <span>Blog</span></h1>
+      <p class="blog_description">
+        Welcome to my blog! Here, I share insights, tutorials, and thoughts on
+        web development, design, and technology. Stay tuned for updates!
+      </p>
+      <div class="blog_posts">
+        <!-- Blog posts will be dynamically loaded here -->
+        <p class="coming">Coming soon...</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .blog {
+    padding: 100px 0px;
+    text-align: center;
+  }
+
+  .blog_title {
+    font-size: 50px;
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 50px;
+  }
+
+  .blog_title span {
+    color: var(--acento-btn);
+  }
+
+  .blog_description {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 40px;
+  }
+
+  .blog_posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .coming {
+    font-size: 6rem;
+    color: var(--acento-btn);
+    margin-top: 70px;
+  }
+</style>
