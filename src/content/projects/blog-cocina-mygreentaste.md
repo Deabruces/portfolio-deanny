@@ -7,21 +7,99 @@ tags: ["html", "css", "wordpress"]
 starred: true
 ---
 
-Lorem Ipsum
-"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+<div class="container content-grid">
 
-freestar
-What is Lorem Ipsum?
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Go to the [live demo](https://mygreentaste.com/) of My Green Taste.
 
-Why do we use it?
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+My Green Taste is a healthy cooking blog created to inspire people to improve their nutrition and their physical, mental, and emotional well-being.
+The project was developed on WordPress using the Kadence theme, which was completely customized to reflect a clean, functional design aligned with the blog's goals.
+The blog includes sections for recipes, tips, culture, and a FAQ section, all designed to provide a comprehensive and engaging user experience.
 
-Where does it come from?
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+## 🌱 Key Features
 
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+- **Custom Design:** The Kadence theme was customized to create a unique and attractive design that reflects the blog's identity.
+- **Responsive Layout:** The blog is designed to be fully responsive, ensuring a great user experience on all devices.
+- **Legal Policies:** The blog includes essential legal pages such as Privacy Policy, Cookie Policy, and Legal Notice to comply with legal requirements and ensure transparency with users.
+- **Contact Form:** A contact form was integrated to allow users to send inquiries or messages, configured to send data to a site-specific email address.
+- **SEO Optimization:** Basic on-page SEO optimization was implemented to improve visibility in search engines, including meta tags, alt attributes for images, and structured data.
+- **Performance Optimization:** The blog was optimized for performance, including the implementation of a caching plugin to improve loading speed and the optimization of images and assets to ensure fast loading times.
+- **Content Management:**
+  The blog allows for easy management of posts, pages, and media through the WordPress admin interface, making it simple to update and maintain the content.
+- **Categories and Tags:** The blog includes categories and tags to organize content and improve navigation for users.
+- **Social Media Integration:** Links to social media profiles were added to encourage users to follow the blog on various platforms.
+- **Search Functionality:** A search feature was implemented to allow users to easily find content on the blog.
+- **Analytics Integration:** Basic analytics tracking was set up to monitor user engagement and traffic on the blog.
 
-Where can I get some?
-There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+## 🔧 What I did in this project:
+
+- Installation and configuration of WordPress on our own server.
+
+- Selection of the Kadence theme and complete customization (colors, typography, structure) using the customizer and additional CSS.
+
+- Creation of key pages:
+
+  - Home page with distinct sections (hero, latest recipes, tips, culture, FAQs).
+  - Blog with categories and tags for improved navigation.
+  - Legal policies: Privacy Policy, Cookie Policy, and Legal Notice, following legal and transparency best practices.
+
+- Performance optimization:
+
+  - Implementation and configuration of a caching plugin to improve loading speed.
+  - Optimization of images and assets to ensure fast loading times.
+
+- SEO optimization:
+  Basic on-page SEO optimization, including meta tags, alt attributes for images, and structured data.
+
+- Legal policies:
+  Creation of a Privacy Policy, Cookie Policy, and Legal Notice pages to comply with legal requirements and ensure transparency with users.
+
+- Contact form:
+  Integration of a form via plugin to allow users to send inquiries or messages, configured to send data to a site-specific email address.
+
+## 🧰 Technologies and tools used:
+
+- WordPress
+
+- Kadence Theme (customized)
+
+- HTML, CSS (for additional customization)
+
+- Plugins: Cache, Contact Form, Cookies & Privacy
+
+- Basic on-page SEO optimization
+
+- Image optimization tools
+
+- Custom CSS for design adjustments
+
+- Server for hosting the blog
+
+- Email service for contact form functionality
+
+- Legal templates for policies
+
+## 🎨 Design Approach:
+
+- Designed for a clear and inviting user experience.
+- Organized sections to guide the user from inspiration to action.
+- Use of attractive images and legible typography to reinforce the blog's identity.
+- Ensured that the design is responsive and adapts to different devices.
+
+## 📱 Preview
+
+<div class="preview-container">
+
+<iframe src="https://mygreentaste.com/" width="100%" style="height:100dvh;border: none;margin-block:1lh;"></iframe>
+
+</div>
+
+## Credits
+
+This project was developed by Deanny Bruces, who is passionate about healthy cooking and web development.
+The blog aims to inspire and educate users about healthy eating habits and lifestyle choices.
+
+## Source Code
+
+You can find the source code for this project on [GitHub](https://github.com/Deabruces/mygreentaste)
+
+</div>
