@@ -21,17 +21,16 @@ import SocialIcons from "../components/SocialIcons.astro";
   </div>
 
   <div class="about__description">
-
     <h1 class="description__title">Deanny Bruces</h1>
 
-    <p class="description__text description__text--profession">
+    <h2 class="description__text description__text--profession">
       Front-end Developer / Industrial Engineer
-    </p>
+    </h2>
 
     <div class="container__social-icons">
       <SocialIcons />
     </div>
-    
+
     <p class="description__text">
       A front-end developer passionate about creating intuitive, accessible, and
       visually compelling web experiences. I specialize in building modern
@@ -68,8 +67,7 @@ import SocialIcons from "../components/SocialIcons.astro";
     grid-template-areas: "right description";
     grid-template-columns: 1fr 2fr;
     gap: 20px;
-    padding: 40px;
-    color: #fff;
+    padding: 100px 0px;
   }
 
   .profile-image {
@@ -85,7 +83,6 @@ import SocialIcons from "../components/SocialIcons.astro";
 
   .about__title {
     text-align: center;
-    font-size: 3rem;
     margin-bottom: 20px;
   }
   .about__description {
@@ -93,15 +90,13 @@ import SocialIcons from "../components/SocialIcons.astro";
   }
 
   .description__text {
-    font-size: 1.2rem;
     line-height: 1.6;
     padding: 20px 60px;
   }
 
   .description__title {
     font-weight: 800;
-    font-size: 80px;
-    color: var(--secondary-color);
+    color: var(--acento-btn);
     padding: 0 60px;
   }
 
@@ -125,8 +120,8 @@ import SocialIcons from "../components/SocialIcons.astro";
     gap: 10px;
     font-size: 1.2rem;
     font-weight: 400;
-    color: #fff;
     margin-top: 10px;
+    color: var(--text-color);
   }
   .image__text {
     display: flex;
@@ -134,15 +129,12 @@ import SocialIcons from "../components/SocialIcons.astro";
     align-items: center;
     gap: 10px;
     font-size: 1.2rem;
-    color: #fff;
+    color: var(--text-color);
     margin-top: 10px;
   }
 
   .description__text--profession {
-    font-weight: bold;
-    font-size: 32px;
     margin-bottom: 20px;
-    color: var(--border-color);
     padding-top: 0;
   }
 
@@ -158,11 +150,10 @@ import SocialIcons from "../components/SocialIcons.astro";
   }
 
   .language {
-    color: #fff;
+    color: var(--text-color);
     padding: 3px 15px;
     border-radius: 20px;
-    border: 1px solid var(--border-color);
-    font-size: 16px;
+    border: 1px solid var(--acento-btn);
+    font-size: 1rem;
   }
-
 </style>
