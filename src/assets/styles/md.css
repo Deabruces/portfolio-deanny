@@ -1,0 +1,60 @@
+.title{
+    padding-top: 6rem;
+}
+
+.container {
+    margin: 0 auto;
+    padding-bottom: 6rem;
+}
+
+h1{
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+h2{
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+p{
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+ul{
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+iframe{
+    width: 100%;
+    height: 100dvh;
+    border: 1px solid var(--acento-color);
+    margin-block: 1lh;
+}
+
+
+.project-image{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+
+}
+
+.preview-container {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block: 1lh;
+    padding: 30px;
+}
+.preview-container iframe {
+    width: 50%;
+    height: 50%;
+    border: none;
+    margin-block: 1lh;
+}
