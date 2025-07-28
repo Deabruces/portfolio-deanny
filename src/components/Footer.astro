@@ -4,17 +4,16 @@ import Github from "../assets/icons/github.svg";
 import Linkedin from "../assets/icons/linkedin.svg";
 import Twitter from "../assets/icons/twitter.svg";
 import Instagram from "../assets/icons/instagram.svg";
+import SocialIcons from "./SocialIcons.astro";
 ---
 
 <div class="footer">
   <p class="text">
     &copy; 2025 | Made with <span><Love /></span> by Deanny Bruces
   </p>
+
   <div class="social-icons">
-    <a class="icons"><Github /></a>
-    <a class="icons"><Linkedin /></a>
-    <a class="icons"><Twitter /></a>
-    <a class="icons"><Instagram /></a>
+    <SocialIcons />
   </div>
 </div>
 
@@ -49,25 +48,6 @@ import Instagram from "../assets/icons/instagram.svg";
     width: clamp(16px, 2vw, 20px);
     height: clamp(16px, 2vw, 20px);
     vertical-align: middle;
-  }
-
-  .icons {
-    background-color: var(--section-light);
-    margin: 5px;
-    display: inline-flex;
-    align-items: center;
-    padding: 5px;
-    border-radius: 50%;
-    transition:
-      background-color 0.3s ease,
-      scale 0.3s ease,
-      border-radius 0.3s ease;
-  }
-
-  .icons:hover {
-    scale: 1.2;
-    border-radius: 50%;
-    border: 1px solid var(--active-color-hover);
   }
 
   span {
