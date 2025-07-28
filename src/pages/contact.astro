@@ -11,9 +11,9 @@ import SocialIcons from "../components/SocialIcons.astro";
   <div class="content-grid">
     <div class="contact">
       <div class="title">
-        <h3 class="description__title">
+        <h1 class="description__title">
           Let’s create something meaningful together!
-        </h3>
+        </h1>
       </div>
       <div class="contact__img">
         <img src={DeaContact.src} alt="foto de deanny" />
@@ -59,7 +59,7 @@ import SocialIcons from "../components/SocialIcons.astro";
   .title {
     grid-area: title;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
   }
 
   .contact__img {
@@ -84,9 +84,9 @@ import SocialIcons from "../components/SocialIcons.astro";
 
   .description__title {
     width: 100%;
-    color: var(--h3-color);
+    color: var(--acento-btn);
     margin-bottom: 2rem;
-    padding: 5px 50px;
+    text-align: center;
   }
 
   .contact__description__email {
