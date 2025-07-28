@@ -1,6 +1,6 @@
 ---
 title: "Calorie Counting App"
-image: "../src/assets/images/calorie-tracker.jpg"
+image: "./images/calorie-tracker.jpg"
 summary: "A calorie counting app that helps users track their daily caloric intake and nutritional information. Built with HTML, CSS, and JavaScript, it features a user-friendly interface and real-time updates."
 date: "02-08-2025"
 tags: ["html", "css", "javascript", "react", "typescript", "vite", "tailwind"]

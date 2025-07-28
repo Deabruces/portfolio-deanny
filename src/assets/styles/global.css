@@ -1,3 +1,4 @@
+
 :root{
     color-scheme: light dark;
     --primary-color: light-dark(#F5F5F5,#2d0c4b) ;
@@ -28,8 +29,10 @@
     --acento-btn: light-dark(#DDA0DD, #8E44AD);
     --acento-btn-hover: light-dark(#A2D5F2, #c38cf6);
    
-  }
-
+}
+@view-transition {
+  navigation: auto;
+}
 body {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;

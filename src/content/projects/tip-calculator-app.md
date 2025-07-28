@@ -1,6 +1,6 @@
 ---
 title: "Tip Calculator App"
-image: "../src/assets/images/tip-calculator.jpg"
+image: "./images/tip-calculator.jpg"
 summary: "A simple and intuitive tip calculator app that helps users calculate tips based on the total bill amount and desired tip percentage. Built with HTML, CSS, and JavaScript."
 date: "15-07-2025"
 tags: ["html", "css", "javascript", "react", "typescript", "vite", "tailwind"]

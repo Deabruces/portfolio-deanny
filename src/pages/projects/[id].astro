@@ -1,10 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import "../../assets/styles/reset.css";
-import "../../assets/styles/global.css";
 import "../../assets/styles/md.css";
-import "../../assets/styles/grid.css";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -16,13 +14,30 @@ export async function getStaticPaths() {
 // 2. For your template, you can get the entry directly from the prop
 const { project } = Astro.props;
 const { Content } = await render(project);
+const ImgAnimationName = "image--" + project.id;
+const TitleAnimationName = "title--" + project.id;
 ---
 
 <Layout>
   <h1 class="title">{project.data.title}</h1>
   <div class="project-image">
-    <img src={project.data.image} />
+    <Image
+      src={project.data.image}
+      alt={project.data.title}
+      width={800}
+      height={450}
+      loading="lazy"
+      class="project-image__image"
+    />
   </div>
 
   <Content />
 </Layout>
+<style define:vars={{ ImgAnimationName, TitleAnimationName }}>
+  .project-image__image {
+    view-transition-name: var(--ImgAnimationName);
+  }
+  .title {
+    view-transition-name: var(--TitleAnimationName);
+  }
+</style>

@@ -18,6 +18,7 @@ const projects = await getCollection("projects");
               date={project.data.date}
               summary={project.data.summary}
               tags={project.data.tags || []}
+              identifier={project.id}
             />
           );
         })

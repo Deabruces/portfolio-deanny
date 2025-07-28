@@ -1,6 +1,6 @@
 ---
 title: "Application to Count Characters"
-image: "../src/assets/images/contador-de-caracteres.jpg"
+image: "./images/contador-de-caracteres.jpg"
 summary: "This web application allows you to analyze any text you type or paste into the text box, displaying useful statistics in real time."
 date: "02-06-2025"
 tags: ["html", "css", "javascript"]

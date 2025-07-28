@@ -42,7 +42,13 @@ iframe{
     margin-bottom: 3rem;
 
 }
-
+.project-image img{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    aspect-ratio: 16/9;
+    
+}
 .preview-container {
     width: 100%;
     height: 100dvh;

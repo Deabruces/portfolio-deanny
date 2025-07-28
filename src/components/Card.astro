@@ -1,22 +1,26 @@
 ---
 import Icon from "./Icon.astro";
 import ExternalLink from "../assets/icons/external-link.svg";
+import { Image } from "astro:assets";
 
 interface Props {
   link: string;
   title: string;
-  image: string;
+  image: ImageMetadata;
   summary: string;
   tags: string[];
   date?: string;
+  identifier?: string;
 }
-const { title, image, summary, tags, link } = Astro.props;
+const { title, image, summary, tags, link, identifier } = Astro.props;
+const ImgAnimationName = "image--" + identifier;
+const TitleAnimationName = "title--" + identifier;
 ---
 
 <article class="card">
   <header class="card__header">
     <figure class="card__figure">
-      <img class="card__img" src={image} alt="" />
+      <Image class="card__img" src={image} alt={title} />
     </figure>
     <h2 class="header__title">{title}</h2>
   </header>
@@ -44,7 +48,7 @@ const { title, image, summary, tags, link } = Astro.props;
   </footer>
 </article>
 
-<style>
+<style define:vars={{ ImgAnimationName, TitleAnimationName }}>
   .card {
     max-width: 388px;
     background-color: var(--background-color);
@@ -71,12 +75,16 @@ const { title, image, summary, tags, link } = Astro.props;
     padding: 32px 32px 0px 32px;
     color: var(--acento-btn);
     line-height: 1.2;
+    view-transition-name: var(--TitleAnimationName);
   }
 
   .card__img {
     width: 100%;
+    height: auto;
     border-radius: 20px 20px 0px 0px;
     aspect-ratio: 16/10;
+    height: auto;
+    view-transition-name: var(--ImgAnimationName);
   }
   .card__content {
     color: var(--text-color);
