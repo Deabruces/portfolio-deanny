@@ -13,34 +13,34 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
 
 <div class="tech-iconos-color">
   <div class="iconos-color">
-    <Html width="50" height="50" />
+    <Html width="100%" height="100%" />
   </div>
   <div class="iconos-color">
-    <Css width="50" height="50" />
+    <Css width="100%" height="100%" />
   </div>
   <div class="iconos-color">
-    <Tailwind width="50" height="50" />
+    <Tailwind width="100%" height="80%" />
   </div>
   <div class="iconos-color">
-    <Bootstrap width="50" height="50" />
+    <Bootstrap width="100%" height="100%" />
   </div>
   <div class="iconos-color">
-    <Js width="50" height="50" />
+    <Js width="100%" height="100%" />
   </div>
   <div class="iconos-color">
-    <Typescript width="50" height="50" />
+    <Typescript width="100%" height="100%" />
   </div>
   <div class="iconos-color">
-    <AstroIcon width="50" height="50" />
+    <AstroIcon width="100%" height="100%" />
   </div>
   <div class="iconos-color">
-    <React width="50" height="50" />
+    <React width="100%" height="100%" />
   </div>
   <div class="iconos-color">
-    <Github width="50" height="50" />
+    <Github width="100%" height="100%" />
   </div>
   <div class="iconos-color">
-    <Wordpress width="50" height="50" />
+    <Wordpress width="100%" height="100%" />
   </div>
 </div>
 
@@ -64,10 +64,16 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
   }
 
   .iconos-color {
-    width: 12%;
+    width: 16%;
     text-align: -webkit-center;
     padding: 5px;
     filter: drop-shadow(5px 5px 5px rgba(255, 255, 255, 0.5));
     color: var(--secondary-color);
+  }
+
+  :global(.iconos-color svg) {
+    width: clamp(50px, 5vw, 70px);
+    height: clamp(50px, 5vw, 70px);
+    transition: transform 0.3s ease-in-out;
   }
 </style>
