@@ -29,7 +29,9 @@ import AboutMeHome from "../components/AboutMeHome.astro";
     <p class="frase">
       "I code efficient, accessible, and delightful web experiences."
     </p>
-    <button class="btn--action">Connect with me</button>
+    <a href="/contact">
+      <button class="btn--action"> Connect with me </button>
+    </a>
   </section>
 
   <section class="featured-projects-index breakout">
@@ -49,9 +51,11 @@ import AboutMeHome from "../components/AboutMeHome.astro";
   </section>
 
   <section class="connect">
-    <button class="btn--action">
-      Let's Get in Touch <Send />
-    </button>
+    <a href="/contact">
+      <button class="btn--action">
+        Let's Get in Touch <Send />
+      </button>
+    </a>
   </section>
 </Layout>
 
@@ -60,12 +64,10 @@ import AboutMeHome from "../components/AboutMeHome.astro";
   .hero {
     height: 100dvh;
     display: grid;
-    gap: 15px;
     justify-items: center;
     align-items: center;
     align-content: center;
     isolation: isolate;
-    padding-bottom: 8rem;
   }
 
   .title {
@@ -134,7 +136,7 @@ import AboutMeHome from "../components/AboutMeHome.astro";
   /*teach-stack*/
   .tech-stack {
     background-color: var(--section-dark);
-    padding: 5rem;
+    padding: 50px 0px;
   }
 
   .tech-stack__title {
@@ -148,7 +150,7 @@ import AboutMeHome from "../components/AboutMeHome.astro";
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 50px 150px 50px;
+    padding: 30px 50px 0px 50px;
     isolation: isolate;
   }
 
@@ -170,7 +172,9 @@ import AboutMeHome from "../components/AboutMeHome.astro";
     border-image: initial;
     padding: 21px;
     margin-top: 40px;
+    margin-bottom: 9rem;
     font-weight: 600;
+    transition: background-color 1.2s ease;
   }
 
   @property --angulo {
