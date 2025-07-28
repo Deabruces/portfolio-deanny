@@ -2,6 +2,7 @@
 import Home from "../assets/icons/home.svg";
 import Moon from "../assets/icons/moon.svg";
 import Sun from "../assets/icons/sun.svg";
+import LightDark from "../assets/icons/light-dark.svg";
 import Person from "../assets/icons/person.svg";
 import Projects from "../assets/icons/projects.svg";
 import Blog from "../assets/icons/blog.svg";
@@ -11,7 +12,7 @@ import Send from "../assets/icons/send.svg";
 const actualPage = Astro.url.pathname;
 interface MenuElement {
   name: string;
-  icon: ImageMetadata; // Replace with the actual type of your icons if available
+  icon: ImageMetadata;
   path: string;
 }
 const menuElements: MenuElement[] = [
@@ -40,18 +41,73 @@ const isActualPage = (element: Partial<MenuElement>) => {
     }
     <li class="li__separador"><span class="separator"></span></li>
     <li class="toggle__theme">
-      <button class="theme__btn btn__dark"><Moon /></button>
-      <button class="theme__btn btn__light"><Sun /></button>
+      <div class=theme-switcher-menu button-theme>
+        <button type="button" class="button-theme action">
+          <span class="button-wrap">
+            <span class="icon-theme-os-default">
+              <LightDark />
+              Theme
+            </span>
+          </span>
+        </button>
+
+        <ul class="submenu">
+          <div class="container-menu-theme">
+          <li>
+            <label class="theme__btn">
+              <input
+                type="radio"
+                name="color-scheme"
+                id="light-dark"
+                value="light dark"
+              />
+              <span class="icon-menu-theme">
+              <LightDark />
+              OS Default
+              </span>
+            </label>
+          </li>
+          <li>
+            <label class="theme__btn">
+              <input
+                type="radio"
+                name="color-scheme"
+                id="light-dark"
+                value="light"
+              />
+              <span class="icon-menu-theme">
+                <Sun />
+                Light
+              </span>
+            </label>
+          </li>
+          <li>
+            <label class="theme__btn">
+              <input
+                type="radio"
+                name="color-scheme"
+                id="light-dark"
+                value="dark"
+              />
+              <span class="icon-menu-theme">
+                <Moon />
+                Dark
+              </span>
+            </label>
+          </li>
+          </div>
+        </ul>
+      </div>
     </li>
   </ul>
 </nav>
 
 <style>
+  
   nav {
     display: flex;
-    background-color: #2d0c4b5e;
-    color: white;
-    border: 1px solid #180628;
+    background-color: light-dark(#faf8ffa9, #26122ba5));
+    border: 1px solid var(--acento-btn);
     border-radius: 20px;
     backdrop-filter: blur(10px);
     font-size: 20px;
@@ -67,7 +123,7 @@ const isActualPage = (element: Partial<MenuElement>) => {
   }
 
   .separator {
-    background: #180628;
+    background: var(--acento-btn);
     height: 1lh;
     display: block;
     width: 1px;
@@ -80,40 +136,53 @@ const isActualPage = (element: Partial<MenuElement>) => {
     flex-direction: row;
     align-items: center;
     gap: 5px;
-    padding: 5px 15px;
+    padding: 3px 17px;
   }
 
   li.active {
-    font-weight: bold;
-    color: var(--secondary-color);
+    font-weight: 800;
+    color: var(--acento-btn-hover);
   }
 
   a {
-    color: inherit;
     font-size: 1.3rem;
   }
 
   .li__nav {
-    transition: all 0.3s ease;
+    --_border-color: var(--li-border-color, transparent);
+    transition: all 300ms ease-in-out;
+    border-radius: 20px;
+    padding: 3px 17px;
+    border: 1px solid var(--_border-color);
   }
 
   .li__nav:hover {
-    border: 1px solid #62586a;
+    --li-border-color: var(--acento-btn-hover);
     border-radius: 20px;
-    padding: 5px 17px;
-    color: var(--secondary-color);
   }
 
+  .li__nav.active,
+  li.active {
+    --li-border-color: var(--acento-btn-hover);
+    border-radius: 20px;
+  }
+
+  .li__nav.active a,
+  li.active a {
+    color: var(--acento-btn-hover);
+  }
   .li__home {
-    border: 1px solid #62586a;
-    border-radius: 19px;
-    padding: 8px 17px;
-    background-color: rgb(40 47 107 / 30%);
-    transition: background-color 300ms linear;
+    padding: 3px 17px;
+    transition: all 300ms ease-in-out;
+    font-weight: 500;
   }
 
   .li__home:hover {
-    background-color: rgb(40 47 107 / 50%);
+    color: var(--acento-btn-hover);
+  }
+
+  .li__home:active {
+    color: var(--acento-btn-hover);
   }
 
   .li__separador {
@@ -122,24 +191,122 @@ const isActualPage = (element: Partial<MenuElement>) => {
     padding: 0;
   }
 
-  .toggle__theme {
-    border: 1px solid var(--border-color);
-    border-radius: 19px;
-    padding: 8px 17px;
-  }
-
   .theme__btn {
     appearance: none;
+    color: var(--acento-btn);
     border: none;
-    border-radius: 19px;
-    color: white;
     display: block;
-    background-color: rgb(40 47 107 / 30%);
-    transition: all 300ms linear;
+    transition: all 300ms ease-in-out;
+    padding: 8px;
+    background-color: var(--section-dark);
+    border-radius: 10px;
+  }
+
+  label:has(input:checked) {
+    color: var(--acento-btn-hover);
+    background-color: var(--section-dark);
+  }
+  label {
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  input {
+    display: none;
   }
 
   .theme__btn:hover {
-    background-color: rgb(40 47 107 / 50%);
-    color: var(--secondary-color);
+    color: var(--acento-btn-hover);
+    background-color: var(--section-dark);
   }
+
+.icon-theme-os-default{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  color: var(--acento-btn);
+}
+.submenu{
+    position: absolute;
+    top: 100%;
+    right: -50px;
+    background-color: var(--background-color);
+    border: 1px solid var(--acento-btn);
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+    width: 195px;
+}
+
+.button-theme {
+  background-color: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  display: inline-block;
+  padding: 3px 0px;
+  text-decoration: none;
+  margin: 2px 5px;
+  border: none;
+}
+
+.container-menu-theme{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+span.icon-menu-theme {
+  display: flex;
+  flex-direction: row;
+  width: 8rem;
+  gap: 5px;
+  align-items: center;
+  justify-content: star;
+  color: var(--acento-btn);
+}
+
+span.icon-menu-theme:hover {
+  color: var(--acento-btn-hover);
+  background-color: var(--section-dark);
+}
+span.icon-menu-theme:active {
+  color: var(--acento-btn-hover);
+}
+
 </style>
+
+<script is:inline>
+
+  // Set initial theme based on system preference
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+  const currentTheme = localStorage.getItem("theme") || (prefersDarkScheme.matches ? "dark" : "light");
+  document.documentElement.setAttribute("data-theme", currentTheme);      
+  document.querySelector(`input[type="radio"][value="${currentTheme}"]`).checked = true;
+
+  // Update theme on radio button change
+  document.querySelectorAll('input[type="radio"][name="color-scheme"]').forEach(input => {
+    input.addEventListener("change", (event) => {
+      const selectedTheme = event.target.value;
+      document.documentElement.setAttribute("data-theme", selectedTheme);
+      localStorage.setItem("theme", selectedTheme);
+    });
+  }); 
+
+  // Toggle submenu visibility
+  document.querySelectorAll('.button-theme').forEach(button => {
+    button.addEventListener('click', () => {
+      const submenu = button.nextElementSibling;
+      submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+
+  // Close submenu when clicking outside
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.button-theme')) {
+      document.querySelectorAll('.submenu').forEach(submenu => {
+        submenu.style.display = 'none';
+      });
+    }
+  });
+
+</script>
