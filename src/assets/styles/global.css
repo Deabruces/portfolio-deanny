@@ -7,6 +7,9 @@
     --font-family: 'Inter', sans-serif;
     --border-color: #62586a;
     --border-radius: 20px;
+    
+    
+
     &:has(input[name="color-scheme"][value="light dark"]:checked) {
       color-scheme: light dark;
     }
@@ -16,6 +19,8 @@
     &:has(input[name="color-scheme"][value="dark"]:checked) {
       color-scheme: only dark;
     }
+
+
     --section-light: light-dark(#FAF8FF, #1A1A2E);
     --section-dark: light-dark(#e9e7ef, #221034);
     --h1-h2-color: light-dark(#34495E, #F4F4F8);
@@ -37,21 +42,29 @@ body {
     --_font-size: var(--font-size,clamp(3rem, 4vw, 5rem));
     font-size: var(--_font-size);
     color: var(--h1-h2-color);
+    line-height: 1.2;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 
   }
   h2{
     --_font-size: var(--font-size,clamp(2.5rem, 3.5vw, 4rem));
     font-size: var(--_font-size);
     color: var(--h1-h2-color);
+    line-height: 1.2;
+    font-weight: 500;
   }
   h3{
     --_font-size: var(--font-size,clamp(2rem, 3vw, 3.5rem));
     font-size: var(--_font-size);
     color: var(--h3-color);
+    line-height: 1.2;
+    font-weight: 400;
   }
   h4{
     --_font-size: var(--font-size,clamp(1.8rem, 2.5vw, 3rem));
     font-size: var(--_font-size);
+    line-height: 1.2;
   }
   h5{
     --_font-size: var(--font-size,clamp(1.5rem, 2vw, 2.5rem));
