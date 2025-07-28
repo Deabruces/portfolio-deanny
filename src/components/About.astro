@@ -7,6 +7,12 @@ import SocialIcons from "../components/SocialIcons.astro";
 ---
 
 <div class="about">
+  <div class="header-about">
+    <h1 class="about__title">I'm Deanny Bruces</h1>
+    <h2 class="description__text--profession">
+      Front-end Developer / Industrial Engineer
+    </h2>
+  </div>
   <div class="about__right">
     <div class="about__image">
       <img src={Dea.src} alt="foto de Deanny" class="profile-image" />
@@ -18,142 +24,203 @@ import SocialIcons from "../components/SocialIcons.astro";
       <span class="language">Spanish</span>
       <span class="language">English</span>
     </div>
-  </div>
-
-  <div class="about__description">
-    <h1 class="description__title">Deanny Bruces</h1>
-
-    <h2 class="description__text description__text--profession">
-      Front-end Developer / Industrial Engineer
-    </h2>
-
     <div class="container__social-icons">
       <SocialIcons />
     </div>
+  </div>
 
+  <div class="about__description">
     <p class="description__text">
       A front-end developer passionate about creating intuitive, accessible, and
-      visually compelling web experiences. I specialize in building modern
-      interfaces using technologies such as HTML, CSS, JavaScript, and
-      frameworks like React and Vue.
+      visually compelling web experiences.
+    </p>
+
+    <p class="description__text">
+      I specialize in building modern interfaces using technologies such as
+      HTML, CSS, JavaScript, and frameworks like React and Vue.
     </p>
 
     <p class="description__text">
       My approach combines design and code: I like to think about the user
-      experience from the first sketch to the last line of code. I firmly
-      believe that a well-made website should not only look good but also
-      function quickly, be accessible, and adapt to any device.
+      experience from the first sketch to the last line of code.
+    </p>
+
+    <p class="description__text">
+      I firmly believe that a well-made website should not only look good but
+      also function quickly, be accessible, and adapt to any device.
     </p>
 
     <p class="description__text">
       I've worked on projects focused on the Chilean market, understanding local
       needs such as mobile optimization, integration with national services, and
-      functionality-focused design. I love to constantly learn and improve, and
-      that's why I continue to hone my skills in web performance, best
-      practices, and usability.
+      functionality-focused design.
     </p>
+
+    <p class="description__text">
+      love to constantly learn and improve, and that's why I continue to hone my
+      skills in web performance, best practices, and usability.
+    </p>
+
+    <p class="description__text">
+      I am always looking for new challenges and opportunities to grow as a
+      developer.
+    </p>
+
+    <p class="description__text">
+      If you are looking for someone who can bring your ideas to life with
+      creativity and technical precision, let's connect!
+    </p>
+
     <p class="description__text">
       In addition to programming, I enjoy collaborating with multidisciplinary
       teams, contributing creative ideas, and maintaining clear and empathetic
-      communication. I seek to add real value through every project I
-      participate in. Shall we connect?
+      communication.
+    </p>
+
+    <p class="description__text">
+      I seek to add real value through every project I participate in. Shall we
+      connect?
     </p>
   </div>
+
+  <style>
+    .about {
+      display: grid;
+      grid-template-areas:
+        "title title"
+        "right description"
+        "right description";
+      grid-template-columns: 2fr 3fr;
+      gap: 20px;
+      padding: 100px 0px;
+    }
+
+    .profile-image {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-sizing: content-box;
+      object-fit: cover;
+      margin: 35px 40px 0 40px;
+    }
+
+    .header-about {
+      grid-area: title;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about__title {
+      font-size: 4rem;
+      text-align: center;
+      font-weight: 700;
+      color: var(--acento-btn);
+      margin-bottom: 10px;
+    }
+    .description__text--profession {
+      font-size: 2rem;
+      text-align: center;
+      color: var(--text-color);
+      margin-bottom: 20px;
+    }
+
+    .about__description {
+      grid-area: description;
+    }
+
+    .description__text {
+      font-size: 1.2rem;
+      color: var(--text-color);
+      margin: 15px 0;
+      line-height: 1.6;
+      padding: 20px 60px;
+    }
+
+    .description__title {
+      font-weight: 800;
+      color: var(--acento-btn);
+      padding: 0 60px;
+    }
+
+    .about__right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-area: right;
+    }
+
+    .about__image {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .about__location {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-top: 10px;
+      color: var(--text-color);
+    }
+    .image__text {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+      color: var(--text-color);
+      margin-top: 10px;
+    }
+
+    .description__text--profession {
+      margin-bottom: 20px;
+      padding-top: 0;
+    }
+
+    .container__social-icons {
+      padding: 20px 20px 0px 20px;
+    }
+
+    .about__languages {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .language {
+      color: var(--text-color);
+      padding: 3px 15px;
+      border-radius: 20px;
+      border: 1px solid var(--acento-btn);
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .about {
+        grid-template-areas: "title" "right" "description";
+        grid-template-columns: 1fr;
+        padding: 50px 20px;
+      }
+
+      .profile-image {
+        width: 250px;
+        height: 250px;
+        margin: 20px auto;
+      }
+
+      .description__text {
+        padding: 0 20px;
+      }
+
+      .container__social-icons {
+        padding: 20px 20px 0px 20px;
+      }
+    }
+  </style>
 </div>
-
-<style>
-  .about {
-    display: grid;
-    grid-template-areas: "right description";
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
-    padding: 100px 0px;
-  }
-
-  .profile-image {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    box-sizing: content-box;
-    object-fit: cover;
-    margin: 35px 40px 0 40px;
-  }
-
-  .about__title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .about__description {
-    grid-area: description;
-  }
-
-  .description__text {
-    line-height: 1.6;
-    padding: 20px 60px;
-  }
-
-  .description__title {
-    font-weight: 800;
-    color: var(--acento-btn);
-    padding: 0 60px;
-  }
-
-  .about__right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    grid-area: right;
-  }
-
-  .about__image {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .about__location {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.2rem;
-    font-weight: 400;
-    margin-top: 10px;
-    color: var(--text-color);
-  }
-  .image__text {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.2rem;
-    color: var(--text-color);
-    margin-top: 10px;
-  }
-
-  .description__text--profession {
-    margin-bottom: 20px;
-    padding-top: 0;
-  }
-
-  .container__social-icons {
-    padding: 0px 60px;
-    margin-bottom: 30px;
-  }
-
-  .about__languages {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-  }
-
-  .language {
-    color: var(--text-color);
-    padding: 3px 15px;
-    border-radius: 20px;
-    border: 1px solid var(--acento-btn);
-    font-size: 1rem;
-  }
-</style>
