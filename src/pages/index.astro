@@ -3,15 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import "../assets/styles/reset.css";
 import "../assets/styles/global.css";
 import Send from "../assets/icons/send.svg";
-import { getCollection } from "astro:content";
-
-interface Props {
-  quote: string;
-  author: string;
-}
-
-const { quote, author } = Astro.props;
-
 import FeaturedProjects from "../components/FeaturedProjects.astro";
 import TechStack from "../components/TechStack.astro";
 import AboutMeHome from "../components/AboutMeHome.astro";
@@ -53,7 +44,7 @@ import AboutMeHome from "../components/AboutMeHome.astro";
   <section class="connect">
     <a href="/contact">
       <button class="btn--action btn__contact-about">
-        Let's Get in Touch <Send />
+        Contact me <Send />
       </button>
     </a>
   </section>
