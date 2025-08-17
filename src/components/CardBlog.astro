@@ -1,0 +1,195 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+}
+
+const { post } = Astro.props;
+const categories = [];
+for (const cat of post.data.categories) {
+  const category = await getEntry(cat.collection, cat.id);
+  categories.push(category);
+}
+---
+
+<article class="card">
+  <figure class="card__figure">
+    <img class="card__img" src={post.data.image.src} alt={post.data.title} />
+  </figure>
+  <div class="container-category">
+    {
+      categories.map((cat) => (
+        <a
+          href={`/blog/categories/${cat?.data.id}`}
+          class={`category category${cat?.data.color}`}
+        >
+          {cat?.data.name}
+        </a>
+      ))
+    }
+  </div>
+  <h2 class="title">{post.data.title}</h2>
+  <p class="excerpt">{post.data.summary}</p>
+  <div class="footer">
+    <span class="like">Like</span>
+    <a>Leer más</a>
+  </div>
+</article>
+
+<style>
+  .card {
+    max-width: 320px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .card__figure {
+    margin: 0;
+  }
+
+  .card__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/10;
+  }
+
+  .container-category {
+    margin: 8px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+  }
+
+  .category {
+    display: inline-block;
+    margin: 8px 0;
+    font-size: 12px;
+    text-decoration: none;
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 2px 6px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .category--seo-marketing-digital {
+    border-color: var(--seo-marketing-digital);
+    color: var(--seo-marketing-digital);
+  }
+
+  .category--seo-marketing-digital:hover {
+    background-color: var(--seo-marketing-digital);
+    color: #fff;
+  }
+
+  .category--programacion-y-mejores-practicas {
+    border-color: var(--programacion-y-mejores-practicas);
+    color: var(--programacion-y-mejores-practicas);
+  }
+
+  .category--programacion-y-mejores-practicas:hover {
+    background-color: var(--programacion-y-mejores-practicas);
+    color: #fff;
+  }
+
+  .category--accesibilidad-y-usabilidad {
+    border-color: var(--accesibilidad-y-usabilidad);
+    color: var(--accesibilidad-y-usabilidad);
+  }
+
+  .category--accesibilidad-y-usabilidad:hover {
+    background-color: var(--accesibilidad-y-usabilidad);
+    color: #fff;
+  }
+
+  .category--experiencia-de-usuario-ux-ui {
+    border-color: var(--experiencia-de-usuario-ux-ui);
+    color: var(--experiencia-de-usuario-ux-ui);
+  }
+
+  .category--experiencia-de-usuario-ux-ui:hover {
+    background-color: var(--experiencia-de-usuario-ux-ui);
+    color: #fff;
+  }
+
+  .category--negocios-y-estrategias {
+    border-color: var(--negocios-y-estrategias);
+    color: var(--negocios-y-estrategias);
+  }
+
+  .category--negocios-y-estrategias:hover {
+    background-color: var(--negocios-y-estrategias);
+    color: #fff;
+  }
+
+  .category--rendimiento-web-y-optimizacion {
+    border-color: var(--rendimiento-web-y-optimizacion);
+    color: var(--rendimiento-web-y-optimizacion);
+  }
+
+  .category--rendimiento-web-y-optimizacion:hover {
+    background-color: var(--rendimiento-web-y-optimizacion);
+    color: #fff;
+  }
+
+  .category--programacion-y-mejores-practicas {
+    border-color: var(--programacion-y-mejores-practicas);
+    color: var(--programacion-y-mejores-practicas);
+  }
+
+  .category--programacion-y-mejores-practicas:hover {
+    background-color: var(--programacion-y-mejores-practicas);
+    color: #fff;
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 8px 0;
+    text-align: left;
+    padding: 0 12px;
+  }
+
+  .excerpt {
+    font-size: 14px;
+    color: #666;
+    margin: 8px 0;
+    text-align: left;
+    padding: 0 12px;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    text-align: right;
+  }
+
+  .like {
+    font-size: 12px;
+    color: #666;
+    font-weight: 400;
+  }
+
+  .footer a {
+    font-size: 12px;
+    color: #0070f3;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+</style>
