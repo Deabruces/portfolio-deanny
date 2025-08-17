@@ -1,0 +1,38 @@
+[
+    {
+        "id" : "seo",
+        "name" : "SEO y Marketing Digital",
+        "color" : "--seo-marketing-digital"
+    },
+
+    {
+        "id" : "web",
+        "name" : "Programación y Mejores Prácticas",
+        "color" : "--programacion-y-mejores-practicas"
+    },
+
+    {
+        "id" : "accesibilidad",
+        "name" : "Accesibilidad y Usabilidad",
+        "color" : "--accesibilidad-y-usabilidad"
+    },
+
+    {
+        "id" : "experiencia",
+        "name" : "Experiencia de Usuario (UX/UI)",
+        "color" : "--experiencia-de-usuario-ux-ui"
+    },
+
+    {
+        "id" : "rendimiento",
+        "name" : "Rendimiento Web y Optimización",
+        "color" : "--rendimiento-web-y-optimizacion"
+    },
+
+    {
+        "id" : "negocios",
+        "name" : "Negocios y Estrategias",
+        "color" : "--negocios-y-estrategias"
+    }
+]
+
