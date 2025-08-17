@@ -9,7 +9,7 @@ const posts = await getCollection("posts");
 ---
 
 <Layout>
-  <section "content-grid">
+  <section class="blog-list">
     <div class="blog">
       <h1 class="blog_title">My <span>Blog</span></h1>
       <p class="blog_description">
@@ -48,13 +48,7 @@ const posts = await getCollection("posts");
 
   .blog_posts {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-  }
-
-  .coming {
-    font-size: 6rem;
-    color: var(--acento-btn);
-    margin-top: 70px;
+    grid-template-columns: repeat(auto-fit, 320px);
+    gap: 3rem;
   }
 </style>
