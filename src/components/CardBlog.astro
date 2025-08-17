@@ -33,7 +33,6 @@ for (const cat of post.data.categories) {
   <h2 class="title">{post.data.title}</h2>
   <p class="excerpt">{post.data.summary}</p>
   <div class="footer">
-    <span class="like">Like</span>
     <a>Leer más</a>
   </div>
 </article>
@@ -170,15 +169,9 @@ for (const cat of post.data.categories) {
   .footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: end;
     padding: 8px 12px;
     text-align: right;
-  }
-
-  .like {
-    font-size: 12px;
-    color: #666;
-    font-weight: 400;
   }
 
   .footer a {
