@@ -1,17 +1,22 @@
 ---
-import { Button } from "deanny-uikit";
+import ButtonCta from "./ButtonCta.astro";
 ---
 
 <section class="hero full-width">
   <h2 class="saludo">
-    Hi, <span class="greeting"></span>, I'm Deanny! 👋🏻
+    Hi <span class="greeting"></span>, I'm Deanny!<span
+      style='white-space:nowrap;font-size:1em;font-family:"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+      >👋🏻</span
+    >
   </h2>
   <h1 class="title">Frontend Developer</h1>
   <p class="frase">
     "I code efficient, accessible, and delightful web experiences."
   </p>
-    <Button label="Connect With me" type="primary" />
+
+  <ButtonCta href="/contact"> Connect with me </ButtonCta>
 </section>
+
 <style>
   .hero {
     height: 100dvh;
@@ -34,29 +39,6 @@ import { Button } from "deanny-uikit";
     font-style: italic;
     text-align: center;
     max-width: 600px;
-  }
-
-  .btn__contact {
-    display: block;
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    font-weight: 600;
-    background-color: var(--background-color);
-    border: 1px solid var(--acento-btn);
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition:
-      background-color 0.3s ease,
-      transform 0.3s ease;
-    margin-top: 20px;
-  }
-
-  .btn__contact:hover {
-    background-color: var(--background-color-hover);
-    transform: scale(1.05);
-  }
-
-  .btn__contact-about {
     font-size: 2rem;
   }
 
