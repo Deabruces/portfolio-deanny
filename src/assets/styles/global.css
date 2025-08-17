@@ -8,8 +8,8 @@
     --font-family: 'Inter', sans-serif;
     --border-color: #62586a;
     --border-radius: 20px;
-    
-    
+    font-size: 16px;
+    --default-color: gray;
 
     &:has(input[name="color-scheme"][value="light dark"]:checked) {
       color-scheme: light dark;
@@ -28,6 +28,15 @@
     --h3-color: light-dark(#6C7A89, #A29BFE);
     --acento-btn: light-dark(#DDA0DD, #8E44AD);
     --acento-btn-hover: light-dark(#A2D5F2, #c38cf6);
+
+
+  /*categories colors*/
+  --seo-marketing-digital: #8e44ad;
+  --programacion-y-mejores-practicas: #c38cf6;
+  --accesibilidad-y-usabilidad: #a2d5f2;
+  --experiencia-de-usuario-ux-ui: #dda0dd;
+  --rendimiento-web-y-optimizacion: #5C2E91;
+  --negocios-y-estrategias: #6FB1D2;
    
 }
 @view-transition {
