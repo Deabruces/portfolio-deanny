@@ -3,8 +3,7 @@ title: "¿Por qué es importante tener una página web para tu negocio en 2025?"
 image: "./images/emprendedora-con-laptop.webp"
 summary: "Explora la importancia de tener una presencia en línea en 2025 y cómo una página web puede beneficiar a tu negocio."
 date: "05-08-2025"
-categories:
-  ["seo", "web", "accesibilidad", "experiencia", "rendimiento", "negocios"]
+categories: ["negocios"]
 ---
 
 En un mundo donde la primera impresión muchas veces ocurre en internet, la importancia de una página web para tu negocio es mayor que nunca. Una web no es solo una vitrina digital, sino la herramienta que transmite confianza, atrae clientes y te diferencia de la competencia.
