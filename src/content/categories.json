@@ -1,37 +1,37 @@
 [
     {
         "id" : "seo",
-        "name" : "SEO y Marketing Digital",
+        "name" : "SEO and Digital Marketing",
         "color" : "--seo-marketing-digital"
     },
 
     {
         "id" : "web",
-        "name" : "Programación y Mejores Prácticas",
+        "name" : "Programming and Best Practices",
         "color" : "--programacion-y-mejores-practicas"
     },
 
     {
-        "id" : "accesibilidad",
-        "name" : "Accesibilidad y Usabilidad",
+        "id" : "accessibility",
+        "name" : "Accessibility and Usability",
         "color" : "--accesibilidad-y-usabilidad"
     },
 
     {
-        "id" : "experiencia",
-        "name" : "Experiencia de Usuario (UX/UI)",
+        "id" : "experience",
+        "name" : "User Experience (UX/UI)",
         "color" : "--experiencia-de-usuario-ux-ui"
     },
 
     {
-        "id" : "rendimiento",
-        "name" : "Rendimiento Web y Optimización",
+        "id" : "performance",
+        "name" : "Web Performance and Optimization",
         "color" : "--rendimiento-web-y-optimizacion"
     },
 
     {
-        "id" : "negocios",
-        "name" : "Negocios y Estrategias",
+        "id" : "business",
+        "name" : "Business and Strategies",
         "color" : "--negocios-y-estrategias"
     }
 ]
