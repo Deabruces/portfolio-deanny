@@ -2,6 +2,7 @@
 import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import "../assets/styles/global.css";
 const projects = await getCollection("projects");
 ---
 
@@ -29,9 +30,6 @@ const projects = await getCollection("projects");
 </Layout>
 
 <style>
-  .projects {
-    padding: 100px 0px;
-  }
   .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, 340px);
