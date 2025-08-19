@@ -16,10 +16,10 @@ interface MenuElement {
   path: string;
 }
 const menuElements: MenuElement[] = [
-  { name: "About", icon: Person, path: "/about-me" },
-  { name: "Projects", icon: Projects, path: "/projects" },
+  { name: "Quién soy!", icon: Person, path: "/quien-soy" },
+  { name: "Proyectos", icon: Projects, path: "/proyectos" },
   { name: "Blog", icon: Blog, path: "/blog" },
-  { name: "Contact", icon: Send, path: "/contact" },
+  { name: "Contacto", icon: Send, path: "/contacto" },
 ];
 const isActualPage = (element: Partial<MenuElement>) => {
   return Astro.url.pathname === element.path;
