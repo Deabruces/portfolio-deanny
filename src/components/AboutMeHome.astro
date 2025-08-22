@@ -2,8 +2,8 @@
 import ButtonCta from "../components/ButtonCta.astro";
 ---
 
-<section class="content-grid">
-  <h2 class="about-me__title">About me</h2>
+<section class="sobre-mi content-grid">
+  <h2 class="about-me__title">¡Quién Soy!</h2>
   <div class="about-me__body">
     <div class="about-me__text">
       <p class="about-me__text--description">
@@ -30,11 +30,15 @@ import ButtonCta from "../components/ButtonCta.astro";
         <li>Aprendizaje continuo y adaptación</li>
       </ul>
     </div>
-    <ButtonCta href="/sobre-mi"> Conoce mas sobre mi</ButtonCta>
+    <ButtonCta href="/sobre-mi"> Conoce más sobre mi</ButtonCta>
   </div>
 </section>
 
 <style>
+  .sobre-mi {
+    padding: 50px 0px;
+  }
+
   .about-me__title {
     padding-top: 5px;
     margin-bottom: 2rem;
