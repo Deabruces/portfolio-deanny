@@ -9,9 +9,10 @@ import Dea from '../assets/images/dea.jpg';
   <canvas id="star-canvas" class="canvas"></canvas>
   <div class="content-hero">
     <div class="hero-text">
-      <h2 class="saludo">
-        <span class="greeting"></span> Bienvenid@s!
-      </h2>
+      <div class="container-saludo">
+        <p class="greeting saludo"></p> 
+        <p class="saludo">Bienvenid@s a mi mundo de desarrollo web</p>
+      </div>
       <Picture src={Dea} alt="foto de Deanny" class="img-hero"/>
       <h2 class="nombre-hero">
           Soy Deanny 👋🏻
@@ -97,13 +98,17 @@ import Dea from '../assets/images/dea.jpg';
         letter-spacing: 0.1rem;
       }
 
+      .container-saludo{
+        margin-top: 6rem;
+        margin-bottom: 1rem;
+      }
+
       .saludo {
-        font-weight: 400;
+        font-weight: 300;
         font-size: clamp(1.3rem, 1.5vw, 1.8rem);
         letter-spacing: 0.5px;
-        color: #dda1dd;
-        line-height: 1.8;
-        margin-top: 6rem;
+        color: #edd0ed;
+        line-height: 1.3;
       }
 
       .nombre-hero{
@@ -123,12 +128,8 @@ import Dea from '../assets/images/dea.jpg';
       }
 
       .greeting {
-        font-weight: 400;
-        color: var(--acento-btn-hover);
-        border-radius: 20px;
-        border: 1px solid var(--acento-btn-hover);
+        font-weight: 500;
         padding: 0.2rem 1rem;
-        font-size: clamp(1.25rem, 1.5rem + 0.5vw, 1.75rem);
         line-height: 1.4;
         text-wrap-mode: nowrap;
       }
