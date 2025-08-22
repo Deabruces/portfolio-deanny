@@ -1,53 +1,257 @@
 ---
+import { defineAction } from "astro:actions";
 import ButtonCta from "./ButtonCta.astro";
+import { Picture } from "astro:assets";
+import Dea from '../assets/images/dea.jpg';
 ---
 
-<section class="hero full-width">
-  <h2 class="saludo">
-    Hi <span class="greeting"></span>, I'm Deanny!<span
-      style='white-space:nowrap;font-size:1em;font-family:"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
-      >👋🏻</span
-    >
-  </h2>
-  <h1 class="title">Frontend Developer</h1>
-  <p class="frase">
-    "I code efficient, accessible, and delightful web experiences."
-  </p>
-
-  <ButtonCta href="/contact"> Connect with me </ButtonCta>
+<section class="bg-hero full-width">
+  <canvas id="star-canvas" class="canvas"></canvas>
+  <div class="content-hero">
+    <div class="hero-text">
+      <h2 class="saludo">
+        <span class="greeting"></span> Bienvenid@s!
+      </h2>
+      <Picture src={Dea} alt="foto de Deanny" class="img-hero"/>
+      <h2 class="nombre-hero">
+          Soy Deanny 👋🏻
+      </h2>
+      <h1 class="title">
+        <p class="rol">Front-end Developer</p>
+      </h1>
+      <p class="frase">
+        Transformo ideas en experiencias web memorables. Con un enfoque en la
+        accesibilidad y el rendimiento.
+      </p>
+      <ButtonCta href="/contacto"> ¡Conectemos! </ButtonCta>
+    </div>
+  </div>
 </section>
+    <style>
+      .bg-hero {
+        <!-- Sección Hero / Portada con Canvas de partículas -->
+        height: 100vh; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        text-align: center; 
+        position: relative; 
+        overflow: hidden; 
+      }
 
-<style>
-  .hero {
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    align-content: center;
-    isolation: isolate;
-  }
+      .canvas{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
 
-  .title {
-    font-weight: 700;
-    text-align: center;
-    margin-block: 1rem;
-  }
-  .saludo {
-    font-weight: 600;
-    text-align: center;
-    margin-top: 4rem;
-  }
-  .frase {
-    font-style: italic;
-    text-align: center;
-    max-width: 600px;
-    font-size: 2rem;
-  }
+      .content-hero {
+        z-index: 10;
+        background-color: rgba(31, 41, 55, 0.5);
+        padding: 2rem;
+        border-radius: 1rem;
+        backdrop-filter: blur(4px);
+        margin-inline: 1rem;
+      }
 
-  .greeting {
-    font-weight: 600;
-    color: var(--acento-btn-hover);
-    border-radius: 20px;
-    border: 1px solid var(--acento-btn-hover);
-    padding: 0.2rem 1rem;
-  }
-</style>
+      .img-hero{
+        width: 200px;
+        height: 200px;
+        box-sizing: content-box;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+      }
+
+      .hero-text {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        isolation: isolate;
+      }
+
+      .title {
+        margin-block: 1rem;
+        justify-self: stretch;
+        align-self: end;
+
+        background: linear-gradient(
+          to right,
+          #dda1dd,
+          #8e44ad
+        ); /* Define el degradado */
+        -webkit-background-clip: text; /* Aplica el degradado solo al texto (WebKit) */
+        background-clip: text; /* Aplica el degradado solo al texto */
+        -webkit-text-fill-color: transparent; /* Hace el texto transparente (WebKit) */
+        color: transparent;
+      }
+
+      .rol {
+        font-weight: 900;
+        line-height: 1;
+        font-size: clamp(1rem,3rem + 0.5vw,6rem);
+        color: var(--acento-btn);
+        letter-spacing: 0.1rem;
+      }
+
+      .saludo {
+        font-weight: 400;
+        font-size: clamp(1.3rem, 1.5vw, 1.8rem);
+        letter-spacing: 0.5px;
+        color: #dda1dd;
+        line-height: 1.8;
+        margin-top: 6rem;
+      }
+
+      .nombre-hero{
+        font-weight: 600;
+        font-size: clamp(1.5rem, 1.8vw, 2rem);
+        letter-spacing: 0.5px;
+        color: #dda1dd;
+        line-height: 1.8;
+      }
+      
+      .frase {
+        font-style: italic;
+        font-weight: 400;
+        font-size: clamp(1rem, 1.125rem + 0.5vw, 1.25rem);
+        max-width: 30rem;
+        color: #edd0ed;
+      }
+
+      .greeting {
+        font-weight: 400;
+        color: var(--acento-btn-hover);
+        border-radius: 20px;
+        border: 1px solid var(--acento-btn-hover);
+        padding: 0.2rem 1rem;
+        font-size: clamp(1.25rem, 1.5rem + 0.5vw, 1.75rem);
+        line-height: 1.4;
+        text-wrap-mode: nowrap;
+      }
+    </style>
+
+    <script is:inline>
+      function obtenerSaludo() {
+        const horaActual = new Date().getHours();
+        if (horaActual < 12) {
+          return "¡Buenos Dias!";
+        } else if (horaActual < 18) {
+          return "¡Buenas Tardes!";
+        } else {
+          return "¡Buenas Noches!";
+        }
+      }
+
+      document.querySelector(".greeting").textContent = obtenerSaludo();
+
+      document.querySelector(".btn__contact").addEventListener("click", () => {
+        alert("Thank you for your interest! I will get back to you soon.");
+      });
+
+
+      // Lógica de la animación de partículas del Hero
+      const canvas = document.getElementById("star-canvas");
+      const ctx = canvas.getContext("2d");
+      let particles = [];
+
+      // Clase para representar cada partícula
+      class Particle {
+        constructor(x, y, radius, color, velocity) {
+          this.x = x;
+          this.y = y;
+          this.radius = radius;
+          this.color = color;
+          this.velocity = velocity;
+          this.opacity = Math.random() * 0.5 + 0.1;
+        }
+
+        // Dibuja la partícula en el canvas
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+          ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.opacity})`;
+          ctx.fill();
+        }
+
+        // Actualiza la posición de la partícula
+        update() {
+          // Mueve la partícula
+          this.x += this.velocity.x;
+          this.y += this.velocity.y;
+
+          // Hace que las partículas desaparezcan gradualmente
+          if (this.opacity > 0) {
+            this.opacity -= 0.005;
+          }
+
+          this.draw();
+        }
+      }
+
+      // Función para inicializar el canvas y las partículas
+      function init() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        particles = [];
+        const numParticles = 200;
+
+        for (let i = 0; i < numParticles; i++) {
+          const x = Math.random() * canvas.width;
+          const y = Math.random() * canvas.height;
+          const radius = Math.random() * 1.5;
+          const color = { r: 255, g: 255, b: 255 }; 
+          const velocity = {
+            x: (Math.random() - 0.5) * 0.1,
+            y: (Math.random() - 0.5) * 0.1,
+          };
+          particles.push(new Particle(x, y, radius, color, velocity));
+        }
+      }
+
+      // Bucle de animación
+      function animate() {
+        requestAnimationFrame(animate);
+        ctx.fillStyle = "rgba(13, 17, 23, 0.1)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Filtra las partículas que han desaparecido
+        particles = particles.filter((particle) => particle.opacity > 0);
+
+        // Si hay pocas partículas, crea más
+        if (particles.length < 150) {
+          const x = Math.random() * canvas.width;
+          const y = Math.random() * canvas.height;
+          const radius = Math.random() * 1.5;
+          const color = { r: 255, g: 255, b: 255 };
+          const velocity = {
+            x: (Math.random() - 0.5) * 0.1,
+            y: (Math.random() - 0.5) * 0.1,
+          };
+          particles.push(new Particle(x, y, radius, color, velocity));
+        }
+
+        // Actualiza y dibuja cada partícula
+        particles.forEach((particle) => {
+          particle.update();
+        });
+      }
+
+      // Maneja el redimensionamiento de la ventana
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        init();
+      });
+
+      // Inicia la animación al cargar la página
+      window.onload = () => {
+        init();
+        animate();
+      };
+
+    </script>
+ 
