@@ -3,8 +3,8 @@
     color-scheme: light dark;
     --primary-color: light-dark(#F5F5F5,#2d0c4b) ;
     --secondary-color: #c38cf6;
-    --background-color: light-dark(#FAF8FF,#26122b);
-    --text-color: light-dark(#4D4D4D,#D3D3D3);
+    --background-color: light-dark(#fefcff,#1A0629);
+    --text-color: light-dark(#817d7d,#D3D3D3);
     --font-family: 'Inter', sans-serif;
     --border-color: #62586a;
     --border-radius: 20px;
@@ -20,24 +20,25 @@
     &:has(input[name="color-scheme"][value="dark"]:checked) {
       color-scheme: only dark;
     }
-    --color-space-black: #0d1117;
-    --color-dark-grey: #161b22;
-    --color-nebula-purple: #6b4d8c;
-    --color-galaxy-blue: #2e4a7d;
-    --color-bright-purple: #8c6bff;
-    --color-star-light: #eaeaea;
 
-    --color-1: light-dark(#dda1dd, #8e44ad);
-    --color-2: light-dark(#a2d5f2, #c38cf6);
-    --color-3: light-dark(#edd0ed, #a29bfe);
+    /** hero bg **/
 
-    --section-light: light-dark(#dec5de, #1A1A2E);
-    --section-dark: light-dark(#e9e7ef, #221034);
-    --h1-h2-color: light-dark(#34495E, #F4F4F8);
+    --color-1: light-dark(#fefcff, #1A0629);
+    --color-2: light-dark(#F2E9F2, #21083B);
+    --color-3: light-dark(#E1EFF5, #47086E);
+
+
+    
+  
+    /*colors*/
+
+    --section-light: light-dark(#F2E9F2, #1A1A2E);
+    --section-dark: light-dark(#f4eef5, #1A0629);
+    --h1-h2-color: light-dark(#6e6b6b, #e6e0e7);
     --h3-color: light-dark(#edd0ed, #A29BFE);
     --acento-btn: light-dark(#DDA0DD, #8E44AD);
     --acento-btn-hover: light-dark(#A2D5F2, #c38cf6);
-    --bg-color: light-dark(#dec5de, #26122b);
+    --bg-color: light-dark(#F2E9F2, #26122b);
 
 
 
@@ -57,7 +58,6 @@ body {
   font-family: "Lato", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color)
-  overflow-x: hidden;
 
 }
 
