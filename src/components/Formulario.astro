@@ -5,13 +5,13 @@
 >
   <ul class="form__ul">
     <li class="form__li">
-      <label class="form__label" for="name">Name:</label>
+      <label class="form__label" for="name">Nombre y Apellido:</label>
       <input
         class="form__input"
         type="text"
         id="name"
         name="user_name"
-        placeholder="your first and last name"
+        placeholder="tu nombre y apellido"
         required
       />
     </li>
@@ -22,34 +22,36 @@
         type="email"
         id="mail"
         name="email"
-        placeholder="the contact email"
+        placeholder="el correo electrónico de contacto"
         required
       />
     </li>
     <li class="form__li">
-      <label class="form__label" for="msg">Message:</label>
+      <label class="form__label" for="msg">Mensaje:</label>
       <textarea
         class="form__textarea"
         id="msg"
         name="user_message"
-        placeholder="Ej.: What’s on your mind?"
+        placeholder="Ej.: ¿Qué tienes en mente?"
         rows="6"
         required></textarea>
     </li>
     <div class="form__send">
-      <input class="form__input__btn" type="submit" value="Let’s talk!" />
-      <q>I usually reply within 1–2 business days.</q>
+      <input class="form__input__btn" type="submit" value="¡Hablemos!" />
+      <p class="form__response">
+        Generalmente respondo dentro de 1 o 2 días hábiles.
+      </p>
     </div>
   </ul>
   <input type="hidden" name="_captcha" value="false" />
 </form>
 
 <div class="gratitude hidden">
-  Thank you for your message! I’ll be in touch soon 😊
+  ¡Gracias por tu mensaje! Me pondré en contacto contigo pronto 😊
 </div>
 <div class="error hidden">
-  I am having some troubles to deliver your message. please try again in a
-  while.
+  Estoy teniendo problemas para entregar tu mensaje. Por favor, intenta de nuevo
+  más tarde.
 </div>
 
 <style>
@@ -112,7 +114,7 @@
     border-radius: 20px;
     background-color: var(--acento-btn);
     color: var(--text-color);
-    font-weight: 500;
+    font-weight: 600;
   }
   .form__input__btn[disabled] {
     background-color: var(--border-color);
@@ -122,6 +124,12 @@
     background-color: var(--acento-btn-hover);
     border: 1px solid var(--acento-btn-hover);
     color: var(--text-color);
+  }
+
+  .form__response {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-top: 0.5rem;
   }
 
   .gratitude {
