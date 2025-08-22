@@ -7,8 +7,10 @@ const projects = await getCollection("projects");
 ---
 
 <Layout>
-  <section class="projects">
-    <h2 class="projects_title">Some of my <span>Recent Projects</span></h2>
+  <section class="projects content-grid">
+    <h1 class="projects_title">
+      Algunos de mis <span>Proyectos Recientes</span>
+    </h1>
     <div class="cards">
       {
         projects.map((project) => {
@@ -30,22 +32,33 @@ const projects = await getCollection("projects");
 </Layout>
 
 <style>
+  /**Mobile First **/
+
   .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, 340px);
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 60px;
     padding: 0px;
     justify-content: center;
   }
   .projects_title {
     text-align: center;
-    font-size: 50px;
     color: var(--text-color);
-    font-weight: 600;
-    margin-bottom: 50px;
+    margin-bottom: 4rem;
+    margin-top: 9rem;
   }
   .projects_title span {
     color: var(--acento-btn);
+  }
+
+  /*Tablet*/
+
+  @media (min-width: 768px) {
+  }
+
+  /* desktop */
+
+  @media (min-width: 1024px) {
   }
 </style>

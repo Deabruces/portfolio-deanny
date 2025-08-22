@@ -10,74 +10,7 @@ import Hero from "../components/Hero.astro";
 
 <Layout>
   <Hero />
-
-  <section class="featured-projects-index breakout">
-    <h2 class="subtitle">
-      Some of my <span class="subtitle__span">Featured Projects</span>
-    </h2>
-    <FeaturedProjects />
-  </section>
-
-  <section class="tech-stack full-width">
-    <h2 class="tech-stack__title">My Tech Stack</h2>
-    <TechStack />
-  </section>
-
-  <section class="about-me">
-    <AboutMeHome />
-  </section>
+  <FeaturedProjects />
+  <TechStack />
+  <AboutMeHome />
 </Layout>
-
-<style>
-  /*Section: Featured-projects*/
-
-  .subtitle {
-    width: 100%;
-    text-align: center;
-    padding-bottom: 50px;
-  }
-
-  .subtitle__span {
-    color: var(--acento-btn);
-  }
-
-  .featured-projects-index {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    padding: 5rem;
-  }
-
-  /*teach-stack*/
-  .tech-stack {
-    background-color: var(--section-dark);
-    padding: 50px 0px;
-  }
-
-  .tech-stack__title {
-    text-align: center;
-    padding-bottom: 50px;
-  }
-</style>
-
-<script is:inline>
-  function obtenerSaludo() {
-    const horaActual = new Date().getHours();
-    if (horaActual < 12) {
-      return "Good morning";
-    } else if (horaActual < 18) {
-      return "Good afternoon";
-    } else {
-      return "Good evening";
-    }
-  }
-
-  document.querySelector(".greeting").textContent = obtenerSaludo();
-
-  document.querySelector(".btn__contact").addEventListener("click", () => {
-    alert("Thank you for your interest! I will get back to you soon.");
-  });
-</script>
