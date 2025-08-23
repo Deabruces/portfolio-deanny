@@ -28,8 +28,8 @@ for (const cat of post.data.categories) {
       categories.map((cat) => (
         <a
           href={`/blog/categories/${cat?.data.id}`}
-          class={`category category${cat?.data.color}`}
-        >
+          class="category"
+          style={`--category-color: var(${cat?.data.color})`}>
           {cat?.data.name}
         </a>
       ))
@@ -80,79 +80,15 @@ for (const cat of post.data.categories) {
     margin: 8px 0;
     font-size: 12px;
     text-decoration: none;
-    border: 1px solid;
+    border: 1px solid var(--category-color);
+    color: var(--category-color);
     border-radius: 4px;
     padding: 2px 6px;
     transition: all 0.3s ease-in-out;
   }
 
-  .category--seo-marketing-digital {
-    border-color: var(--seo-marketing-digital);
-    color: var(--seo-marketing-digital);
-  }
-
-  .category--seo-marketing-digital:hover {
-    background-color: var(--seo-marketing-digital);
-    color: #fff;
-  }
-
-  .category--programacion-y-mejores-practicas {
-    border-color: var(--programacion-y-mejores-practicas);
-    color: var(--programacion-y-mejores-practicas);
-  }
-
-  .category--programacion-y-mejores-practicas:hover {
-    background-color: var(--programacion-y-mejores-practicas);
-    color: #fff;
-  }
-
-  .category--accesibilidad-y-usabilidad {
-    border-color: var(--accesibilidad-y-usabilidad);
-    color: var(--accesibilidad-y-usabilidad);
-  }
-
-  .category--accesibilidad-y-usabilidad:hover {
-    background-color: var(--accesibilidad-y-usabilidad);
-    color: #fff;
-  }
-
-  .category--experiencia-de-usuario-ux-ui {
-    border-color: var(--experiencia-de-usuario-ux-ui);
-    color: var(--experiencia-de-usuario-ux-ui);
-  }
-
-  .category--experiencia-de-usuario-ux-ui:hover {
-    background-color: var(--experiencia-de-usuario-ux-ui);
-    color: #fff;
-  }
-
-  .category--negocios-y-estrategias {
-    border-color: var(--negocios-y-estrategias);
-    color: var(--negocios-y-estrategias);
-  }
-
-  .category--negocios-y-estrategias:hover {
-    background-color: var(--negocios-y-estrategias);
-    color: #fff;
-  }
-
-  .category--rendimiento-web-y-optimizacion {
-    border-color: var(--rendimiento-web-y-optimizacion);
-    color: var(--rendimiento-web-y-optimizacion);
-  }
-
-  .category--rendimiento-web-y-optimizacion:hover {
-    background-color: var(--rendimiento-web-y-optimizacion);
-    color: #fff;
-  }
-
-  .category--programacion-y-mejores-practicas {
-    border-color: var(--programacion-y-mejores-practicas);
-    color: var(--programacion-y-mejores-practicas);
-  }
-
-  .category--programacion-y-mejores-practicas:hover {
-    background-color: var(--programacion-y-mejores-practicas);
+  .category:hover {
+    background-color: var(--category-color);
     color: #fff;
   }
 
