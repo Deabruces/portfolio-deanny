@@ -29,5 +29,4 @@ const Iconos = {
 const Icono = Iconos[name];
 ---
 
-{Icono && <Icono />}
-{!Icono && <p>no existe</p>}
+{Icono ? <Icono /> : null}
