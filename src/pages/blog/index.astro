@@ -1,0 +1,69 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../assets/styles/reset.css";
+import "../../assets/styles/global.css";
+import { getCollection } from "astro:content";
+import CardBlog from "../../components/CardBlog.astro";
+
+const posts = await getCollection("posts");
+---
+
+<Layout>
+  <section class="blog-list content-grid">
+    <div class="blog">
+      <h1 class="blog-title">Mi <span>Blog</span></h1>
+      <div class="container-description">
+        <p class="text-description">¡Bienvenid@s a mi blog!</p>
+        <p class="text-description">
+          Aquí comparto ideas, tutoriales y reflexiones sobre desarrollo web,
+          diseño y tecnología.
+        </p>
+      </div>
+    </div>
+    <div class="blog_posts">
+      {posts.map((post) => <CardBlog post={post} />)}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /**Mobile First **/
+
+  .blog-title {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 4rem;
+    margin-top: 9rem;
+  }
+
+  .blog-title span {
+    color: var(--acento-btn);
+  }
+
+  .container-description {
+    margin-bottom: 3rem;
+  }
+
+  .text-description {
+    color: var(--text-color);
+    text-align: justify;
+  }
+
+  .blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 320px);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  /*Tablet*/
+
+  @media (min-width: 768px) {
+  }
+
+  /* desktop */
+
+  @media (min-width: 1024px) {
+  }
+</style>

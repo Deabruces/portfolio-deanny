@@ -1,0 +1,69 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+// import "../../assets/styles/md.css";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({
+    params: { post: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout>
+  <div class="markdown">
+    <div class="container">
+      <h1 class="title" style={`view-transition-name: ${post.id}-title;`}>
+        {post.data.title}
+      </h1>
+      <div class="pill-container">
+        <a class="pill">kjhkjhjkhk</a>
+      </div>
+      <img
+        src={post.data.image.src}
+        alt={post.data.title}
+        width={800}
+        height={450}
+        loading="lazy"
+        class="post-image"
+        style={`view-transition-name: ${post.id}-image;`}
+      />
+      <Content />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @import url("../../assets/styles/md.css");
+
+  .pill-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .pill {
+    font-size: 1rem;
+    display: inline-block;
+    width: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    transition: all 300ms ease-in-out;
+    line-height: 1.25;
+    color: var(--text-color);
+  }
+
+  .pill:hover {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+  }
+</style>

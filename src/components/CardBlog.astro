@@ -16,7 +16,12 @@ for (const cat of post.data.categories) {
 
 <article class="card">
   <figure class="card__figure">
-    <img class="card__img" src={post.data.image.src} alt={post.data.title} />
+    <img
+      class="card__img"
+      src={post.data.image.src}
+      alt={post.data.title}
+      style={`view-transition-name: ${post.id}-image;`}
+    />
   </figure>
   <div class="container-category">
     {
@@ -30,16 +35,18 @@ for (const cat of post.data.categories) {
       ))
     }
   </div>
-  <h2 class="title">{post.data.title}</h2>
+  <h2 class="title" style={`view-transition-name: ${post.id}-title;`}>
+    {post.data.title}
+  </h2>
   <p class="excerpt">{post.data.summary}</p>
   <div class="footer">
-    <a>Leer más</a>
+    <a href={`/blog/${post.id}`}>Read more</a>
   </div>
 </article>
 
 <style>
   .card {
-    border: 1px solid #eee;
+    border: 1px solid var(--primary-color);
     border-radius: 8px;
     overflow: hidden;
     transition: box-shadow 0.3s;
@@ -155,11 +162,12 @@ for (const cat of post.data.categories) {
     margin: 8px 0;
     text-align: left;
     padding: 0 12px;
+    color: var(--acento-btn);
   }
 
   .excerpt {
     font-size: 14px;
-    color: #666;
+    color: var(--text-color);
     margin: 8px 0;
     text-align: left;
     padding: 0 12px;
@@ -175,7 +183,6 @@ for (const cat of post.data.categories) {
 
   .footer a {
     font-size: 12px;
-    color: #0070f3;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease-in-out;

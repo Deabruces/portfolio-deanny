@@ -16,10 +16,10 @@ interface MenuElement {
   path: string;
 }
 const menuElements: MenuElement[] = [
-  { name: "About", icon: Person, path: "/about-me" },
-  { name: "Projects", icon: Projects, path: "/projects" },
+  { name: "Quién soy!", icon: Person, path: "/sobre-mi" },
+  { name: "Proyectos", icon: Projects, path: "/proyectos" },
   { name: "Blog", icon: Blog, path: "/blog" },
-  { name: "Contact", icon: Send, path: "/contact" },
+  { name: "Contacto", icon: Send, path: "/contacto" },
 ];
 const isActualPage = (element: Partial<MenuElement>) => {
   return Astro.url.pathname === element.path;
@@ -46,7 +46,7 @@ const isActualPage = (element: Partial<MenuElement>) => {
           <span class="button-wrap">
             <span class="icon-theme-os-default">
               <LightDark />
-              Theme
+              Tema
             </span>
           </span>
         </button>
@@ -63,7 +63,7 @@ const isActualPage = (element: Partial<MenuElement>) => {
               />
               <span class="icon-menu-theme">
               <LightDark />
-              OS Default
+              Por defecto
               </span>
             </label>
           </li>
@@ -77,7 +77,7 @@ const isActualPage = (element: Partial<MenuElement>) => {
               />
               <span class="icon-menu-theme">
                 <Sun />
-                Light
+                Claro
               </span>
             </label>
           </li>
@@ -91,7 +91,7 @@ const isActualPage = (element: Partial<MenuElement>) => {
               />
               <span class="icon-menu-theme">
                 <Moon />
-                Dark
+                Oscuro
               </span>
             </label>
           </li>
@@ -177,13 +177,6 @@ const isActualPage = (element: Partial<MenuElement>) => {
     font-weight: 500;
   }
 
-  .li__home:hover {
-    color: var(--acento-btn-hover);
-  }
-
-  .li__home:active {
-    color: var(--acento-btn-hover);
-  }
 
   .li__separador {
     display: flex;

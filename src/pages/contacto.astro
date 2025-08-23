@@ -7,26 +7,26 @@ import DeaContact from "../assets/images/dea3.jpeg";
 import SocialIcons from "../components/SocialIcons.astro";
 ---
 
-<Layout>
+<Layout title="Contacto" description="Página de contacto de Deanny Bruces">
   <div class="content-grid">
     <div class="contact">
       <div class="title">
-        <h1 class="description__title">
-          Let’s create something meaningful together!
-        </h1>
+        <h1 class="description__title">¡Creemos algo significativo juntos!</h1>
       </div>
       <div class="contact__img">
         <img src={DeaContact.src} alt="foto de deanny" />
       </div>
-      <div class="contact__description">
-        <p>
-          I’d love to hear from you—whether you have a project in mind, a
-          question, or just want to say hi. I believe in the power of
-          collaboration, empathy, and well-crafted experiences. Send me a
-          message, and I’ll get back to you as soon as I can!
+      <div class="container-contact-description">
+        <p class="contact-description">
+          Me encantaría saber de ti, ya sea que tengas un proyecto en mente, una
+          pregunta o simplemente quieras saludar.
         </p>
-        <p class="contact__description__email">
-          If you prefer to write to me by email, you can do so here:
+        <p class="contact-description">
+          Creo en el poder de la colaboración, la empatía y las experiencias
+          bien elaboradas. ¡Envíame un mensaje y te responderé lo antes posible!
+        </p>
+        <p class="contact-description">
+          Si prefieres escribirme por correo electrónico, puedes hacerlo aquí:
           deannybruces@gmail.com
         </p>
         <div class="social-icons">
@@ -39,34 +39,38 @@ import SocialIcons from "../components/SocialIcons.astro";
 </Layout>
 
 <style>
+  /**Mobile First **/
+
   .contact {
     display: grid;
     width: 100%;
     height: auto;
     grid-template-areas:
-      "title title"
-      "img text"
-      "img form";
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+      "title"
+      "img"
+      "text"
+      "form";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
     gap: 10px;
     color: var(--text-color);
     align-items: center;
     justify-items: stretch;
-    padding: 100px 0px;
   }
 
   .title {
     grid-area: title;
     width: 100%;
-    margin-bottom: 15px;
+    margin-top: 9rem;
   }
 
   .contact__img {
     grid-area: img;
-    width: 100%;
+    width: 50%;
+    justify-self: center;
     height: auto;
     align-self: start;
+    margin-bottom: 2rem;
   }
 
   .contact__img img {
@@ -77,7 +81,7 @@ import SocialIcons from "../components/SocialIcons.astro";
     border-radius: 5px;
   }
 
-  .contact__description {
+  .container-contact-description {
     grid-area: text;
     padding: 0 3rem 0 3rem;
   }
@@ -89,13 +93,14 @@ import SocialIcons from "../components/SocialIcons.astro";
     text-align: center;
   }
 
-  .contact__description__email {
+  .contact-description {
     margin-top: 1.3rem;
     font-weight: 500;
   }
 
   .social-icons {
     padding: 2rem 0rem;
+    justify-self: left;
   }
 
   .contact__form {
@@ -103,28 +108,24 @@ import SocialIcons from "../components/SocialIcons.astro";
     padding: 0 3rem 0 3rem;
   }
 
-  @media (max-width: 768px) {
+  /** Tablet **/
+  @media (min-width: 768px) {
+  }
+
+  /** Desktop **/
+
+  @media (min-width: 1024px) {
     .contact {
       grid-template-areas:
-        "title"
-        "img"
-        "text"
-        "form";
-      grid-template-columns: 1fr;
-      grid-template-rows: auto auto auto auto;
+        "title title"
+        "img text"
+        "img form";
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
     }
 
     .contact__img {
-      width: 50%;
-      height: auto;
-      align-self: center;
-      justify-self: center;
-      margin-bottom: 2rem;
-    }
-
-    .contact__img img {
       width: 100%;
-      height: auto;
     }
   }
 </style>

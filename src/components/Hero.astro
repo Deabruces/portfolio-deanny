@@ -1,52 +1,112 @@
 ---
+import { defineAction } from "astro:actions";
 import ButtonCta from "./ButtonCta.astro";
+import { Picture } from "astro:assets";
+import Dea from "../assets/images/dea.jpg";
 ---
 
 <section class="hero full-width">
-  <h2 class="saludo">
-    Hi <span class="greeting"></span>, I'm Deanny!<span
-      style='white-space:nowrap;font-size:1em;font-family:"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
-      >👋🏻</span
-    >
-  </h2>
-  <h1 class="title">Frontend Developer</h1>
-  <p class="frase">
-    "I code efficient, accessible, and delightful web experiences."
-  </p>
-
-  <ButtonCta href="/contact"> Connect with me </ButtonCta>
+  <div class="hero-text">
+    <div class="container-saludo">
+      <p class="greeting saludo"></p>
+      <p class="saludo">Bienvenid@s a mi mundo de desarrollo web</p>
+    </div>
+    <Picture src={Dea} alt="foto de Deanny" class="img-hero" height={200} />
+    <h2 class="nombre-hero">Soy Deanny 👋🏻</h2>
+    <h1 class="title">
+      <p class="rol">Front-end Developer</p>
+    </h1>
+    <p class="frase">
+      Transformo ideas en experiencias web memorables. Con un enfoque en la
+      accesibilidad y el rendimiento.
+    </p>
+    <ButtonCta href="/contacto"> ¡Conectemos! </ButtonCta>
+  </div>
 </section>
 
 <style>
   .hero {
-    height: 100dvh;
+    padding-block: 2lh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: #221034;
+    background: linear-gradient(
+      0deg,
+      var(--color-1) 0%,
+      var(--color-2) 77%,
+      var(--color-3) 100%
+    );
+  }
+
+  .img-hero {
+    width: 100%;
+    box-sizing: content-box;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .hero-text {
     display: grid;
     justify-items: center;
     align-items: center;
-    align-content: center;
     isolation: isolate;
   }
 
   .title {
-    font-weight: 700;
-    text-align: center;
-  }
-  .saludo {
-    font-weight: 600;
-    text-align: center;
-  }
-  .frase {
-    font-style: italic;
-    text-align: center;
-    max-width: 600px;
-    font-size: 2rem;
+    margin-block: 1rem;
+    justify-self: stretch;
+    align-self: end;
+
+    background: linear-gradient(
+      to right,
+      #dda1dd,
+      #8e44ad
+    ); /* Define el degradado */
+    -webkit-background-clip: text; /* Aplica el degradado solo al texto (WebKit) */
+    background-clip: text; /* Aplica el degradado solo al texto */
+    -webkit-text-fill-color: transparent; /* Hace el texto transparente (WebKit) */
+    color: transparent;
   }
 
-  .greeting {
+  .rol {
+    font-weight: 900;
+    line-height: 1;
+    font-size: clamp(1rem, 3rem + 0.5vw, 6rem);
+    color: var(--acento-btn);
+    letter-spacing: 0.1rem;
+  }
+
+  .container-saludo {
+    margin-top: 6rem;
+    margin-bottom: 1rem;
+  }
+
+  .saludo {
+    font-weight: 400;
+    font-size: clamp(1.3rem, 1.5vw, 1.8rem);
+    letter-spacing: 0.5px;
+    color: var(--acento-btn);
+    line-height: 1.3;
+  }
+
+  .nombre-hero {
     font-weight: 600;
-    color: var(--acento-btn-hover);
-    border-radius: 20px;
-    border: 1px solid var(--acento-btn-hover);
-    padding: 0.2rem 1rem;
+    font-size: clamp(1.5rem, 1.8vw, 2rem);
+    letter-spacing: 0.5px;
+    color: #dda1dd;
+    line-height: 1.8;
+  }
+
+  .frase {
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1rem, 1.125rem + 0.5vw, 1.25rem);
+    max-width: 30rem;
+    color: var(--acento-btn);
   }
 </style>

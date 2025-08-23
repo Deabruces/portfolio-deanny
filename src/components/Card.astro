@@ -40,7 +40,7 @@ const TitleAnimationName = "title--" + identifier;
     <div class="footer__link">
       <a href={link} class="footer__links-external">
         <span class="footer__link-external">
-          <span class="text-view-project">View project</span>
+          <span class="text-view-project">Ver proyecto</span>
           <span class="icono-view-project"><ExternalLink /></span>
         </span>
       </a>
@@ -57,11 +57,11 @@ const TitleAnimationName = "title--" + identifier;
     box-shadow: 0 4px 8px rgba(87, 87, 87, 0.1);
     display: flex;
     flex-direction: column;
+    transition: scale 0.2s ease-in-out;
   }
 
   .card:hover {
-    transform: scale(1.02);
-    transition: transform 0.2s ease-in-out;
+    scale: 1.02;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     border-color: var(--acento-btn);
   }
@@ -70,9 +70,10 @@ const TitleAnimationName = "title--" + identifier;
     color: var(--text-color);
   }
   .header__title {
-    --font-size: clamp(1.3rem, 2vw, 1.5rem);
+    font-size: clamp(1.25rem, 1.375vw, 1.5rem);
+    font-weight: 600;
     margin-top: 5px;
-    padding: 32px 32px 0px 32px;
+    padding: 15px 32px 5px 32px;
     color: var(--acento-btn);
     line-height: 1.2;
     view-transition-name: var(--TitleAnimationName);
@@ -88,11 +89,11 @@ const TitleAnimationName = "title--" + identifier;
   }
   .card__content {
     color: var(--text-color);
-    padding: 32px 32px 32px 32px;
+    padding: 5px 32px 15px 32px;
     flex-grow: 1;
   }
   .content__text {
-    --font-size: clamp(0.8rem, 1.8vw, 1rem);
+    font-size: clamp(0.875rem, 0.9375vw, 1rem);
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;

@@ -7,6 +7,12 @@ import "../assets/styles/reset.css";
 import "../assets/styles/grid.css";
 import "../assets/styles/global.css";
 import BurgerMenu from "../components/BurgerMenu.astro";
+interface Props {
+  title?: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} | Deanny Bruces` : "Deanny Bruces";
 ---
 
 <!doctype html>
@@ -19,20 +25,20 @@ import BurgerMenu from "../components/BurgerMenu.astro";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <title>Portfolio Deanny Bruces</title>
-
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
 
   <body>
-    <header class="content-grid">
+    <header class="full-width">
       <div class="header-desktop">
         <Header>
           <div class="container-logo">
-            <a href="/" class="logo">&lt Deanny Bruces &gt</a>
+            <a href="/" class="logo">Deanny Bruces</a>
           </div>
           <Navigation />
           <Hora slot="widget-right" />
@@ -49,7 +55,7 @@ import BurgerMenu from "../components/BurgerMenu.astro";
     </header>
   </body>
 
-  <main class="content-grid"><slot /></main>
+  <main><slot /></main>
 
   <footer class="full-width footer">
     <Footer />
@@ -57,26 +63,20 @@ import BurgerMenu from "../components/BurgerMenu.astro";
 </html>
 
 <style>
-  html,
   body {
     background-color: var(--background-color);
-    font-family: "Inter", sans-serif;
-    color: var(--text-color);
-    background-attachment: fixed;
-  }
-
-  :global(.opened) + main {
-    padding-top: 68px;
-    @media (width >= 48rem) {
-      padding: 0;
-    }
+    font-family: "Lato", sans-serif;
+    color: var(--bg-color);
+    overflow-x: hidden;
   }
 
   header {
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 100;
   }
+
   .header-desktop {
     display: none;
   }
@@ -103,12 +103,9 @@ import BurgerMenu from "../components/BurgerMenu.astro";
   }
 
   .logo {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: var(--secondary-color);
-    text-decoration: underline;
-    text-decoration-thickness: 6px;
-    text-decoration-color: var(--acento-btn-hover);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--acento-btn);
   }
 
   @media (min-width: 768px) {

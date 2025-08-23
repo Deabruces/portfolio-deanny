@@ -1,16 +1,16 @@
 ---
 import "../assets/styles/reset.css";
 import "../assets/styles/global.css";
-import Dea from "../assets/images/dea.jpg";
+import Dea from "../assets/images/dea.png";
 import Location from "../assets/icons/location.svg";
 import SocialIcons from "../components/SocialIcons.astro";
 ---
 
 <div class="about">
   <div class="header-about">
-    <h1 class="about__title">I'm Deanny Bruces</h1>
+    <h1 class="about__title">Mi nombre es Deanny, me dicen Dea!</h1>
     <h2 class="description__text--profession">
-      Front-end Developer / Industrial Engineer
+      Front-end Developer / Ingeniera Industrial
     </h2>
   </div>
   <div class="about__right">
@@ -21,8 +21,8 @@ import SocialIcons from "../components/SocialIcons.astro";
       </div>
     </div>
     <div class="about__languages">
-      <span class="language">Spanish</span>
-      <span class="language">English</span>
+      <span class="language">Español</span>
+      <span class="language">Inglés</span>
     </div>
     <div class="container__social-icons">
       <SocialIcons />
@@ -31,78 +31,88 @@ import SocialIcons from "../components/SocialIcons.astro";
 
   <div class="about__description">
     <p class="description__text">
-      A front-end developer passionate about creating intuitive, accessible, and
-      visually compelling web experiences.
+      Apasionada por crear experiencias web intuitivas, accesibles y visualmente
+      atractivas.
     </p>
 
     <p class="description__text">
-      I've worked on creating modern interfaces using technologies such as HTML,
-      CSS, JavaScript, and frameworks like React.
+      He trabajado en la creación de interfaces modernas utilizando tecnologías
+      como HTML, CSS, JavaScript y frameworks como React.
     </p>
 
     <p class="description__text">
-      My approach combines design and code: I like to think about the user
-      experience from the first sketch to the last line of code.
+      Mi enfoque combina diseño y código: me gusta pensar en la experiencia del
+      usuario desde el primer boceto hasta la última línea de código.
     </p>
 
     <p class="description__text">
-      I firmly believe that a well-made website should not only look good but
-      also function quickly, be accessible, and adapt to any device.
+      Creo firmemente que un sitio web bien hecho no solo debe verse bien, sino
+      también funcionar rápidamente, ser accesible y adaptarse a cualquier
+      dispositivo.
     </p>
 
     <p class="description__text">
-      I've collaborated on various projects, understanding needs such as mobile
-      optimization and functionality-focused design.
+      He colaborado en diversos proyectos, comprendiendo necesidades como la
+      optimización móvil y el diseño centrado en la funcionalidad.
     </p>
 
     <p class="description__text">
-      love to constantly learn and improve, and that's why I continue to hone my
-      skills in web performance, best practices, and usability.
+      Me encanta aprender y mejorar constantemente, y por eso sigo
+      perfeccionando mis habilidades en rendimiento web, mejores prácticas y
+      usabilidad.
     </p>
 
     <p class="description__text">
-      I am always looking for new challenges and opportunities to grow as a
-      developer.
+      Siempre estoy buscando nuevos desafíos y oportunidades para crecer como
+      desarrolladora.
     </p>
 
     <p class="description__text">
-      If you're looking for someone who can bring your ideas to life with
-      creativity and technical precision, contact me.
+      Si estás buscando a alguien que pueda dar vida a tus ideas con creatividad
+      y precisión técnica, contáctame.
     </p>
 
     <p class="description__text">
-      In addition to programming, I enjoy collaborating with multidisciplinary
-      teams, contributing creative ideas, and maintaining clear and empathetic
-      communication.
+      Además de programar, disfruto colaborar con equipos multidisciplinarios,
+      contribuir con ideas creativas y mantener una comunicación clara y
+      empática.
     </p>
 
     <p class="description__text">
-      I seek to add real value through every project I participate in. Shall we
-      connect?
+      Busco aportar valor real en cada proyecto en el que participo. ¿Nos
+      conectamos?
     </p>
   </div>
 
   <style>
+    /** Mobile First **/
+
     .about {
       display: grid;
-      grid-template-areas:
-        "title title"
-        "right description"
-        "right description";
-      grid-template-columns: 2fr 3fr;
+      grid-template-areas: "title" "right" "description";
+      grid-template-columns: 1fr;
+      padding: 50px 20px;
       gap: 20px;
-      padding: 100px 0px;
+    }
+
+    .about__title {
+      text-align: center;
+      font-weight: 600;
+      color: var(--acento-btn);
+      margin-top: 5rem;
+      margin-bottom: 2rem;
+      line-height: 1;
     }
 
     .profile-image {
-      width: 300px;
-      height: 300px;
+      width: 250px;
+      height: 250px;
+      margin: 20px auto;
       border-radius: 50%;
       border: 1px solid var(--border-color);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       box-sizing: content-box;
       object-fit: cover;
-      margin: 35px 40px 0 40px;
     }
 
     .header-about {
@@ -112,30 +122,8 @@ import SocialIcons from "../components/SocialIcons.astro";
       align-items: center;
     }
 
-    .about__title {
-      text-align: center;
-      font-weight: 700;
-      color: var(--acento-btn);
-      margin-bottom: 10px;
-      line-height: 1;
-    }
-    .description__text--profession {
-      font-size: 2rem;
-      text-align: center;
-      color: var(--text-color);
-      margin-bottom: 20px;
-    }
-
     .about__description {
       grid-area: description;
-    }
-
-    .description__text {
-      font-size: 1.2rem;
-      color: var(--text-color);
-      margin: 15px 0;
-      line-height: 1.6;
-      padding: 20px 60px;
     }
 
     .description__title {
@@ -144,17 +132,26 @@ import SocialIcons from "../components/SocialIcons.astro";
       padding: 0 60px;
     }
 
+    .description__text--profession {
+      margin-bottom: 0px;
+      padding-top: 0;
+      font-weight: 400;
+      text-align: center;
+      color: var(--text-color);
+    }
+
+    .description__text {
+      padding: 0 20px;
+      color: var(--text-color);
+      margin: 15px 0;
+      line-height: 1.6;
+    }
+
     .about__right {
       display: flex;
       flex-direction: column;
       align-items: center;
       grid-area: right;
-    }
-
-    .about__image {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
     }
 
     .about__location {
@@ -167,6 +164,13 @@ import SocialIcons from "../components/SocialIcons.astro";
       margin-top: 10px;
       color: var(--text-color);
     }
+
+    .about__image {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
     .image__text {
       display: flex;
       flex-direction: row;
@@ -175,11 +179,6 @@ import SocialIcons from "../components/SocialIcons.astro";
       font-size: 1.2rem;
       color: var(--text-color);
       margin-top: 10px;
-    }
-
-    .description__text--profession {
-      margin-bottom: 20px;
-      padding-top: 0;
     }
 
     .container__social-icons {
@@ -200,29 +199,38 @@ import SocialIcons from "../components/SocialIcons.astro";
       font-size: 1rem;
     }
 
-    @media (max-width: 768px) {
+    /*Tablet*/
+
+    @media (min-width: 768px) {
+    }
+
+    /* desktop */
+
+    @media (min-width: 1024px) {
       .about {
-        grid-template-areas: "title" "right" "description";
-        grid-template-columns: 1fr;
-        padding: 50px 20px;
+        grid-template-areas:
+          "title title"
+          "right description"
+          "right description";
+        grid-template-columns: 2fr 3fr;
       }
 
       .about__title {
-        font-size: 2.5rem;
+        font-size: 3rem;
+      }
+      .profile-image {
+        margin: 0px auto;
       }
 
-      .profile-image {
-        width: 250px;
-        height: 250px;
-        margin: 20px auto;
+      .description__text--profession {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 5rem;
+        padding-top: 0;
       }
 
       .description__text {
-        padding: 0 20px;
-      }
-
-      .container__social-icons {
-        padding: 20px 20px 0px 20px;
+        padding: 0px 6rem 2rem 0px;
       }
     }
   </style>
