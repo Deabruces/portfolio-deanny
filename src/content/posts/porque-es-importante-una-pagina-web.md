@@ -79,4 +79,4 @@ La clave es: Optimización SEO, Buen diseño y experiencia del usuario, Estrateg
 Tener un sitio web en 2025 ya no es un lujo; es una necesidad. Es tu herramienta para atraer clientes, vender más y crecer en el mundo digital.
 
 **¿Quieres un sitio web optimizado para tu negocio?**
-Puedo ayudarte a crear un sitio web rápido, profesional y orientado a resultados. **[Contáctame aquí]("../../../pages/contacto.astro")**.
+Puedo ayudarte a crear un sitio web rápido, profesional y orientado a resultados. **[Contáctame aquí](/contacto)**.
