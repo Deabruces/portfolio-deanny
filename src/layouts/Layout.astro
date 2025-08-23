@@ -9,8 +9,9 @@ import "../assets/styles/global.css";
 import BurgerMenu from "../components/BurgerMenu.astro";
 interface Props {
   title?: string;
+  description: string;
 }
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 const pageTitle = title ? `${title} | Deanny Bruces` : "Deanny Bruces";
 ---
 
@@ -28,7 +29,7 @@ const pageTitle = title ? `${title} | Deanny Bruces` : "Deanny Bruces";
       rel="stylesheet"
     />
     <title>{pageTitle}</title>
-
+    <meta name="description" content={description} />
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
 
