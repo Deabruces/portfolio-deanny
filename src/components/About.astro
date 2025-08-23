@@ -1,6 +1,5 @@
 ---
-import "../assets/styles/reset.css";
-import "../assets/styles/global.css";
+import { Image } from 'astro:assets';
 import Dea from "../assets/images/dea.png";
 import Location from "../assets/icons/location.svg";
 import SocialIcons from "../components/SocialIcons.astro";
@@ -15,7 +14,7 @@ import SocialIcons from "../components/SocialIcons.astro";
   </div>
   <div class="about__right">
     <div class="about__image">
-      <img src={Dea.src} alt="foto de Deanny" class="profile-image" />
+      <Image src={Dea} alt="foto de Deanny" class="profile-image" />
       <div class="about__location">
         <Location /><span>Santiago / Chile</span>
       </div>
