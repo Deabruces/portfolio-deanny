@@ -1,8 +1,8 @@
 <div class="header-mobile">
   <button
     class="menu-burger-button"
-    onclick="this.classList.toggle('active');this.setAttribute('aria-expanded', this.classList.contains('active'))"
     aria-label="Main Menu"
+    aria-expanded="false"
   >
     <svg width="40" height="40" viewBox="0 0 100 100">
       <path
@@ -128,12 +128,14 @@
     }
   </style>
 
-  <script is:inline>
+  <script>
     const burger = document.querySelector(".menu-burger-button");
     const menuBurger = document.querySelector(".nav-burger");
 
-    burger.addEventListener("click", () => {
-      menuBurger.classList.toggle("active");
+    burger?.addEventListener("click", () => {
+      const isActive = menuBurger?.classList.toggle("active");
+      burger.setAttribute("aria-expanded", isActive);
+      burger.classList.toggle("active", isActive);
     });
   </script>
 </div>
