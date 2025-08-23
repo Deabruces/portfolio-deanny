@@ -6,7 +6,10 @@ import CardBlog from "../../components/CardBlog.astro";
 const posts = await getCollection("posts");
 ---
 
-<Layout title="Blog" description="Lee los últimos artículos de Deanny Bruces sobre desarrollo web, tecnología y más. Un espacio para compartir conocimientos y experiencias.">
+<Layout
+  title="Blog"
+  description="Lee los últimos artículos de Deanny Bruces sobre desarrollo web, tecnología y más. Un espacio para compartir conocimientos y experiencias."
+>
   <section class="blog-list content-grid">
     <div class="blog">
       <h1 class="blog-title">Mi <span>Blog</span></h1>
@@ -47,7 +50,7 @@ const posts = await getCollection("posts");
     text-align: justify;
   }
 
-  .blog-posts {
+  .blog_posts {
     display: grid;
     grid-template-columns: repeat(auto-fit, 320px);
     flex-wrap: wrap;
