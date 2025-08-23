@@ -1,0 +1,85 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+import CardBlog from "../../../components/CardBlog.astro";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("posts");
+  const allCategoryRefs = allPosts.flatMap((post) => post.data.categories);
+  const uniqueCategoryIds = [...new Set(allCategoryRefs.map((cat) => cat.id))];
+
+  return Promise.all(
+    uniqueCategoryIds.map(async (categoryId) => {
+      const categoryEntry = await getEntry("categories", categoryId);
+      const filteredPosts = allPosts.filter((post) =>
+        post.data.categories.some((catRef) => catRef.id === categoryId)
+      );
+      return {
+        params: { category: categoryId },
+        props: {
+          category: categoryEntry,
+          posts: filteredPosts,
+        },
+      };
+    })
+  );
+}
+
+const { category, posts } = Astro.props;
+---
+
+<Layout
+  title={`Category: ${category?.data.name}`}
+  description={`Posts in category ${category?.data.name}`}
+>
+  <section class="blog-list content-grid">
+    <div class="blog">
+      <h1 class="blog-title">Categoría: <span>{category?.data.name}</span></h1>
+    </div>
+    <div class="blog_posts">
+      {posts.map((post) => <CardBlog post={post} />)}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /**Mobile First **/
+
+  .blog-title {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 4rem;
+    margin-top: 9rem;
+  }
+
+  .blog-title span {
+    color: var(--acento-btn);
+  }
+
+  .container-description {
+    margin-bottom: 3rem;
+  }
+
+  .text-description {
+    color: var(--text-color);
+    text-align: justify;
+  }
+
+  .blog_posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 320px);
+    flex-wrap: wrap;
+    place-content: space-between;
+    gap: 3rem;
+  }
+
+  /*Tablet*/
+
+  @media (min-width: 768px) {
+  }
+
+  /* desktop */
+
+  @media (min-width: 1024px) {
+  }
+</style>
