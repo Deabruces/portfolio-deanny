@@ -6,6 +6,7 @@
     width: 100%;
     padding-inline: var(--spacing-lg);
     max-width: 1232px;
+    padding-block-start: 6lh;
 }
 
 .container{
