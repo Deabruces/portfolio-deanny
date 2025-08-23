@@ -17,7 +17,7 @@ const ImgAnimationName = "image--" + project.id;
 const TitleAnimationName = "title--" + project.id;
 ---
 
-<Layout>
+<Layout title={project.data.title} description={project.data.summary}>
   <div class="markdown">
     <div class="container">
       <h1 class="title">{project.data.title}</h1>
