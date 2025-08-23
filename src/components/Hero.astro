@@ -5,13 +5,13 @@ import { Picture } from "astro:assets";
 import Dea from "../assets/images/dea.jpg";
 ---
 
-<section class="bg-hero full-width">
+<section class="hero full-width">
   <div class="hero-text">
     <div class="container-saludo">
       <p class="greeting saludo"></p>
       <p class="saludo">Bienvenid@s a mi mundo de desarrollo web</p>
     </div>
-    <Picture src={Dea} alt="foto de Deanny" class="img-hero" />
+    <Picture src={Dea} alt="foto de Deanny" class="img-hero" height={200} />
     <h2 class="nombre-hero">Soy Deanny 👋🏻</h2>
     <h1 class="title">
       <p class="rol">Front-end Developer</p>
@@ -25,13 +25,12 @@ import Dea from "../assets/images/dea.jpg";
 </section>
 
 <style>
-  .bg-hero {
-    /* Sección Hero / Portada con Canvas de partículas */
-    height: 100vh;
+  .hero {
+    padding-block: 2lh;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     position: relative;
     overflow: hidden;
     background: #221034;
@@ -44,11 +43,11 @@ import Dea from "../assets/images/dea.jpg";
   }
 
   .img-hero {
-    width: 200px;
-    height: 200px;
+    width: 100%;
     box-sizing: content-box;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1;
     border-radius: 50%;
+    object-fit: cover;
   }
 
   .hero-text {
@@ -110,28 +109,4 @@ import Dea from "../assets/images/dea.jpg";
     max-width: 30rem;
     color: var(--acento-btn);
   }
-
-  /*
-  .greeting {
-    font-weight: 500;
-    padding: 0.2rem 1rem;
-    line-height: 1.4;
-    text-wrap-mode: nowrap;
-  }
-  */
 </style>
-
-<script is:inline>
-  /*
-      function obtenerSaludo() {
-        const horaActual = new Date().getHours();
-        if (horaActual < 12) {
-          return "¡Buenos Dias!";
-        } else if (horaActual < 18) {
-          return "¡Buenas Tardes!";
-        } else {
-          return "¡Buenas Noches!";
-        }
-      }
-      */
-</script>
