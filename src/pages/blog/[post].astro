@@ -13,7 +13,9 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const categories = await Promise.all(post.data.categories.map(cat => getEntry(cat)));
+const categories = await Promise.all(
+  post.data.categories.map((cat) => getEntry(cat))
+);
 ---
 
 <Layout title={post.data.title} description={post.data.summary}>
@@ -23,9 +25,17 @@ const categories = await Promise.all(post.data.categories.map(cat => getEntry(ca
         {post.data.title}
       </h1>
       <div class="pill-container">
-        {categories.map(cat => (
-          <a href={`/blog/categories/${cat.id}`} class="pill" style={`--category-color: var(${cat.data.color})`}>{cat.data.name}</a>
-        ))}
+        {
+          categories.map((cat) => (
+            <a
+              href={`/blog/categories/${cat.id}`}
+              class="pill"
+              style={`--category-color: var(${cat.data.color})`}
+            >
+              {cat.data.name}
+            </a>
+          ))
+        }
       </div>
       <img
         src={post.data.image.src}
@@ -43,6 +53,25 @@ const categories = await Promise.all(post.data.categories.map(cat => getEntry(ca
 
 <style>
   @import url("../../assets/styles/md.css");
+
+  .markdown {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+    padding-inline: var(--spacing-lg);
+    max-width: 1232px;
+    padding-block-start: 6lh;
+    padding-inline: 2rem;
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 2.25vw, 2.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.4rem, 2.25vw, 3rem);
+  }
 
   .pill-container {
     display: flex;
@@ -68,5 +97,11 @@ const categories = await Promise.all(post.data.categories.map(cat => getEntry(ca
   .pill:hover {
     background-color: var(--category-color);
     color: #fff;
+  }
+
+  .post-image {
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    object-fit: cover;
   }
 </style>
