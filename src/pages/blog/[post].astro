@@ -1,7 +1,6 @@
 ---
 import { getCollection, render, getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-// import "../../assets/styles/md.css";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -53,27 +52,7 @@ const categories = await Promise.all(
 
 <style>
   @import url("../../assets/styles/md.css");
-
-  .markdown {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    width: 100%;
-    padding-inline: var(--spacing-lg);
-    max-width: 1232px;
-    padding-block-start: 6lh;
-    padding-inline: 2rem;
-  }
-
-  h1 {
-    font-size: clamp(1.6rem, 2.25vw, 2.5rem);
-  }
-
-  h2 {
-    font-size: clamp(1.4rem, 2.25vw, 3rem);
-  }
-
-  .pill-container {
+  */ .pill-container {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -92,16 +71,11 @@ const categories = await Promise.all(
     padding: 0.2rem 0.6rem;
     transition: all 300ms ease-in-out;
     line-height: 1.25;
+    margin-bottom: 1rem;
   }
 
   .pill:hover {
     background-color: var(--category-color);
     color: #fff;
-  }
-
-  .post-image {
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    object-fit: cover;
   }
 </style>
