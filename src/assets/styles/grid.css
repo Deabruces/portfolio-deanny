@@ -1,7 +1,7 @@
 .content-grid {
     --padding-inline: 1rem;
-    --content-max-width: 1140px;
-    --breakout-max-width: 1440px;
+    --content-max-width: 680px;
+    --breakout-max-width: 1140px;
     --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2 );
 
     display: grid;
