@@ -4,8 +4,7 @@
     flex-flow: row wrap;
     justify-content: center;
     width: 100%;
-    padding-inline: var(--spacing-lg);
-    max-width: 1232px;
+    padding-inline: 2rem;
     padding-block-start: 6lh;
 }
 
@@ -13,29 +12,46 @@
     max-width: 43.75rem;
 }
 
-.markdown :global(h1){
+* :global(h1){
+    font-size: clamp(1.6rem, 2.25vw, 2.5rem);
     margin-bottom: 2rem;
     line-height: 1.2;
     text-align: center;
 }
 
-.markdown :global(h2){
-    margin-bottom: 0.75rem;
+* :global(h2){
     line-height: 1.2;
+    font-size: clamp(1.4rem, 1.8vw, 3rem);
+    margin-bottom: 1lh;
 }
 
-.markdown :global(p){
-    margin-block: 1rem;
+* :global(h3){
+    margin-bottom: 1lh;
+    line-height: 1.2;
+    font-size: clamp(1.2rem, 1.6vw, 2.5rem);
 }
 
+* :global(p){
+    margin-bottom: 1lh;
+}
 
-.markdown :global(iframe){
+* :global(a){
+    text-decoration: none;
+    font-size: clamp(1.4rem, 1.5vw, 1.6rem);
+}
+
+* :global(li:last-child){
+    margin-bottom: 1lh;
+}
+
+.post-image{
+    border-radius: 8px;
+    margin-bottom: 3rem;
+    object-fit: cover;
     width: 100%;
-    height: 100dvh;
-    border: 1px solid var(--acento-color);
-    margin-block: 1lh;
+    height: auto;
+    aspect-ratio: 16 / 10;
 }
-
 
 .project-image{
     width: 70%;
@@ -53,18 +69,5 @@
     aspect-ratio: 16/9;
     
 }
-.preview-container {
-    width: 100%;
-    height: 100dvh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-block: 1lh;
-    padding: 30px;
-}
-.preview-container iframe {
-    width: 50%;
-    height: 50%;
-    border: none;
-    margin-block: 1lh;
-}
+
+
