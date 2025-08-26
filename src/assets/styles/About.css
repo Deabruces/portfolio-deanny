@@ -10,10 +10,10 @@
 
 .about__title {
   text-align: center;
+  font-size: clamp(1.8rem, 2.4vw, 2.6rem);
   font-weight: 600;
   color: var(--acento-btn);
   margin-top: 5rem;
-  margin-bottom: 2rem;
   line-height: 1;
 }
 
@@ -22,7 +22,7 @@
   height: 250px;
   margin: 20px auto;
   border-radius: 50%;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--acento-btn);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   box-sizing: content-box;
   object-fit: cover;
@@ -51,6 +51,7 @@
   font-weight: 400;
   text-align: center;
   color: var(--text-color);
+  font-size: clamp(1.4rem, 2vw, 2.2rem);
 }
 
 .description__text {
@@ -128,15 +129,11 @@
     grid-template-columns: 2fr 3fr;
   }
 
-  .about__title {
-    font-size: 3rem;
-  }
   .profile-image {
     margin: 0px auto;
   }
 
   .description__text--profession {
-    font-size: 2rem;
     text-align: center;
     margin-bottom: 5rem;
     padding-top: 0;
