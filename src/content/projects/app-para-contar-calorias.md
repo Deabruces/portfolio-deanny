@@ -31,14 +31,6 @@ Esta aplicación te permite gestionar fácilmente tu ingesta calórica diaria y 
 - Modern CSS
 - Local storage for data persistence
 
-## Vista previa
-
-<div class="preview-container">
-  
-<iframe src="https://calorie-tracker.deannybruces.com/" width="100%" style="height:100dvh;border: none;margin-block:1lh;"></iframe>
-
-</div>
-
 ## Código fuente
 
 Puedes encontrar el código fuente de este proyecto en [GitHub](https://github.com/Deabruces/calorie-tracker)

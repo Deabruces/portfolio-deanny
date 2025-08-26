@@ -15,7 +15,7 @@ My Green Taste es un blog de cocina saludable creado para inspirar a las persona
 El proyecto se desarrolló en WordPress utilizando el tema Kadence, que fue completamente personalizado para reflejar un diseño limpio y funcional alineado con los objetivos del blog.
 El blog incluye secciones de recetas, consejos, cultura y una sección de preguntas frecuentes, todas diseñadas para proporcionar una experiencia de usuario integral y atractiva.
 
-## 🌱 Características Clave
+## Características Clave
 
 - **Diseño Personalizado:** El tema Kadence fue personalizado para crear un diseño único y atractivo que refleja la identidad del blog.
 - **Diseño Responsivo:** El blog está diseñado para ser completamente responsivo, asegurando una gran experiencia de usuario en todos los dispositivos.
@@ -59,14 +59,6 @@ El blog incluye secciones de recetas, consejos, cultura y una sección de pregun
 - Secciones organizadas para guiar al usuario desde la inspiración hasta la acción.
 - Uso de imágenes atractivas y tipografía legible para reforzar la identidad del blog.
 - Se garantizó que el diseño sea responsivo y se adapte a diferentes dispositivos.
-
-## 📱 Vista previa
-
-<div class="preview-container">
-
-<iframe src="https://mygreentaste.com/" width="100%" style="height:100dvh;border: none;margin-block:1lh;"></iframe>
-
-</div>
 
 ## Código fuente
 

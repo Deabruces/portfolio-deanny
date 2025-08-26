@@ -39,14 +39,6 @@ Ir a la [demostración en vivo](https://contador-de-caracteres.deannybruces.com/
 - Diseño adaptable para una visualización óptima en todos los dispositivos
 - Funciones de accesibilidad para garantizar la usabilidad para todos los usuarios
 
-## Vista previa
-
-<div class="preview-container">
-
-<iframe src="https://contador-de-caracteres.deannybruces.com/" width="100%"  style="height:100dvh;border: none;margin-block:1lh;"></iframe>
-
-</div>
-
 ## Código fuente
 
 Puedes encontrar el código fuente de este proyecto en [GitHub](https://github.com/Deabruces/contador-de-caracteres)

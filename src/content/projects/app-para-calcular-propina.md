@@ -9,11 +9,7 @@ starred: true
 
 <div class="container content-grid">
 
-Ir a la [demostración en vivo](https://calculator.deannybruces.com/) de la Aplicación Calculadora de propinas.
-
-Esta plantilla proporciona una configuración básica para que React funcione en Vite
-
-Actualmente, hay dos plugins oficiales disponibles:
+Ir a la [demostración en vivo](https://calculator.deannybruces.com/) de la Aplicación Calculadora de propinas. Esta plantilla proporciona una configuración básica para que React funcione en Vite
 
 ## Calculadora de propinas
 
@@ -32,14 +28,6 @@ Una aplicación web moderna para calcular propinas y gestionar pedidos de menú,
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/)
 - CSS moderno
-
-## Vista previa
-
-<div class="preview-container">
-
-<iframe src="https://calculator.deannybruces.com/" width="100%" style="height:100dvh;border: none;margin-block:1lh;"></iframe>
-
-</div>
 
 ## Código fuente
 
