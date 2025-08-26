@@ -10,25 +10,27 @@ const projects = await getCollection("projects");
   description="Explora los proyectos de desarrollo web de Deanny Bruces. Una colección de aplicaciones web, sitios web y otros proyectos que demuestran mis habilidades y experiencia."
 >
   <section class="projects content-grid">
-    <h1 class="projects_title">
-      Algunos de mis <span>Proyectos Recientes</span>
-    </h1>
-    <div class="cards">
-      {
-        projects.map((project) => {
-          return (
-            <Card
-              link={`/projects/${project.id}`}
-              image={project.data.image}
-              title={project.data.title}
-              summary={project.data.summary}
-              date={project.data.date}
-              tags={project.data.tags || []}
-              identifier={project.id}
-            />
-          );
-        })
-      }
+    <div class="breakout">
+      <h1 class="projects_title">
+        Algunos de mis <span>Proyectos Recientes</span>
+      </h1>
+      <div class="cards">
+        {
+          projects.map((project) => {
+            return (
+              <Card
+                link={`/projects/${project.id}`}
+                image={project.data.image}
+                title={project.data.title}
+                summary={project.data.summary}
+                date={project.data.date}
+                tags={project.data.tags || []}
+                identifier={project.id}
+              />
+            );
+          })
+        }
+      </div>
     </div>
   </section>
 </Layout>

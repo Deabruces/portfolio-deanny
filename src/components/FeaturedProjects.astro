@@ -6,45 +6,47 @@ const projects = await getCollection("projects");
 ---
 
 <section class="featured-projects content-grid">
-  <h2 class="subtitle">
-    Algunos de mis <span class="subtitle__span">Proyectos Destacados</span>
-  </h2>
-  <div>
-    <p class="featured-projects__description">
-      Aquí encontrarás algunos de mis proyectos destacados: aplicaciones creadas
-      con React, TypeScript, HTML y CSS, además de mi blog de cocina en
-      WordPress.
-    </p>
-    <p class="featured-projects__description">
-      Cada trabajo combina funcionalidad, diseño moderno y una experiencia
-      pensada para las personas.
-    </p>
-    <p class="featured-projects__description">
-      Y esto es solo el comienzo: seguiré sumando proyectos con nuevas
-      tecnologías para seguir creando experiencias digitales únicas.
-    </p>
-  </div>
-  <div class="cards">
-    {
-      projects
-        .filter((project) => project.data?.starred)
-        .map((project) => {
-          return (
-            <Card
-              link={`/projects/${project.id}`}
-              image={project.data.image}
-              title={project.data.title}
-              date={project.data.date}
-              summary={project.data.summary}
-              tags={project.data.tags || []}
-              identifier={project.id}
-            />
-          );
-        })
-    }
-  </div>
-  <div class="button-container">
-    <ButtonCta href="/proyectos"> Ver todos los proyectos </ButtonCta>
+  <div class="breakout">
+    <h2 class="subtitle">
+      Algunos de mis <span class="subtitle__span">Proyectos Destacados</span>
+    </h2>
+    <div>
+      <p class="featured-projects__description">
+        Aquí encontrarás algunos de mis proyectos destacados: aplicaciones
+        creadas con React, TypeScript, HTML y CSS, además de mi blog de cocina
+        en WordPress.
+      </p>
+      <p class="featured-projects__description">
+        Cada trabajo combina funcionalidad, diseño moderno y una experiencia
+        pensada para las personas.
+      </p>
+      <p class="featured-projects__description">
+        Y esto es solo el comienzo: seguiré sumando proyectos con nuevas
+        tecnologías para seguir creando experiencias digitales únicas.
+      </p>
+    </div>
+    <div class="cards">
+      {
+        projects
+          .filter((project) => project.data?.starred)
+          .map((project) => {
+            return (
+              <Card
+                link={`/projects/${project.id}`}
+                image={project.data.image}
+                title={project.data.title}
+                date={project.data.date}
+                summary={project.data.summary}
+                tags={project.data.tags || []}
+                identifier={project.id}
+              />
+            );
+          })
+      }
+    </div>
+    <div class="button-container">
+      <ButtonCta href="/proyectos"> Ver todos los proyectos </ButtonCta>
+    </div>
   </div>
 </section>
 
