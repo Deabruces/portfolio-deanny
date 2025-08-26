@@ -25,7 +25,7 @@
 
     --color-1: light-dark(#fefcff, #1A0629);
     --color-2: light-dark(#F2E9F2, #21083B);
-    --color-3: light-dark(#E1EFF5, #47086E);
+    --color-3: light-dark(#e7ccf4, #47086E);
 
 
     
@@ -35,9 +35,9 @@
     --section-light: light-dark(#F2E9F2, #1A1A2E);
     --section-dark: light-dark(#f4eef5, #1A0629);
     --h1-h2-color: light-dark(#6e6b6b, #e6e0e7);
-    --h3-color: light-dark(#edd0ed, #A29BFE);
+    --h3-color: light-dark(#DDA0DD, #A29BFE);
     --acento-btn: light-dark(#DDA0DD, #8E44AD);
-    --acento-btn-hover: light-dark(#A2D5F2, #c38cf6);
+    --acento-btn-hover: light-dark(#b157da, #c38cf6);
     --bg-color: light-dark(#F2E9F2, #26122b);
 
 
