@@ -1,8 +1,8 @@
 ---
-title: "¿Por qué es importante tener un sitio web para tu negocio en 2025?"
+title: "¿Por qué es importante tener un sitio web para tu negocio hoy en día?"
 image: "./images/emprendedora-con-laptop.webp"
 summary: "Explora la importancia de tener una presencia en línea en 2025 y cómo un sitio web puede beneficiar a tu negocio."
-date: "05-08-2025"
+date: "08-05-2025"
 categories: ["negocios"]
 ---
 

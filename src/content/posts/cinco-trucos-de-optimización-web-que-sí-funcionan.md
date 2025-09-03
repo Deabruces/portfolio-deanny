@@ -1,12 +1,12 @@
 ---
 title: "¿Tu web carga lento? Aquí tienes 5 trucos de optimización que sí funcionan"
-image: "./images/Loading.webp"
-summary: "Descubre cinco estrategias efectivas para mejorar la velocidad de carga de tu sitio web y ofrecer una mejor experiencia a tus usuarios."
-date: "15-08-2025"
+image: "./images/loading.webp"
+summary: "Optimiza la velocidad de tu sitio web con estos 5 trucos probados y mejora tu SEO, conversiones y experiencia de usuario. Aprende cómo acelerar tu página y destacar en Google."
+date: "08-10-2025"
 categories: ["rendimiento"]
 ---
 
-¿Te ha pasado?, en estos tiempos, la inmediatez es clave: más del 53 % de los usuarios móviles abandonan una página si esta tarda más de 3 segundos en cargar.
+¿Te ha pasado?, en estos tiempos, la inmediatez es clave: más del 53% de los usuarios móviles abandonan una página si esta tarda más de 3 segundos en cargar.
 
 No tener una web rápida no solo genera frustración: también penaliza tu SEO, reduce conversiones y daña tu reputación digital.
 
