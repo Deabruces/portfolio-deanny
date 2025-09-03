@@ -1,4 +1,5 @@
 
+
 .markdown{
     display: flex;
     flex-flow: row wrap;
@@ -44,7 +45,7 @@
     margin-bottom: 1lh;
 }
 
-.post-image{
+* :global(.post-image){
     border-radius: 8px;
     margin-bottom: 3rem;
     object-fit: cover;
@@ -53,7 +54,7 @@
     aspect-ratio: 16 / 10;
 }
 
-.project-image{
+* :global(.project-image){
     width: 70%;
     margin: 0 auto;
     display: flex;
@@ -62,7 +63,7 @@
     margin-bottom: 3rem;
 
 }
-.project-image img{
+* :global(.project-image img){
     width: 100%;
     height: auto;
     border-radius: 8px;
@@ -70,4 +71,11 @@
     
 }
 
-
+* :global(pre.astro-code) {
+    background: #2d2d2d;
+    border-radius: 8px;
+    color: #f8f8f2;
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+}

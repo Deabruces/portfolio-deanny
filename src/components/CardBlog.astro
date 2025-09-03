@@ -29,7 +29,8 @@ for (const cat of post.data.categories) {
         <a
           href={`/blog/categories/${cat?.data.id}`}
           class="category"
-          style={`--category-color: var(${cat?.data.color})`}>
+          style={`--category-color: var(${cat?.data.color})`}
+        >
           {cat?.data.name}
         </a>
       ))
@@ -40,12 +41,13 @@ for (const cat of post.data.categories) {
   </h2>
   <p class="excerpt">{post.data.summary}</p>
   <div class="footer">
-    <a href={`/blog/${post.id}`}>Read more</a>
+    <a href={`/blog/${post.id}`}>Leer más</a>
   </div>
 </article>
 
 <style>
   .card {
+    display: grid;
     border: 1px solid var(--primary-color);
     border-radius: 8px;
     overflow: hidden;
