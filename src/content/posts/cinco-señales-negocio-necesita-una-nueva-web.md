@@ -28,7 +28,9 @@ Un sitio lento no solo afecta la experiencia del cliente, también perjudica tu 
 
 ## 2️⃣ No se adapta bien a celulares
 
-Hoy más del 70% de las visitas web provienen de dispositivos móviles. Es crucial que tu sitio web esté optimizado para estos dispositivos. Si tu página no se ve bien en teléfonos y tabletas, podrías estar perdiendo una gran cantidad de tráfico y clientes potenciales.
+Hoy más del 70% de las visitas web provienen de dispositivos móviles. Es crucial que tu sitio web esté optimizado para estos dispositivos.
+
+Si tu página no se ve bien en teléfonos y tabletas, podrías estar perdiendo una gran cantidad de tráfico y clientes potenciales.
 
 Si los textos se ven pequeños, el menú es incómodo o las imágenes se descuadran, estás perdiendo oportunidades.
 
@@ -87,4 +89,3 @@ Puedo ayudarte a crear un sitio web rápido, profesional y orientado a resultado
 - [¿Tu web carga lento? Aquí tienes 5 trucos de optimización que sí funcionan](/blog/cinco-trucos-de-optimizaci%C3%B3n-web-que-s%C3%AD-funcionan)
 - [El futuro es móvil: Por qué Mobile First es imprescindible para una página web](/blog/el-futuro-es-movil)
 - [Responsive Design: Cómo hacer que tu web se adapte a cualquier pantalla](/blog/diseño-responsive)
-- [5 trucos para mejorar la experiencia de usuario en tu web](/blog/experiencia-de-usuario)
