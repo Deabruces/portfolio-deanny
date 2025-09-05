@@ -1,6 +1,6 @@
 ---
 title: "¿Tu web carga lento? Aquí tienes 5 trucos de optimización que sí funcionan"
-image: "./images/loading.webp"
+image: "./images/loading_slow.webp"
 summary: "Optimiza la velocidad de tu sitio web con estos 5 trucos probados y mejora tu SEO, conversiones y experiencia de usuario. Aprende cómo acelerar tu página y destacar en Google."
 date: "08-10-2025"
 categories: ["rendimiento"]
