@@ -114,19 +114,25 @@ for (const cat of post.data.categories) {
   .footer {
     display: flex;
     align-items: center;
-    justify-content: end;
-    padding: 8px 12px;
+    justify-content: center;
     text-align: right;
+    background-color: var(--h3-color);
   }
 
   .footer a {
-    font-size: 12px;
+    width: 100%;
+    height: 100%;
+    padding: 8px 12px;
+    font-size: 1.3rem;
+    color: #e6e0e7;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease-in-out;
+    transition: all 300ms ease-in-out;
   }
 
   .footer a:hover {
     text-decoration: underline;
+    color: var(--acento-btn-hover);
+    background-color: var(--color-3);
   }
 </style>
