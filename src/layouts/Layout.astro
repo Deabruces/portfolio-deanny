@@ -17,6 +17,8 @@ const pageTitle = title ? `${title} | Deanny Bruces` : "Deanny Bruces";
 const pageImage = image
   ? new URL(image, Astro.url.origin).href
   : new URL("/favicon_dea-logo.png", Astro.url.origin).href;
+
+import WhatsAppButton from "../components/WhatsAppButton.astro";
 ---
 
 <!doctype html>
@@ -102,6 +104,8 @@ const pageImage = image
   </body>
 
   <main><slot /></main>
+
+  <WhatsAppButton />
 
   <footer class="full-width footer">
     <Footer />
