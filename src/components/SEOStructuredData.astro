@@ -1,0 +1,134 @@
+---
+interface Props {
+  type?: 'website' | 'article' | 'blog' | 'portfolio';
+  title?: string;
+  description?: string;
+  url?: string;
+  image?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  categories?: string[];
+}
+
+const { 
+  type = 'website', 
+  title, 
+  description, 
+  url, 
+  image, 
+  publishedTime, 
+  modifiedTime, 
+  author,
+  categories 
+} = Astro.props;
+
+const baseUrl = 'https://www.deannybruces.com';
+const defaultImage = `${baseUrl}/favicon_dea-logo.png`;
+
+// Base person/organization schema
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Deanny Bruces",
+  "jobTitle": "Front-end Developer",
+  "description": "Ingeniero Industrial y Desarrolladora Web especializada en crear experiencias web memorables con enfoque en accesibilidad y rendimiento.",
+  "url": baseUrl,
+  "image": defaultImage,
+  "sameAs": [
+    "https://github.com/deannybruces",
+    "https://linkedin.com/in/deannybruces"
+  ],
+  "knowsAbout": ["Desarrollo Web", "Frontend", "React", "Astro", "JavaScript", "CSS", "HTML"],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Freelance"
+  }
+};
+
+// Website schema
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Deanny Bruces - Portfolio",
+  "description": description || "Portafolio de Deanny Bruces, Desarrolladora Frontend especializada en crear experiencias web memorables.",
+  "url": baseUrl,
+  "author": personSchema,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${baseUrl}/blog?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
+
+// Article schema for blog posts
+const articleSchema = type === 'article' ? {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "image": image || defaultImage,
+  "url": url || Astro.url.href,
+  "datePublished": publishedTime,
+  "dateModified": modifiedTime || publishedTime,
+  "author": {
+    "@type": "Person",
+    "name": author || "Deanny Bruces",
+    "url": baseUrl
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Deanny Bruces",
+    "url": baseUrl,
+    "logo": {
+      "@type": "ImageObject",
+      "url": defaultImage
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": url || Astro.url.href
+  },
+  ...(categories && categories.length > 0 && {
+    "keywords": categories.join(', '),
+    "articleSection": categories[0]
+  })
+} : null;
+
+// Breadcrumb schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": baseUrl
+    }
+  ]
+};
+
+// Add breadcrumb items based on current path
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+pathSegments.forEach((segment, index) => {
+  const position = index + 2;
+  const name = segment === 'blog' ? 'Blog' : 
+               segment === 'proyectos' ? 'Proyectos' :
+               segment === 'sobre-mi' ? 'Sobre Mí' :
+               segment === 'contacto' ? 'Contacto' :
+               segment.charAt(0).toUpperCase() + segment.slice(1);
+  
+  breadcrumbSchema.itemListElement.push({
+    "@type": "ListItem",
+    "position": position,
+    "name": name,
+    "item": `${baseUrl}/${pathSegments.slice(0, index + 1).join('/')}`
+  });
+});
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)}></script>
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)}></script>
+{articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>}
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>

@@ -9,7 +9,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://wwww.deannybruces.com',
+  site: 'https://www.deannybruces.com',
   integrations: [react(), sitemap()],
   adapter: vercel()
 });
