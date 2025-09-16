@@ -17,7 +17,15 @@ const categories = await Promise.all(
 );
 ---
 
-<Layout title={post.data.title} description={post.data.summary}>
+<Layout 
+  title={post.data.title} 
+  description={post.data.summary}
+  type="article"
+  publishedTime={post.data.date}
+  author="Deanny Bruces"
+  keywords={post.data.categories?.map(cat => cat.id).join(', ')}
+  image={post.data.image?.src}
+>
   <div class="markdown">
     <div class="container">
       <h1 class="title" style={`view-transition-name: ${post.id}-title;`}>
@@ -38,7 +46,7 @@ const categories = await Promise.all(
       </div>
       <img
         src={post.data.image.src}
-        alt={post.data.title}
+        alt={`Imagen del artículo: ${post.data.title} - Blog de Deanny Bruces`}
         width={800}
         height={450}
         loading="lazy"
