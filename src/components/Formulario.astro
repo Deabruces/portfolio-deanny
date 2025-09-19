@@ -156,14 +156,15 @@
 </style>
 
 <script>
-  let form = document.querySelector<HTMLFormElement>(".form");
-  let ok = document.querySelector(".gratitude");
-  let errorM = document.querySelector(".error");
+  const form = document.querySelector<HTMLFormElement>(".form");
+  const ok = document.querySelector(".gratitude");
+  const errorM = document.querySelector(".error");
 
   const showGratitude = (e: SubmitEvent) => {
     e.preventDefault();
     console.log("enviando");
-    let button = document.querySelector<HTMLButtonElement>(".form-input__btn");
+    const button =
+      document.querySelector<HTMLButtonElement>(".form-input__btn");
     button!.disabled = true;
     const formulario = e.target as HTMLFormElement;
     const data = new FormData(formulario);

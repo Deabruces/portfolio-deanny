@@ -46,7 +46,7 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
         w[l] = w[l] || [];
         //@ts-expect-error is a tag manager function
         w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
+        const f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
           dl = l != "dataLayer" ? "&l=" + l : "";
         //@ts-expect-error is a tag manager function
@@ -122,6 +122,7 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
     <noscript
       ><iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-TWLPSPDH"
+        title="Google Tag Manager Debugger"
         height="0"
         width="0"
         style="display:none;visibility:hidden"></iframe></noscript
