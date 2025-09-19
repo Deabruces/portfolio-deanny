@@ -13,17 +13,17 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const categories = await Promise.all(
-  post.data.categories.map((cat) => getEntry(cat))
+  post.data.categories.map((cat) => getEntry(cat)),
 );
 ---
 
-<Layout 
-  title={post.data.title} 
+<Layout
+  title={post.data.title}
   description={post.data.summary}
   type="article"
   publishedTime={post.data.date}
   author="Deanny Bruces"
-  keywords={post.data.categories?.map(cat => cat.id).join(', ')}
+  keywords={post.data.categories?.map((cat) => cat.id).join(", ")}
   image={post.data.image?.src}
 >
   <div class="markdown">

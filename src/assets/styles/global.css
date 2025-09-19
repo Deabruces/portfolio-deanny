@@ -1,54 +1,47 @@
+:root {
+  color-scheme: light dark;
+  --primary-color: light-dark(#f5f5f5, #2d0c4b);
+  --secondary-color: #c38cf6;
+  --background-color: light-dark(#fefcff, #1a0629);
+  --text-color: light-dark(#817d7d, #d3d3d3);
+  --border-color: #62586a;
+  --border-radius: 20px;
+  font-size: 16px;
+  --default-color: gray;
 
-:root{
+  &:has(input[name="color-scheme"][value="light dark"]:checked) {
     color-scheme: light dark;
-    --primary-color: light-dark(#F5F5F5,#2d0c4b) ;
-    --secondary-color: #c38cf6;
-    --background-color: light-dark(#fefcff,#1A0629);
-    --text-color: light-dark(#817d7d,#D3D3D3);
-    --border-color: #62586a;
-    --border-radius: 20px;
-    font-size: 16px;
-    --default-color: gray;
+  }
+  &:has(input[name="color-scheme"][value="light"]:checked) {
+    color-scheme: only light;
+  }
+  &:has(input[name="color-scheme"][value="dark"]:checked) {
+    color-scheme: only dark;
+  }
 
-    &:has(input[name="color-scheme"][value="light dark"]:checked) {
-      color-scheme: light dark;
-    }
-    &:has(input[name="color-scheme"][value="light"]:checked) {
-      color-scheme: only light;
-    }
-    &:has(input[name="color-scheme"][value="dark"]:checked) {
-      color-scheme: only dark;
-    }
+  /** hero bg **/
 
-    /** hero bg **/
+  --color-1: light-dark(#fefcff, #1a0629);
+  --color-2: light-dark(#f2e9f2, #21083b);
+  --color-3: light-dark(#e7ccf4, #47086e);
 
-    --color-1: light-dark(#fefcff, #1A0629);
-    --color-2: light-dark(#F2E9F2, #21083B);
-    --color-3: light-dark(#e7ccf4, #47086E);
+  /*colors*/
 
-
-    
-  
-    /*colors*/
-
-    --section-light: light-dark(#F2E9F2, #1A1A2E);
-    --section-dark: light-dark(#f4eef5, #1A0629);
-    --h1-h2-color: light-dark(#6e6b6b, #e6e0e7);
-    --h3-color: light-dark(#DDA0DD, #A29BFE);
-    --acento-btn: light-dark(#DDA0DD, #8E44AD);
-    --acento-btn-hover: light-dark(#b157da, #c38cf6);
-    --bg-color: light-dark(#F2E9F2, #26122b);
-
-
+  --section-light: light-dark(#f2e9f2, #1a1a2e);
+  --section-dark: light-dark(#f4eef5, #1a0629);
+  --h1-h2-color: light-dark(#6e6b6b, #e6e0e7);
+  --h3-color: light-dark(#dda0dd, #a29bfe);
+  --acento-btn: light-dark(#dda0dd, #8e44ad);
+  --acento-btn-hover: light-dark(#b157da, #c38cf6);
+  --bg-color: light-dark(#f2e9f2, #26122b);
 
   /*categories colors*/
   --seo-marketing-digital: #8e44ad;
   --programacion-y-mejores-practicas: #c38cf6;
   --accesibilidad-y-usabilidad: #a2d5f2;
   --experiencia-de-usuario-ux-ui: #dda0dd;
-  --rendimiento-web-y-optimizacion: #5C2E91;
-  --negocios-y-estrategias: #6FB1D2;
-   
+  --rendimiento-web-y-optimizacion: #5c2e91;
+  --negocios-y-estrategias: #6fb1d2;
 }
 @view-transition {
   navigation: auto;
@@ -56,8 +49,7 @@
 body {
   font-family: "Lato", sans-serif;
   background-color: var(--bg-color);
-  color: var(--text-color)
-
+  color: var(--text-color);
 }
 
 h1,
@@ -66,64 +58,64 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-  h1{
-    font-size: clamp(2rem, 2.25vw, 2.5rem);
-    color: var(--h1-h2-color);
-    line-height: 1.2;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+h1 {
+  font-size: clamp(2rem, 2.25vw, 2.5rem);
+  color: var(--h1-h2-color);
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+h2 {
+  font-size: clamp(2rem, 2.25vw, 3rem);
+  color: var(--h1-h2-color);
+  line-height: 1.2;
+  font-weight: 700;
+}
+h3 {
+  font-size: clamp(1.25rem, 1.5vw, 1.75rem);
+  color: var(--h3-color);
+  line-height: 1.3;
+  font-weight: 600;
+}
+h4 {
+  font-size: clamp(1.125rem, 1.25vw, 1.5rem);
+  line-height: 1.3;
+  font-weight: 600;
+}
+h5 {
+  font-size: clamp(1rem, 1.125vw, 1.25rem);
+  line-height: 1.3;
+  font-weight: 500;
+}
 
-  }
-  h2{
-    font-size: clamp(2rem, 2.25vw, 3rem);
-    color: var(--h1-h2-color);
-    line-height: 1.2;
-    font-weight: 700;
-  }
-  h3{
-    font-size: clamp(1.25rem, 1.5vw, 1.75rem);
-    color: var(--h3-color);
-    line-height: 1.3;
-    font-weight: 600;
-  }
-  h4{
-    font-size: clamp(1.125rem, 1.25vw, 1.5rem);
-    line-height: 1.3;
-    font-weight: 600;
-  }
-  h5{
-    font-size: clamp(1rem, 1.125vw, 1.25rem);
-    line-height: 1.3;
-    font-weight: 500;
-  }
+p {
+  font-size: clamp(1.4rem, 1.5vw, 1.6rem);
+  line-height: 1.4;
+  color: var(--text-color);
+  font-weight: 500;
+}
+a {
+  font-size: clamp(0.875rem, 0.9375vw, 1rem);
+  color: var(--acento-btn);
+  transition: color 0.3s ease-in-out;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.4;
+}
+a:hover {
+  color: var(--acento-btn-hover);
+}
 
-  p{
-    font-size: clamp(1.4rem, 1.5vw, 1.6rem);
-    line-height: 1.4;
-    color: var(--text-color);
-    font-weight: 500;
-  }
-  a{
-    font-size: clamp(0.875rem, 0.9375vw, 1rem);
-    color: var(--acento-btn);
-    transition: color 0.3s ease-in-out;
-    text-decoration: none;
-    font-weight: 600;
-    line-height: 1.4;
-  }
-  a:hover{
-    color: var(--acento-btn-hover);
-  }
-
-  ul, ol{
-    font-size: clamp(1.4rem, 1.5vw, 1.6rem);
-    line-height: 1.8;
-    color: var(--text-color);
-    font-weight: 500;
-  }
+ul,
+ol {
+  font-size: clamp(1.4rem, 1.5vw, 1.6rem);
+  line-height: 1.8;
+  color: var(--text-color);
+  font-weight: 500;
+}
 /* 
 *{
   outline: 35px rgba(255, 0, 0, 0.06) solid;

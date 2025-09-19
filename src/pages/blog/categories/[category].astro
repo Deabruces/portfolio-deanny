@@ -12,7 +12,7 @@ export async function getStaticPaths() {
     uniqueCategoryIds.map(async (categoryId) => {
       const categoryEntry = await getEntry("categories", categoryId);
       const filteredPosts = allPosts.filter((post) =>
-        post.data.categories.some((catRef) => catRef.id === categoryId)
+        post.data.categories.some((catRef) => catRef.id === categoryId),
       );
       return {
         params: { category: categoryId },
@@ -21,7 +21,7 @@ export async function getStaticPaths() {
           posts: filteredPosts,
         },
       };
-    })
+    }),
   );
 }
 

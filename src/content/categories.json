@@ -1,38 +1,37 @@
 [
-    {
-        "id" : "seo",
-        "name" : "SEO y marketing digital",
-        "color" : "--seo-marketing-digital"
-    },
+  {
+    "id": "seo",
+    "name": "SEO y marketing digital",
+    "color": "--seo-marketing-digital"
+  },
 
-    {
-        "id" : "web",
-        "name" : "Programación y mejores prácticas",
-        "color" : "--programacion-y-mejores-practicas"
-    },
+  {
+    "id": "web",
+    "name": "Programación y mejores prácticas",
+    "color": "--programacion-y-mejores-practicas"
+  },
 
-    {
-        "id" : "accesibilidad",
-        "name" : "Accesibilidad y Usabilidad",
-        "color" : "--accesibilidad-y-usabilidad"
-    },
+  {
+    "id": "accesibilidad",
+    "name": "Accesibilidad y Usabilidad",
+    "color": "--accesibilidad-y-usabilidad"
+  },
 
-    {
-        "id" : "experiencia",
-        "name" : "Experiencia de usuario (UX/UI)",
-        "color" : "--experiencia-de-usuario-ux-ui"
-    },
+  {
+    "id": "experiencia",
+    "name": "Experiencia de usuario (UX/UI)",
+    "color": "--experiencia-de-usuario-ux-ui"
+  },
 
-    {
-        "id" : "rendimiento",
-        "name" : "Rendimiento y optimización web",
-        "color" : "--rendimiento-web-y-optimizacion"
-    },
+  {
+    "id": "rendimiento",
+    "name": "Rendimiento y optimización web",
+    "color": "--rendimiento-web-y-optimizacion"
+  },
 
-    {
-        "id" : "negocios",
-        "name" : "Negocios y Estrategias",
-        "color" : "--negocios-y-estrategias"
-    }
+  {
+    "id": "negocios",
+    "name": "Negocios y Estrategias",
+    "color": "--negocios-y-estrategias"
+  }
 ]
-
