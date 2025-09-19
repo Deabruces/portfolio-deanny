@@ -36,12 +36,19 @@ const TitleAnimationName = "title--" + project.id;
   </div>
 </Layout>
 
-<style define:vars={{ ImgAnimationName, TitleAnimationName }}>
+<style
+  define:vars={{
+    "img-animation-name": ImgAnimationName,
+    "title-animation-name": TitleAnimationName,
+  }}
+>
   @import url("../../assets/styles/md.css");
+
   .project-image__image {
-    view-transition-name: var(--ImgAnimationName);
+    view-transition-name: var(--img-animation-name);
   }
+
   .title {
-    view-transition-name: var(--TitleAnimationName);
+    view-transition-name: var(--title-animation-name);
   }
 </style>

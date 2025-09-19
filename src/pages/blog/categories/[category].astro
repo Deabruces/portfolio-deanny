@@ -36,14 +36,14 @@ const { category, posts } = Astro.props;
     <div class="blog">
       <h1 class="blog-title">Categoría: <span>{category?.data.name}</span></h1>
     </div>
-    <div class="blog_posts">
+    <div class="blog-posts">
       {posts.map((post) => <CardBlog post={post} />)}
     </div>
   </section>
 </Layout>
 
 <style>
-  /**Mobile First **/
+  /** Mobile First **/
 
   .blog-title {
     color: var(--text-color);
@@ -65,7 +65,7 @@ const { category, posts } = Astro.props;
     text-align: justify;
   }
 
-  .blog_posts {
+  .blog-posts {
     display: grid;
     grid-template-columns: repeat(auto-fit, 320px);
     flex-wrap: wrap;
@@ -73,13 +73,14 @@ const { category, posts } = Astro.props;
     gap: 3rem;
   }
 
-  /*Tablet*/
+  /* Tablet 
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
   }
 
-  /* desktop */
+  /* desktop 
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
   }
+  */
 </style>

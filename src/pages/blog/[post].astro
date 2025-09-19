@@ -78,7 +78,7 @@ const categories = await Promise.all(
             var d = document,
               s = d.createElement("script");
             s.src = "https://www-deannybruces-com.disqus.com/embed.js";
-            s.setAttribute("data-timestamp", +new Date());
+            s.setAttribute("data-timestamp", `${new Date()}`);
             (d.head || d.body).appendChild(s);
           })();
         </script>
@@ -95,7 +95,8 @@ const categories = await Promise.all(
 
 <style>
   @import url("../../assets/styles/md.css");
-  */ .pill-container {
+
+  .pill-container {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;

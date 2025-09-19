@@ -56,22 +56,21 @@ import Dea from "../assets/images/dea.jpg";
 
   .hero-text {
     display: grid;
-    justify-items: center;
-    align-items: center;
+    place-items: center center;
     isolation: isolate;
   }
 
   .title {
     margin-block: 1rem;
-    justify-self: stretch;
-    align-self: end;
-
+    place-self: end stretch;
     background: linear-gradient(
       to right,
       #dda1dd,
       #8e44ad
     ); /* Define el degradado */
-    -webkit-background-clip: text; /* Aplica el degradado solo al texto (WebKit) */
+
+    --webkit-background-clip: text; /* Aplica el degradado solo al texto (WebKit) */
+
     background-clip: text; /* Aplica el degradado solo al texto */
     -webkit-text-fill-color: transparent; /* Hace el texto transparente (WebKit) */
     color: transparent;

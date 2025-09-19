@@ -16,6 +16,7 @@ const { href } = Astro.props;
   .container-btn {
     display: flex;
   }
+
   .btn--action {
     width: auto;
     display: flex;
@@ -63,9 +64,11 @@ const { href } = Astro.props;
     border-radius: 20px;
     animation: girar 3s linear infinite;
   }
+
   .btn--action::after {
     animation-delay: 0s;
   }
+
   .btn--action::before {
     filter: blur(64px);
     opacity: 0.5;
@@ -76,6 +79,7 @@ const { href } = Astro.props;
     0% {
       --angulo: 0deg;
     }
+
     100% {
       --angulo: 360deg;
     }

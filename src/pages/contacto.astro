@@ -44,23 +44,16 @@ import SocialIcons from "../components/SocialIcons.astro";
 </Layout>
 
 <style>
-  /**Mobile First **/
+  /** Mobile First **/
 
   .contact {
     display: grid;
     width: 100%;
     height: auto;
-    grid-template-areas:
-      "title"
-      "img"
-      "text"
-      "form";
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
+    grid-template: "title" auto "img" auto "text" auto "form" auto / 1fr;
     gap: 10px;
     color: var(--text-color);
-    align-items: center;
-    justify-items: stretch;
+    place-items: center stretch;
   }
 
   .title {
@@ -72,9 +65,8 @@ import SocialIcons from "../components/SocialIcons.astro";
   .contact__img {
     grid-area: img;
     width: 50%;
-    justify-self: center;
+    place-self: start center;
     height: auto;
-    align-self: start;
     margin-bottom: 2rem;
   }
 
@@ -88,7 +80,7 @@ import SocialIcons from "../components/SocialIcons.astro";
 
   .container-contact-description {
     grid-area: text;
-    padding: 0 3rem 0 3rem;
+    padding: 0 3rem;
   }
 
   .description__title {
@@ -104,29 +96,27 @@ import SocialIcons from "../components/SocialIcons.astro";
   }
 
   .social-icons {
-    padding: 2rem 0rem;
+    padding: 2rem 0;
     justify-self: left;
   }
 
   .contact__form {
     grid-area: form;
-    padding: 0 3rem 0 3rem;
+    padding: 0 3rem;
   }
 
-  /** Tablet **/
-  @media (min-width: 768px) {
+  /** Tablet
+  @media (width >= 768px) {
   }
-
   /** Desktop **/
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .contact {
-      grid-template-areas:
+      grid-template:
         "title title"
         "img text"
-        "img form";
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
+        "img form"
+        / 1fr 1fr;
     }
 
     .contact__img {

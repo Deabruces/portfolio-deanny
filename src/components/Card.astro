@@ -48,13 +48,18 @@ const TitleAnimationName = "title--" + identifier;
   </footer>
 </article>
 
-<style define:vars={{ ImgAnimationName, TitleAnimationName }}>
+<style
+  define:vars={{
+    "img-animation-name": ImgAnimationName,
+    "title-animation-name": TitleAnimationName,
+  }}
+>
   .card {
     max-width: 388px;
     background-color: var(--background-color);
     border: 1px solid var(--acento-btn);
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(87, 87, 87, 0.1);
+    box-shadow: 0 4px 8px rgb(87 87 87 / 10%);
     display: flex;
     flex-direction: column;
     transition: scale 0.2s ease-in-out;
@@ -62,36 +67,38 @@ const TitleAnimationName = "title--" + identifier;
 
   .card:hover {
     scale: 1.02;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgb(0 0 0 / 20%);
     border-color: var(--acento-btn);
   }
 
   .card__header {
     color: var(--text-color);
   }
+
   .header__title {
     font-size: clamp(1.25rem, 1.375vw, 1.5rem);
     font-weight: 600;
     margin-top: 5px;
-    padding: 15px 32px 5px 32px;
+    padding: 15px 32px 5px;
     color: var(--acento-btn);
     line-height: 1.2;
-    view-transition-name: var(--TitleAnimationName);
+    view-transition-name: var(--title-animation-name);
   }
 
   .card__img {
     width: 100%;
-    height: auto;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 20px 20px 0 0;
     aspect-ratio: 16/10;
     height: auto;
-    view-transition-name: var(--ImgAnimationName);
+    view-transition-name: var(--img-animation-name);
   }
+
   .card__content {
     color: var(--text-color);
-    padding: 5px 32px 15px 32px;
+    padding: 5px 32px 15px;
     flex-grow: 1;
   }
+
   .content__text {
     font-size: clamp(0.875rem, 0.9375vw, 1rem);
     display: -webkit-box;
@@ -106,27 +113,29 @@ const TitleAnimationName = "title--" + identifier;
   .card__icons {
     color: var(--secondary-color);
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     justify-content: start;
     align-items: center;
     gap: 5px;
-    padding: 10px 0px;
+    padding: 10px 0;
   }
+
   .card__icons :global(svg) {
     width: 24px;
     height: 24px;
   }
 
   .footer__link-external {
+    flex-shrink: 2;
+    text-decoration: none;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: end;
     gap: 5px;
-    text-decoration: none;
-    flex-shrink: 2;
+    font-size: 18px;
   }
+
   .text-view-project {
     font-size: 0.8rem;
     line-height: 1.2;
@@ -138,20 +147,23 @@ const TitleAnimationName = "title--" + identifier;
     height: 24px;
     transition: color 0.3s ease;
   }
+
   .icono-view-project:hover {
     color: var(--acento-btn-hover);
   }
+
   .footer__link {
-    min-width: 56%;
-    background-color: var(--acento-btn);
     color: var(--text-color);
-    padding: 10px 20px;
-    border-radius: 5px;
     text-decoration: none;
+    min-width: 44%;
+    background-color: var(--acento-btn);
+    padding: 5px;
+    border-radius: 30px;
     transition:
       color 0.3s ease,
       background-color 0.3s ease;
   }
+
   .footer__link:hover {
     background-color: var(--acento-btn-hover);
     color: var(--text-color);
@@ -167,33 +179,8 @@ const TitleAnimationName = "title--" + identifier;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-radius: 0px 0px 20px 20px;
+    border-radius: 0 0 20px 20px;
     background-color: var(--primary-color);
-  }
-
-  .footer__link-external {
-    text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: end;
-    gap: 5px;
-    font-size: 18px;
-  }
-
-  .footer__link {
-    min-width: 44%;
-    background-color: var(--acento-btn);
-    padding: 5px 5px;
-    border-radius: 30px;
-    transition:
-      color 0.3s ease,
-      background-color 0.3s ease;
-  }
-
-  .footer__link:hover {
-    background-color: var(--acento-btn-hover);
-    color: var(--text-color);
   }
 
   .footer__links-external {

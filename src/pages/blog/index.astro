@@ -4,7 +4,9 @@ import { getCollection } from "astro:content";
 import CardBlog from "../../components/CardBlog.astro";
 
 const posts = await getCollection("posts");
-posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+posts.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+);
 ---
 
 <Layout
@@ -23,14 +25,14 @@ posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
         </p>
       </div>
     </div>
-    <div class="blog_posts">
+    <div class="blog-posts">
       {posts.map((post) => <CardBlog post={post} />)}
     </div>
   </section>
 </Layout>
 
 <style>
-  /**Mobile First **/
+  /** Mobile First **/
 
   .blog-title {
     color: var(--text-color);
@@ -52,7 +54,7 @@ posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
     text-align: justify;
   }
 
-  .blog_posts {
+  .blog-posts {
     display: grid;
     grid-template-columns: repeat(auto-fit, 320px);
     flex-wrap: wrap;
@@ -64,13 +66,14 @@ posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
     margin-bottom: 1lh;
   }
 
-  /*Tablet*/
+  /* Tablet 
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
   }
 
-  /* desktop */
+  /* desktop 
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
   }
+  */
 </style>

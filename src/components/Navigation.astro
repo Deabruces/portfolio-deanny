@@ -41,7 +41,7 @@ const isActualPage = (element: Partial<MenuElement>) => {
     }
     <li class="li__separador"><span class="separator"></span></li>
     <li class="toggle__theme">
-      <div class=theme-switcher-menu button-theme>
+      <div class="theme-switcher-menu" button-theme>
         <button type="button" class="button-theme action">
           <span class="button-wrap">
             <span class="icon-theme-os-default">
@@ -53,48 +53,48 @@ const isActualPage = (element: Partial<MenuElement>) => {
 
         <ul class="submenu">
           <div class="container-menu-theme">
-          <li>
-            <label class="theme__btn">
-              <input
-                type="radio"
-                name="color-scheme"
-                id="light-dark"
-                value="light dark"
-              />
-              <span class="icon-menu-theme">
-              <LightDark />
-              Por defecto
-              </span>
-            </label>
-          </li>
-          <li>
-            <label class="theme__btn">
-              <input
-                type="radio"
-                name="color-scheme"
-                id="light-dark"
-                value="light"
-              />
-              <span class="icon-menu-theme">
-                <Sun />
-                Claro
-              </span>
-            </label>
-          </li>
-          <li>
-            <label class="theme__btn">
-              <input
-                type="radio"
-                name="color-scheme"
-                id="light-dark"
-                value="dark"
-              />
-              <span class="icon-menu-theme">
-                <Moon />
-                Oscuro
-              </span>
-            </label>
-          </li>
+            <li>
+              <label class="theme__btn">
+                <input
+                  type="radio"
+                  name="color-scheme"
+                  id="light-dark"
+                  value="light dark"
+                />
+                <span class="icon-menu-theme">
+                  <LightDark />
+                  Por defecto
+                </span>
+              </label>
+            </li>
+            <li>
+              <label class="theme__btn">
+                <input
+                  type="radio"
+                  name="color-scheme"
+                  id="light-dark"
+                  value="light"
+                />
+                <span class="icon-menu-theme">
+                  <Sun />
+                  Claro
+                </span>
+              </label>
+            </li>
+            <li>
+              <label class="theme__btn">
+                <input
+                  type="radio"
+                  name="color-scheme"
+                  id="light-dark"
+                  value="dark"
+                />
+                <span class="icon-menu-theme">
+                  <Moon />
+                  Oscuro
+                </span>
+              </label>
+            </li>
           </div>
         </ul>
       </div>
@@ -103,23 +103,23 @@ const isActualPage = (element: Partial<MenuElement>) => {
 </nav>
 
 <style>
-  
   nav {
     display: flex;
-    background-color: light-dark(#faf8ffa9, #26122ba5));
+    background-color: light-dark(#faf8ffa9, #26122ba5);
     border: 1px solid var(--acento-btn);
     border-radius: 20px;
     backdrop-filter: blur(10px);
     font-size: 20px;
   }
+
   ul {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
     gap: 8px;
-    padding-inline-start: 0px;
-    padding: 3px 3px;
+    padding-inline-start: 0;
+    padding: 3px;
   }
 
   .separator {
@@ -150,6 +150,7 @@ const isActualPage = (element: Partial<MenuElement>) => {
 
   .li__nav {
     --_border-color: var(--li-border-color, transparent);
+
     transition: all 300ms ease-in-out;
     border-radius: 20px;
     padding: 3px 17px;
@@ -158,25 +159,27 @@ const isActualPage = (element: Partial<MenuElement>) => {
 
   .li__nav:hover {
     --li-border-color: var(--acento-btn-hover);
+
     border-radius: 20px;
   }
 
   .li__nav.active,
   li.active {
     --li-border-color: var(--acento-btn-hover);
+
     border-radius: 20px;
   }
 
-  .li__nav.active a,
-  li.active a {
+  li.active a,
+  .li__nav.active a {
     color: var(--acento-btn-hover);
   }
+
   .li__home {
     padding: 3px 17px;
     transition: all 300ms ease-in-out;
     font-weight: 500;
   }
-
 
   .li__separador {
     display: flex;
@@ -195,13 +198,17 @@ const isActualPage = (element: Partial<MenuElement>) => {
     border-radius: 10px;
   }
 
+  label {
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease;
+  }
+
   label:has(input:checked) {
     color: var(--acento-btn-hover);
     background-color: var(--section-dark);
   }
-  label {
-    transition: color 0.3s ease, background-color 0.3s ease;
-  }
+
   input {
     display: none;
   }
@@ -211,14 +218,15 @@ const isActualPage = (element: Partial<MenuElement>) => {
     background-color: var(--section-dark);
   }
 
-.icon-theme-os-default{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
-  color: var(--acento-btn);
-}
-.submenu{
+  .icon-theme-os-default {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    color: var(--acento-btn);
+  }
+
+  .submenu {
     position: absolute;
     top: 100%;
     right: -97px;
@@ -228,44 +236,44 @@ const isActualPage = (element: Partial<MenuElement>) => {
     padding: 10px;
     display: none;
     width: 230px;
-}
+  }
 
-.button-theme {
-  background-color: transparent;
-  color: var(--text-color);
-  cursor: pointer;
-  display: inline-block;
-  padding: 3px 0px;
-  text-decoration: none;
-  margin: 2px 5px;
-  border: none;
-}
+  .button-theme {
+    background-color: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    display: inline-block;
+    padding: 3px 0;
+    text-decoration: none;
+    margin: 2px 5px;
+    border: none;
+  }
 
-.container-menu-theme{
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  width: 100%;
-}
+  .container-menu-theme {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+  }
 
-span.icon-menu-theme {
-  display: flex;
-  flex-direction: row;
-  width: 10rem;
-  gap: 5px;
-  align-items: center;
-  justify-content: flex-start;
-  color: var(--acento-btn)
-}
+  span.icon-menu-theme {
+    display: flex;
+    flex-direction: row;
+    width: 10rem;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--acento-btn);
+  }
 
-span.icon-menu-theme:hover {
-  color: var(--acento-btn-hover);
-  background-color: var(--section-dark);
-}
-span.icon-menu-theme:active {
-  color: var(--acento-btn-hover);
-}
+  span.icon-menu-theme:hover {
+    color: var(--acento-btn-hover);
+    background-color: var(--section-dark);
+  }
 
+  span.icon-menu-theme:active {
+    color: var(--acento-btn-hover);
+  }
 </style>
 
 <script src="../scripts/navigation.js"></script>
