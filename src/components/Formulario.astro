@@ -2,6 +2,8 @@
   action="https://formsubmit.co/1a1ffeb0c7e37244eeecaf2edad1c061"
   class="form"
   method="POST"
+  novalidate
+  aria-labelledby="contact-form-title"
 >
   <ul class="form__ul">
     <li class="form__li">
@@ -13,7 +15,10 @@
         placeholder="tu nombre y apellido"
         required
         type="text"
+        aria-describedby="name-error"
+        autocomplete="name"
       />
+      <span id="name-error" class="error-message" aria-live="polite"></span>
     </li>
     <li class="form__li">
       <label class="form__label" for="mail">Email:</label>
@@ -24,7 +29,10 @@
         placeholder="tu email"
         required
         type="email"
+        aria-describedby="email-error"
+        autocomplete="email"
       />
+      <span id="email-error" class="error-message" aria-live="polite"></span>
     </li>
     <li class="form__li">
       <label class="form__label" for="msg">Mensaje:</label>
@@ -34,10 +42,13 @@
         name="user_message"
         placeholder="Ej.: ¿Qué tienes en mente?"
         required
-        rows="6"></textarea>
+        rows="6"
+        aria-describedby="message-error"
+      ></textarea>
+      <span id="message-error" class="error-message" aria-live="polite"></span>
     </li>
     <div class="form__send">
-      <input class="form-input__btn" type="submit" value="¡Hablemos!" />
+      <input class="form-input__btn" type="submit" value="¡Hablemos!" aria-describedby="form-status" />
       <p class="form__response">
         Generalmente respondo dentro de 1 o 2 días hábiles.
       </p>
@@ -46,17 +57,31 @@
   <input name="_captcha" type="hidden" value="false" />
 </form>
 
-<div class="gratitude hidden">
-  ¡Gracias por tu mensaje! Me pondré en contacto contigo pronto 😊
-</div>
-<div class="error hidden">
-  Estoy teniendo problemas para entregar tu mensaje. Por favor, intenta de nuevo
-  más tarde.
+<div id="form-status" class="form-status" aria-live="polite" aria-atomic="true">
+  <div class="gratitude hidden">
+    ¡Gracias por tu mensaje! Me pondré en contacto contigo pronto 😊
+  </div>
+  <div class="error hidden">
+    Estoy teniendo problemas para entregar tu mensaje. Por favor, intenta de nuevo
+    más tarde.
+  </div>
 </div>
 
 <style>
   .hidden {
     opacity: 0;
+  }
+
+  .error-message {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--error-color);
+    min-height: 1.25rem;
+  }
+
+  .form-status {
+    margin-top: 1rem;
   }
 
   .form__ul {
@@ -116,7 +141,7 @@
     border-radius: 20px;
 
     font-weight: 600;
-    color: #ffff;
+    color: white;
 
     background-color: var(--acento-btn);
 
@@ -130,7 +155,7 @@
 
   .form-input__btn:hover {
     border: 1px solid var(--acento-btn-hover);
-    color: #ffff;
+    color: white;
     background-color: var(--acento-btn-hover);
   }
 
@@ -142,15 +167,19 @@
 
   .gratitude {
     padding: 1rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--success-color);
     border-radius: 5px;
+    color: var(--success-color);
+    background-color: light-dark(#f0fdf4, #0f1b0f);
     transition: opacity 0.3s;
   }
 
   .error {
     padding: 1rem;
-    border: 1px solid red;
+    border: 1px solid var(--error-color);
     border-radius: 5px;
+    color: var(--error-color);
+    background-color: light-dark(#fef2f2, #1f1315);
     transition: opacity 0.3s;
   }
 </style>

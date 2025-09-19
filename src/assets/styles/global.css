@@ -31,6 +31,17 @@
   --rendimiento-web-y-optimizacion: #5c2e91;
   --negocios-y-estrategias: #6fb1d2;
 
+  /* Status and feedback colors */
+  --success-color: light-dark(#059669, #10b981);
+  --error-color: light-dark(#dc2626, #f87171);
+  --warning-color: light-dark(#d97706, #fbbf24);
+  --info-color: light-dark(#2563eb, #60a5fa);
+
+  /* Enhanced contrast colors */
+  --high-contrast-text: light-dark(#1f2937, #f9fafb);
+  --medium-contrast-text: light-dark(#4b5563, #d1d5db);
+  --low-contrast-text: light-dark(#9ca3af, #6b7280);
+
   font-size: 16px;
   color-scheme: light dark;
 
@@ -47,8 +58,67 @@
   }
 }
 
+/* View Transitions API - Modern browsers only */
 @view-transition {
   navigation: auto;
+}
+
+/* Smooth theme transition effects */
+:root {
+  transition: 
+    color-scheme 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+  transition: 
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    fill 0.3s ease,
+    stroke 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Preserve existing transitions for interactive elements */
+a,
+button,
+input,
+textarea,
+select {
+  transition: 
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Enhanced theme transition effects */
+.theme-transitioning * {
+  transition-duration: 0.5s !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Subtle pulse effect during theme change */
+.theme-transitioning {
+  animation: themeChange 0.5s ease-out;
+}
+
+@keyframes themeChange {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.05);
+  }
+  100% {
+    filter: brightness(1);
+  }
 }
 
 body {

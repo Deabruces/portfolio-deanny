@@ -59,7 +59,7 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
     </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/favicon_dea-logo.png" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -68,6 +68,10 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    
+    <!-- Performance hints -->
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+    <link rel="preconnect" href="https://formsubmit.co" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={Astro.url} />
@@ -118,6 +122,9 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
   </head>
 
   <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-nav">Saltar al contenido principal</a>
+    
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
@@ -147,7 +154,7 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
         </div>
       </div>
     </header>
-  </body><main><slot /></main>
+  </body><main id="main-content"><slot /></main>
 
   <WhatsAppButton />
 
@@ -157,11 +164,50 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
 </html>
 
 <style>
+  /* Skip Navigation Link */
+  .skip-nav {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    z-index: 1000;
+    
+    padding: 8px;
+    border-radius: 4px;
+    
+    color: white;
+    text-decoration: none;
+    
+    background-color: var(--acento-btn);
+    
+    transition: top 0.3s;
+  }
+  
+  .skip-nav:focus {
+    top: 6px;
+  }
+
   body {
     overflow-x: hidden;
     font-family: Lato, sans-serif;
     color: var(--bg-color);
     background-color: var(--background-color);
+  }
+
+  /* Focus styles for better accessibility */
+  *:focus {
+    outline: 2px solid var(--acento-btn);
+    outline-offset: 2px;
+  }
+
+  /* Better focus for interactive elements */
+  a:focus,
+  button:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 2px solid var(--acento-btn);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 
   header {
