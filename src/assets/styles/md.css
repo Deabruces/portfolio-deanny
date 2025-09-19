@@ -2,9 +2,10 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+
   width: 100%;
-  padding-inline: 2rem;
   padding-block-start: 6lh;
+  padding-inline: 2rem;
 }
 
 .container {
@@ -12,22 +13,22 @@
 }
 
 * :global(h1) {
-  font-size: clamp(1.6rem, 2.25vw, 2.5rem);
   margin-bottom: 2rem;
+  font-size: clamp(1.6rem, 2.25vw, 2.5rem);
   line-height: 1.2;
   text-align: center;
 }
 
 * :global(h2) {
-  line-height: 1.2;
-  font-size: clamp(1.4rem, 1.8vw, 3rem);
   margin-bottom: 1lh;
+  font-size: clamp(1.4rem, 1.8vw, 3rem);
+  line-height: 1.2;
 }
 
 * :global(h3) {
   margin-bottom: 1lh;
-  line-height: 1.2;
   font-size: clamp(1.2rem, 1.6vw, 2.5rem);
+  line-height: 1.2;
 }
 
 * :global(p) {
@@ -35,8 +36,8 @@
 }
 
 * :global(a) {
-  text-decoration: none;
   font-size: clamp(1.4rem, 1.5vw, 1.6rem);
+  text-decoration: none;
 }
 
 * :global(li:last-child) {
@@ -44,35 +45,40 @@
 }
 
 * :global(.post-image) {
-  border-radius: 8px;
-  margin-bottom: 3rem;
-  object-fit: cover;
+  aspect-ratio: 16 / 10;
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 10;
+  margin-bottom: 3rem;
+  border-radius: 8px;
+
+  object-fit: cover;
 }
 
 * :global(.project-image) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 70%;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-bottom: 3rem;
 }
 
 * :global(.project-image img) {
+  aspect-ratio: 16/9;
   width: 100%;
   height: auto;
   border-radius: 8px;
-  aspect-ratio: 16/9;
 }
 
 * :global(pre.astro-code) {
-  background: #2d2d2d;
-  border-radius: 8px;
-  color: #f8f8f2;
-  padding: 1rem;
   overflow-x: auto;
+
   margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+
+  color: #f8f8f2;
+
+  background: #2d2d2d;
 }

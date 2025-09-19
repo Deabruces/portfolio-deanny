@@ -4,6 +4,7 @@ export default {
     "stylelint-config-standard",
     "stylelint-config-html",
     "stylelint-config-astro",
+    "stylelint-config-clean-order",
   ],
   rules: {
     "selector-pseudo-class-no-unknown": [
@@ -17,7 +18,7 @@ export default {
       {
         resolveNestedSelectors: true,
         message: function expected(customPropertyValue) {
-          return `Expected custom property "${customPropertyValue}" to be kebab-case or private kebab-case (start with --).`;
+          return `Expected custom property "${customPropertyValue}" to be kebab-case or private kebab-case (start with --_).`;
         },
       },
     ],
@@ -36,7 +37,7 @@ export default {
       true,
       {
         ignoreProperties: {
-          "background-color": ["light-dark"],
+          "/.+/": ["light-dark"],
         },
       },
     ],

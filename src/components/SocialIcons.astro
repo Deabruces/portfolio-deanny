@@ -20,30 +20,34 @@ import Email from "../assets/icons/email.svg";
     .social-icons {
       display: flex;
       flex-direction: row;
+      gap: 20px;
       align-items: center;
       justify-content: center;
-      gap: 20px;
     }
 
     .icons {
       display: flex;
+      gap: 5px;
       align-items: center;
       justify-content: center;
-      gap: 5px;
+
       padding: 5px;
-      border-radius: 20px;
       border: 1px solid var(--acento-btn);
-      background-color: var(--section-dark);
+      border-radius: 20px;
+
       color: var(--acento-btn);
       text-decoration: none;
+
+      background-color: var(--section-dark);
+
       transition: transform 0.3s ease;
     }
 
     .icons:hover {
-      color: var(--acento-btn-hover);
-      background-color: var(--section-light);
       transform: scale(1.05);
       border: 1px solid var(--acento-btn-hover);
+      color: var(--acento-btn-hover);
+      background-color: var(--section-light);
     }
   </style>
 </div>

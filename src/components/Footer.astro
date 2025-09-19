@@ -23,26 +23,31 @@ import SocialIcons from "./SocialIcons.astro";
     flex-direction: column-reverse;
     align-items: center;
     justify-content: space-between;
+
     height: auto;
-    background-color: var(--section-dark);
-    border-top: 1px solid #1806283b;
-    backdrop-filter: blur(10px);
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    font-weight: 500;
     margin-top: 100px;
+    padding: 10px 20px;
+    border-top: 1px solid #1806283b;
+
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    background-color: var(--section-dark);
+    backdrop-filter: blur(10px);
   }
 
   .text {
     display: flex;
     flex-direction: row;
+    gap: 5px;
     align-items: center;
     justify-content: center;
-    color: var(--acento-btn);
-    font-size: clamp(0.8rem, 1.8vw, 1rem);
-    gap: 5px;
+
     margin: 0;
     padding: 10px 0;
+
+    font-size: clamp(0.8rem, 1.8vw, 1rem);
+    color: var(--acento-btn);
   }
 
   .text svg {
@@ -52,17 +57,17 @@ import SocialIcons from "./SocialIcons.astro";
   }
 
   span {
-    margin: 5px;
     display: inline-flex;
     align-items: center;
+    margin: 5px;
   }
 
   .social-icons {
     display: flex;
     flex-direction: row;
+    gap: 10px;
     align-items: center;
     justify-content: center;
-    gap: 10px;
   }
 
   @media (width >= 768px) {

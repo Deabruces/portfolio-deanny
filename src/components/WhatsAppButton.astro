@@ -6,27 +6,33 @@ const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
 <style>
   .whatsapp-btn {
+    cursor: pointer;
+
     position: fixed;
-    bottom: 40px;
+    z-index: 9999;
     right: 40px;
-    background-color: #4b2e83;
-    color: #fff;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+    bottom: 40px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+    color: #fff;
     text-decoration: none;
+
+    background-color: #4b2e83;
     box-shadow: 2px 2px 3px #999;
-    z-index: 9999;
-    cursor: pointer;
+
     transition: all 0.3s ease;
   }
 
   .whatsapp-btn:hover {
-    background: #9a7dcc; /* Hover con color secundario */
     transform: scale(1.1);
+    background: #9a7dcc; /* Hover con color secundario */
   }
 
   .whatsapp-icon {
@@ -37,20 +43,24 @@ const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
   /* Tooltip */
   .tooltip {
-    visibility: hidden;
-    width: max-content;
-    background-color: #1b184c; /* Color oscuro de tu paleta */
-    color: #f9f7fa;
-    text-align: center;
-    border-radius: 6px;
-    padding: 6px 10px;
-    font-size: 14px;
     position: absolute;
     right: 70px;
     bottom: 10px;
-    opacity: 0;
-    transition: opacity 0.3s;
+
+    width: max-content;
+    padding: 6px 10px;
+    border-radius: 6px;
+
+    font-size: 14px;
+    color: #f9f7fa;
+    text-align: center;
     white-space: nowrap;
+
+    visibility: hidden;
+    opacity: 0;
+    background-color: #1b184c; /* Color oscuro de tu paleta */
+
+    transition: opacity 0.3s;
   }
 
   .whatsapp-btn:hover .tooltip {

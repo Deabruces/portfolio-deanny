@@ -42,11 +42,14 @@
     .menu-burger-button {
       --_stroke: var(--stroke, var(--acento-btn));
 
-      background-color: transparent;
-      border: none;
       cursor: pointer;
+
       display: flex;
+
       padding: 0;
+      border: none;
+
+      background-color: transparent;
     }
 
     .line {
@@ -94,14 +97,17 @@
     /** Menu Burger **/
 
     .nav-burger {
-      background-color: var(--background-color);
-      padding: 20px;
-      text-align: left;
       position: fixed;
+      z-index: 10;
       top: 80px;
       left: -100%;
+
       width: 100%;
-      z-index: 10;
+      padding: 20px;
+
+      text-align: left;
+
+      background-color: var(--background-color);
     }
 
     .nav-burger-menu {
@@ -109,29 +115,29 @@
     }
 
     .nav-burger-item {
-      list-style-type: none;
       padding: 5px;
       font-size: 20px;
       font-weight: 400;
+      list-style-type: none;
     }
 
     .nav-burger-link {
-      color: var(--acento-btn);
       font-weight: 600;
+      color: var(--acento-btn);
       text-decoration: none;
       transition: 0.3s ease;
-    }
-
-    @media (width <= 768px) {
-      .nav-burger.active {
-        left: 0;
-      }
     }
 
     /** Logo **/
 
     .container-logo {
       padding: 1px;
+    }
+
+    @media (width <= 768px) {
+      .nav-burger.active {
+        left: 0;
+      }
     }
   </style>
 
@@ -141,7 +147,7 @@
 
     burger?.addEventListener("click", () => {
       const isActive = menuBurger?.classList.toggle("active");
-      burger.setAttribute("aria-expanded", isActive);
+      burger.setAttribute("aria-expanded", isActive ? "true" : "false");
       burger.classList.toggle("active", isActive);
     });
   </script>

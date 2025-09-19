@@ -48,12 +48,14 @@ import SocialIcons from "../components/SocialIcons.astro";
 
   .contact {
     display: grid;
-    width: 100%;
-    height: auto;
     grid-template: "title" auto "img" auto "text" auto "form" auto / 1fr;
     gap: 10px;
-    color: var(--text-color);
     place-items: center stretch;
+
+    width: 100%;
+    height: auto;
+
+    color: var(--text-color);
   }
 
   .title {
@@ -64,18 +66,20 @@ import SocialIcons from "../components/SocialIcons.astro";
 
   .contact__img {
     grid-area: img;
-    width: 50%;
     place-self: start center;
+
+    width: 50%;
     height: auto;
     margin-bottom: 2rem;
   }
 
   .contact__img img {
-    height: auto;
-    width: 100%;
     box-sizing: content-box;
-    object-fit: cover;
+    width: 100%;
+    height: auto;
     border-radius: 5px;
+
+    object-fit: cover;
   }
 
   .container-contact-description {
@@ -85,8 +89,8 @@ import SocialIcons from "../components/SocialIcons.astro";
 
   .description__title {
     width: 100%;
-    color: var(--acento-btn);
     margin-bottom: 2rem;
+    color: var(--acento-btn);
     text-align: center;
   }
 
@@ -96,8 +100,8 @@ import SocialIcons from "../components/SocialIcons.astro";
   }
 
   .social-icons {
-    padding: 2rem 0;
     justify-self: left;
+    padding: 2rem 0;
   }
 
   .contact__form {

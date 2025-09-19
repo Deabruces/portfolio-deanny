@@ -105,38 +105,46 @@ const isActualPage = (element: Partial<MenuElement>) => {
 <style>
   nav {
     display: flex;
-    background-color: light-dark(#faf8ffa9, #26122ba5);
+
     border: 1px solid var(--acento-btn);
     border-radius: 20px;
-    backdrop-filter: blur(10px);
+
     font-size: 20px;
+
+    background-color: light-dark(#faf8ffa9, #26122ba5);
+    backdrop-filter: blur(10px);
   }
 
   ul {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     flex-direction: row;
     gap: 8px;
-    padding-inline-start: 0;
+    align-items: center;
+    justify-content: space-evenly;
+
     padding: 3px;
+    padding-inline-start: 0;
   }
 
   .separator {
-    background: var(--acento-btn);
-    height: 1lh;
     display: block;
+
     width: 1px;
+    height: 1lh;
     border-radius: 5px;
+
+    background: var(--acento-btn);
   }
 
   li {
-    list-style-type: none;
     display: flex;
     flex-direction: row;
-    align-items: center;
     gap: 5px;
+    align-items: center;
+
     padding: 3px 17px;
+
+    list-style-type: none;
   }
 
   li.active {
@@ -151,10 +159,10 @@ const isActualPage = (element: Partial<MenuElement>) => {
   .li__nav {
     --_border-color: var(--li-border-color, transparent);
 
-    transition: all 300ms ease-in-out;
-    border-radius: 20px;
     padding: 3px 17px;
     border: 1px solid var(--_border-color);
+    border-radius: 20px;
+    transition: all 300ms ease-in-out;
   }
 
   .li__nav:hover {
@@ -177,8 +185,8 @@ const isActualPage = (element: Partial<MenuElement>) => {
 
   .li__home {
     padding: 3px 17px;
-    transition: all 300ms ease-in-out;
     font-weight: 500;
+    transition: all 300ms ease-in-out;
   }
 
   .li__separador {
@@ -188,14 +196,18 @@ const isActualPage = (element: Partial<MenuElement>) => {
   }
 
   .theme__btn {
-    appearance: none;
-    color: var(--acento-btn);
-    border: none;
     display: block;
-    transition: all 300ms ease-in-out;
+
     padding: 8px;
-    background-color: var(--section-dark);
+    border: none;
     border-radius: 10px;
+
+    color: var(--acento-btn);
+
+    appearance: none;
+    background-color: var(--section-dark);
+
+    transition: all 300ms ease-in-out;
   }
 
   label {
@@ -221,8 +233,9 @@ const isActualPage = (element: Partial<MenuElement>) => {
   .icon-theme-os-default {
     display: flex;
     flex-direction: row;
-    align-items: center;
     gap: 5px;
+    align-items: center;
+
     color: var(--acento-btn);
   }
 
@@ -230,23 +243,30 @@ const isActualPage = (element: Partial<MenuElement>) => {
     position: absolute;
     top: 100%;
     right: -97px;
-    background-color: var(--background-color);
+
+    display: none;
+
+    width: 230px;
+    padding: 10px;
     border: 1px solid var(--acento-btn);
     border-radius: 10px;
-    padding: 10px;
-    display: none;
-    width: 230px;
+
+    background-color: var(--background-color);
   }
 
   .button-theme {
-    background-color: transparent;
-    color: var(--text-color);
     cursor: pointer;
+
     display: inline-block;
-    padding: 3px 0;
-    text-decoration: none;
+
     margin: 2px 5px;
+    padding: 3px 0;
     border: none;
+
+    color: var(--text-color);
+    text-decoration: none;
+
+    background-color: transparent;
   }
 
   .container-menu-theme {
@@ -259,10 +279,12 @@ const isActualPage = (element: Partial<MenuElement>) => {
   span.icon-menu-theme {
     display: flex;
     flex-direction: row;
-    width: 10rem;
     gap: 5px;
     align-items: center;
     justify-content: flex-start;
+
+    width: 10rem;
+
     color: var(--acento-btn);
   }
 

@@ -42,18 +42,18 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
-        //@ts-ignore
+        //@ts-expect-error is a tag manager function
         w[l] = w[l] || [];
-        //@ts-ignore
+        //@ts-expect-error is a tag manager function
         w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
           dl = l != "dataLayer" ? "&l=" + l : "";
-        //@ts-ignore
+        //@ts-expect-error is a tag manager function
         j.async = true;
-        //@ts-ignore
+        //@ts-expect-error is a tag manager function
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        //@ts-ignore
+        //@ts-expect-error is a tag manager function
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-TWLPSPDH");
     </script>
@@ -157,17 +157,17 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
 
 <style>
   body {
-    background-color: var(--background-color);
+    overflow-x: hidden;
     font-family: Lato, sans-serif;
     color: var(--bg-color);
-    overflow-x: hidden;
+    background-color: var(--background-color);
   }
 
   header {
     position: fixed;
-    width: 100%;
-    top: 0;
     z-index: 100;
+    top: 0;
+    width: 100%;
   }
 
   .header-desktop {
@@ -177,12 +177,14 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
   .header-mobile {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+
     width: 100%;
     padding: 20px;
-    background-color: var(--primary-color);
+
     opacity: 0.8;
+    background-color: var(--primary-color);
   }
 
   .burger-menu {
