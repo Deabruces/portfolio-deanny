@@ -1,6 +1,7 @@
 import eslintPluginAstro from "eslint-plugin-astro";
 import astroParser from "astro-eslint-parser";
 import tseslint from "typescript-eslint";
+import markdown from "@eslint/markdown";
 
 export default [
   {
@@ -19,6 +20,7 @@ export default [
   ...eslintPluginAstro.configs.recommended,
   ...eslintPluginAstro.configs["jsx-a11y-strict"],
   ...tseslint.configs.recommended,
+
   {
     files: ["**/*.astro"],
     plugins: {
@@ -32,9 +34,24 @@ export default [
       },
     },
     rules: {
-      ...eslintPluginAstro.configs.recommended.rules,
-      ...eslintPluginAstro.configs["jsx-a11y-strict"].rules,
       "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+    },
+  },
+
+  // Markdown configuration (only for .md and .mdx files)
+  {
+    files: ["**/*.md", "**/*.mdx"],
+    plugins: {
+      markdown: markdown,
+    },
+    processor: "markdown/markdown",
+    rules: {
+      ...markdown.configs.recommended.rules,
+      // Disable rules that don'
+      // t work well with Astro frontmatter
+      // "markdown/no-missing-label-refs": "off",
+      // "markdown/no-duplicate-headings": "warn",
+      // "markdown/no-empty-links": "error",
     },
   },
 ];

@@ -20,7 +20,11 @@ const TitleAnimationName = "title--" + identifier;
 <article class="card">
   <header class="card__header">
     <figure class="card__figure">
-      <Image class="card__img" src={image} alt={`Imagen del proyecto ${title}`} />
+      <Image
+        class="card__img"
+        src={image}
+        alt={`Imagen del proyecto ${title}`}
+      />
     </figure>
     <h2 class="header__title">{title}</h2>
   </header>
@@ -38,7 +42,11 @@ const TitleAnimationName = "title--" + identifier;
       }
     </div>
     <div class="footer__link">
-      <a href={link} class="footer__links-external" aria-label={`Ver detalles del proyecto ${title}`}>
+      <a
+        href={link}
+        class="footer__links-external"
+        aria-label={`Ver detalles del proyecto ${title}`}
+      >
         <span class="footer__link-external">
           <span class="text-view-project">Ver proyecto</span>
           <span class="icono-view-project"><ExternalLink /></span>

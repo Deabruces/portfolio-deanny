@@ -41,7 +41,13 @@ const isActualPage = (element: Partial<MenuElement>) => {
     <li class="li__separador"><span class="separator"></span></li>
     <li class="toggle__theme">
       <div class="theme-switcher-menu" button-theme>
-        <button type="button" class="button-theme action" aria-label="Cambiar tema de color" aria-expanded="false" aria-haspopup="true">
+        <button
+          type="button"
+          class="button-theme action"
+          aria-label="Cambiar tema de color"
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
           <span class="button-wrap">
             <span class="icon-theme-os-default">
               <LightDark />
@@ -50,7 +56,7 @@ const isActualPage = (element: Partial<MenuElement>) => {
           </span>
         </button>
 
-        <ul class="submenu" role="menu" aria-label="Opciones de tema">
+        <ul class="submenu" aria-label="Opciones de tema">
           <div class="container-menu-theme">
             <li>
               <label class="theme__btn">
@@ -218,10 +224,10 @@ const isActualPage = (element: Partial<MenuElement>) => {
   }
 
   label:has(input:checked) {
+    transform: scale(1.02);
     color: var(--acento-btn-hover);
     background-color: var(--section-dark);
-    transform: scale(1.02);
-    box-shadow: 0 2px 8px rgba(142, 68, 173, 0.2);
+    box-shadow: 0 2px 8px rgb(142 68 173 / 20%);
   }
 
   input {
@@ -246,6 +252,7 @@ const isActualPage = (element: Partial<MenuElement>) => {
     position: absolute;
     top: 100%;
     right: -97px;
+    transform: translateY(-10px) scale(0.95);
 
     display: none;
 
@@ -254,19 +261,18 @@ const isActualPage = (element: Partial<MenuElement>) => {
     border: 1px solid var(--acento-btn);
     border-radius: 10px;
 
-    background-color: var(--background-color);
-    
     opacity: 0;
-    transform: translateY(-10px) scale(0.95);
-    transition: 
+    background-color: var(--background-color);
+
+    transition:
       opacity 0.2s ease,
       transform 0.2s ease,
       visibility 0.2s ease;
   }
 
   .submenu.show {
-    opacity: 1;
     transform: translateY(0) scale(1);
+    opacity: 1;
   }
 
   .button-theme {

@@ -44,7 +44,6 @@ Herramientas: media queries, flexbox, grid.
 ## Conclusión
 
 El futuro es móvil. Si quieres que tu negocio online crezca, Mobile First + Responsive Design no son opcionales, son indispensables.
-
 **👉 Siguiente paso:**
 
 - [Lee más sobre Mobile First y cómo aplicarlo paso a paso](/blog/diseño-mobile-first)
