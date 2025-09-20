@@ -1,0 +1,242 @@
+<h1 class="wa-title">Generador de link de WhatsApp</h1>
+<div class="wa-card" role="region" aria-label="Generador WhatsApp">
+  <h2 class="muted">
+    Crea un enlace directo para WhatsApp con mensaje listo para compartir.
+  </h2>
+  <form id="link-generator" class="formulario">
+    <div class="wa-field">
+      <label for="wa-phone">Número (sin +, solo dígitos)</label>
+      <input
+        id="wa-phone"
+        type="tel"
+        name="wa-phone"
+        placeholder="Ej: 56901234567"
+        inputmode="tel"
+        pattern="[0-9]{6,15}"
+        required
+      />
+    </div>
+
+    <div class="wa-field">
+      <label for="wa-msg">Mensaje</label>
+      <textarea
+        id="wa-msg"
+        rows="3"
+        name="wa-msg"
+        required
+        placeholder="Coloca tu mensaje aquí. Ejemplo: Hola, me interesa tu servicio de diseño y desarrollo web..."
+      ></textarea>
+    </div>
+
+    <div class="wa-actions">
+      <button id="wa-gen" class="btn-primary">Generar enlace</button>
+      <button id="wa-clr" class="btn-clear" type="reset">Limpiar</button>
+    </div>
+
+    <div id="wa-result" class="hidden">
+      <label for="wa-link">Enlace generado</label>
+      <div class="wa-result-row">
+        <output id="wa-link"></output>
+        <button id="wa-copy">Copiar</button>
+        <button id="wa-open" class="btn-accent">Abrir</button>
+      </div>
+      <div class="wa-qr-row">
+        <div id="contenedorQR" class="contenedor-qr">
+          <img alt="Qr Generated" id="imagen-qr" />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<style>
+  output {
+    padding: 0.5rem;
+    border: solid 1px var(--border-color);
+    border-radius: 10px;
+    color: var(--text-color);
+  }
+
+  .wa-title {
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .wa-card {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+
+    background: var(--bg-color-tools);
+    box-shadow: 0 6px 20px rgb(0 0 0 / 6%);
+  }
+
+  .wa-card h2 {
+    margin-bottom: 6px;
+  }
+
+  .muted {
+    margin-bottom: 12px;
+    font-size: 1.6rem;
+  }
+
+  .wa-field {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+
+    font-size: 14px;
+  }
+
+  .wa-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  button {
+    cursor: pointer;
+
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    background-color: var(--acento-btn);
+
+    text-wrap-mode: nowrap;
+  }
+
+  .btn-primary {
+    border: 1px solid var(--border-color);
+    background-color: var(--acento-btn);
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--acento-btn-hover);
+  }
+
+  .btn-clear {
+    border: 1px solid var(--border-color);
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .btn-clear:hover {
+    color: white;
+    background-color: var(--border-color);
+  }
+
+  .btn-accent {
+    border: 1px;
+    color: white;
+    background: var(--accent);
+  }
+
+  .wa-result-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .wa-qr-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 10px;
+  }
+
+  .contenedor-qr {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+
+    width: 140px;
+    height: 140px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  import QRCode from "qrcode";
+
+  // With promises
+
+  const sanitize = (v: string) => (v || "").toString().replace(/[^0-9]/g, "");
+  const form = document.getElementById("link-generator")! as HTMLFormElement;
+  const result = document.getElementById("wa-result")! as HTMLDivElement;
+  const imagenQr = document.getElementById("imagen-qr")! as HTMLImageElement;
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const phoneNumber = sanitize(data.get("wa-phone") as string);
+    const message = data.get("wa-msg") as string;
+    console.log({ phoneNumber, message });
+    const whatsappURL = new URL("https://wa.me/" + phoneNumber);
+    if (message) {
+      whatsappURL.searchParams.set("text", encodeURIComponent(message));
+    }
+    QRCode.toDataURL(whatsappURL.toString())
+      .then((url: string) => {
+        imagenQr.src = url;
+      })
+      .catch((err: unknown) => {
+        if (err instanceof Error) {
+          console.error(err);
+        }
+        throw err;
+      });
+    const waLink = document.getElementById("wa-link")! as HTMLOutputElement;
+    result.classList.remove("hidden");
+    // if form is valid
+    if (form.checkValidity()) {
+      waLink.value = whatsappURL.toString();
+    }
+
+    console.log(whatsappURL.toString());
+  });
+
+  const copyButton = document.getElementById("wa-copy")! as HTMLButtonElement;
+  copyButton.addEventListener("click", async () => {
+    const waLink = document.getElementById("wa-link")! as HTMLOutputElement;
+    try {
+      await navigator.clipboard.writeText(waLink.value);
+      copyButton.textContent = "Copiado ✓";
+      setTimeout(() => (copyButton.textContent = "Copiar"), 2000);
+    } catch {
+      alert("Copia manualmente: " + waLink.value);
+    }
+  });
+  form.addEventListener("reset", () => {
+    const waLink = document.getElementById("wa-link")! as HTMLOutputElement;
+    waLink.value = "";
+    result.classList.add("hidden");
+  });
+  const openButton = document.getElementById("wa-open")! as HTMLButtonElement;
+  openButton.addEventListener("click", () => {
+    const waLink = document.getElementById("wa-link")! as HTMLOutputElement;
+    if (waLink.value) window.open(waLink.value, "_blank");
+  });
+</script>
