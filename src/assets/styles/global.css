@@ -3,6 +3,7 @@
   --secondary-color: #c38cf6;
   --background-color: light-dark(#fefcff, #1a0629);
   --text-color: light-dark(#817d7d, #d3d3d3);
+  --text-placeholder: light-dark(#958e9e8b, #aa68c375);
   --border-color: #62586a;
   --border-radius: 20px;
   --default-color: gray;
@@ -22,6 +23,7 @@
   --acento-btn: light-dark(#dda0dd, #8e44ad);
   --acento-btn-hover: light-dark(#b157da, #c38cf6);
   --bg-color: light-dark(#f2e9f2, #26122b);
+  --bg-color-tools: light-dark(#d8bbd8, #713a7e);
 
   /* categories colors */
   --seo-marketing-digital: #8e44ad;
@@ -65,7 +67,7 @@
 
 /* Smooth theme transition effects */
 :root {
-  transition: 
+  transition:
     color-scheme 0.3s ease,
     background-color 0.3s ease,
     color 0.3s ease;
@@ -74,7 +76,7 @@
 *,
 *::before,
 *::after {
-  transition: 
+  transition:
     background-color 0.3s ease,
     border-color 0.3s ease,
     color 0.3s ease,
@@ -83,13 +85,31 @@
     box-shadow 0.3s ease;
 }
 
+label {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+input,
+textarea,
+select {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+::placeholder {
+  color: var(--text-placeholder);
+}
+
 /* Preserve existing transitions for interactive elements */
 a,
 button,
 input,
 textarea,
 select {
-  transition: 
+  transition:
     background-color 0.3s ease,
     border-color 0.3s ease,
     color 0.3s ease,
@@ -100,8 +120,8 @@ select {
 
 /* Enhanced theme transition effects */
 .theme-transitioning * {
-  transition-duration: 0.5s !important;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 0.5s !important;
 }
 
 /* Subtle pulse effect during theme change */
@@ -113,9 +133,11 @@ select {
   0% {
     filter: brightness(1);
   }
+
   50% {
     filter: brightness(1.05);
   }
+
   100% {
     filter: brightness(1);
   }
@@ -133,6 +155,7 @@ h3,
 h4,
 h5,
 h6 {
+  margin-bottom: 2rem;
   font-family: Poppins, sans-serif;
 }
 
