@@ -16,7 +16,10 @@ import SocialIcons from "../components/SocialIcons.astro";
         <h1 class="description__title">¡Creemos algo significativo juntos!</h1>
       </div>
       <div class="contact__img">
-        <img src={DeaContact.src} alt="Deanny Bruces - Desarrolladora Web disponible para colaboraciones y proyectos" />
+        <img
+          src={DeaContact.src}
+          alt="Deanny Bruces - Desarrolladora Web disponible para colaboraciones y proyectos"
+        />
       </div>
       <div class="container-contact-description">
         <p class="contact-description">
@@ -41,23 +44,18 @@ import SocialIcons from "../components/SocialIcons.astro";
 </Layout>
 
 <style>
-  /**Mobile First **/
+  /** Mobile First **/
 
   .contact {
     display: grid;
+    grid-template: "title" auto "img" auto "text" auto "form" auto / 1fr;
+    gap: 10px;
+    place-items: center stretch;
+
     width: 100%;
     height: auto;
-    grid-template-areas:
-      "title"
-      "img"
-      "text"
-      "form";
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
-    gap: 10px;
+
     color: var(--text-color);
-    align-items: center;
-    justify-items: stretch;
   }
 
   .title {
@@ -68,30 +66,31 @@ import SocialIcons from "../components/SocialIcons.astro";
 
   .contact__img {
     grid-area: img;
+    place-self: start center;
+
     width: 50%;
-    justify-self: center;
     height: auto;
-    align-self: start;
     margin-bottom: 2rem;
   }
 
   .contact__img img {
-    height: auto;
-    width: 100%;
     box-sizing: content-box;
-    object-fit: cover;
+    width: 100%;
+    height: auto;
     border-radius: 5px;
+
+    object-fit: cover;
   }
 
   .container-contact-description {
     grid-area: text;
-    padding: 0 3rem 0 3rem;
+    padding: 0 3rem;
   }
 
   .description__title {
     width: 100%;
-    color: var(--acento-btn);
     margin-bottom: 2rem;
+    color: var(--acento-btn);
     text-align: center;
   }
 
@@ -101,29 +100,27 @@ import SocialIcons from "../components/SocialIcons.astro";
   }
 
   .social-icons {
-    padding: 2rem 0rem;
     justify-self: left;
+    padding: 2rem 0;
   }
 
   .contact__form {
     grid-area: form;
-    padding: 0 3rem 0 3rem;
+    padding: 0 3rem;
   }
 
-  /** Tablet **/
-  @media (min-width: 768px) {
+  /** Tablet
+  @media (width >= 768px) {
   }
-
   /** Desktop **/
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .contact {
-      grid-template-areas:
+      grid-template:
         "title title"
         "img text"
-        "img form";
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
+        "img form"
+        / 1fr 1fr;
     }
 
     .contact__img {

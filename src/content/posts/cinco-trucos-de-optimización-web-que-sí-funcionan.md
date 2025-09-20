@@ -41,29 +41,24 @@ Una web que carga rápido no solo mejora la experiencia del usuario, sino que ta
 ### Aquí te presento cinco trucos directos y probados para mejorar la velocidad de tu sitio web:
 
 1. Optimiza imágenes (formatos modernos + lazy loading)
-
    - Usa formatos como WebP o AVIF que ofrecen alta calidad con menor peso.
      ￼
    - Aplica loading="lazy" a imágenes fuera del viewport inmediato. Eso sí, no lo uses en la imagen que define el LCP, para no retrasar su carga inicial.
 
 2. Elige un buen hosting y usa una CDN + HTTP/2
-
    - Opta por hosting modernos que ofrezcan buen rendimiento y baja latencia.
 
    - Complementa con una CDN global y protocolo HTTP/2 o superior para entregar contenido de forma más eficiente.
 
 3. Minifica y carga optimizada de CSS y JS
-
    - Utiliza herramientas o plugins (como Autoptimize) para minificar y combinar tus archivos CSS, JS y HTML.
 
    - Marca scripts como async o defer para evitar bloqueos de renderizado y acelerar la interacción.
 
 4. Reduce el TTFB y optimiza la lógica de backend
-
    - Mejora la velocidad de respuesta del servidor mediante caché (como Varnish o Redis), optimización de base de datos y lógica más ágil.
 
 5. Mide, audita y ajusta constantemente
-
    - Haz auditorías frecuentes con herramientas como PageSpeed Insights, GTmetrix o WebPageTest para detectar y priorizar mejoras.
 
    - Usa datos reales (CrUX) para enfocar tus ajustes donde más impacto tendrán.

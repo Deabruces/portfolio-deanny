@@ -1,0 +1,42 @@
+{
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.iconTheme": "vscode-icons",
+  "editor.formatOnSave": true,
+  "vs-code-prettier-eslint.prettierLast": true,
+  "prettier.jsxSingleQuote": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit",
+    "source.fixAll.ts": "explicit"
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "json",
+    "jsonc",
+    "yaml",
+    "astro",
+    "markdown",
+    "md",
+    "mdx"
+  ],
+  "stylelint.validate": [
+    "css",
+    "scss",
+    "astro" // Add this line
+    // Other file types
+  ],
+
+  "prettier.enable": true,
+  "prettier.singleQuote": true,
+  "prettier.semi": true,
+  "prettier.documentSelectors": ["md", "astro", "js", "css"],
+  "prettier.enableDebugLogs": true,
+  "prettier.quoteProps": "consistent",
+  "prettier.resolveGlobalModules": true
+}

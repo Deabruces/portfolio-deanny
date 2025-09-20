@@ -1,5 +1,4 @@
 ---
-import { defineAction } from "astro:actions";
 import ButtonCta from "./ButtonCta.astro";
 import { Picture } from "astro:assets";
 import Dea from "../assets/images/dea.jpg";
@@ -11,11 +10,16 @@ import Dea from "../assets/images/dea.jpg";
       <p class="greeting saludo"></p>
       <p class="saludo">Bienvenid@s a mi mundo de desarrollo web</p>
     </div>
-    <Picture src={Dea} alt="Deanny Bruces - Desarrolladora Frontend especializada en crear experiencias web memorables" class="img-hero" height={200} />
-    <h2 class="nombre-hero">Soy Deanny 👋🏻</h2>
+    <Picture
+      src={Dea}
+      alt="Deanny Bruces - Desarrolladora Frontend especializada en crear experiencias web memorables"
+      class="img-hero"
+      height={200}
+    />
     <h1 class="title">
-      <p class="rol">Front-end Developer</p>
+      <span class="rol">Front-end Developer</span>
     </h1>
+    <h2 class="nombre-hero">Soy Deanny 👋🏻</h2>
     <p class="frase">
       Transformo ideas en experiencias web memorables. Con un enfoque en la
       accesibilidad y el rendimiento.
@@ -26,12 +30,15 @@ import Dea from "../assets/images/dea.jpg";
 
 <style>
   .hero {
-    padding: 2rem;
+    position: relative;
+
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
+
+    padding: 2rem;
+
     background: #221034;
     background: linear-gradient(
       0deg,
@@ -42,43 +49,47 @@ import Dea from "../assets/images/dea.jpg";
   }
 
   .img-hero {
-    width: 100%;
     box-sizing: content-box;
     aspect-ratio: 1;
+    width: 100%;
     border-radius: 50%;
+
     object-fit: cover;
   }
 
   .hero-text {
-    display: grid;
-    justify-items: center;
-    align-items: center;
     isolation: isolate;
+    display: grid;
+    place-items: center center;
   }
 
   .title {
+    --webkit-background-clip: text; /* Aplica el degradado solo al texto (WebKit) */
+
+    place-self: end stretch;
+
     margin-block: 1rem;
-    justify-self: stretch;
-    align-self: end;
+
+    color: transparent;
 
     background: linear-gradient(
       to right,
       #dda1dd,
       #8e44ad
     ); /* Define el degradado */
-    -webkit-background-clip: text; /* Aplica el degradado solo al texto (WebKit) */
+
     background-clip: text; /* Aplica el degradado solo al texto */
+
     -webkit-text-fill-color: transparent; /* Hace el texto transparente (WebKit) */
-    color: transparent;
   }
 
   .rol {
+    font-size: clamp(1rem, 3rem + 0.5vw, 6rem);
     font-weight: 900;
     line-height: 1;
-    font-size: clamp(1rem, 3rem + 0.5vw, 6rem);
     color: var(--acento-btn);
-    letter-spacing: 0.1rem;
     text-align: center;
+    letter-spacing: 0.1rem;
   }
 
   .container-saludo {
@@ -87,27 +98,28 @@ import Dea from "../assets/images/dea.jpg";
   }
 
   .saludo {
-    font-weight: 600;
     font-size: clamp(1.3rem, 1.5vw, 1.8rem);
-    letter-spacing: 0.5px;
-    color: var(--acento-btn);
+    font-weight: 600;
     line-height: 1.3;
+    color: var(--acento-btn);
     text-align: center;
+    letter-spacing: 0.5px;
   }
 
   .nombre-hero {
-    font-weight: 800;
     font-size: clamp(1.5rem, 1.8vw, 2rem);
-    letter-spacing: 0.5px;
-    color: #dda1dd;
+    font-weight: 800;
     line-height: 1.8;
+    color: #dda1dd;
+    letter-spacing: 0.5px;
   }
 
   .frase {
-    font-style: italic;
-    font-weight: 600;
-    font-size: clamp(1rem, 1.125rem + 0.5vw, 1.25rem);
     max-width: 30rem;
+
+    font-size: clamp(1rem, 1.125rem + 0.5vw, 1.25rem);
+    font-weight: 600;
+    font-style: italic;
     color: var(--acento-btn);
     text-align: center;
   }

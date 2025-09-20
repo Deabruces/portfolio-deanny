@@ -19,7 +19,7 @@
 
   <!--Menu Burger-->
 
-  <div class="nav-burger">
+  <nav class="nav-burger" role="navigation" aria-label="Menú de navegación móvil">
     <ul class="nav-burger-menu">
       <li class="nav-burger-item">
         <a href="/sobre-mi" class="nav-burger-link">Sobre mi</a>
@@ -34,20 +34,24 @@
         <a href="/contacto" class="nav-burger-link">Contacto</a>
       </li>
     </ul>
-  </div>
+  </nav>
 
   <style>
-    /**Icono SVG Burger **/
+    /** Icono SVG Burger **/
 
     .menu-burger-button {
       --_stroke: var(--stroke, var(--acento-btn));
 
-      background-color: transparent;
-      border: none;
       cursor: pointer;
+
       display: flex;
+
       padding: 0;
+      border: none;
+
+      background-color: transparent;
     }
+
     .line {
       fill: none;
       stroke: var(--_stroke);
@@ -56,28 +60,34 @@
         stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
         stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     .line1 {
       stroke-dasharray: 60 207;
       stroke-width: 3;
     }
+
     .line2 {
       stroke-dasharray: 60 60;
       stroke-width: 3;
     }
+
     .line3 {
       stroke-dasharray: 60 207;
       stroke-width: 3;
     }
+
     .active .line1 {
       stroke-dasharray: 90 207;
       stroke-dashoffset: -134;
       stroke-width: 3;
     }
+
     .active .line2 {
       stroke-dasharray: 1 60;
       stroke-dashoffset: -30;
       stroke-width: 3;
     }
+
     .active .line3 {
       stroke-dasharray: 90 207;
       stroke-dashoffset: -134;
@@ -87,14 +97,17 @@
     /** Menu Burger **/
 
     .nav-burger {
-      background-color: var(--background-color);
-      padding: 20px;
-      text-align: left;
       position: fixed;
+      z-index: 10;
       top: 80px;
       left: -100%;
+
       width: 100%;
-      z-index: 10;
+      padding: 20px;
+
+      text-align: left;
+
+      background-color: var(--background-color);
     }
 
     .nav-burger-menu {
@@ -102,29 +115,29 @@
     }
 
     .nav-burger-item {
-      list-style-type: none;
       padding: 5px;
       font-size: 20px;
       font-weight: 400;
+      list-style-type: none;
     }
 
     .nav-burger-link {
-      color: var(--acento-btn);
       font-weight: 600;
+      color: var(--acento-btn);
       text-decoration: none;
       transition: 0.3s ease;
-    }
-
-    @media (max-width: 768px) {
-      .nav-burger.active {
-        left: 0;
-      }
     }
 
     /** Logo **/
 
     .container-logo {
       padding: 1px;
+    }
+
+    @media (width <= 768px) {
+      .nav-burger.active {
+        left: 0;
+      }
     }
   </style>
 
@@ -134,7 +147,7 @@
 
     burger?.addEventListener("click", () => {
       const isActive = menuBurger?.classList.toggle("active");
-      burger.setAttribute("aria-expanded", isActive);
+      burger.setAttribute("aria-expanded", isActive ? "true" : "false");
       burger.classList.toggle("active", isActive);
     });
   </script>

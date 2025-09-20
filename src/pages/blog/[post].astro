@@ -13,17 +13,17 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const categories = await Promise.all(
-  post.data.categories.map((cat) => getEntry(cat))
+  post.data.categories.map((cat) => getEntry(cat)),
 );
 ---
 
-<Layout 
-  title={post.data.title} 
+<Layout
+  title={post.data.title}
   description={post.data.summary}
   type="article"
   publishedTime={post.data.date}
   author="Deanny Bruces"
-  keywords={post.data.categories?.map(cat => cat.id).join(', ')}
+  keywords={post.data.categories?.map((cat) => cat.id).join(", ")}
   image={post.data.image?.src}
 >
   <div class="markdown">
@@ -67,18 +67,19 @@ const categories = await Promise.all(
     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     */
-          var disqus_config = function () {
-            // @ts-ignore
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const disqus_config = function () {
+            // @ts-expect-error disqus_config
             this.page.url = window.location.href; // Replace PAGE_URL with your page's canonical URL variable
-            // @ts-ignore
+            // @ts-expect-error disqus_config
             this.page.identifier = window.location.pathname; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
           };
           (function () {
             // DON'T EDIT BELOW THIS LINE
-            var d = document,
+            const d = document,
               s = d.createElement("script");
             s.src = "https://www-deannybruces-com.disqus.com/embed.js";
-            s.setAttribute("data-timestamp", +new Date());
+            s.setAttribute("data-timestamp", `${new Date()}`);
             (d.head || d.body).appendChild(s);
           })();
         </script>
@@ -95,7 +96,8 @@ const categories = await Promise.all(
 
 <style>
   @import url("../../assets/styles/md.css");
-  */ .pill-container {
+
+  .pill-container {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -103,22 +105,25 @@ const categories = await Promise.all(
   }
 
   .pill {
-    font-size: 1rem;
     display: inline-block;
+
     width: auto;
+    margin-bottom: 1rem;
+    padding: 0.2rem 0.6rem;
     border: 1px solid var(--category-color);
-    color: var(--category-color);
     border-radius: 4px;
+
+    font-size: 1rem;
+    line-height: 1.25;
+    color: var(--category-color);
     text-decoration: none;
     text-transform: uppercase;
-    padding: 0.2rem 0.6rem;
+
     transition: all 300ms ease-in-out;
-    line-height: 1.25;
-    margin-bottom: 1rem;
   }
 
   .pill:hover {
-    background-color: var(--category-color);
     color: #fff;
+    background-color: var(--category-color);
   }
 </style>

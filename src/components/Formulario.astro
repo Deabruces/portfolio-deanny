@@ -1,30 +1,38 @@
 <form
-  class="form"
   action="https://formsubmit.co/1a1ffeb0c7e37244eeecaf2edad1c061"
+  class="form"
   method="POST"
+  novalidate
+  aria-labelledby="contact-form-title"
 >
   <ul class="form__ul">
     <li class="form__li">
       <label class="form__label" for="name">Nombre y Apellido:</label>
       <input
-        class="form__input"
-        type="text"
+        class="form-input"
         id="name"
         name="user_name"
         placeholder="tu nombre y apellido"
         required
+        type="text"
+        aria-describedby="name-error"
+        autocomplete="name"
       />
+      <span id="name-error" class="error-message" aria-live="polite"></span>
     </li>
     <li class="form__li">
       <label class="form__label" for="mail">Email:</label>
       <input
-        class="form__input"
-        type="email"
+        class="form-input"
         id="mail"
         name="email"
         placeholder="tu email"
         required
+        type="email"
+        aria-describedby="email-error"
+        autocomplete="email"
       />
+      <span id="email-error" class="error-message" aria-live="polite"></span>
     </li>
     <li class="form__li">
       <label class="form__label" for="msg">Mensaje:</label>
@@ -33,72 +41,93 @@
         id="msg"
         name="user_message"
         placeholder="Ej.: ¿Qué tienes en mente?"
+        required
         rows="6"
-        required></textarea>
+        aria-describedby="message-error"
+      ></textarea>
+      <span id="message-error" class="error-message" aria-live="polite"></span>
     </li>
     <div class="form__send">
-      <input class="form__input__btn" type="submit" value="¡Hablemos!" />
+      <input class="form-input__btn" type="submit" value="¡Hablemos!" aria-describedby="form-status" />
       <p class="form__response">
         Generalmente respondo dentro de 1 o 2 días hábiles.
       </p>
     </div>
   </ul>
-  <input type="hidden" name="_captcha" value="false" />
+  <input name="_captcha" type="hidden" value="false" />
 </form>
 
-<div class="gratitude hidden">
-  ¡Gracias por tu mensaje! Me pondré en contacto contigo pronto 😊
-</div>
-<div class="error hidden">
-  Estoy teniendo problemas para entregar tu mensaje. Por favor, intenta de nuevo
-  más tarde.
+<div id="form-status" class="form-status" aria-live="polite" aria-atomic="true">
+  <div class="gratitude hidden">
+    ¡Gracias por tu mensaje! Me pondré en contacto contigo pronto 😊
+  </div>
+  <div class="error hidden">
+    Estoy teniendo problemas para entregar tu mensaje. Por favor, intenta de nuevo
+    más tarde.
+  </div>
 </div>
 
 <style>
   .hidden {
     opacity: 0;
   }
+
+  .error-message {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--error-color);
+    min-height: 1.25rem;
+  }
+
+  .form-status {
+    margin-top: 1rem;
+  }
+
   .form__ul {
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding-inline-start: 0px;
+    padding-inline-start: 0;
   }
 
   .form__li {
-    width: 100%;
-    list-style: none;
     display: flex;
     flex-direction: column;
+
+    width: 100%;
     margin-bottom: 2rem;
+
+    list-style: none;
   }
 
-  .form__input {
+  .form-input {
     width: 100%;
     height: 40px;
-    border-radius: 5px;
-    background-color: var(--background-color);
     border: 1px solid var(--acento-btn);
+    border-radius: 5px;
+
+    background-color: var(--background-color);
     outline: none;
   }
 
-  .form__input:focus,
+  .form__textarea {
+    border: 1px solid var(--acento-btn);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    outline: none;
+  }
+
+  .form-input:focus,
   .form__textarea:focus {
     border: 2px solid var(--secondary-color);
   }
 
-  .form__textarea {
-    border-radius: 5px;
-    outline: none;
-    background-color: var(--background-color);
-    border: 1px solid var(--acento-btn);
-  }
-
-  .form__input::placeholder,
+  .form-input::placeholder,
   .form__textarea::placeholder {
-    opacity: 0.5;
-    color: var(--text-color);
     padding: 1rem;
+    color: var(--text-color);
+    opacity: 0.5;
   }
 
   .form__send {
@@ -107,53 +136,64 @@
     gap: 1rem;
   }
 
-  .form__input__btn {
+  .form-input__btn {
     border: 1px solid var(--acento-btn);
     border-radius: 20px;
-    background-color: var(--acento-btn);
-    color: #ffff;
+
     font-weight: 600;
+    color: white;
+
+    background-color: var(--acento-btn);
+
     transition: all 300ms ease-in-out;
   }
-  .form__input__btn[disabled] {
-    background-color: var(--border-color);
+
+  .form-input__btn[disabled] {
     cursor: not-allowed;
+    background-color: var(--border-color);
   }
-  .form__input__btn:hover {
-    background-color: var(--acento-btn-hover);
+
+  .form-input__btn:hover {
     border: 1px solid var(--acento-btn-hover);
-    color: #ffff;
+    color: white;
+    background-color: var(--acento-btn-hover);
   }
 
   .form__response {
+    margin-top: 0.5rem;
     font-size: 0.9rem;
     color: var(--text-color);
-    margin-top: 0.5rem;
   }
 
   .gratitude {
-    border: 1px solid var(--border-color);
     padding: 1rem;
+    border: 1px solid var(--success-color);
     border-radius: 5px;
+    color: var(--success-color);
+    background-color: light-dark(#f0fdf4, #0f1b0f);
     transition: opacity 0.3s;
   }
+
   .error {
-    border: 1px solid red;
     padding: 1rem;
+    border: 1px solid var(--error-color);
     border-radius: 5px;
+    color: var(--error-color);
+    background-color: light-dark(#fef2f2, #1f1315);
     transition: opacity 0.3s;
   }
 </style>
 
 <script>
-  let form = document.querySelector<HTMLFormElement>(".form");
-  let ok = document.querySelector(".gratitude");
-  let errorM = document.querySelector(".error");
+  const form = document.querySelector<HTMLFormElement>(".form");
+  const ok = document.querySelector(".gratitude");
+  const errorM = document.querySelector(".error");
 
   const showGratitude = (e: SubmitEvent) => {
     e.preventDefault();
     console.log("enviando");
-    let button = document.querySelector<HTMLButtonElement>(".form__input__btn");
+    const button =
+      document.querySelector<HTMLButtonElement>(".form-input__btn");
     button!.disabled = true;
     const formulario = e.target as HTMLFormElement;
     const data = new FormData(formulario);
