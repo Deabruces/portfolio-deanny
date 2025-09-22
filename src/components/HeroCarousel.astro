@@ -1,0 +1,189 @@
+---
+/* No imports necesarios */
+---
+
+<section class="hero">
+  <!-- 1) Registrar los Web Components (CDN) -->
+  <script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"
+  ></script>
+
+  <!-- 2) Swiper Web Component -->
+  <swiper-container
+    class="hero-swiper"
+    slides-per-view="1"
+    navigation="true"
+    pagination="true"
+    pagination-clickable="true"
+    autoplay="true"
+    autoplay-delay="7000"
+    loop="true"
+  >
+    <!-- Slide 1 - General SEO (único H1 para SEO) -->
+    <swiper-slide>
+      <div class="slide-content bg-img" style="
+
+--bg:url('/hero-business.jpg')">
+        <h1 class="title-main">
+          Creo páginas web que venden y hacen crecer tu negocio
+        </h1>
+        <p class="subtitle">
+          Diseño web + SEO + experiencia de usuario para que tu marca tenga
+          presencia digital real y resultados medibles.
+        </p>
+        <a href="#servicios" class="btn">Descubre cómo</a>
+      </div>
+    </swiper-slide>
+
+    <!-- Slide 2 -->
+    <swiper-slide>
+      <div class="slide-content bg-img" style="
+
+--bg:url('/hero-startup.jpg')">
+        <h2 class="title-second">
+          Tu primera página web, simple y profesional
+        </h2>
+        <p class="subtitle">
+          Si recién comienzas, te ayudo a tener una web clara, accesible y lista
+          para atraer clientes.
+        </p>
+        <a href="
+          #contacto" class="btn"> Quiero mi primera web </a>
+      </div>
+    </swiper-slide>
+
+    <!-- Slide 3 -->
+    <swiper-slide>
+      <div class="slide-content bg-img" style="
+
+--bg:url('/hero-growth.jpg')">
+        <h2 class="title-second">Convierte tu web en tu mejor vendedor</h2>
+        <p class="subtitle">
+          Optimización, posicionamiento SEO y diseño estratégico para aumentar
+          tus ventas en línea.
+        </p>
+        <a href="
+          #contacto" class="btn"> Impulsa tus ventas ahora </a>
+      </div>
+    </swiper-slide>
+
+    <!-- Slide 4 -->
+    <swiper-slide>
+      <div class="slide-content bg-img" style="
+
+--bg:url('/hero-personal.jpg')">
+        <h2 class="title-second">Haz que tu marca personal brille online</h2>
+        <p class="subtitle">
+          Creo webs que transmiten tu esencia y conectan con tu audiencia en
+          cada detalle.
+        </p>
+        <a href="
+          #contacto" class="btn">
+          Construyamos tu marca online
+        </a>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+  }
+
+  /* Asegura que el contenedor rinda como bloque y ocupe altura */
+  .hero-swiper {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .slide-content {
+    position: relative;
+
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    height: 100%;
+    margin-top: 7rem;
+    padding: 4rem;
+
+    color: #fff;
+    text-align: left;
+  }
+
+  .bg-img {
+    background: var(--bg) center/cover no-repeat;
+  }
+
+  .title-main,
+  .title-second {
+    color: #fff;
+  }
+
+  .subtitle {
+    color: #fff;
+  }
+
+  /* Overlay morado de marca */
+  .slide-content::before {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+
+    background: linear-gradient(rgb(75 192 200 / 85%), rgb(142 68 173 / 60%));
+  }
+
+  .slide-content > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .slide-content h1,
+  .slide-content h2 {
+    margin: 0 0 1rem;
+    font-family: Poppins, system-ui, sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+  }
+
+  .slide-content p {
+    max-width: 680px;
+    margin: 0 0 2rem;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+  }
+
+  .btn {
+    display: inline-block;
+
+    padding: 0.9rem 1.4rem;
+    border-radius: 0.6rem;
+
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+
+    background: #c38cf6;
+
+    transition: background 0.25s ease;
+  }
+
+  .btn:hover {
+    background: #8e44ad;
+  }
+
+  @media (width <= 768px) {
+    .slide-content {
+      padding: 2rem;
+    }
+  }
+</style>
