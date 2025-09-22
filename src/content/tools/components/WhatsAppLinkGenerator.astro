@@ -1,0 +1,143 @@
+<div role="region" aria-label="Generador Whatsapp">
+  <h2>
+    Crea un enlace directo para WhatsApp con mensaje listo para compartir.
+  </h2>
+  <form id="link-generator">
+    <label for="phone">Número (sin +, solo dígitos)</label>
+    <input
+      id="phone"
+      type="tel"
+      name="phone"
+      placeholder="Ej: 56901234567"
+      inputmode="tel"
+      pattern="[0-9]{6,15}"
+      required
+    />
+    <label for="message">Mensaje</label>
+    <textarea
+      id="message"
+      rows="3"
+      name="message"
+      required
+      placeholder="Coloca tu mensaje aquí. Ejemplo: Hola, me interesa tu servicio de diseño y desarrollo web..."
+    ></textarea>
+    <div>
+      <input type="submit" class="btn-primary" value="Generar enlace" />
+      <input type="reset" class="btn-clear" value="Limpiar" />
+    </div>
+    <div id="result" class="result hidden">
+      <label for="link">Whatsapp Link:</label>
+      <output id="link">http://localhost:4321/tools/whatsapp-generator</output>
+      <button id="copy" class="btn-primary" type="button">Copiar</button>
+      <button id="open" class="btn-primary" type="button">Abrir</button>
+    </div>
+  </form>
+</div>
+<style>
+  div {
+    padding: 1rem;
+    border-radius: 10px;
+    background: var(--bg-color-tools);
+  }
+
+  form {
+    display: grid;
+    color: var(--text-color);
+  }
+
+  input,
+  textarea,
+  output {
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+    border: solid 1px var(--border-color);
+    border-radius: 10px;
+
+    overflow-wrap: anywhere;
+  }
+
+  label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  .btn-primary {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+
+    background-color: var(--acento-btn);
+
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--acento-btn-hover);
+  }
+
+  .btn-clear {
+    border: 1px solid var(--border-color);
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .btn-clear:hover {
+    color: white;
+    background-color: var(--border-color);
+  }
+
+  .result {
+    display: grid;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+<script>
+  const sanitize = (v: string) => (v || "").toString().replace(/[^0-9]/g, "");
+  const form = document.getElementById("link-generator")! as HTMLFormElement;
+  const result = document.getElementById("result")! as HTMLDivElement;
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const phoneNumber = sanitize(data.get("phone") as string);
+    const message = data.get("message") as string;
+    console.log({ phoneNumber, message });
+    const whatsappURL = new URL("https://wa.me/" + phoneNumber);
+    if (message) {
+      whatsappURL.searchParams.set("text", encodeURIComponent(message));
+    }
+    const waLink = document.getElementById("link")! as HTMLOutputElement;
+    result.classList.remove("hidden");
+    // if form is valid
+    if (form.checkValidity()) {
+      waLink.value = whatsappURL.toString();
+    }
+
+    console.log(whatsappURL.toString());
+  });
+
+  const copyButton = document.getElementById("copy")! as HTMLButtonElement;
+  copyButton.addEventListener("click", async () => {
+    const waLink = document.getElementById("link")! as HTMLOutputElement;
+    try {
+      await navigator.clipboard.writeText(waLink.value);
+      copyButton.textContent = "Copiado ✓";
+      setTimeout(() => (copyButton.textContent = "Copiar"), 2000);
+    } catch {
+      alert("Copia manualmente: " + waLink.value);
+    }
+  });
+  form.addEventListener("reset", () => {
+    const waLink = document.getElementById("link")! as HTMLOutputElement;
+    waLink.value = "";
+    result.classList.add("hidden");
+  });
+  const openButton = document.getElementById("open")! as HTMLButtonElement;
+  openButton.addEventListener("click", () => {
+    const waLink = document.getElementById("link")! as HTMLOutputElement;
+    if (waLink.value) window.open(waLink.value, "_blank");
+  });
+</script>

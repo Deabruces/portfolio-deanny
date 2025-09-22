@@ -1,0 +1,47 @@
+<div class="wrapper">
+  <form action="">
+    <input
+      type="url"
+      name="url"
+      id="url"
+      placeholder="https://example.com"
+      required
+    />
+    <button type="submit">Generar QR Code</button>
+  </form>
+  <div class="output">
+    <h3>Output</h3>
+    <div class="qr-code" id="qr-code"></div>
+    <canvas id="qr-canvas" style="display: none;"></canvas>
+  </div>
+</div>
+<script>
+  import QRCode from "qrcode";
+
+  const form = document.querySelector("form")!;
+  const qrCodeContainer = document.getElementById("qr-code")!;
+  const downloadLink = document.getElementById(
+    "download-link",
+  ) as HTMLAnchorElement;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const urlInput = document.getElementById("url") as HTMLInputElement;
+    const url = urlInput.value;
+
+    // Limpiar el contenedor del código QR
+    qrCodeContainer.innerHTML = "";
+
+    try {
+      // Generar el código QR y agregarlo al contenedor
+      await QRCode.toCanvas(qrCodeContainer, url, { width: 200 });
+
+      // Habilitar el enlace de descarga
+      const canvas = qrCodeContainer.querySelector("canvas")!;
+      downloadLink.href = canvas.toDataURL("image/png");
+      downloadLink.style.display = "inline";
+    } catch (err) {
+      console.error(err);
+    }
+  });
+</script>

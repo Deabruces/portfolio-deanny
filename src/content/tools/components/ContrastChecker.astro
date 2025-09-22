@@ -1,0 +1,117 @@
+---
+import { useState } from "react";
+import tinycolor from "tinycolor2"; // npm install tinycolor2
+---
+
+<div class="container">
+  <div class="card">
+    <h1>🔍 Verifica el contraste de colores</h1>
+    <p>
+      Elige un color de fondo y un color de texto para revisar la accesibilidad.
+    </p>
+
+    <form id="contrastForm">
+      <label>
+        Color de Fondo:
+        <input type="color" id="bgColor" value="#4B2E83" />
+      </label>
+      <label>
+        Color de Texto:
+        <input type="color" id="textColor" value="#FFFFFF" />
+      </label>
+      <button type="button" id="checkBtn">Verificar</button>
+    </form>
+
+    <div id="preview" class="preview">
+      <p id="previewText">Este es un ejemplo de texto</p>
+    </div>
+
+    <div id="result" class="result"></div>
+  </div>
+</div>
+
+<script>
+  import tinycolor from "tinycolor2";
+
+  const btn = document.querySelector("#checkBtn");
+  const bgInput = document.querySelector("#bgColor");
+  const textInput = document.querySelector("#textColor");
+  const preview = document.querySelector("#preview");
+  const previewText = document.querySelector("#previewText");
+  const result = document.querySelector("#result");
+
+  function getContrast(bg, text) {
+    return tinycolor.readability(bg, text);
+  }
+
+  btn.addEventListener("click", () => {
+    const bg = bgInput.value;
+    const text = textInput.value;
+    const contrast = getContrast(bg, text);
+
+    preview.style.background = bg;
+    previewText.style.color = text;
+
+    if (contrast >= 7) {
+      result.innerHTML = `✅ Contraste excelente (Nivel AAA). Ratio: ${contrast.toFixed(2)}`;
+    } else if (contrast >= 4.5) {
+      result.innerHTML = `👌 Contraste aceptable (Nivel AA). Ratio: ${contrast.toFixed(2)}`;
+    } else {
+      result.innerHTML = `⚠️ Contraste insuficiente. Ratio: ${contrast.toFixed(2)}. Elige otros colores.`;
+    }
+  });
+</script>
+
+<style>
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    width: 700px;
+    padding: 2rem;
+    border-radius: 1rem;
+
+    text-align: center;
+
+    background: var(--bg-color-tools);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+  }
+
+  form {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+  }
+
+  .preview {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  button {
+    cursor: pointer;
+
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+
+    color: white;
+
+    background: #4b2e83;
+  }
+
+  button:hover {
+    background: #9a7dcc;
+  }
+
+  .result {
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+    font-weight: bold;
+    color: var(--text-color);
+  }
+</style>
