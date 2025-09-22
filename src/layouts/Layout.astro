@@ -34,6 +34,8 @@ const pageImage = image
 
 import WhatsAppButton from "../components/WhatsAppButton.astro";
 import SEOStructuredData from "../components/SEOStructuredData.astro";
+import LogoDeanny from "../assets/images/logo-deanny.png";
+import { Image } from "astro:assets";
 ---
 
 <!doctype html>
@@ -60,7 +62,7 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon_dea-logo.png" />
+    <link rel="icon" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -139,7 +141,13 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
       <div class="header-desktop">
         <Header>
           <div class="container-logo">
-            <a href="/" class="logo">Deanny Bruces</a>
+            <a href="/" class="logo"
+              ><Image
+                src={LogoDeanny}
+                alt="Logo de Deanny Bruces"
+                class="logo-image"
+              /><p class="logo-text">Deanny Bruces</p></a
+            >
           </div>
           <Navigation />
           <Hora slot="widget-right" />
@@ -147,23 +155,56 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
       </div>
       <div class="header-mobile">
         <div class="container-logo">
-          <a href="/" class="logo">Deanny Bruces</a>
-        </div>
-        <div class="burger-menu">
-          <BurgerMenu />
+          <a href="/" class="logo"
+            ><Image
+              src={LogoDeanny}
+              alt="Logo de Deanny Bruces"
+              class="logo-image"
+            /></a
+          >
+          <div class="burger-menu">
+            <BurgerMenu />
+          </div>
         </div>
       </div>
-    </header>
-  </body><main id="main-content"><slot /></main>
+    </header><main id="main-content"><slot /></main>
 
-  <WhatsAppButton />
+    <WhatsAppButton />
 
-  <footer class="full-width footer">
-    <Footer />
-  </footer>
+    <footer class="full-width footer">
+      <Footer />
+    </footer>
+  </body>
 </html>
 
 <style>
+  .container-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #8e44ad;
+    text-decoration: none;
+  }
+
+  .logo-image {
+    aspect-ratio: auto;
+    width: 3rem;
+    height: auto;
+  }
+
   /* Skip Navigation Link */
   .skip-nav {
     position: absolute;
@@ -230,8 +271,8 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
     width: 100%;
     padding: 20px;
 
-    opacity: 0.8;
-    background-color: var(--primary-color);
+    background-color: var(--bg-color);
+    backdrop-filter: blur(10px);
   }
 
   .burger-menu {
@@ -239,19 +280,7 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
     justify-content: end;
   }
 
-  .container-logo {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  .logo {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--acento-btn);
-  }
-
-  @media (width >= 768px) {
+  @media (width > 1024px) {
     .header-desktop {
       display: block;
     }

@@ -1,18 +1,36 @@
 :root {
+  /** Colores de Marca **/
+  --deanny-purpura: #8e44ad;
+  --deanny-lila: #c38cf6;
+  --deanny-cian: #4bc0c8;
+  --deanny-cian-hover: #6adee6;
+  --deanny-encabezados-text-color: light-dark(
+    var(--deanny-purpura),
+    var(--deanny-lila)
+  );
+  --deanny-text-color: light-dark(#333, #fff);
+  --deanny-bg-color: light-dark(#1a1a1a, #fff);
+  --deanny-bg-btn-cta: light-dark(var(--deanny-cian), var(--deanny-cian));
+  --deanny-border-color: light-dark(var(--deanny-lila), var(--deanny-lila));
+  --deanny-placeholder-text-color: light-dark(#33333373, #333333e3);
+
+  /** Antiguaos colores **/
+
   --primary-color: light-dark(#f5f5f5, #2d0c4b);
   --secondary-color: #c38cf6;
-  --background-color: light-dark(#fefcff, #1a0629);
-  --text-color: light-dark(#817d7d, #d3d3d3);
+  --background-color: light-dark(#fff, #1a1a1a);
+  --text-color: light-dark(#333, #fff);
   --text-placeholder: light-dark(#958e9e8b, #aa68c375);
-  --border-color: #62586a;
+  --border-color: #333;
   --border-radius: 20px;
   --default-color: gray;
+  --btn-cta: #4bc0c8;
 
   /** hero bg **/
 
-  --color-1: light-dark(#fefcff, #1a0629);
-  --color-2: light-dark(#f2e9f2, #21083b);
-  --color-3: light-dark(#e7ccf4, #47086e);
+  --color-1: light-dark(#fefcff, #8e44ad);
+  --color-2: light-dark(#f2e9f2, #1a1a1a);
+  --color-3: light-dark(#e7f6ff, #1a1a1a);
 
   /* colors */
 
@@ -23,7 +41,7 @@
   --acento-btn: light-dark(#dda0dd, #8e44ad);
   --acento-btn-hover: light-dark(#b157da, #c38cf6);
   --bg-color: light-dark(#f2e9f2, #26122b);
-  --bg-color-tools: light-dark(#d8bbd8, #713a7e);
+  --bg-color-tools: light-dark(#eee5ee, #713a7e);
 
   /* categories colors */
   --seo-marketing-digital: #8e44ad;
@@ -46,6 +64,10 @@
 
   font-size: 16px;
   color-scheme: light dark;
+  transition:
+    color-scheme 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
 
   &:has(input[name="color-scheme"][value="light dark"]:checked) {
     color-scheme: light dark;
@@ -63,14 +85,6 @@
 /* View Transitions API - Modern browsers only */
 @view-transition {
   navigation: auto;
-}
-
-/* Smooth theme transition effects */
-:root {
-  transition:
-    color-scheme 0.3s ease,
-    background-color 0.3s ease,
-    color 0.3s ease;
 }
 
 *,
@@ -126,10 +140,10 @@ select {
 
 /* Subtle pulse effect during theme change */
 .theme-transitioning {
-  animation: themeChange 0.5s ease-out;
+  animation: theme-change 0.5s ease-out;
 }
 
-@keyframes themeChange {
+@keyframes theme-change {
   0% {
     filter: brightness(1);
   }

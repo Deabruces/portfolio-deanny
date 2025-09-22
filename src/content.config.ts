@@ -35,4 +35,16 @@ const posts = defineCollection({
     }),
 });
 
-export const collections = { projects, posts, categories };
+const tools = defineCollection({
+  loader: glob({ pattern: "**/*.(md|mdx)", base: "./src/content/tools" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      keywords: z.array(z.string()).optional(),
+      image: image(),
+      summary: z.string().optional(),
+      tags: z.array(z.string()).optional(),
+    }),
+});
+export const collections = { projects, posts, categories, tools };

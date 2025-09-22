@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Formulario from "../components/Formulario.astro";
 import DeaContact from "../assets/images/dea3.jpeg";
 import SocialIcons from "../components/SocialIcons.astro";
+import PageTitle from "components/PageTitle.astro";
 ---
 
 <Layout
@@ -13,7 +14,9 @@ import SocialIcons from "../components/SocialIcons.astro";
   <div class="content-grid">
     <div class="contact breakout">
       <div class="title">
-        <h1 class="description__title">¡Creemos algo significativo juntos!</h1>
+        <PageTitle>
+          ¡Creemos algo significativo <span>juntos</span>!
+        </PageTitle>
       </div>
       <div class="contact__img">
         <img
@@ -61,7 +64,6 @@ import SocialIcons from "../components/SocialIcons.astro";
   .title {
     grid-area: title;
     width: 100%;
-    margin-top: 9rem;
   }
 
   .contact__img {

@@ -1,3 +1,11 @@
+---
+import Blog from "../assets/icons/blog.svg";
+import Tool from "../assets/icons/tool.svg";
+import Person from "../assets/icons/person.svg";
+import Projects from "../assets/icons/projects.svg";
+import Send from "../assets/icons/send.svg";
+---
+
 <div class="header-mobile">
   <button
     class="menu-burger-button"
@@ -19,19 +27,26 @@
 
   <!--Menu Burger-->
 
-  <nav class="nav-burger" role="navigation" aria-label="Menú de navegación móvil">
+  <nav
+    class="nav-burger"
+    role="navigation"
+    aria-label="Menú de navegación móvil"
+  >
     <ul class="nav-burger-menu">
       <li class="nav-burger-item">
-        <a href="/sobre-mi" class="nav-burger-link">Sobre mi</a>
+        <a href="/sobre-mi" class="nav-burger-link"><Person />Sobre mi</a>
       </li>
       <li class="nav-burger-item">
-        <a href="/proyectos" class="nav-burger-link">Proyectos</a>
+        <a href="/proyectos" class="nav-burger-link"><Projects />Proyectos</a>
       </li>
       <li class="nav-burger-item">
-        <a href="/blog" class="nav-burger-link">Blog</a>
+        <a href="/blog" class="nav-burger-link"><Blog />Blog</a>
       </li>
       <li class="nav-burger-item">
-        <a href="/contacto" class="nav-burger-link">Contacto</a>
+        <a href="/tools" class="nav-burger-link"><Tool />Herramientas</a>
+      </li>
+      <li class="nav-burger-item">
+        <a href="/contacto" class="nav-burger-link"><Send />Contacto</a>
       </li>
     </ul>
   </nav>
@@ -116,9 +131,15 @@
 
     .nav-burger-item {
       padding: 5px;
-      font-size: 20px;
       font-weight: 400;
       list-style-type: none;
+    }
+
+    .nav-burger-item a {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      align-items: center;
     }
 
     .nav-burger-link {

@@ -1,0 +1,125 @@
+---
+import PageTitle from "components/PageTitle.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+const tools = await getCollection("tools");
+console.log({ tools });
+---
+
+<Layout
+  title="Herramientas"
+  description="En esta pagina tendras herramientas para tu negocio o marca personal."
+>
+  <div class="content-grid">
+    <div class="breakout">
+      <PageTitle>
+        Herramientas <span>Para Tí</span>
+      </PageTitle>
+      <div class="subtitle">
+        <p>
+          En esta sección encontrarás recursos prácticos y gratuitos diseñados
+          para emprendedores, negocios y marcas personales que buscan dar
+          coherencia y fuerza a su identidad.
+        </p>
+        <p>
+          El objetivo es ayudarte a crear materiales profesionales que funcionen
+          en cualquier entorno: desde tu página web y redes sociales, hasta
+          presentaciones, flyers, tarjetas o cualquier recurso físico donde tu
+          marca esté presente.
+        </p>
+        <p>
+          Con estas herramientas podrás elegir combinaciones accesibles de
+          colores, optimizar cómo se ve tu marca en redes sociales, y asegurar
+          que tu identidad transmita profesionalismo en todos los espacios donde
+          aparezca.
+        </p>
+        <p>
+          Ya sea que estés iniciando un nuevo proyecto o renovando tu imagen,
+          aquí tendrás un apoyo práctico para que tu marca sea consistente,
+          atractiva y accesible en cada detalle.
+        </p>
+      </div>
+      <div class="tool-list">
+        {
+          tools.map((tool) => (
+            <a href={`/tools/${tool.id}`} class="tool-card">
+              <Image
+                src={tool.data.image}
+                alt={tool.data.title}
+                width={800}
+                height={450}
+                loading="lazy"
+                class="project-image__image"
+              />
+              <h2 class="tool-card__title">{tool.data.title}</h2>
+              <p class="tool-card__description">{tool.data.description}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .subtitle {
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    text-align: justify;
+  }
+
+  .subtitle p {
+    margin-bottom: 1rem;
+  }
+
+  .tool-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    padding: 0 3rem 4rem;
+  }
+
+  .tool-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+
+    color: var(--text-color);
+    text-align: center;
+    text-decoration: none;
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
+  }
+
+  .tool-card__title {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: var(--h1-h2-color);
+  }
+
+  .tool-card__description {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-color);
+  }
+
+  .project-image__image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+</style>

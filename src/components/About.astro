@@ -4,11 +4,14 @@ import Dea from "../assets/images/dea.png";
 import Location from "../assets/icons/location.svg";
 import SocialIcons from "../components/SocialIcons.astro";
 import "../assets/styles/About.css";
+import PageTitle from "./PageTitle.astro";
 ---
 
 <div class="about">
   <div class="header-about">
-    <h1 class="about__title">Mi nombre es Deanny, me dicen Dea!</h1>
+    <PageTitle>
+      Mi nombre es Deanny, <span>me dicen Dea!</span>
+    </PageTitle>
     <h2 class="description__text--profession">
       Front-end Developer / Ingeniera Industrial
     </h2>

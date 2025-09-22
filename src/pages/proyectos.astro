@@ -1,4 +1,5 @@
 ---
+import PageTitle from "components/PageTitle.astro";
 import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
@@ -12,9 +13,9 @@ const projects = await getCollection("projects");
 >
   <section class="projects content-grid">
     <div class="breakout">
-      <h1 class="projects-title">
+      <PageTitle>
         Algunos de mis <span>Proyectos Recientes</span>
-      </h1>
+      </PageTitle>
       <div class="cards">
         {
           projects.map((project) => {

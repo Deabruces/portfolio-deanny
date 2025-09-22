@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
+import PageTitle from "components/PageTitle.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -20,7 +21,7 @@ const TitleAnimationName = "title--" + project.id;
 <Layout title={project.data.title} description={project.data.summary}>
   <div class="markdown">
     <div class="container">
-      <h1 class="title">{project.data.title}</h1>
+      <PageTitle title={project.data.title} subtitle={project.data.summary} />
       <div class="project-image">
         <Image
           src={project.data.image}

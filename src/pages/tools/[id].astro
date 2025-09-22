@@ -1,0 +1,54 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { render } from "astro:content";
+import PageTitle from "components/PageTitle.astro";
+
+export async function getStaticPaths() {
+  const tools = await getCollection("tools");
+  console.log({ tools });
+  return tools.map((tool) => ({
+    params: { id: tool.id },
+    props: { tool },
+  }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const { tool } = Astro.props;
+const { Content } = await render(tool);
+const ImgAnimationName = "image--" + tool.id;
+const TitleAnimationName = "title--" + tool.id;
+---
+
+<Layout
+  title={tool.data.title}
+  description={tool.data.description}
+  keywords={tool.data.keywords.join(", ")}
+>
+  <div class="markdown">
+    <div class="container">
+      <PageTitle>
+        <h1>{tool.data.title}</h1>
+      </PageTitle>
+
+      <Content />
+    </div>
+  </div>
+</Layout>
+
+<style
+  define:vars={{
+    "img-animation-name": ImgAnimationName,
+    "title-animation-name": TitleAnimationName,
+  }}
+>
+  @import url("../../assets/styles/md.css");
+
+  .project-image__image {
+    view-transition-name: var(--img-animation-name);
+  }
+
+  .title {
+    view-transition-name: var(--title-animation-name);
+  }
+</style>

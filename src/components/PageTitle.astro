@@ -1,0 +1,21 @@
+<div>
+  <h1><slot /></h1>
+  <slot name="subtitle" />
+</div>
+
+<style>
+  div {
+    margin-bottom: 4rem;
+    padding-block-start: 6lh;
+    color: var(--text-color);
+    text-align: center;
+  }
+
+  :global(h1) {
+    color: var(--text-color);
+  }
+
+  :global(h1 span) {
+    color: var(--acento-btn);
+  }
+</style>
