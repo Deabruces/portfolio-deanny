@@ -72,19 +72,18 @@ import Dea from "../assets/images/dea.jpg";
 
     color: transparent;
 
-    background: linear-gradient(
-      to right,
-      #dda1dd,
-      #8e44ad
-    ); /* Define el degradado */
-
+    background: linear-gradient(to right, #c38cf6, #4bc0c8);
     background-clip: text; /* Aplica el degradado solo al texto */
+
+    /* anima el background del texto */
 
     -webkit-text-fill-color: transparent; /* Hace el texto transparente (WebKit) */
   }
 
   .rol {
-    font-size: clamp(1rem, 3rem + 0.5vw, 6rem);
+    display: block;
+
+    font-size: clamp(2rem, 5.5vw, 5.5rem);
     font-weight: 900;
     line-height: 1;
     color: var(--acento-btn);
@@ -118,9 +117,9 @@ import Dea from "../assets/images/dea.jpg";
     max-width: 30rem;
 
     font-size: clamp(1rem, 1.125rem + 0.5vw, 1.25rem);
-    font-weight: 600;
+    font-weight: 400;
     font-style: italic;
-    color: var(--acento-btn);
+    color: var(--text-color);
     text-align: center;
   }
 </style>
