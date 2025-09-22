@@ -1,0 +1,95 @@
+---
+import Bombilla from "../assets/icons/bulb.svg";
+import Hands from "../assets/icons/hands.svg";
+import Web from "../assets/icons/www.svg";
+---
+
+<section class="features">
+  <div class="card">
+    <div class="icon">
+      <!-- Bombilla (idea) -->
+      <Bombilla />
+    </div>
+
+    <h3>Transformo tus ideas</h3>
+    <p>
+      De la inspiración a la acción, convierto tus conceptos en proyectos
+      digitales reales.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="icon">
+      <!-- Globo terráqueo (digital) -->
+      <Web />
+    </div>
+    <h3>En experiencias digitales</h3>
+    <p>Diseño páginas web con UX/UI optimizadas para conectar y vender.</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">
+      <!-- Manos (conectar) -->
+      <Hands />
+    </div>
+    <h3>Que conectan y venden</h3>
+    <p>
+      Integro estrategias digitales que generan confianza y resultados medibles.
+    </p>
+  </div>
+</section>
+<style>
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+
+    padding: 4rem 2rem;
+
+    background: #f9f7fa;
+  }
+
+  .card {
+    padding: 2rem;
+    border-radius: 1rem;
+
+    text-align: center;
+
+    background: #fff;
+    box-shadow: 0 4px 15px rgb(0 0 0 / 8%);
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgb(0 0 0 / 12%);
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 1rem;
+    color: #8e44ad; /* Morado principal */
+  }
+
+  .icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card h3 {
+    margin-bottom: 0.75rem;
+    font-family: Poppins, sans-serif;
+    font-size: 1.25rem;
+    color: #1b184c;
+  }
+
+  .card p {
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+    color: #555;
+  }
+</style>
