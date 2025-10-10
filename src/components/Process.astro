@@ -274,11 +274,11 @@
     overflow: hidden;
 
     min-height: 100vh;
-    padding: 6rem 1.5rem;
+    padding: 12rem 1.5rem;
 
     background: light-dark(
-      linear-gradient(to bottom, #f8fafc, #f1f5f9),
-      linear-gradient(to bottom, #0f172a, #1e1b4b)
+      linear-gradient(to bottom, #fdf2f8, #f0f9ff, #faf5ff),
+      linear-gradient(to bottom, #0f172a, #1e1b4b, #312e81)
     );
 
     transition: background 0.3s ease;
@@ -322,12 +322,8 @@
 
   .process-title {
     margin-bottom: 1rem;
-
-    font-size: 3rem;
-    font-weight: bold;
     line-height: 1.2;
     color: light-dark(#0f172a, #fff);
-
     animation: fadeInUp 0.6s ease-out 0.1s both;
   }
 
@@ -636,11 +632,6 @@
     animation: float 3s ease-in-out infinite;
   }
 
-  @media (width >= 768px) {
-    .process-title {
-      font-size: 4rem;
-    }
-  }
 
   @media (width >= 768px) {
     .steps-grid {

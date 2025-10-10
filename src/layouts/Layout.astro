@@ -1,12 +1,10 @@
 ---
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Hora from "../components/Hora.astro";
 import Navigation from "../components/Navigation.astro";
+import BurgerMenu from "../components/BurgerMenu.astro";
 import "../assets/styles/reset.css";
 import "../assets/styles/grid.css";
 import "../assets/styles/global.css";
-import BurgerMenu from "../components/BurgerMenu.astro";
 interface Props {
   title?: string;
   description: string;
@@ -36,6 +34,7 @@ import WhatsAppButton from "../components/WhatsAppButton.astro";
 import SEOStructuredData from "../components/SEOStructuredData.astro";
 import LogoDeanny from "../assets/images/logo-deanny.png";
 import { Image } from "astro:assets";
+import "../assets/styles/Header.css";
 ---
 
 <!doctype html>
@@ -137,76 +136,38 @@ import { Image } from "astro:assets";
         style="display:none;visibility:hidden"></iframe></noscript
     >
     <!-- End Google Tag Manager (noscript) -->
-    <header class="full-width">
-      <div class="header-desktop">
-        <Header>
-          <div class="container-logo">
-            <a href="/" class="logo"
-              ><Image
-                src={LogoDeanny}
-                alt="Logo de Deanny Bruces"
-                class="logo-image"
-              /><p class="logo-text">Deanny Bruces</p></a
-            >
-          </div>
-          <Navigation />
-          <!-- <Hora slot="widget-right" />-->
-        </Header>
-      </div>
-      <div class="header-mobile">
-        <div class="container-logo">
-          <a href="/" class="logo"
-            ><Image
+    <header class="header" id="main-header">
+      <div class="header-container">
+        <div class="logo-section">
+          <a href="/" class="logo-link" aria-label="Ir a la página de inicio">
+            <Image
               src={LogoDeanny}
               alt="Logo de Deanny Bruces"
               class="logo-image"
-            /></a
-          >
-          <div class="burger-menu">
-            <BurgerMenu />
-          </div>
+            />
+            <span class="logo-text">Deanny Bruces</span>
+          </a>
+        </div>
+
+        <div class="header-desktop">
+          <Navigation />
+        </div>
+
+        <div class="header-mobile">
+          <BurgerMenu />
         </div>
       </div>
-    </header><main id="main-content"><slot /></main>
+    </header>
+
+    <main id="main-content" style="margin-top: 85px;"><slot /></main>
 
     <WhatsAppButton />
 
-    <footer class="content-width footer">
-      <div class="full-width">
-        <Footer />
-      </div>
-    </footer>
+    <Footer />
   </body>
 </html>
 
 <style>
-  .container-logo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo p {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #8e44ad;
-    text-decoration: none;
-  }
-
-  .logo-image {
-    aspect-ratio: auto;
-    width: 3rem;
-    height: auto;
-  }
-
   /* Skip Navigation Link */
   .skip-nav {
     position: absolute;
@@ -252,43 +213,22 @@ import { Image } from "astro:assets";
     outline: 2px solid var(--acento-btn);
     outline-offset: 2px;
   }
-
-  header {
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    width: 100%;
-  }
-
-  .header-desktop {
-    display: none;
-  }
-
-  .header-mobile {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    width: 100%;
-    padding: 20px;
-
-    background-color: var(--bg-color);
-    backdrop-filter: blur(10px);
-  }
-
-  .burger-menu {
-    display: flex;
-    justify-content: end;
-  }
-
-  @media (width > 1024px) {
-    .header-desktop {
-      display: block;
-    }
-
-    .header-mobile {
-      display: none;
-    }
-  }
 </style>
+
+<script>
+  // Header scroll behavior
+  const header = document.getElementById("main-header");
+  let lastScroll = 0;
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > 50) {
+      header?.classList.add("scrolled");
+    } else {
+      header?.classList.remove("scrolled");
+    }
+
+    lastScroll = currentScroll;
+  });
+</script>

@@ -22,7 +22,15 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
     <!-- Header -->
     <div class="tech-header">
       <div class="header-badge">
-        <svg class="badge-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg
+          class="badge-icon"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
           <polyline points="16 18 22 12 16 6"></polyline>
           <polyline points="8 6 2 12 8 18"></polyline>
         </svg>
@@ -38,7 +46,12 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
 
     <!-- Tech Grid -->
     <div class="tech-grid" role="list">
-      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: HTML5">
+      <article
+        class="tech-card"
+        role="listitem"
+        tabindex="0"
+        aria-label="Tecnología: HTML5"
+      >
         <div class="tech-icon-wrapper">
           <Html />
         </div>
@@ -46,7 +59,12 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
         <span class="tech-name">HTML5</span>
       </article>
 
-      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: CSS3">
+      <article
+        class="tech-card"
+        role="listitem"
+        tabindex="0"
+        aria-label="Tecnología: CSS3"
+      >
         <div class="tech-icon-wrapper">
           <Css />
         </div>
@@ -54,7 +72,12 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
         <span class="tech-name">CSS3</span>
       </article>
 
-      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: JavaScript">
+      <article
+        class="tech-card"
+        role="listitem"
+        tabindex="0"
+        aria-label="Tecnología: JavaScript"
+      >
         <div class="tech-icon-wrapper">
           <Js />
         </div>
@@ -62,7 +85,12 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
         <span class="tech-name">JavaScript</span>
       </article>
 
-      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: TypeScript">
+      <article
+        class="tech-card"
+        role="listitem"
+        tabindex="0"
+        aria-label="Tecnología: TypeScript"
+      >
         <div class="tech-icon-wrapper">
           <Typescript />
         </div>
@@ -70,7 +98,12 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
         <span class="tech-name">TypeScript</span>
       </article>
 
-      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: React">
+      <article
+        class="tech-card"
+        role="listitem"
+        tabindex="0"
+        aria-label="Tecnología: React"
+      >
         <div class="tech-icon-wrapper">
           <React />
         </div>
@@ -78,7 +111,12 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
         <span class="tech-name">React</span>
       </article>
 
-      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: Astro">
+      <article
+        class="tech-card"
+        role="listitem"
+        tabindex="0"
+        aria-label="Tecnología: Astro"
+      >
         <div class="tech-icon-wrapper">
           <AstroIcon />
         </div>
@@ -86,7 +124,12 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
         <span class="tech-name">Astro</span>
       </article>
 
-      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: Tailwind CSS">
+      <article
+        class="tech-card"
+        role="listitem"
+        tabindex="0"
+        aria-label="Tecnología: Tailwind CSS"
+      >
         <div class="tech-icon-wrapper">
           <Tailwind />
         </div>
@@ -94,7 +137,12 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
         <span class="tech-name">Tailwind CSS</span>
       </article>
 
-      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: Bootstrap">
+      <article
+        class="tech-card"
+        role="listitem"
+        tabindex="0"
+        aria-label="Tecnología: Bootstrap"
+      >
         <div class="tech-icon-wrapper">
           <Bootstrap />
         </div>
@@ -102,7 +150,12 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
         <span class="tech-name">Bootstrap</span>
       </article>
 
-      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: WordPress">
+      <article
+        class="tech-card"
+        role="listitem"
+        tabindex="0"
+        aria-label="Tecnología: WordPress"
+      >
         <div class="tech-icon-wrapper">
           <Wordpress />
         </div>
@@ -110,7 +163,12 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
         <span class="tech-name">WordPress</span>
       </article>
 
-      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: GitHub">
+      <article
+        class="tech-card"
+        role="listitem"
+        tabindex="0"
+        aria-label="Tecnología: GitHub"
+      >
         <div class="tech-icon-wrapper">
           <Github />
         </div>
@@ -151,12 +209,16 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
   /* Section */
   .tech-section {
     position: relative;
+
     overflow: hidden;
-    padding: 8rem 1.5rem;
+
+    padding: 12rem 1.5rem;
+
     background: light-dark(
       linear-gradient(135deg, #f5f3ff, #eff6ff),
       linear-gradient(135deg, #1e1b4b, #0f172a)
     );
+
     transition: background 0.3s ease;
   }
 
@@ -170,11 +232,14 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
 
   .blob {
     position: absolute;
+
     width: 40rem;
     height: 40rem;
     border-radius: 50%;
+
     opacity: 0.2;
     filter: blur(140px);
+
     animation: floatTech 12s ease-in-out infinite;
   }
 
@@ -186,8 +251,8 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
   }
 
   .blob-2 {
-    bottom: 20%;
     right: -15%;
+    bottom: 20%;
     background: linear-gradient(135deg, var(--tech-cyan), var(--tech-orange));
     animation-delay: 4s;
   }
@@ -202,28 +267,26 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
 
   /* Header */
   .tech-header {
-    text-align: center;
     margin-bottom: 5rem;
+    text-align: center;
   }
 
   .header-badge {
     display: inline-flex;
-    align-items: center;
     gap: 0.5rem;
+    align-items: center;
+
+    margin-bottom: 1.5rem;
     padding: 0.625rem 1.5rem;
+    border: 1px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 30%));
     border-radius: 9999px;
+
     font-size: 0.875rem;
     font-weight: 600;
-    margin-bottom: 1.5rem;
-    background: light-dark(
-      rgba(168, 85, 247, 0.1),
-      rgba(168, 85, 247, 0.2)
-    );
     color: light-dark(#7c3aed, #e9d5ff);
-    border: 1px solid light-dark(
-      rgba(168, 85, 247, 0.2),
-      rgba(168, 85, 247, 0.3)
-    );
+
+    background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 20%));
+
     animation: fadeInDown 0.6s ease-out;
   }
 
@@ -233,33 +296,27 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
   }
 
   .tech-title {
-    font-size: 3.5rem;
-    font-weight: bold;
     margin-bottom: 1.5rem;
     line-height: 1.2;
-    color: light-dark(#0f172a, #ffffff);
+    color: light-dark(#0f172a, #fff);
     animation: fadeInUp 0.6s ease-out 0.1s both;
   }
 
   .gradient-text {
     background: linear-gradient(135deg, var(--tech-purple), var(--tech-cyan));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
+
+    -webkit-text-fill-color: transparent;
   }
 
   .tech-subtitle {
-    font-size: 1.25rem;
     max-width: 600px;
     margin: 0 auto;
-    color: light-dark(#64748b, #94a3b8);
-    animation: fadeInUp 0.6s ease-out 0.2s both;
-  }
 
-  @media (min-width: 768px) {
-    .tech-title {
-      font-size: 4rem;
-    }
+    font-size: 1.25rem;
+    color: light-dark(#64748b, #94a3b8);
+
+    animation: fadeInUp 0.6s ease-out 0.2s both;
   }
 
   /* Tech Grid */
@@ -270,45 +327,25 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
     margin-bottom: 5rem;
   }
 
-  @media (min-width: 640px) {
-    .tech-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  @media (min-width: 768px) {
-    .tech-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .tech-grid {
-      grid-template-columns: repeat(5, 1fr);
-      gap: 2.5rem;
-    }
-  }
-
   /* Tech Card */
   .tech-card {
+    cursor: pointer;
+
     position: relative;
+
     display: flex;
     flex-direction: column;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+
     padding: 2rem 1.5rem;
+    border: 2px solid light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 20%));
     border-radius: 1.5rem;
-    cursor: pointer;
-    background: light-dark(
-      rgba(255, 255, 255, 0.6),
-      rgba(30, 27, 75, 0.4)
-    );
-    border: 2px solid light-dark(
-      rgba(168, 85, 247, 0.1),
-      rgba(168, 85, 247, 0.2)
-    );
+
+    background: light-dark(rgb(255 255 255 / 60%), rgb(30 27 75 / 40%));
     backdrop-filter: blur(10px);
+
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     animation: fadeInScale 0.6s ease-out both;
   }
@@ -320,17 +357,11 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
 
   .tech-card:hover {
     transform: translateY(-12px) scale(1.05);
-    border-color: light-dark(
-      rgba(168, 85, 247, 0.4),
-      rgba(168, 85, 247, 0.6)
-    );
-    background: light-dark(
-      rgba(255, 255, 255, 0.9),
-      rgba(30, 27, 75, 0.7)
-    );
+    border-color: light-dark(rgb(168 85 247 / 40%), rgb(168 85 247 / 60%));
+    background: light-dark(rgb(255 255 255 / 90%), rgb(30 27 75 / 70%));
     box-shadow: light-dark(
-      0 25px 50px -12px rgba(168, 85, 247, 0.3),
-      0 25px 50px -12px rgba(168, 85, 247, 0.5)
+      0 25px 50px -12px rgb(168 85 247 / 30%),
+      0 25px 50px -12px rgb(168 85 247 / 50%)
     );
   }
 
@@ -339,74 +370,81 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
   }
 
   .tech-card:hover .tech-glow {
-    opacity: 1;
     transform: scale(1.3);
+    opacity: 1;
   }
 
   .tech-card:hover .tech-name {
-    opacity: 1;
     transform: translateY(0);
+    opacity: 1;
   }
 
   /* Tech Icon Wrapper */
   .tech-icon-wrapper {
-    width: 4rem;
-    height: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 4rem;
+    height: 4rem;
+
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .tech-icon-wrapper :global(svg) {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    color: var(--deanny-lila);
+    filter: drop-shadow(0 4px 6px rgb(0 0 0 / 10%));
   }
 
   /* Tech Glow */
   .tech-glow {
+    pointer-events: none;
+
     position: absolute;
     inset: 0;
+
     border-radius: 1.5rem;
+
     opacity: 0;
     background: radial-gradient(
       circle at center,
-      light-dark(rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.3)),
+      light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 30%)),
       transparent 70%
     );
+
     transition: all 0.4s ease;
-    pointer-events: none;
   }
 
   /* Tech Name */
   .tech-name {
+    transform: translateY(4px);
+
     font-size: 0.875rem;
     font-weight: 600;
-    text-align: center;
     color: light-dark(#475569, #cbd5e1);
+    text-align: center;
+
     opacity: 0.8;
-    transform: translateY(4px);
+
     transition: all 0.3s ease;
   }
 
   /* Stats Section */
   .tech-stats {
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 3rem;
+    align-items: center;
+    justify-content: center;
+
     padding: 3rem 2rem;
+    border: 2px solid light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 20%));
     border-radius: 2rem;
-    background: light-dark(
-      rgba(255, 255, 255, 0.6),
-      rgba(30, 27, 75, 0.4)
-    );
-    border: 2px solid light-dark(
-      rgba(168, 85, 247, 0.1),
-      rgba(168, 85, 247, 0.2)
-    );
+
+    background: light-dark(rgb(255 255 255 / 60%), rgb(30 27 75 / 40%));
     backdrop-filter: blur(10px);
+
     animation: fadeInUp 0.6s ease-out 0.5s both;
   }
 
@@ -415,13 +453,15 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
   }
 
   .stat-number {
+    margin-bottom: 0.5rem;
+
     font-size: 3rem;
     font-weight: bold;
+
     background: linear-gradient(135deg, var(--tech-purple), var(--tech-cyan));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 0.5rem;
+
+    -webkit-text-fill-color: transparent;
   }
 
   .stat-label {
@@ -438,59 +478,74 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
     background: linear-gradient(
       to bottom,
       transparent,
-      light-dark(rgba(168, 85, 247, 0.3), rgba(168, 85, 247, 0.5)),
+      light-dark(rgb(168 85 247 / 30%), rgb(168 85 247 / 50%)),
       transparent
     );
   }
 
-  /* Animations */
-  @keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  /* Stagger animation delays for cards */
+  .tech-card:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .tech-card:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .tech-card:nth-child(3) {
+    animation-delay: 0.15s;
+  }
+
+  .tech-card:nth-child(4) {
+    animation-delay: 0.2s;
+  }
+
+  .tech-card:nth-child(5) {
+    animation-delay: 0.25s;
+  }
+
+  .tech-card:nth-child(6) {
+    animation-delay: 0.3s;
+  }
+
+  .tech-card:nth-child(7) {
+    animation-delay: 0.35s;
+  }
+
+  .tech-card:nth-child(8) {
+    animation-delay: 0.4s;
+  }
+
+  .tech-card:nth-child(9) {
+    animation-delay: 0.45s;
+  }
+
+  .tech-card:nth-child(10) {
+    animation-delay: 0.5s;
+  }
+
+
+  @media (width >= 640px) {
+    .tech-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  @media (width >= 768px) {
+    .tech-grid {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 
-  @keyframes fadeInScale {
-    from {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  @keyframes floatTech {
-    0%, 100% {
-      transform: translateY(0) translateX(0) rotate(0deg);
-    }
-    33% {
-      transform: translateY(-50px) translateX(40px) rotate(5deg);
-    }
-    66% {
-      transform: translateY(40px) translateX(-40px) rotate(-5deg);
+  @media (width >= 1024px) {
+    .tech-grid {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2.5rem;
     }
   }
 
   /* Responsive */
-  @media (max-width: 767px) {
+  @media (width <= 767px) {
     .tech-section {
       padding: 4rem 1rem;
     }
@@ -516,7 +571,7 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
       background: linear-gradient(
         to right,
         transparent,
-        light-dark(rgba(168, 85, 247, 0.3), rgba(168, 85, 247, 0.5)),
+        light-dark(rgb(168 85 247 / 30%), rgb(168 85 247 / 50%)),
         transparent
       );
     }
@@ -526,59 +581,99 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
     }
   }
 
-  /* Stagger animation delays for cards */
-  .tech-card:nth-child(1) { animation-delay: 0s; }
-  .tech-card:nth-child(2) { animation-delay: 0.1s; }
-  .tech-card:nth-child(3) { animation-delay: 0.15s; }
-  .tech-card:nth-child(4) { animation-delay: 0.2s; }
-  .tech-card:nth-child(5) { animation-delay: 0.25s; }
-  .tech-card:nth-child(6) { animation-delay: 0.3s; }
-  .tech-card:nth-child(7) { animation-delay: 0.35s; }
-  .tech-card:nth-child(8) { animation-delay: 0.4s; }
-  .tech-card:nth-child(9) { animation-delay: 0.45s; }
-  .tech-card:nth-child(10) { animation-delay: 0.5s; }
+  /* Animations */
+  @keyframes fadeInDown {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes floatTech {
+    0%,
+    100% {
+      transform: translateY(0) translateX(0) rotate(0deg);
+    }
+
+    33% {
+      transform: translateY(-50px) translateX(40px) rotate(5deg);
+    }
+
+    66% {
+      transform: translateY(40px) translateX(-40px) rotate(-5deg);
+    }
+  }
 </style>
 
 <script>
   // Intersection Observer for scroll animations
-  document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.tech-card');
+  document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".tech-card");
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = 'running';
+            entry.target.style.animationPlayState = "running";
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     cards.forEach((card) => {
-      card.style.animationPlayState = 'paused';
+      card.style.animationPlayState = "paused";
       observer.observe(card);
     });
 
     // Enhanced keyboard navigation
     cards.forEach((card, index) => {
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           card.click();
         }
 
         // Arrow key navigation
-        if (e.key === 'ArrowRight' && cards[index + 1]) {
+        if (e.key === "ArrowRight" && cards[index + 1]) {
           cards[index + 1].focus();
         }
-        if (e.key === 'ArrowLeft' && cards[index - 1]) {
+        if (e.key === "ArrowLeft" && cards[index - 1]) {
           cards[index - 1].focus();
         }
-        if (e.key === 'ArrowDown' && cards[index + 5]) {
+        if (e.key === "ArrowDown" && cards[index + 5]) {
           cards[index + 5].focus();
         }
-        if (e.key === 'ArrowUp' && cards[index - 5]) {
+        if (e.key === "ArrowUp" && cards[index - 5]) {
           cards[index - 5].focus();
         }
       });

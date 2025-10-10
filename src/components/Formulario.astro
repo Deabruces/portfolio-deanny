@@ -5,224 +5,500 @@
   novalidate
   aria-labelledby="contact-form-title"
 >
-  <ul class="form__ul">
-    <li class="form__li">
-      <label class="form__label" for="name">Nombre y Apellido:</label>
+  <div class="form-fields">
+    <!-- Name Field -->
+    <div class="form-field">
+      <label class="form-label" for="name">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        Nombre y Apellido
+      </label>
       <input
         class="form-input"
         id="name"
         name="user_name"
-        placeholder="tu nombre y apellido"
+        placeholder="Tu nombre"
         required
         type="text"
         aria-describedby="name-error"
         autocomplete="name"
       />
       <span id="name-error" class="error-message" aria-live="polite"></span>
-    </li>
-    <li class="form__li">
-      <label class="form__label" for="mail">Email:</label>
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-field">
+      <label class="form-label" for="mail">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+        </svg>
+        Email
+      </label>
       <input
         class="form-input"
         id="mail"
         name="email"
-        placeholder="tu email"
+        placeholder="tu@email.com"
         required
         type="email"
         aria-describedby="email-error"
         autocomplete="email"
       />
       <span id="email-error" class="error-message" aria-live="polite"></span>
-    </li>
-    <li class="form__li">
-      <label class="form__label" for="msg">Mensaje:</label>
+    </div>
+
+    <!-- Message Field -->
+    <div class="form-field">
+      <label class="form-label" for="msg">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+          ></path>
+        </svg>
+        Mensaje
+      </label>
       <textarea
-        class="form__textarea"
+        class="form-textarea"
         id="msg"
         name="user_message"
-        placeholder="Ej.: ¿Qué tienes en mente?"
+        placeholder="Ej.: Necesito una web para mi negocio de [rubro]. Mi objetivo es [aumentar ventas/captar leads/mejorar presencia]. Mi presupuesto aproximado es..."
         required
         rows="6"
         aria-describedby="message-error"
       ></textarea>
       <span id="message-error" class="error-message" aria-live="polite"></span>
-    </li>
-    <div class="form__send">
-      <input class="form-input__btn" type="submit" value="¡Hablemos!" aria-describedby="form-status" />
-      <p class="form__response">
-        Generalmente respondo dentro de 1 o 2 días hábiles.
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-submit">
+      <button
+        class="form-button"
+        type="submit"
+        aria-describedby="form-status"
+      >
+        <span class="button-text">Quiero mi propuesta</span>
+        <svg
+          class="button-icon"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+      <p class="form-note">
+        📧 Te responderé en 24-48 horas con una propuesta personalizada
       </p>
     </div>
-  </ul>
+  </div>
+
   <input name="_captcha" type="hidden" value="false" />
 </form>
 
+<!-- Status Messages -->
 <div id="form-status" class="form-status" aria-live="polite" aria-atomic="true">
-  <div class="gratitude hidden">
-    ¡Gracias por tu mensaje! Me pondré en contacto contigo pronto 😊
+  <div class="status-success hidden">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+    <div>
+      <strong>¡Mensaje enviado!</strong>
+      <p>Gracias por contactarme. Te responderé lo antes posible 😊</p>
+    </div>
   </div>
-  <div class="error hidden">
-    Estoy teniendo problemas para entregar tu mensaje. Por favor, intenta de nuevo
-    más tarde.
+  <div class="status-error hidden">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="12" y1="8" x2="12" y2="12"></line>
+      <line x1="12" y1="16" x2="12.01" y2="16"></line>
+    </svg>
+    <div>
+      <strong>Error al enviar</strong>
+      <p>Por favor, intenta de nuevo más tarde o contáctame por email.</p>
+    </div>
   </div>
 </div>
 
 <style>
-  .hidden {
-    opacity: 0;
+  /* ============================================
+     Form Styles - Modern Glassmorphic Design
+     ============================================ */
+
+  .form {
+    width: 100%;
   }
 
-  .error-message {
-    display: block;
-
-    min-height: 1.25rem;
-    margin-top: 0.25rem;
-
-    font-size: 0.875rem;
-    color: var(--error-color);
-  }
-
-  .form-status {
-    margin-top: 1rem;
-  }
-
-  .form__ul {
+  .form-fields {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    padding-inline-start: 0;
+    gap: 1.5rem;
   }
 
-  .form__li {
+  /* Form Field */
+  .form-field {
     display: flex;
     flex-direction: column;
-
-    width: 100%;
-    margin-bottom: 2rem;
-
-    list-style: none;
+    gap: 0.5rem;
   }
 
-  .form-input {
-    width: 100%;
-    height: 40px;
-    border: 1px solid var(--acento-btn);
-    border-radius: 5px;
+  /* Label */
+  .form-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: light-dark(#1e1b4b, #f8fafc);
+  }
 
-    background-color: var(--background-color);
+  .form-label svg {
+    width: 18px;
+    height: 18px;
+    color: light-dark(#8b5cf6, #a78bfa);
+  }
+
+  /* Input & Textarea */
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    color: light-dark(#1e1b4b, #f8fafc);
+
+    background: light-dark(
+      rgba(255, 255, 255, 0.6),
+      rgba(30, 27, 75, 0.3)
+    );
+    border: 2px solid
+      light-dark(rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.3));
+    backdrop-filter: blur(10px);
+
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     outline: none;
   }
 
-  .form__textarea {
-    border: 1px solid var(--acento-btn);
-    border-radius: 5px;
-    background-color: var(--background-color);
-    outline: none;
-  }
-
-  .form-input:focus,
-  .form__textarea:focus {
-    border: 2px solid var(--secondary-color);
+  .form-textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.6;
   }
 
   .form-input::placeholder,
-  .form__textarea::placeholder {
-    padding: 1rem;
-    color: var(--text-color);
-    opacity: 0.5;
+  .form-textarea::placeholder {
+    color: light-dark(#94a3b8, #94a3b8);
   }
 
-  .form__send {
+  .form-input:hover,
+  .form-textarea:hover {
+    border-color: light-dark(
+      rgba(168, 85, 247, 0.4),
+      rgba(168, 85, 247, 0.5)
+    );
+  }
+
+  .form-input:focus,
+  .form-textarea:focus {
+    border-color: light-dark(#8b5cf6, #a78bfa);
+    box-shadow:
+      0 0 0 4px light-dark(rgba(168, 85, 247, 0.1), rgba(168, 85, 247, 0.2)),
+      0 8px 20px light-dark(rgba(168, 85, 247, 0.15), rgba(0, 0, 0, 0.3));
+  }
+
+  /* Error Message */
+  .error-message {
+    display: block;
+    min-height: 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: light-dark(#dc2626, #f87171);
+  }
+
+  /* Submit Section */
+  .form-submit {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  }
-
-  .form-input__btn {
-    border: 1px solid var(--acento-btn);
-    border-radius: 20px;
-
-    font-weight: 600;
-    color: white;
-
-    background-color: var(--acento-btn);
-
-    transition: all 300ms ease-in-out;
-  }
-
-  .form-input__btn[disabled] {
-    cursor: not-allowed;
-    background-color: var(--border-color);
-  }
-
-  .form-input__btn:hover {
-    border: 1px solid var(--acento-btn-hover);
-    color: white;
-    background-color: var(--acento-btn-hover);
-  }
-
-  .form__response {
     margin-top: 0.5rem;
+  }
+
+  /* Submit Button */
+  .form-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.25rem 2.5rem;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    box-shadow:
+      0 10px 30px rgba(168, 85, 247, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+  }
+
+  .form-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+
+  .form-button:hover::before {
+    left: 100%;
+  }
+
+  .form-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+      0 15px 40px rgba(168, 85, 247, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+  }
+
+  .form-button:active {
+    transform: translateY(-1px) scale(0.98);
+  }
+
+  .form-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+    background: linear-gradient(135deg, #94a3b8, #64748b);
+  }
+
+  .form-button:focus-visible {
+    outline: 3px solid light-dark(#a855f7, #a78bfa);
+    outline-offset: 4px;
+  }
+
+  .button-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .button-icon {
+    position: relative;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .form-button:hover .button-icon {
+    transform: translateX(3px) rotate(15deg);
+  }
+
+  /* Form Note */
+  .form-note {
+    text-align: center;
     font-size: 0.9rem;
-    color: var(--text-color);
+    color: light-dark(#64748b, #94a3b8);
   }
 
-  .gratitude {
-    padding: 1rem;
-    border: 1px solid var(--success-color);
-    border-radius: 5px;
-
-    color: var(--success-color);
-
-    background-color: light-dark(#f0fdf4, #0f1b0f);
-
-    transition: opacity 0.3s;
+  /* Status Messages */
+  .form-status {
+    margin-top: 1.5rem;
   }
 
-  .error {
-    padding: 1rem;
-    border: 1px solid var(--error-color);
-    border-radius: 5px;
+  .status-success,
+  .status-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 1.5rem;
 
-    color: var(--error-color);
+    backdrop-filter: blur(10px);
+    transition: opacity 0.4s ease;
+    animation: slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-    background-color: light-dark(#fef2f2, #1f1315);
+  .status-success {
+    color: light-dark(#065f46, #6ee7b7);
+    background: light-dark(
+      rgba(16, 185, 129, 0.1),
+      rgba(16, 185, 129, 0.15)
+    );
+    border: 2px solid light-dark(rgba(16, 185, 129, 0.3), rgba(16, 185, 129, 0.4));
+  }
 
-    transition: opacity 0.3s;
+  .status-error {
+    color: light-dark(#991b1b, #fca5a5);
+    background: light-dark(rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.15));
+    border: 2px solid light-dark(rgba(239, 68, 68, 0.3), rgba(239, 68, 68, 0.4));
+  }
+
+  .status-success svg,
+  .status-error svg {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  .status-success strong,
+  .status-error strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .status-success p,
+  .status-error p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* Animations */
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 767px) {
+    .form-button {
+      width: 100%;
+      padding: 1.125rem 2rem;
+      font-size: 1rem;
+    }
+
+    .form-input,
+    .form-textarea {
+      padding: 0.875rem 1rem;
+      font-size: 0.95rem;
+    }
   }
 </style>
 
 <script>
   const form = document.querySelector<HTMLFormElement>(".form");
-  const ok = document.querySelector(".gratitude");
-  const errorM = document.querySelector(".error");
+  const successMessage = document.querySelector(".status-success");
+  const errorMessage = document.querySelector(".status-error");
 
-  const showGratitude = (e: SubmitEvent) => {
+  const handleSubmit = async (e: SubmitEvent) => {
     e.preventDefault();
-    console.log("enviando");
-    const button =
-      document.querySelector<HTMLButtonElement>(".form-input__btn");
-    button!.disabled = true;
+
+    const button = document.querySelector<HTMLButtonElement>(".form-button");
+    const buttonText = button?.querySelector<HTMLElement>(".button-text");
+
+    if (!button || !buttonText) return;
+
+    // Disable button and show loading state
+    button.disabled = true;
+    const originalText = buttonText.textContent;
+    buttonText.textContent = "Enviando...";
+
     const formulario = e.target as HTMLFormElement;
     const data = new FormData(formulario);
     const url = formulario.action;
     const method = formulario.method;
-    fetch(url, { body: data, method })
-      .then(() => {
-        ok?.classList.remove("hidden");
-        console.log("enviado");
-      })
-      .catch(() => {
-        errorM?.classList.remove("hidden");
-      })
-      .finally(() => {
-        button!.disabled = false;
+
+    try {
+      const response = await fetch(url, { body: data, method });
+
+      if (response.ok) {
+        // Show success message
+        successMessage?.classList.remove("hidden");
+        errorMessage?.classList.add("hidden");
+
+        // Reset form
         formulario.reset();
+
+        // Auto-hide success message after 5 seconds
         setTimeout(() => {
-          ok?.classList.add("hidden");
-          errorM?.classList.add("hidden");
-        }, 3000);
-      });
+          successMessage?.classList.add("hidden");
+        }, 5000);
+      } else {
+        throw new Error("Server error");
+      }
+    } catch (error) {
+      // Show error message
+      errorMessage?.classList.remove("hidden");
+      successMessage?.classList.add("hidden");
+
+      // Auto-hide error message after 5 seconds
+      setTimeout(() => {
+        errorMessage?.classList.add("hidden");
+      }, 5000);
+    } finally {
+      // Re-enable button
+      button.disabled = false;
+      buttonText.textContent = originalText;
+    }
   };
-  form?.addEventListener("submit", showGratitude);
+
+  form?.addEventListener("submit", handleSubmit);
 </script>
