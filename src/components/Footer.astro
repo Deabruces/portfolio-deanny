@@ -1,304 +1,111 @@
 ---
 import Love from "../assets/icons/love.svg";
 import SocialIcons from "./SocialIcons.astro";
-import LogoBlanco from "../assets/images/logo-blanco.png";
-import Image from "astro/components/Image.astro";
+import LogoDeanny from "../assets/images/logo-deanny.png";
+import { Image } from "astro:assets";
+import "../assets/styles/Footer.css";
 ---
 
 <footer class="footer">
-  <div class="footer-container">
-    <!-- Columna 1: Logo + tagline + CTA al final -->
-    <div class="footer-brand" data-animate>
-      <div class="brand-top">
-        <Image
-          src={LogoBlanco}
-          alt="Deanny Bruces - Desarrolladora Frontend especializada en crear experiencias web memorables"
-          class="img-hero"
-          height={100}
-        />
-        <h2>Deanny Bruces</h2>
-        <p>Desarrolladora Web · SEO · UX/UI</p>
-      </div>
-      <a href="https://calendar.app.google/7zL3cZ713aYB9tCW6" class="btn-footer"
-        >Agendar cita</a
-      >
-    </div>
+  <!-- Background Elements -->
+  <div class="footer-background" aria-hidden="true">
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
+  </div>
 
-    <!-- Columna 2: Navegación en dos columnas -->
-    <div class="footer-nav" data-animate>
-      <h4>Navegación</h4>
-      <ul class="nav-grid">
-        <li><a href="/">Home</a></li>
-        <li><a href="/sobre-mi">Sobre mí</a></li>
-        <li><a href="/servicios">Servicios</a></li>
-        <li><a href="/proyectos">Proyectos</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/contacto">Contacto</a></li>
-      </ul>
-    </div>
+  <div class="footer-main">
+    <div class="footer-container">
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        <div class="brand-top">
+          <Image
+            src={LogoDeanny}
+            alt="Logo de Deanny Bruces"
+            class="footer-logo"
+          />
+          <h2>Deanny Bruces</h2>
+          <p>Desarrolladora Frontend · SEO · UX/UI</p>
+        </div>
 
-    <!-- Columna 3: Contacto y redes -->
-    <div class="footer-contact" data-animate>
-      <h4>Contacto</h4>
-      <p><a href="mailto:info@deannybruces.com">deannybruces@gmail.com</a></p>
-      <p>
         <a
-          href="https://wa.me/56993068782?text=Hola%20Deanny,%20quiero%20información%20sobre%20tu%20servicio%20web"
-          target="_blank">WhatsApp</a
+          href="https://calendar.app.google/7zL3cZ713aYB9tCW6"
+          class="btn-footer"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Agendar una cita - Abre en nueva ventana"
         >
-      </p>
-      <div class="social-icons">
-        <SocialIcons />
+          <span>Agendar cita</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Navigation Column -->
+      <nav class="footer-nav" aria-label="Navegación del footer">
+        <h4>Navegación</h4>
+        <ul class="nav-grid">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/sobre-mi">Sobre mí</a></li>
+          <li><a href="/servicios">Servicios</a></li>
+          <li><a href="/proyectos">Proyectos</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/tools">Herramientas</a></li>
+          <li><a href="/contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contact Column -->
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <a href="mailto:deannybruces@gmail.com">deannybruces@gmail.com</a>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <a
+              href="https://wa.me/56993068782?text=Hola%20Deanny,%20quiero%20información%20sobre%20tu%20servicio%20web"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="social-icons">
+          <SocialIcons />
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Copyright -->
+  <!-- Footer Bottom -->
   <div class="footer-bottom">
-    <p class="copy">
-      &copy; 2025 · Hecho con <span> <Love aria-hidden="true" /> </span> por Deanny
-      Bruces · Todos los derechos reservados
-    </p>
-    <p>
-      <a href="/aviso-legal">Aviso legal</a> | <a href="/privacidad"
-        >Política de privacidad</a
-      >
-    </p>
+    <div class="footer-bottom-container">
+      <p class="copy">
+        &copy; 2025 Hecho con <Love aria-hidden="true" /> por Deanny Bruces
+      </p>
+      <div class="footer-links">
+        <a href="/aviso-legal">Aviso legal</a>
+        <span aria-hidden="true">|</span>
+        <a href="/privacidad">Política de privacidad</a>
+      </div>
+    </div>
   </div>
 </footer>
-
-<style>
-  .footer {
-    padding: 2.5rem 1.5rem 1.5rem;
-    border-top-left-radius: 1.5rem;
-    border-top-right-radius: 1.5rem;
-
-    font-family: Inter, sans-serif;
-    color: #fff;
-
-    background: linear-gradient(
-      135deg,
-      var(--deanny-purpura),
-      var(--deanny-cian)
-    );
-  }
-
-  .footer-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    align-items: start;
-
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  /* Columna 1 con botón fijo abajo */
-  .footer-brand {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .brand-top {
-    margin-bottom: 1rem;
-  }
-
-  .footer-brand h2 {
-    margin: 0.3rem 0;
-    font-family: Poppins, sans-serif;
-    font-size: 1.5rem;
-    color: #fff;
-  }
-
-  .footer-brand p {
-    margin: 0;
-    font-size: 0.95rem;
-    color: #f9f7fa;
-  }
-
-  .logo {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Botón CTA */
-  .btn-footer {
-    align-self: flex-start; /* Mantener alineado a la izquierda */
-
-    margin-top: auto;
-    padding: 0.6rem 1.2rem;
-    border-radius: 0.6rem;
-
-    font-weight: 600;
-    color: #8e44ad;
-    text-decoration: none;
-
-    background: #fff;
-
-    transition: all 0.8s ease;
-  }
-
-  .btn-footer:hover {
-    color: #fff;
-    background: var(--deanny-cian);
-  }
-
-  /* Navegación en dos columnas */
-  .footer-nav h4 {
-    margin-bottom: 0.8rem;
-    font-family: Poppins, sans-serif;
-    color: #f9f7fa;
-  }
-
-  .footer-nav .nav-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(100px, 1fr));
-    gap: 0.6rem 1rem;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
-  }
-
-  .footer-nav a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-
-  .footer-nav a:hover {
-    color: var(--deanny-cian-hover);
-  }
-
-  /* Contacto + Redes */
-  .footer-contact h4 {
-    margin-bottom: 0.8rem;
-    font-family: Poppins, sans-serif;
-    color: #f9f7fa;
-  }
-
-  .footer-contact p {
-    margin: 0.3rem 0;
-  }
-
-  .footer-contact a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-
-  .footer-contact a:hover {
-    color: var(--deanny-cian-hover);
-  }
-
-  .social-icons {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 0.8rem;
-  }
-
-  .social-icons a {
-    margin-right: 0.6rem;
-
-    font-size: 1.4rem;
-    color: var(--deanny-cian);
-
-    background-color: #fff;
-
-    transition:
-      transform 0.3s ease,
-      color 0.3s ease;
-  }
-
-  .social-icons a:hover {
-    transform: scale(1.2);
-    color: #f9f7fa;
-  }
-
-  /* Copyright */
-  .footer-bottom {
-    margin-top: 1.5rem;
-    padding-top: 0.8rem;
-    border-top: 1px solid rgb(255 255 255 / 30%);
-
-    font-size: 0.85rem;
-    text-align: center;
-  }
-
-  .footer-bottom a {
-    color: #f9f7fa;
-    text-decoration: none;
-  }
-
-  .footer-bottom a:hover {
-    color: #fff;
-  }
-
-  /* Animaciones scroll reveal */
-  [data-animate] {
-    transform: translateY(30px);
-    opacity: 0;
-    transition: all 0.8s ease;
-  }
-
-  [data-animate].visible {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  .copy {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    align-items: center;
-    justify-content: center;
-
-    margin: 0;
-    padding: 10px 0;
-
-    font-size: clamp(0.8rem, 1.8vw, 1rem);
-    font-weight: 300;
-    color: #fff;
-  }
-
-  .copy svg {
-    width: clamp(16px, 2vw, 20px);
-    height: clamp(16px, 2vw, 20px);
-    vertical-align: middle;
-  }
-
-  /* Responsivo: navegación a 1 columna en móvil */
-  @media (width <= 600px) {
-    .footer-nav .nav-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  /* Responsive: en móvil, navegación pasa a 1 columna */
-  @media (width <= 600px) {
-    .footer-nav .nav-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll("[data-animate]");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 },
-    );
-
-    elements.forEach((el) => observer.observe(el));
-  });
-</script>
