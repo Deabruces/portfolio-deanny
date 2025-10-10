@@ -1,69 +1,64 @@
+---
+import "../assets/styles/CtaFinal.css";
+---
+
 <section class="cta-final content-grid">
-  <div class="cta-content">
-    <h2>¿List@ para que tu web venda más y refleje tu esencia?</h2>
-    <p>
-      Construyamos junt@s una página web estratégica que transmita tu valor,
-      atraiga clientes y convierta visitas en ventas.
-    </p>
-    <a href="/https://calendar.app.google/7zL3cZ713aYB9tCW6" class="btn-cta"
-      >Solicitar propuesta</a
-    >
+  <!-- Background Elements -->
+  <div class="cta-background full-width" aria-hidden="true">
+    <div class="grid-pattern"></div>
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
+    <div class="floating-blob blob-3"></div>
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+  </div>
+
+  <div class="cta-container">
+    <div class="cta-content">
+      <!-- Icon Badge -->
+      <div class="icon-badge" aria-hidden="true">
+        <svg
+          width="40"
+          height="40"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+
+      <h2>
+        ¿List@ para que tu web <span class="gradient-text">venda más</span> y refleje
+        tu esencia?
+      </h2>
+      <p>
+        Construyamos junt@s una página web estratégica que transmita tu valor,
+        atraiga clientes y convierta visitas en ventas.
+      </p>
+      <a
+        href="https://calendar.app.google/7zL3cZ713aYB9tCW6"
+        class="btn-cta"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Solicitar propuesta - Abre en nueva ventana"
+      >
+        <span>Solicitar propuesta</span>
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+      <p class="cta-note">🎯 Respuesta en menos de 24 horas</p>
+    </div>
   </div>
 </section>
-
-<style>
-  .cta-final {
-    margin-bottom: 4rem;
-    padding: 4rem 2rem;
-
-    color: var(--text-color);
-    text-align: center;
-
-    background: linear-gradient(
-      180deg,
-      var(--deanny-purpura),
-      light-dark(#fff, #1a1a1a)
-    );
-  }
-
-  .cta-content {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .cta-content h2 {
-    margin-bottom: 1rem;
-    font-family: Poppins, sans-serif;
-    font-size: 2rem;
-    color: #fff;
-  }
-
-  .cta-content p {
-    margin-bottom: 2rem;
-    font-family: Inter, sans-serif;
-    font-size: 1.1rem;
-    color: #f9f7fa;
-  }
-
-  .btn-cta {
-    display: inline-block;
-
-    padding: 1rem 2rem;
-    border: 1px solid var(--deanny-cian);
-    border-radius: 60px;
-
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--deanny-cian);
-    text-decoration: none;
-
-    background: #fff;
-
-    transition: all 0.8s ease;
-  }
-
-  .btn-cta:hover {
-    color: #333;
-    background: var(--deanny-cian-hover);
-  }
-</style>

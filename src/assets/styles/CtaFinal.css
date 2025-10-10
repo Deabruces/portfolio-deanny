@@ -1,0 +1,420 @@
+/* ============================================
+   CTA Final Styles - Modern Glassmorphic Design
+   ============================================ */
+
+/* Main Section */
+.cta-final {
+  position: relative;
+  padding: 12rem 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  background: light-dark(
+    linear-gradient(180deg, rgba(168, 85, 247, 0.05), rgba(255, 255, 255, 0.9)),
+    linear-gradient(180deg, rgba(30, 27, 75, 0.8), rgba(17, 17, 17, 0.95))
+  );
+}
+
+/* Background Elements */
+.cta-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Animated Grid */
+.grid-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(light-dark(rgba(168, 85, 247, 0.05), rgba(168, 85, 247, 0.08)) 1px, transparent 1px),
+    linear-gradient(90deg, light-dark(rgba(168, 85, 247, 0.05), rgba(168, 85, 247, 0.08)) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.5;
+  animation: gridSlide 20s linear infinite;
+}
+
+@keyframes gridSlide {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+/* Floating Blobs */
+.floating-blob {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  filter: blur(100px);
+  animation: blobFloat 25s ease-in-out infinite;
+}
+
+.blob-1 {
+  top: -20%;
+  left: -15%;
+  width: 45rem;
+  height: 45rem;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  animation-delay: 0s;
+}
+
+.blob-2 {
+  top: 50%;
+  right: -18%;
+  width: 50rem;
+  height: 50rem;
+  background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+  animation-delay: 8s;
+}
+
+.blob-3 {
+  bottom: -25%;
+  left: 40%;
+  width: 40rem;
+  height: 40rem;
+  background: linear-gradient(135deg, #f43f5e, #a855f7);
+  animation-delay: 16s;
+}
+
+/* Gradient Orbs */
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.25;
+  filter: blur(80px);
+  animation: orbPulse 18s ease-in-out infinite;
+}
+
+.orb-1 {
+  top: 20%;
+  right: 25%;
+  width: 30rem;
+  height: 30rem;
+  background: radial-gradient(circle, #06b6d4, transparent);
+}
+
+.orb-2 {
+  bottom: 15%;
+  left: 20%;
+  width: 35rem;
+  height: 35rem;
+  background: radial-gradient(circle, #a855f7, transparent);
+}
+
+@keyframes blobFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(-35px, -55px) scale(1.15) rotate(120deg);
+  }
+  66% {
+    transform: translate(45px, 35px) scale(0.85) rotate(240deg);
+  }
+}
+
+@keyframes orbPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.35;
+  }
+}
+
+/* Container */
+.cta-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* CTA Content */
+.cta-content {
+  position: relative;
+  text-align: center;
+  padding: 4rem 3rem;
+  border-radius: 2.5rem;
+
+  background: light-dark(
+    rgba(255, 255, 255, 0.7),
+    rgba(30, 27, 75, 0.6)
+  );
+  border: 2px solid light-dark(
+    rgba(168, 85, 247, 0.25),
+    rgba(168, 85, 247, 0.4)
+  );
+  backdrop-filter: blur(30px);
+
+  box-shadow:
+    0 25px 80px light-dark(
+      rgba(168, 85, 247, 0.15),
+      rgba(0, 0, 0, 0.5)
+    ),
+    0 0 0 1px light-dark(
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.1)
+    ) inset;
+
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+/* Decorative Elements */
+.cta-content::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent, #a855f7, #06b6d4, transparent);
+  opacity: 0.8;
+}
+
+.cta-content::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 2.5rem;
+  background: radial-gradient(
+    circle at top center,
+    rgba(168, 85, 247, 0.15) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* Icon Badge */
+.icon-badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 2rem;
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #a855f7, #06b6d4);
+  box-shadow:
+    0 15px 40px rgba(168, 85, 247, 0.4),
+    0 0 0 4px light-dark(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+.icon-badge svg {
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+/* Title */
+.cta-content h2 {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: light-dark(#1e1b4b, #f8fafc);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #a855f7, #06b6d4, #ec4899);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Description */
+.cta-content p {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2.5rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.7;
+  color: light-dark(#64748b, #cbd5e1);
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CTA Button */
+.btn-cta {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 3rem;
+  border-radius: 3.5rem;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #fff;
+  text-decoration: none;
+
+  background: linear-gradient(135deg, #a855f7, #06b6d4);
+  border: 2px solid transparent;
+  box-shadow:
+    0 15px 50px rgba(168, 85, 247, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.btn-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-cta:hover::before {
+  left: 100%;
+}
+
+.btn-cta svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.3s ease;
+}
+
+.btn-cta:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow:
+    0 20px 60px rgba(168, 85, 247, 0.5),
+    0 0 0 2px rgba(255, 255, 255, 0.5) inset;
+}
+
+.btn-cta:hover svg {
+  transform: translateX(8px);
+}
+
+/* Secondary Text */
+.cta-note {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: light-dark(#94a3b8, #94a3b8);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus Styles */
+.btn-cta:focus-visible {
+  outline: 3px solid light-dark(#a855f7, #a78bfa);
+  outline-offset: 6px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .cta-final {
+    padding: 5rem 0;
+  }
+
+  .cta-content {
+    padding: 3rem 2rem;
+  }
+
+  .icon-badge {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 1.5rem;
+  }
+
+  .icon-badge svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .btn-cta {
+    padding: 1.2rem 2.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .cta-content {
+    padding: 3.5rem 2.5rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .cta-container {
+    padding: 0 2rem;
+  }
+}
