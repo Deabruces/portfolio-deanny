@@ -12,7 +12,9 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
 ---
 
 <section class="tech-stack content-grid">
-  <h2 class="tech-stack__title">Tecnologías que uso</h2>
+  <h2 class="subtitle">
+    Tecnologías que <span class="subtitle__span">uso</span>
+  </h2>
 
   <div class="tech-iconos-color">
     <div class="iconos-color">
@@ -61,10 +63,14 @@ import Bootstrap from "../assets/icons/bootstrap.svg";
     border-radius: 20px;
   }
 
-  .tech-stack__title {
-    padding-bottom: 5px;
-    padding-inline: 2rem;
+  .subtitle {
+    width: 100%;
+    padding-bottom: 50px;
     text-align: center;
+  }
+
+  .subtitle__span {
+    color: var(--deanny-lila);
   }
 
   .tech-iconos-color {

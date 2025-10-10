@@ -6,6 +6,11 @@ import AboutMeHome from "../components/AboutMeHome.astro";
 import Hero from "../components/Hero.astro";
 import HeroCarousel from "components/HeroCarousel.astro";
 import FeaturesCards from "components/FeaturesCards.astro";
+import Services from "components/services.astro";
+import Process from "components/Process.astro";
+import CtaFinal from "components/CtaFinal.astro";
+import BlogHome from "components/BlogHome.astro";
+import ToolsHome from "components/ToolsHome.astro";
 ---
 
 <Layout
@@ -15,9 +20,12 @@ import FeaturesCards from "components/FeaturesCards.astro";
 >
   <HeroCarousel />
   <FeaturesCards />
-
-  <Hero />
-  <FeaturedProjects />
-  <TechStack />
   <AboutMeHome />
+  <Services />
+  <Process />
+  <TechStack />
+  <FeaturedProjects />
+  <BlogHome />
+  <ToolsHome />
+  <CtaFinal />
 </Layout>

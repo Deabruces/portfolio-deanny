@@ -1,0 +1,226 @@
+---
+import Seo from "../assets/icons/seo.svg";
+import WebProgrammer from "../assets/icons/web-programmer.svg";
+import UiUx from "../assets/icons/ui-ux.svg";
+import MttoWeb from "../assets/icons/mtto-web.svg";
+import Branding from "../assets/icons/branding.svg";
+import Time from "../assets/icons/time.svg";
+import Analisis from "../assets/icons/analisis.svg";
+import Pago from "../assets/icons/pago.svg";
+import Ecommerce from "../assets/icons/ecommerce.svg";
+---
+
+<section class="services">
+  <h2>Cómo te ayudo</h2>
+  <div class="services-grid">
+    <!-- 1. Diseño y desarrollo web -->
+    <div class="service-card">
+      <WebProgrammer />
+      <h3>Diseño y Desarrollo Web</h3>
+      <p>
+        Páginas modernas, rápidas y seguras que transmiten tu esencia y
+        funcionan como tu mejor carta de presentación digital.
+      </p>
+      <a href="#contacto" class="btn">Quiero este servicio</a>
+    </div>
+
+    <!-- 2. E-commerce -->
+    <div class="service-card">
+      <Ecommerce />
+      <h3>E-commerce</h3>
+      <p>
+        Tiendas online optimizadas para vender más, con una experiencia de
+        compra fluida y segura.
+      </p>
+      <a href="#contacto" class="btn">Quiero este servicio</a>
+    </div>
+
+    <!-- 3. Agendamiento y Pago -->
+    <div class="service-card">
+      <Pago />
+      <h3>Agendamiento y Pago</h3>
+      <p>
+        Sistemas integrados para que tus clientes reserven citas y realicen
+        pagos online con confianza.
+      </p>
+      <a href="#contacto" class="btn">Quiero este servicio</a>
+    </div>
+
+    <!-- 4. SEO -->
+    <div class="service-card">
+      <Seo />
+      <h3>SEO</h3>
+      <p>
+        Optimización para aparecer en Google y atraer clientes de manera
+        orgánica y constante.
+      </p>
+      <a href="#contacto" class="btn">Quiero este servicio</a>
+    </div>
+
+    <!-- 5. Mantenimiento Web -->
+    <div class="service-card">
+      <MttoWeb />
+      <h3>Mantenimiento Web</h3>
+      <p>
+        Actualización, seguridad y soporte continuo para que tu web funcione
+        siempre al máximo.
+      </p>
+      <a href="#contacto" class="btn">Quiero este servicio</a>
+    </div>
+
+    <!-- 6. Branding y diseño visual -->
+    <div class="service-card">
+      <Branding />
+      <h3>Branding y Diseño Visual</h3>
+      <p>
+        Paleta de colores, tipografías y elementos visuales para dar coherencia
+        y personalidad a tu marca.
+      </p>
+      <a href="#contacto" class="btn">Quiero este servicio</a>
+    </div>
+
+    <!-- 7. Optimización de velocidad -->
+    <div class="service-card">
+      <Time />
+      <h3>Optimización de Velocidad</h3>
+      <p>
+        Mejora de tiempos de carga y rendimiento para ofrecer la mejor
+        experiencia y escalar en SEO.
+      </p>
+      <a href="#contacto" class="btn">Quiero este servicio</a>
+    </div>
+
+    <!-- 8. Analítica y reportes -->
+    <div class="service-card">
+      <Analisis />
+      <h3>Analítica Web y Reportes</h3>
+      <p>
+        Datos claros y métricas accionables para entender a tu audiencia y tomar
+        mejores decisiones.
+      </p>
+      <a href="#contacto" class="btn">Quiero este servicio</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .storyset {
+    font-size: 0.1rem;
+  }
+
+  .services {
+    padding: 6rem 2rem;
+
+    color: #fff;
+    text-align: center;
+
+    background: linear-gradient(
+      -45deg,
+      #8e44ad,
+      #c38cf6,
+      var(--deanny-cian),
+      #e7a6c9
+    );
+    background-size: 400% 400%;
+
+    animation: gradientBG 12s ease infinite;
+  }
+
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .services h2 {
+    margin-bottom: 3rem;
+    font-family: Poppins, sans-serif;
+    font-size: 2rem;
+    color: #1b184c;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .service-card {
+    padding: 2rem;
+    border-radius: 1rem;
+
+    background: #f9f7fa;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 8%);
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgb(0 0 0 / 12%);
+  }
+
+  .service-card .icon,
+  .service-card .service-img,
+  .service-card svg {
+    display: block;
+
+    width: 80px; /* ancho uniforme */
+    height: 80px; /* alto uniforme */
+    margin: 0 auto 1rem;
+
+    object-fit: contain; /* asegura que no se deforme */
+  }
+
+  .service-card svg {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .service-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    color: #1b184c;
+  }
+
+  .service-card p {
+    margin-bottom: 1.5rem;
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .btn {
+    display: inline-block;
+
+    padding: 0.7rem 1.2rem;
+    border-radius: 0.5rem;
+
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+
+    background: #8e44ad;
+
+    transition: background 0.3s ease;
+  }
+
+  .btn:hover {
+    background: #c38cf6;
+  }
+
+  .services-section h2 {
+    margin-bottom: 2rem;
+    font-family: Poppins, sans-serif;
+  }
+</style>

@@ -1,0 +1,186 @@
+---
+import Link from "../assets/icons/link.svg";
+import Qr from "../assets/icons/qr.svg";
+import Contrast from "../assets/icons/contrast.svg";
+---
+
+<section class="tools-section">
+  <div class="container">
+    <h2 class="subtitle">
+      Herramientas para <span class="subtitle__span">emprendedores</span>
+    </h2>
+    <p class="text">
+      Recursos gratuitos que te ayudarán a optimizar tu comunicación, mejorar la
+      accesibilidad y potenciar tu marca online.
+    </p>
+
+    <div class="tools-grid">
+      <!-- Herramienta 1 -->
+      <div class="tool-card">
+        <div class="container-icon"><Link class="icon" /></div>
+        <h3>Generador de links de WhatsApp</h3>
+        <p>
+          Crea enlaces con mensajes personalizados para conectar directamente
+          con tus clientes en un clic.
+        </p>
+        <a href="/herramientas/whatsapp-link" class="btn-tool">Probar ahora</a>
+      </div>
+
+      <!-- Herramienta 2 -->
+      <div class="tool-card">
+        <div class="container-icon"><Qr class="icon" /></div>
+        <h3>Generador de código QR</h3>
+        <p>
+          Convierte tus links en códigos QR listos para imprimir o compartir y
+          facilita la interacción.
+        </p>
+        <a href="/herramientas/qr-generator" class="btn-tool">Probar ahora</a>
+      </div>
+
+      <!-- Herramienta 3 -->
+      <div class="tool-card">
+        <div class="container-icon"><Contrast class="icon" /></div>
+        <h3>Comprobador de contraste</h3>
+        <p>
+          Verifica si la combinación de colores de tu web cumple con la
+          accesibilidad y mejora la experiencia de tus usuarios.
+        </p>
+        <a href="/herramientas/color-checker" class="btn-tool">Probar ahora</a>
+      </div>
+    </div>
+
+    <div class="cta-tools">
+      <a href="/herramientas" class="btn-main"
+        >Descubre todas las herramientas</a
+      >
+    </div>
+  </div>
+</section>
+
+<style>
+  .tools-section {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .container-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: auto;
+
+    color: var(--deanny-lila);
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .subtitle {
+    width: 100%;
+    margin-bottom: 0;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+
+  .subtitle__span {
+    color: var(--deanny-lila);
+  }
+
+  .text {
+    margin-bottom: 2.5rem;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .tool-card {
+    padding: 2rem 1.5rem;
+    border: 6px solid transparent;
+    border-radius: 1rem; /* Se aplica también al border-image */
+    border-image: linear-gradient(
+        135deg,
+        var(--deanny-purpura),
+        var(--deanny-cian)
+      )
+      1;
+
+    color: #1b184c;
+    text-align: left;
+
+    box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgb(0 0 0 / 15%);
+  }
+
+  .tool-card .icon {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  .tool-card h3 {
+    margin: 0.5rem 0;
+    font-family: Poppins, sans-serif;
+    color: #8e44ad;
+  }
+
+  .tool-card p {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .btn-tool {
+    display: inline-block;
+
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.6rem;
+
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+
+    background: var(--deanny-purpura);
+
+    transition: background 0.3s ease;
+  }
+
+  .btn-tool:hover {
+    background: var(--deanny-lila);
+  }
+
+  .cta-tools {
+    margin-top: 2.5rem;
+  }
+
+  .btn-main {
+    display: inline-block;
+
+    padding: 0.8rem 1.5rem;
+    border: 1px solid var(--deanny-purpura);
+    border-radius: 60px;
+
+    font-weight: 600;
+    color: #8e44ad;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+  }
+
+  .btn-main:hover {
+    color: #fff;
+    background: var(--deanny-purpura);
+  }
+</style>

@@ -12,17 +12,16 @@ const projects = await getCollection("projects");
     </h2>
     <div>
       <p class="featured-projects__description">
-        Aquí encontrarás algunos de mis proyectos destacados: aplicaciones
-        creadas con React, TypeScript, HTML y CSS, además de mi blog de cocina
-        en WordPress.
+        Explora mis proyectos destacados: aplicaciones en React, TypeScript,
+        HTML, CSS y mi blog en WordPress.
       </p>
       <p class="featured-projects__description">
-        Cada trabajo combina funcionalidad, diseño moderno y una experiencia
-        pensada para las personas.
+        Cada trabajo refleja funcionalidad, diseño moderno y experiencias
+        centradas en las personas.
       </p>
       <p class="featured-projects__description">
         Y esto es solo el comienzo: seguiré sumando proyectos con nuevas
-        tecnologías para seguir creando experiencias digitales únicas.
+        tecnologías para crear experiencias digitales únicas.
       </p>
     </div>
     <div class="cards">
@@ -44,8 +43,8 @@ const projects = await getCollection("projects");
           })
       }
     </div>
-    <div class="button-container">
-      <ButtonCta href="/proyectos"> Ver todos los proyectos </ButtonCta>
+    <div class="btn-proyectos-container">
+      <a href="/proyectos" class="btn-proyectos">Ver mas proyectos</a>
     </div>
   </div>
 </section>
@@ -69,11 +68,29 @@ const projects = await getCollection("projects");
     margin: 0 auto 20px;
   }
 
-  .button-container {
+  .btn-proyectos-container {
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 2rem;
+  }
+
+  .btn-proyectos {
+    display: inline-block;
+
+    padding: 0.8rem 1.5rem;
+    border: 1px solid var(--deanny-purpura);
+    border-radius: 60px;
+
+    font-weight: 600;
+    color: #8e44ad;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+  }
+
+  .btn-proyectos:hover {
+    color: #fff;
+    background: var(--deanny-purpura);
   }
 
   .subtitle {
@@ -83,6 +100,6 @@ const projects = await getCollection("projects");
   }
 
   .subtitle__span {
-    color: var(--acento-btn);
+    color: var(--deanny-lila);
   }
 </style>

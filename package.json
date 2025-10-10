@@ -20,6 +20,7 @@
     "@astrojs/vercel": "^8.2.7",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
+    "aos": "^2.3.4",
     "astro": "^5.13.9",
     "highlight.js": "^11.11.1",
     "qrcode": "^1.5.4",

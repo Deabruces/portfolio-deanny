@@ -1,75 +1,126 @@
 ---
-import ButtonCta from "../components/ButtonCta.astro";
+import { Image } from "astro:assets";
+import DeannyPerfil from "../assets/images/deanny-perfil.jpg";
 ---
 
-<section class="sobre-mi content-grid">
-  <div class="breakout">
-    <div class="breakout"></div>
-    <h2 class="about-me__title">¡Quién Soy!</h2>
-    <div class="about-me__body">
-      <div class="about-me__text">
-        <p class="about-me__text--description">
-          Soy Deanny, desarrolladora frontend y apasionada por el diseño web
-          creativo. Me encanta transformar ideas en experiencias digitales
-          únicas que conecten con las personas y transmitan emociones.
-        </p>
-        <p class="about-me__text--description">
-          Además de programar, disfruto del arte, la ilustración y la buena
-          cocina, lo que me inspira a crear proyectos llenos de color, armonía y
-          funcionalidad.
-        </p>
-        <p class="about-me__text--description">
-          Mi misión es ayudar a emprendedores, marcas y negocios a construir su
-          presencia digital con páginas web modernas, optimizadas y con
-          identidad propia.
-        </p>
-        <p>Lo que me define:</p>
-        <ul>
-          <li>Creatividad y pasión por el diseño</li>
-          <li>Atención al detalle y calidad</li>
-          <li>Empatía y enfoque en el usuario</li>
-          <li>Colaboración y comunicación efectiva</li>
-          <li>Aprendizaje continuo y adaptación</li>
-        </ul>
+<section class="about-me">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-image">
+        <Image
+          src={DeannyPerfil}
+          alt="Deanny Bruces - Desarrolladora Frontend especializada en crear experiencias web memorables"
+          class="img-about"
+          height={500}
+        />
       </div>
-      <ButtonCta href="/sobre-mi"> Conoce más sobre mi</ButtonCta>
+      <div class="about-text">
+        <h2 class="saludo">¡Hola! Soy Deanny</h2>
+        <p>
+          Transformo ideas en experiencias web memorables. Con un enfoque en
+          accesibilidad y rendimiento, creo páginas modernas optimizadas que
+          conectan con personas.
+        </p>
+        <p>
+          Desarrolladora frontend con pasión por el diseño creativo. Me inspiro
+          en el arte, la ilustración y los detalles, combinando funcionalidad
+          con armonía. Mi misión es ayudar a emprendedores, marcas y negocios a
+          construir su presencia digital con identidad propia.
+        </p>
+        <a href="/sobre-mi" class="btn">Conóceme más</a>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .sobre-mi {
-    padding: 50px 0;
+  .about-me {
+    padding: 4rem 2rem;
   }
 
-  .about-me__title {
-    margin-bottom: 2rem;
-    padding-top: 5px;
-    text-align: center;
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
-  .about-me__body {
+  .about-content {
     display: flex;
-    flex-flow: column wrap;
+    flex-wrap: wrap;
+    gap: 2rem;
     align-items: center;
-    justify-content: center;
-
-    width: 100%;
   }
 
-  .about-me__text {
-    padding-inline: 2rem;
+  .about-image img {
+    width: 250px;
+    height: auto;
+    border: 5px solid var(--deanny-cian);
+    border-radius: 50%;
+
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgb(0 0 0 / 10%);
   }
 
-  .about-me__text--description {
-    margin-bottom: 15px;
-    line-height: 1.3;
-    color: var(--text-color);
+  .about-text {
+    flex: 1;
+    min-width: 280px;
   }
 
-  ul {
-    margin-top: 10px;
-    line-height: 1.5;
-    color: var(--text-color);
+  .saludo {
+    --webkit-background-clip: text; /* Aplica el degradado solo al texto (WebKit) */
+
+    place-self: end stretch;
+
+    margin-bottom: 1rem;
+    margin-block: 1rem;
+
+    font-family: Poppins, sans-serif;
+    font-size: 2rem;
+    color: #1b184c;
+    color: transparent;
+
+    background: linear-gradient(to right, #c38cf6, #4bc0c8);
+    background-clip: text; /* Aplica el degradado solo al texto */
+
+    /* anima el background del texto */
+
+    -webkit-text-fill-color: transparent; /* Hace el texto transparente (WebKit) */
+  }
+
+  .about-text p {
+    margin-bottom: 1rem;
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+  }
+
+  .btn {
+    display: inline-block;
+
+    padding: 0.8rem 1.4rem;
+    border: 1px solid var(--deanny-purpura);
+    border-radius: 60px;
+
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+
+    background: var(--bg-color);
+
+    transition: background 0.3s ease;
+  }
+
+  .btn:hover {
+    background: #c38cf6;
+  }
+
+  /* Responsivo */
+  @media (width <= 768px) {
+    .about-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .about-image img {
+      width: 200px;
+    }
   }
 </style>

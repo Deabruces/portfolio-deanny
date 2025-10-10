@@ -1,0 +1,244 @@
+<section class="process-map">
+  <h2 class="subtitle">
+    Mi Proceso de <span class="subtitle__span">Trabajo</span>
+  </h2>
+  <p class="intro">
+    Cada paso es un hito en el camino hacia el lanzamiento de tu web.
+  </p>
+
+  <div class="timeline">
+    <div class="timeline-item left">
+      <div class="content">
+        <div class="icon">🔍</div>
+        <h3>Diagnóstico inicial</h3>
+        <p>
+          Analizo tus necesidades y objetivos para comprender a fondo tu
+          proyecto.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item right">
+      <div class="content">
+        <div class="icon">📄</div>
+        <h3>Propuesta personalizada</h3>
+        <p>
+          Te presento una solución adaptada a tus metas, con una ruta clara de
+          trabajo.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item left">
+      <div class="content">
+        <div class="icon">💻</div>
+        <h3>Diseño y desarrollo</h3>
+        <p>
+          Transformo tus ideas en una web funcional, atractiva y enfocada en
+          resultados.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item right">
+      <div class="content">
+        <div class="icon">🚀</div>
+        <h3>Optimización y lanzamiento</h3>
+        <p>
+          Reviso, ajusto y optimizo cada detalle antes de lanzar tu página al
+          mundo.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .process-map {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 4rem 2rem;
+
+    text-align: center;
+
+    background: var(--bg-color); /* color base */
+    background: url("../assets/icons/pattern-network.svg");
+  }
+
+  .process-section::before {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+
+    opacity: 0.15; /* más o menos visible */
+    background-image: url("../assets/icons/pattern-network.svg");
+    background-repeat: repeat;
+    background-size: 10px; /* tamaño del patrón repetido */
+  }
+
+  .process-section * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .subtitle {
+    width: 100%;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+
+  .subtitle__span {
+    color: var(--deanny-lila);
+  }
+
+  .process-map .intro {
+    margin-bottom: 3rem;
+    font-family: Inter, sans-serif;
+    font-size: 1.1rem;
+  }
+
+  /* Timeline base */
+  .timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .timeline::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 4px;
+
+    background: repeating-linear-gradient(
+      to bottom,
+      #8e44ad,
+      #8e44ad 12px,
+      transparent 12px,
+      transparent 24px
+    );
+  }
+
+  /* Items */
+  .timeline-item {
+    position: relative;
+    transform: translateY(40px);
+
+    width: 50%;
+    padding: 1rem 2rem;
+
+    opacity: 0; /* Inicialmente oculto */
+
+    transition: all 0.8s ease;
+  }
+
+  .timeline-item.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .timeline-item.left {
+    left: 0;
+    text-align: right;
+  }
+
+  .timeline-item.right {
+    left: 50%;
+    text-align: left;
+  }
+
+  .timeline-item .content {
+    display: inline-block;
+
+    max-width: 320px;
+    padding: 1.5rem;
+    border-radius: 1rem;
+
+    box-shadow: 0 6px 20px rgb(0 0 0 / 8%);
+  }
+
+  .right.timeline-item .content {
+    background: var(--deanny-purpura);
+  }
+
+  .left.timeline-item .content {
+    background: var(--deanny-lila);
+  }
+
+  .icon {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    color: #8e44ad;
+  }
+
+  .content h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  .content p {
+    font-size: 0.95rem;
+  }
+
+  /* Responsive */
+  @media (width <= 1024px) {
+    .timeline::before {
+      left: 20px;
+    }
+
+    .timeline-item,
+    .timeline-item.right {
+      left: 0;
+
+      width: 100%;
+      margin-bottom: 2rem;
+      padding-left: 3rem;
+
+      text-align: left;
+    }
+
+    .timeline-item .content {
+      max-width: 100%;
+    }
+  }
+
+  @media (width <= 600px) {
+    .timeline::before {
+      left: 10px;
+    }
+
+    .timeline-item {
+      padding-left: 2.5rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".timeline-item");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // Solo animar una vez
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    items.forEach((item) => observer.observe(item));
+  });
+</script>

@@ -3,13 +3,13 @@
   --deanny-purpura: #8e44ad;
   --deanny-lila: #c38cf6;
   --deanny-cian: #4bc0c8;
-  --deanny-cian-hover: #6adee6;
+  --deanny-cian-hover: #84eef6;
   --deanny-encabezados-text-color: light-dark(
     var(--deanny-purpura),
     var(--deanny-lila)
   );
   --deanny-text-color: light-dark(#333, #fff);
-  --deanny-bg-color: light-dark(#1a1a1a, #fff);
+  --deanny-bg-color: light-dark(#fff, #1a1a1a);
   --deanny-bg-btn-cta: light-dark(var(--deanny-cian), var(--deanny-cian));
   --deanny-border-color: light-dark(var(--deanny-lila), var(--deanny-lila));
   --deanny-placeholder-text-color: light-dark(#33333373, #333333e3);
@@ -219,14 +219,14 @@ a {
   font-size: clamp(0.875rem, 0.9375vw, 1rem);
   font-weight: 600;
   line-height: 1.4;
-  color: var(--acento-btn);
+  color: var(--deanny-purpura);
   text-decoration: none;
 
   transition: color 0.3s ease-in-out;
 }
 
 a:hover {
-  color: var(--acento-btn-hover);
+  color: var(--deanny-cian);
 }
 
 ul,

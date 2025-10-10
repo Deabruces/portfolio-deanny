@@ -1,38 +1,255 @@
 ---
 import Love from "../assets/icons/love.svg";
 import SocialIcons from "./SocialIcons.astro";
+import LogoBlanco from "../assets/images/logo-blanco.png";
+import Image from "astro/components/Image.astro";
 ---
 
-<div class="footer">
-  <p class="text">
-    &copy; 2025 | Hecho con <span><Love aria-hidden="true" /></span> por Deanny Bruces
-  </p>
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Columna 1: Logo + tagline + CTA al final -->
+    <div class="footer-brand" data-animate>
+      <div class="brand-top">
+        <Image
+          src={LogoBlanco}
+          alt="Deanny Bruces - Desarrolladora Frontend especializada en crear experiencias web memorables"
+          class="img-hero"
+          height={100}
+        />
+        <h2>Deanny Bruces</h2>
+        <p>Desarrolladora Web · SEO · UX/UI</p>
+      </div>
+      <a href="https://calendar.app.google/7zL3cZ713aYB9tCW6" class="btn-footer"
+        >Agendar cita</a
+      >
+    </div>
 
-  <div class="social-icons">
-    <SocialIcons />
+    <!-- Columna 2: Navegación en dos columnas -->
+    <div class="footer-nav" data-animate>
+      <h4>Navegación</h4>
+      <ul class="nav-grid">
+        <li><a href="/">Home</a></li>
+        <li><a href="/sobre-mi">Sobre mí</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/proyectos">Proyectos</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3: Contacto y redes -->
+    <div class="footer-contact" data-animate>
+      <h4>Contacto</h4>
+      <p><a href="mailto:info@deannybruces.com">deannybruces@gmail.com</a></p>
+      <p>
+        <a
+          href="https://wa.me/56993068782?text=Hola%20Deanny,%20quiero%20información%20sobre%20tu%20servicio%20web"
+          target="_blank">WhatsApp</a
+        >
+      </p>
+      <div class="social-icons">
+        <SocialIcons />
+      </div>
+    </div>
   </div>
-</div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <p class="copy">
+      &copy; 2025 · Hecho con <span> <Love aria-hidden="true" /> </span> por Deanny
+      Bruces · Todos los derechos reservados
+    </p>
+    <p>
+      <a href="/aviso-legal">Aviso legal</a> | <a href="/privacidad"
+        >Política de privacidad</a
+      >
+    </p>
+  </div>
+</footer>
 
 <style>
   .footer {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: space-between;
+    padding: 2.5rem 1.5rem 1.5rem;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
 
-    height: auto;
-    margin-top: 100px;
-    padding: 10px 20px;
-    border-top: 1px solid #1806283b;
+    font-family: Inter, sans-serif;
+    color: #fff;
 
-    font-size: 1.2rem;
-    font-weight: 500;
-
-    background-color: var(--section-dark);
-    backdrop-filter: blur(10px);
+    background: linear-gradient(
+      135deg,
+      var(--deanny-purpura),
+      var(--deanny-cian)
+    );
   }
 
-  .text {
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    align-items: start;
+
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Columna 1 con botón fijo abajo */
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .brand-top {
+    margin-bottom: 1rem;
+  }
+
+  .footer-brand h2 {
+    margin: 0.3rem 0;
+    font-family: Poppins, sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+
+  .footer-brand p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #f9f7fa;
+  }
+
+  .logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Botón CTA */
+  .btn-footer {
+    align-self: flex-start; /* Mantener alineado a la izquierda */
+
+    margin-top: auto;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.6rem;
+
+    font-weight: 600;
+    color: #8e44ad;
+    text-decoration: none;
+
+    background: #fff;
+
+    transition: all 0.8s ease;
+  }
+
+  .btn-footer:hover {
+    color: #fff;
+    background: var(--deanny-cian);
+  }
+
+  /* Navegación en dos columnas */
+  .footer-nav h4 {
+    margin-bottom: 0.8rem;
+    font-family: Poppins, sans-serif;
+    color: #f9f7fa;
+  }
+
+  .footer-nav .nav-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    gap: 0.6rem 1rem;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  .footer-nav a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-nav a:hover {
+    color: var(--deanny-cian-hover);
+  }
+
+  /* Contacto + Redes */
+  .footer-contact h4 {
+    margin-bottom: 0.8rem;
+    font-family: Poppins, sans-serif;
+    color: #f9f7fa;
+  }
+
+  .footer-contact p {
+    margin: 0.3rem 0;
+  }
+
+  .footer-contact a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-contact a:hover {
+    color: var(--deanny-cian-hover);
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 0.8rem;
+  }
+
+  .social-icons a {
+    margin-right: 0.6rem;
+
+    font-size: 1.4rem;
+    color: var(--deanny-cian);
+
+    background-color: #fff;
+
+    transition:
+      transform 0.3s ease,
+      color 0.3s ease;
+  }
+
+  .social-icons a:hover {
+    transform: scale(1.2);
+    color: #f9f7fa;
+  }
+
+  /* Copyright */
+  .footer-bottom {
+    margin-top: 1.5rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgb(255 255 255 / 30%);
+
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .footer-bottom a {
+    color: #f9f7fa;
+    text-decoration: none;
+  }
+
+  .footer-bottom a:hover {
+    color: #fff;
+  }
+
+  /* Animaciones scroll reveal */
+  [data-animate] {
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.8s ease;
+  }
+
+  [data-animate].visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .copy {
     display: flex;
     flex-direction: row;
     gap: 5px;
@@ -43,34 +260,45 @@ import SocialIcons from "./SocialIcons.astro";
     padding: 10px 0;
 
     font-size: clamp(0.8rem, 1.8vw, 1rem);
-    color: var(--acento-btn);
+    font-weight: 300;
+    color: #fff;
   }
 
-  .text svg {
+  .copy svg {
     width: clamp(16px, 2vw, 20px);
     height: clamp(16px, 2vw, 20px);
     vertical-align: middle;
   }
 
-  span {
-    display: inline-flex;
-    align-items: center;
-    margin: 5px;
+  /* Responsivo: navegación a 1 columna en móvil */
+  @media (width <= 600px) {
+    .footer-nav .nav-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
-  .social-icons {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-  }
-
-  @media (width >= 768px) {
-    .footer {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
+  /* Responsive: en móvil, navegación pasa a 1 columna */
+  @media (width <= 600px) {
+    .footer-nav .nav-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll("[data-animate]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    elements.forEach((el) => observer.observe(el));
+  });
+</script>

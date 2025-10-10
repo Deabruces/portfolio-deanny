@@ -1,0 +1,153 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+// Traer los últimos 3 posts ordenados por fecha
+const posts = (await getCollection("posts"))
+  .sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
+  .slice(0, 3);
+---
+
+<section class="blog-section">
+  <div class="container">
+    <h2 class="subtitle">
+      Últimos <span class="subtitle__span">post del blog</span>
+    </h2>
+    <p class="subtitle">
+      Aprende y aplica lo esencial del SEO, diseño web, accesibilidad,
+      rendimiento y experiencia de usuario: recursos para programadores que
+      inician y emprendedores que quieren potenciar su marca online.
+    </p>
+
+    <div class="blog-grid">
+      {
+        posts.map((post) => (
+          <article class="blog-card">
+            <div class="card-image">
+              <Image
+                src={post.data.image}
+                alt={`Imagen para ${post.data.title}`}
+              />
+            </div>
+
+            <div class="blog-content">
+              <h3>
+                <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+              </h3>
+              <p>{post.data.summary}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="cta-blog">
+      <a href="/blog" class="btn-blog">Explora más en mi blog</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .blog-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background: var(--bg-color, #f9f7fa);
+  }
+
+  .subtitle {
+    width: 100%;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+
+  .subtitle__span {
+    color: var(--deanny-lila);
+  }
+
+  .blog-section .subtitle {
+    color: var(--text-color);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .blog-card {
+    overflow: hidden;
+
+    border-radius: 0.8rem;
+
+    text-align: left;
+
+    background: #fff;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+
+    transition: transform 0.3s ease;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-image {
+    position: relative;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .blog-content {
+    padding: 1rem;
+  }
+
+  .blog-content h3 {
+    margin: 0 0 0.5rem;
+    font-family: Poppins, sans-serif;
+    font-size: 1.1rem;
+  }
+
+  .blog-content a {
+    color: #1b184c;
+    text-decoration: none;
+  }
+
+  .blog-content p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  .cta-blog {
+    margin-top: 2rem;
+  }
+
+  .btn-blog {
+    display: inline-block;
+
+    padding: 0.8rem 1.5rem;
+    border: 1px solid var(--deanny-purpura);
+    border-radius: 60px;
+
+    font-weight: 600;
+    color: var(--deanny-purpura);
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+  }
+
+  .btn-blog:hover {
+    color: #fff;
+    background: var(--deanny-purpura);
+  }
+</style>
