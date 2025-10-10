@@ -150,7 +150,7 @@ import { Image } from "astro:assets";
             >
           </div>
           <Navigation />
-          <Hora slot="widget-right" />
+          <!-- <Hora slot="widget-right" />-->
         </Header>
       </div>
       <div class="header-mobile">
@@ -171,8 +171,10 @@ import { Image } from "astro:assets";
 
     <WhatsAppButton />
 
-    <footer class="full-width footer">
-      <Footer />
+    <footer class="content-width footer">
+      <div class="full-width">
+        <Footer />
+      </div>
     </footer>
   </body>
 </html>
