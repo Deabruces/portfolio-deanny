@@ -6,170 +6,90 @@ import Projects from "../assets/icons/projects.svg";
 import Send from "../assets/icons/send.svg";
 ---
 
-<div class="header-mobile">
-  <button
-    class="menu-burger-button"
-    aria-label="Main Menu"
-    aria-expanded="false"
-  >
-    <svg width="40" height="40" viewBox="0 0 100 100">
-      <path
-        class="line line1"
-        d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"
-      ></path>
-      <path class="line line2" d="M 20,50 H 80"></path>
-      <path
-        class="line line3"
-        d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"
-      ></path>
-    </svg>
-  </button>
+<button
+  class="menu-burger-button"
+  aria-label="Abrir menú de navegación"
+  aria-expanded="false"
+>
+  <svg width="35" height="35" viewBox="0 0 100 100">
+    <path
+      class="line line1"
+      d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"
+    ></path>
+    <path class="line line2" d="M 20,50 H 80"></path>
+    <path
+      class="line line3"
+      d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"
+    ></path>
+  </svg>
+</button>
 
-  <!--Menu Burger-->
+<nav
+  class="nav-burger"
+  role="navigation"
+  aria-label="Menú de navegación móvil"
+>
+  <ul class="nav-burger-menu">
+    <li class="nav-burger-item">
+      <a href="/sobre-mi" class="nav-burger-link" aria-label="Ir a la página Sobre mí">
+        <Person />
+        <span>Sobre mí</span>
+      </a>
+    </li>
+    <li class="nav-burger-item">
+      <a href="/proyectos" class="nav-burger-link" aria-label="Ver proyectos">
+        <Projects />
+        <span>Proyectos</span>
+      </a>
+    </li>
+    <li class="nav-burger-item">
+      <a href="/blog" class="nav-burger-link" aria-label="Leer el blog">
+        <Blog />
+        <span>Blog</span>
+      </a>
+    </li>
+    <li class="nav-burger-item">
+      <a href="/tools" class="nav-burger-link" aria-label="Ver herramientas">
+        <Tool />
+        <span>Herramientas</span>
+      </a>
+    </li>
+    <li class="nav-burger-item">
+      <a href="/contacto" class="nav-burger-link" aria-label="Ir a contacto">
+        <Send />
+        <span>Contacto</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 
-  <nav
-    class="nav-burger"
-    role="navigation"
-    aria-label="Menú de navegación móvil"
-  >
-    <ul class="nav-burger-menu">
-      <li class="nav-burger-item">
-        <a href="/sobre-mi" class="nav-burger-link"><Person />Sobre mi</a>
-      </li>
-      <li class="nav-burger-item">
-        <a href="/proyectos" class="nav-burger-link"><Projects />Proyectos</a>
-      </li>
-      <li class="nav-burger-item">
-        <a href="/blog" class="nav-burger-link"><Blog />Blog</a>
-      </li>
-      <li class="nav-burger-item">
-        <a href="/tools" class="nav-burger-link"><Tool />Herramientas</a>
-      </li>
-      <li class="nav-burger-item">
-        <a href="/contacto" class="nav-burger-link"><Send />Contacto</a>
-      </li>
-    </ul>
-  </nav>
+<script>
+  const burger = document.querySelector(".menu-burger-button");
+  const menuBurger = document.querySelector(".nav-burger");
 
-  <style>
-    /** Icono SVG Burger **/
+  burger?.addEventListener("click", () => {
+    const isActive = menuBurger?.classList.toggle("active");
+    burger?.setAttribute("aria-expanded", isActive ? "true" : "false");
+    burger?.classList.toggle("active", isActive);
+  });
 
-    .menu-burger-button {
-      --_stroke: var(--stroke, var(--acento-btn));
-
-      cursor: pointer;
-
-      display: flex;
-
-      padding: 0;
-      border: none;
-
-      background-color: transparent;
-    }
-
-    .line {
-      fill: none;
-      stroke: var(--_stroke);
-      stroke-width: 3;
-      transition:
-        stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-        stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .line1 {
-      stroke-dasharray: 60 207;
-      stroke-width: 3;
-    }
-
-    .line2 {
-      stroke-dasharray: 60 60;
-      stroke-width: 3;
-    }
-
-    .line3 {
-      stroke-dasharray: 60 207;
-      stroke-width: 3;
-    }
-
-    .active .line1 {
-      stroke-dasharray: 90 207;
-      stroke-dashoffset: -134;
-      stroke-width: 3;
-    }
-
-    .active .line2 {
-      stroke-dasharray: 1 60;
-      stroke-dashoffset: -30;
-      stroke-width: 3;
-    }
-
-    .active .line3 {
-      stroke-dasharray: 90 207;
-      stroke-dashoffset: -134;
-      stroke-width: 3;
-    }
-
-    /** Menu Burger **/
-
-    .nav-burger {
-      position: fixed;
-      z-index: 10;
-      top: 80px;
-      left: -100%;
-
-      width: 100%;
-      padding: 20px;
-
-      text-align: left;
-
-      background-color: var(--background-color);
-    }
-
-    .nav-burger-menu {
-      padding-left: 10px;
-    }
-
-    .nav-burger-item {
-      padding: 5px;
-      font-weight: 400;
-      list-style-type: none;
-    }
-
-    .nav-burger-item a {
-      display: flex;
-      flex-direction: row;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .nav-burger-link {
-      font-weight: 600;
-      color: var(--acento-btn);
-      text-decoration: none;
-      transition: 0.3s ease;
-    }
-
-    /** Logo **/
-
-    .container-logo {
-      padding: 1px;
-    }
-
-    @media (width <= 768px) {
-      .nav-burger.active {
-        left: 0;
-      }
-    }
-  </style>
-
-  <script>
-    const burger = document.querySelector(".menu-burger-button");
-    const menuBurger = document.querySelector(".nav-burger");
-
-    burger?.addEventListener("click", () => {
-      const isActive = menuBurger?.classList.toggle("active");
-      burger.setAttribute("aria-expanded", isActive ? "true" : "false");
-      burger.classList.toggle("active", isActive);
+  // Close menu when clicking on a link
+  const menuLinks = document.querySelectorAll(".nav-burger-link");
+  menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      menuBurger?.classList.remove("active");
+      burger?.classList.remove("active");
+      burger?.setAttribute("aria-expanded", "false");
     });
-  </script>
-</div>
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest(".menu-burger-button") && !target.closest(".nav-burger")) {
+      menuBurger?.classList.remove("active");
+      burger?.classList.remove("active");
+      burger?.setAttribute("aria-expanded", "false");
+    }
+  });
+</script>
