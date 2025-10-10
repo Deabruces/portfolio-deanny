@@ -237,7 +237,40 @@ ol {
   color: var(--text-color);
 }
 
-/* 
+/* Scrollbar Styling - Brand Colors */
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: light-dark(#f2e9f2, #1a0629);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--deanny-purpura), var(--deanny-cian));
+  border-radius: 10px;
+  border: 2px solid light-dark(#f2e9f2, #1a0629);
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--deanny-lila), var(--deanny-cian-hover));
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--deanny-cian);
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--deanny-purpura) light-dark(#f2e9f2, #1a0629);
+}
+
+/*
 *{
   outline: 35px rgba(255, 0, 0, 0.06) solid;
 } */
