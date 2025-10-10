@@ -74,10 +74,12 @@
 
   .error-message {
     display: block;
+
+    min-height: 1.25rem;
     margin-top: 0.25rem;
+
     font-size: 0.875rem;
     color: var(--error-color);
-    min-height: 1.25rem;
   }
 
   .form-status {
@@ -169,8 +171,11 @@
     padding: 1rem;
     border: 1px solid var(--success-color);
     border-radius: 5px;
+
     color: var(--success-color);
+
     background-color: light-dark(#f0fdf4, #0f1b0f);
+
     transition: opacity 0.3s;
   }
 
@@ -178,8 +183,11 @@
     padding: 1rem;
     border: 1px solid var(--error-color);
     border-radius: 5px;
+
     color: var(--error-color);
+
     background-color: light-dark(#fef2f2, #1f1315);
+
     transition: opacity 0.3s;
   }
 </style>
