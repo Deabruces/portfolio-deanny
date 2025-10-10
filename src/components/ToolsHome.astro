@@ -2,205 +2,160 @@
 import Link from "../assets/icons/link.svg";
 import Qr from "../assets/icons/qr.svg";
 import Contrast from "../assets/icons/contrast.svg";
+import "../assets/styles/ToolsHome.css";
 ---
 
 <section class="tools-section content-grid">
-  <div class="container">
-    <h2 class="subtitle">
-      Herramientas para <span class="subtitle__span">emprendedores</span>
-    </h2>
-    <p class="text">
-      Recursos gratuitos que te ayudarán a optimizar tu comunicación, mejorar la
-      accesibilidad y potenciar tu marca online.
-    </p>
+  <!-- Background Elements -->
+  <div class="tools-background full-width" aria-hidden="true">
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
+    <div class="floating-blob blob-3"></div>
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+  </div>
 
+  <div class="tools-container">
+    <!-- Hero Section -->
+    <div class="tools-hero">
+      <div class="hero-badge">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <path
+            d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+          ></path>
+        </svg>
+        <span>Herramientas</span>
+      </div>
+
+      <h2 class="subtitle">
+        Herramientas para <span class="subtitle__span">emprendedores</span>
+      </h2>
+      <p class="text">
+        Recursos gratuitos que te ayudarán a optimizar tu comunicación, mejorar
+        la accesibilidad y potenciar tu marca online.
+      </p>
+    </div>
+
+    <!-- Tools Grid -->
     <div class="tools-grid">
       <!-- Herramienta 1 -->
-      <div class="tool-card">
-        <div class="container-icon"><Link class="icon" /></div>
+      <article class="tool-card">
+        <div class="container-icon" aria-hidden="true">
+          <Link class="icon" />
+        </div>
         <h3>Generador de links de WhatsApp</h3>
         <p>
           Crea enlaces con mensajes personalizados para conectar directamente
           con tus clientes en un clic.
         </p>
-        <a href="/herramientas/whatsapp-link" class="btn-tool">Probar ahora</a>
-      </div>
+        <a
+          href="/herramientas/whatsapp-link"
+          class="btn-tool"
+          aria-label="Probar generador de links de WhatsApp"
+        >
+          Probar ahora
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </article>
 
       <!-- Herramienta 2 -->
-      <div class="tool-card">
-        <div class="container-icon"><Qr class="icon" /></div>
+      <article class="tool-card">
+        <div class="container-icon" aria-hidden="true">
+          <Qr class="icon" />
+        </div>
         <h3>Generador de código QR</h3>
         <p>
           Convierte tus links en códigos QR listos para imprimir o compartir y
           facilita la interacción.
         </p>
-        <a href="/herramientas/qr-generator" class="btn-tool">Probar ahora</a>
-      </div>
+        <a
+          href="/herramientas/qr-generator"
+          class="btn-tool"
+          aria-label="Probar generador de código QR"
+        >
+          Probar ahora
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </article>
 
       <!-- Herramienta 3 -->
-      <div class="tool-card">
-        <div class="container-icon"><Contrast class="icon" /></div>
+      <article class="tool-card">
+        <div class="container-icon" aria-hidden="true">
+          <Contrast class="icon" />
+        </div>
         <h3>Comprobador de contraste</h3>
         <p>
           Verifica si la combinación de colores de tu web cumple con la
           accesibilidad y mejora la experiencia de tus usuarios.
         </p>
-        <a href="/herramientas/color-checker" class="btn-tool">Probar ahora</a>
-      </div>
+        <a
+          href="/herramientas/color-checker"
+          class="btn-tool"
+          aria-label="Probar comprobador de contraste"
+        >
+          Probar ahora
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </article>
     </div>
 
+    <!-- CTA Section -->
     <div class="cta-tools">
-      <a href="/herramientas" class="btn-main"
-        >Descubre todas las herramientas</a
+      <a
+        href="/herramientas"
+        class="btn-main"
+        aria-label="Descubrir todas las herramientas disponibles"
       >
+        <span>Descubre todas las herramientas</span>
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
     </div>
   </div>
 </section>
-
-<style>
-  .tools-section {
-    padding: 4rem 2rem;
-    text-align: center;
-  }
-
-  .container-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: auto;
-
-    color: var(--deanny-lila);
-  }
-
-  .icon {
-    width: 50px;
-    height: 50px;
-  }
-
-  .subtitle {
-    width: 100%;
-    margin-bottom: 0;
-    padding-bottom: 50px;
-    text-align: center;
-  }
-
-  .subtitle__span {
-    color: var(--deanny-lila);
-  }
-
-  .text {
-    margin-bottom: 2.5rem;
-  }
-
-  .tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .tool-card {
-    position: relative;
-
-    overflow: hidden;
-
-    padding: 2rem 1.5rem;
-    border-radius: 1rem;
-
-    color: #1b184c;
-    text-align: left;
-
-    box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
-
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .tool-card::before {
-    pointer-events: none;
-    content: "";
-
-    position: absolute;
-    z-index: 1;
-    inset: 0;
-
-    border: 6px solid transparent;
-    border-radius: 1rem;
-
-    /* gradient border without mask */
-    background:
-      linear-gradient(#fff, #fff) padding-box,
-      linear-gradient(135deg, var(--deanny-purpura), var(--deanny-cian))
-        border-box;
-  }
-
-  .tool-card > * {
-    position: relative;
-    z-index: 2;
-  }
-
-  .tool-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 24px rgb(0 0 0 / 15%);
-  }
-
-  .tool-card .icon {
-    margin-bottom: 1rem;
-    font-size: 2rem;
-  }
-
-  .tool-card h3 {
-    margin: 0.5rem 0;
-    font-family: Poppins, sans-serif;
-    color: #8e44ad;
-  }
-
-  .tool-card p {
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-  }
-
-  .btn-tool {
-    display: inline-block;
-
-    padding: 0.6rem 1.2rem;
-    border-radius: 0.6rem;
-
-    font-weight: 600;
-    color: #fff;
-    text-decoration: none;
-
-    background: var(--deanny-purpura);
-
-    transition: background 0.3s ease;
-  }
-
-  .btn-tool:hover {
-    background: var(--deanny-lila);
-  }
-
-  .cta-tools {
-    margin-top: 2.5rem;
-  }
-
-  .btn-main {
-    display: inline-block;
-
-    padding: 0.8rem 1.5rem;
-    border: 1px solid var(--deanny-purpura);
-    border-radius: 60px;
-
-    font-weight: 600;
-    color: #8e44ad;
-    text-decoration: none;
-
-    transition: all 0.3s ease;
-  }
-
-  .btn-main:hover {
-    color: #fff;
-    background: var(--deanny-purpura);
-  }
-</style>
