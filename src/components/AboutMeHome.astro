@@ -1,19 +1,31 @@
 ---
 import { Image } from "astro:assets";
 import DeannyPerfil from "../assets/images/deanny-perfil.jpg";
+import "../assets/styles/AboutMeHome.css";
 ---
 
-<section class="about-me content-grid">
-  <div class="container">
+<section class="about-me-section content-grid">
+  <!-- Background Elements -->
+  <div class="about-background full-width" aria-hidden="true">
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
+    <div class="gradient-orb"></div>
+  </div>
+
+  <div class="about-container">
     <div class="about-content">
       <div class="about-image">
-        <Image
-          src={DeannyPerfil}
-          alt="Deanny Bruces - Desarrolladora Frontend especializada en crear experiencias web memorables"
-          class="img-about"
-          height={500}
-        />
+        <div class="image-wrapper">
+          <div class="image-glow" aria-hidden="true"></div>
+          <Image
+            src={DeannyPerfil}
+            alt="Deanny Bruces - Desarrolladora Frontend especializada en crear experiencias web memorables"
+            class="img-about"
+            loading="lazy"
+          />
+        </div>
       </div>
+
       <div class="about-text">
         <h2 class="saludo">¡Hola! Soy Deanny</h2>
         <p>
@@ -27,100 +39,25 @@ import DeannyPerfil from "../assets/images/deanny-perfil.jpg";
           con armonía. Mi misión es ayudar a emprendedores, marcas y negocios a
           construir su presencia digital con identidad propia.
         </p>
-        <a href="/sobre-mi" class="btn">Conóceme más</a>
+        <a
+          href="/sobre-mi"
+          class="btn"
+          aria-label="Conocer más sobre Deanny Bruces"
+        >
+          <span>Conóceme más</span>
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .about-me {
-    padding: 4rem 2rem;
-  }
-
-  .container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .about-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .about-image img {
-    width: 250px;
-    height: auto;
-    border: 5px solid var(--deanny-cian);
-    border-radius: 50%;
-
-    object-fit: cover;
-    box-shadow: 0 4px 15px rgb(0 0 0 / 10%);
-  }
-
-  .about-text {
-    flex: 1;
-    min-width: 280px;
-  }
-
-  .saludo {
-    --webkit-background-clip: text; /* Aplica el degradado solo al texto (WebKit) */
-
-    place-self: end stretch;
-
-    margin-bottom: 1rem;
-    margin-block: 1rem;
-
-    font-family: Poppins, sans-serif;
-    font-size: 2rem;
-    color: #1b184c;
-    color: transparent;
-
-    background: linear-gradient(to right, #c38cf6, #4bc0c8);
-    background-clip: text; /* Aplica el degradado solo al texto */
-
-    /* anima el background del texto */
-
-    -webkit-text-fill-color: transparent; /* Hace el texto transparente (WebKit) */
-  }
-
-  .about-text p {
-    margin-bottom: 1rem;
-    font-family: Inter, sans-serif;
-    font-size: 1rem;
-  }
-
-  .btn {
-    display: inline-block;
-
-    padding: 0.8rem 1.4rem;
-    border: 1px solid var(--deanny-purpura);
-    border-radius: 60px;
-
-    font-weight: 800;
-    color: var(--deanny-text-color);
-    text-decoration: none;
-
-    background: var(--bg-color);
-
-    transition: background 0.3s ease;
-  }
-
-  .btn:hover {
-    background: #c38cf6;
-  }
-
-  /* Responsivo */
-  @media (width <= 768px) {
-    .about-content {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .about-image img {
-      width: 200px;
-    }
-  }
-</style>

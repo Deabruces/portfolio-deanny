@@ -1,89 +1,212 @@
 ---
 import { Image } from "astro:assets";
-import Dea from "../assets/images/dea.png";
+import DeannyPerfil from "../assets/images/deanny-perfil.jpg";
 import Location from "../assets/icons/location.svg";
 import SocialIcons from "../components/SocialIcons.astro";
 import "../assets/styles/About.css";
-import PageTitle from "./PageTitle.astro";
 ---
 
-<div class="about">
-  <div class="header-about">
-    <PageTitle>
-      Mi nombre es Deanny, <span>me dicen Dea!</span>
-    </PageTitle>
-    <h2 class="description__text--profession">
-      Front-end Developer / Ingeniera Industrial
-    </h2>
+<section class="about-section content-grid" aria-labelledby="about-title">
+  <!-- Background Elements -->
+  <div class="about-background" aria-hidden="true">
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
+    <div class="floating-blob blob-3"></div>
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
   </div>
-  <div class="about__right">
-    <div class="about__image">
-      <Image src={Dea} alt="foto de Deanny" class="profile-image" />
-      <div class="about__location">
-        <Location /><span>Santiago / Chile</span>
+
+  <div class="about-container">
+    <!-- Hero Section -->
+    <div class="about-hero">
+      <div class="hero-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span>Sobre mí</span>
+      </div>
+
+      <h1 id="about-title" class="hero-title">
+        Mi nombre es <span class="gradient-text">Deanny</span>,
+        <br />
+        <span class="gradient-text">me dicen Dea!</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Front-end Developer • Ingeniera Industrial
+      </p>
+    </div>
+
+    <!-- Profile Card with Stats -->
+    <div class="profile-section">
+      <div class="profile-card">
+        <div class="profile-image-wrapper">
+          <div class="image-glow" aria-hidden="true"></div>
+          <Image
+            src={DeannyPerfil}
+            alt="Deanny Bruces - Desarrolladora Frontend"
+            class="profile-image"
+            loading="eager"
+          />
+          <div class="image-border" aria-hidden="true"></div>
+        </div>
+
+        <div class="profile-info">
+          <div class="location-badge">
+            <Location />
+            <span>Santiago, Chile</span>
+          </div>
+
+          <div class="languages-section">
+            <h3 class="section-label">Idiomas</h3>
+            <div class="languages-tags">
+              <span class="language-tag">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <circle cx="12" cy="12" r="10"/>
+                </svg>
+                Español
+              </span>
+              <span class="language-tag">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <circle cx="12" cy="12" r="10"/>
+                </svg>
+                Inglés
+              </span>
+            </div>
+          </div>
+
+          <div class="social-section">
+            <h3 class="section-label">Conecta conmigo</h3>
+            <SocialIcons />
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon stat-purple">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value">5+</div>
+            <div class="stat-label">Años de experiencia</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon stat-cyan">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value">20+</div>
+            <div class="stat-label">Proyectos completados</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon stat-pink">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value">∞</div>
+            <div class="stat-label">Aprendizaje continuo</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="about__languages">
-      <span class="language">Español</span>
-      <span class="language">Inglés</span>
-    </div>
-    <div class="container__social-icons">
-      <SocialIcons />
+
+    <!-- About Content -->
+    <div class="about-content">
+      <div class="content-card">
+        <h2 class="content-title">
+          <span class="title-icon">💜</span>
+          Mi pasión por el desarrollo web
+        </h2>
+        <div class="content-text">
+          <p>
+            Soy una <strong>desarrolladora frontend apasionada</strong> por crear experiencias web intuitivas,
+            accesibles y visualmente atractivas. Mi objetivo es transformar ideas en productos digitales
+            que realmente impacten a los usuarios.
+          </p>
+          <p>
+            He trabajado en la creación de <strong>interfaces modernas</strong> utilizando tecnologías como
+            HTML, CSS, JavaScript y frameworks como React y Astro. Me especializo en construir aplicaciones
+            web que no solo se ven increíbles, sino que también funcionan de manera impecable.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <h2 class="content-title">
+          <span class="title-icon">✨</span>
+          Mi enfoque de trabajo
+        </h2>
+        <div class="content-text">
+          <p>
+            Mi enfoque combina <strong>diseño y código</strong>: me gusta pensar en la experiencia del usuario
+            desde el primer boceto hasta la última línea de código. Creo firmemente que un sitio web bien hecho
+            no solo debe verse bien, sino también funcionar rápidamente, ser accesible y adaptarse a cualquier dispositivo.
+          </p>
+          <p>
+            He colaborado en diversos proyectos, siempre priorizando la <strong>optimización móvil</strong>,
+            el rendimiento y el diseño centrado en la funcionalidad. Cada proyecto es una oportunidad para
+            aprender algo nuevo y mejorar mis habilidades.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <h2 class="content-title">
+          <span class="title-icon">🚀</span>
+          Crecimiento continuo
+        </h2>
+        <div class="content-text">
+          <p>
+            Me encanta <strong>aprender y mejorar constantemente</strong>. Sigo perfeccionando mis habilidades
+            en rendimiento web, mejores prácticas de accesibilidad y las últimas tendencias en desarrollo frontend.
+            Siempre estoy buscando nuevos desafíos y oportunidades para crecer como desarrolladora.
+          </p>
+          <p>
+            Además de programar, disfruto <strong>colaborar con equipos multidisciplinarios</strong>, contribuir
+            con ideas creativas y mantener una comunicación clara y empática. Busco aportar valor real en cada
+            proyecto en el que participo.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-card highlight-card">
+        <h2 class="content-title">
+          <span class="title-icon">🎯</span>
+          ¿Trabajamos juntos?
+        </h2>
+        <div class="content-text">
+          <p>
+            Si estás buscando a alguien que pueda <strong>dar vida a tus ideas</strong> con creatividad y
+            precisión técnica, me encantaría conectar contigo. Estoy disponible para proyectos freelance,
+            colaboraciones y oportunidades laborales.
+          </p>
+        </div>
+        <a href="/contacto" class="cta-button">
+          <span class="button-text">Conversemos sobre tu proyecto</span>
+          <svg class="button-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
-
-  <div class="about__description">
-    <p class="description__text">
-      Apasionada por crear experiencias web intuitivas, accesibles y visualmente
-      atractivas.
-    </p>
-
-    <p class="description__text">
-      He trabajado en la creación de interfaces modernas utilizando tecnologías
-      como HTML, CSS, JavaScript y frameworks como React.
-    </p>
-
-    <p class="description__text">
-      Mi enfoque combina diseño y código: me gusta pensar en la experiencia del
-      usuario desde el primer boceto hasta la última línea de código.
-    </p>
-
-    <p class="description__text">
-      Creo firmemente que un sitio web bien hecho no solo debe verse bien, sino
-      también funcionar rápidamente, ser accesible y adaptarse a cualquier
-      dispositivo.
-    </p>
-
-    <p class="description__text">
-      He colaborado en diversos proyectos, comprendiendo necesidades como la
-      optimización móvil y el diseño centrado en la funcionalidad.
-    </p>
-
-    <p class="description__text">
-      Me encanta aprender y mejorar constantemente, y por eso sigo
-      perfeccionando mis habilidades en rendimiento web, mejores prácticas y
-      usabilidad.
-    </p>
-
-    <p class="description__text">
-      Siempre estoy buscando nuevos desafíos y oportunidades para crecer como
-      desarrolladora.
-    </p>
-
-    <p class="description__text">
-      Si estás buscando a alguien que pueda dar vida a tus ideas con creatividad
-      y precisión técnica, contáctame.
-    </p>
-
-    <p class="description__text">
-      Además de programar, disfruto colaborar con equipos multidisciplinarios,
-      contribuir con ideas creativas y mantener una comunicación clara y
-      empática.
-    </p>
-
-    <p class="description__text">
-      Busco aportar valor real en cada proyecto en el que participo. ¿Nos
-      conectamos?
-    </p>
-  </div>
-</div>
+</section>
