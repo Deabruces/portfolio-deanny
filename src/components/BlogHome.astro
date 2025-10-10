@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import "../assets/styles/BlogHome.css";
 
 // Traer todas las categorias
 const categoryList = await getCollection("categories");
@@ -12,28 +13,54 @@ const posts = (await getCollection("posts"))
   .slice(0, 3);
 ---
 
-<section class="blog-section content-grid">
-  <div class="container">
-    <h2 class="title">
-      Últimos <span class="subtitle__span">post del blog</span>
-    </h2>
-    <p class="subtitle">
-      Aprende y aplica lo esencial del SEO, diseño web, accesibilidad,
-      rendimiento y experiencia de usuario: recursos para programadores que
-      inician y emprendedores que quieren potenciar su marca online.
-    </p>
+<section class="blog-section content-grid" aria-labelledby="blog-title">
+  <!-- Background Elements -->
+  <div class="blog-background" aria-hidden="true">
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
+    <div class="floating-blob blob-3"></div>
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+  </div>
 
-    <div class="blog-grid">
+  <div class="blog-container">
+    <!-- Hero Section -->
+    <div class="blog-hero">
+      <div class="hero-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span>Blog</span>
+      </div>
+
+      <h2 id="blog-title" class="hero-title">
+        Últimos <span class="gradient-text">post del blog</span>
+      </h2>
+
+      <p class="hero-subtitle">
+        Aprende y aplica lo esencial del SEO, diseño web, accesibilidad,
+        rendimiento y experiencia de usuario: recursos para programadores que
+        inician y emprendedores que quieren potenciar su marca online.
+      </p>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="blog-grid" role="list">
       {
         posts.map((post) => (
-          <article class="blog-card">
+          <article class="blog-card" role="listitem">
             <div class="card-image">
               <Image
                 src={post.data.image}
                 alt={`Imagen para ${post.data.title}`}
+                loading="lazy"
               />
               <div class="image-overlay">
                 <span class="post-date">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
                   {new Date(post.data.date).toLocaleDateString("es-ES", {
                     day: "numeric",
                     month: "short",
@@ -55,12 +82,18 @@ const posts = (await getCollection("posts"))
                 </div>
               )}
               <h3>
-                <a href={`/blog/${post.id}`}>{post.data.title}</a>
+                <a href={`/blog/${post.id}`} aria-label={`Leer más sobre ${post.data.title}`}>
+                  {post.data.title}
+                </a>
               </h3>
               <p>{post.data.summary}</p>
               <div class="card-footer">
-                <a class="read-more" href={`/blog/${post.id}`}>
+                <a class="read-more" href={`/blog/${post.id}`} aria-label={`Continuar leyendo ${post.data.title}`}>
                   Leer más
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
                 </a>
               </div>
             </div>
@@ -69,172 +102,15 @@ const posts = (await getCollection("posts"))
       }
     </div>
 
+    <!-- CTA Section -->
     <div class="cta-blog">
-      <a href="/blog" class="btn-blog">Explora más en mi blog</a>
+      <a href="/blog" class="btn-blog" aria-label="Explorar todos los artículos del blog">
+        <span>Explora más en mi blog</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
     </div>
   </div>
 </section>
-
-<style>
-  .blog-section {
-    padding: 4rem 0;
-    text-align: center;
-    background: var(--bg-color, #f9f7fa);
-  }
-
-  .subtitle {
-    width: 100%;
-    padding-bottom: 50px;
-    text-align: center;
-  }
-
-  .subtitle__span {
-    color: var(--deanny-lila);
-  }
-
-  .blog-section .subtitle {
-    color: var(--text-color);
-  }
-
-  .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .blog-card {
-    overflow: hidden;
-
-    border-radius: 0.8rem;
-
-    text-align: left;
-
-    background: #fff;
-    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
-
-    transition: transform 0.3s ease;
-  }
-
-  .blog-card:hover {
-    transform: translateY(-5px);
-  }
-
-  .card-image {
-    position: relative;
-  }
-
-  .card-image img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-  }
-
-  .image-overlay {
-    pointer-events: none;
-
-    position: absolute;
-    inset: auto 0 0;
-
-    display: flex;
-    justify-content: flex-end;
-
-    padding: 0.6rem;
-  }
-
-  .post-date {
-    pointer-events: auto;
-
-    padding: 0.35rem 0.6rem;
-    border-radius: 999px;
-
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #fff;
-
-    background: linear-gradient(
-      90deg,
-      var(--deanny-purpura),
-      var(--deanny-cian)
-    );
-    box-shadow: 0 6px 18px rgb(60 0 120 / 12%);
-  }
-
-  .categories {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .blog-content {
-    padding: 1rem;
-  }
-
-  .meta {
-    margin-bottom: 0.4rem;
-  }
-
-  .category {
-    display: inline-block;
-
-    padding: 0.25rem 0.6rem;
-    border-radius: 999px;
-
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #fff;
-
-    background: linear-gradient(
-      90deg,
-      var(--deanny-cian),
-      var(--deanny-purpura)
-    );
-  }
-
-  .blog-content h3 {
-    margin: 0 0 0.5rem;
-    font-family: Poppins, sans-serif;
-    font-size: 1.1rem;
-  }
-
-  .blog-content a {
-    color: #1b184c;
-    text-decoration: none;
-  }
-
-  .blog-content p {
-    font-size: 0.95rem;
-    color: #555;
-  }
-
-  .cta-blog {
-    margin-top: 2rem;
-  }
-
-  .card-footer {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-start;
-    margin-top: 0.8rem;
-  }
-
-  .read-more,
-  .btn-blog {
-    display: inline-block;
-
-    padding: 0.8rem 1.5rem;
-    border: 1px solid var(--deanny-purpura);
-    border-radius: 60px;
-
-    font-weight: 600;
-    color: var(--deanny-purpura);
-    text-decoration: none;
-
-    transition: all 0.3s ease;
-  }
-
-  .btn-blog:hover {
-    color: #fff;
-    background: var(--deanny-purpura);
-  }
-</style>
