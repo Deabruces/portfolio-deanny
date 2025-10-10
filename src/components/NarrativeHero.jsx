@@ -3,7 +3,6 @@ import { Sparkles, Code, Palette, Rocket } from "lucide-react";
 import "./NarrativeHero.css";
 
 export default function NarrativeHero() {
-  const [currentStep, setCurrentStep] = useState(0);
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
@@ -65,49 +64,6 @@ export default function NarrativeHero() {
     }
   }, []);
 
-  const steps = [
-    {
-      text: "¿Necesitas un sitio web?",
-      subtext: "Bienvenido, estás en el lugar correcto",
-      icon: Sparkles,
-      color: "purple-pink",
-    },
-    {
-      text: "No uno cualquiera...",
-      subtext: "Algo que realmente destaque",
-      icon: Code,
-      color: "blue-cyan",
-    },
-    {
-      text: "Uno que tu competencia envidie",
-      subtext: "Diseño + Desarrollo = Impacto",
-      icon: Palette,
-      color: "orange-red",
-    },
-    {
-      text: "Creo experiencias digitales increíbles",
-      subtext: "¿Listo para despegar?",
-      icon: Rocket,
-      color: "green-emerald",
-      isFinal: true,
-    },
-  ];
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setCurrentStep((prev) => (prev + 1) % steps.length);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, [currentStep, steps.length]);
-
-  const goToStep = (index) => {
-    setCurrentStep(index);
-  };
-
-  const currentStepData = steps[currentStep];
-  const Icon = currentStepData.icon;
-
   return (
     <div
       className={`narrative-hero-container ${isDark ? "narrative-dark" : "narrative-light"}`}
@@ -123,11 +79,8 @@ export default function NarrativeHero() {
       <div className="narrative-hero-content">
         {/* Icono animado */}
         <div className="narrative-icon-container">
-          <div
-            key={currentStep}
-            className={`narrative-icon-wrapper narrative-gradient-${currentStepData.color}`}
-          >
-            <Icon
+          <div className="narrative-icon-wrapper narrative-gradient-purple-pink">
+            <Rocket
               className="narrative-icon narrative-icon-large"
               strokeWidth={2}
             />
@@ -136,38 +89,37 @@ export default function NarrativeHero() {
 
         {/* Texto principal con animación */}
         <div className="narrative-text-container">
-          <h1 key={`title-${currentStep}`} className="narrative-hero-title">
-            {currentStepData.text}
+          <div className="narrative-eyebrow">Para emprendedores y negocios</div>
+          <h1 className="narrative-hero-title">
+            Tu web no vende porque no transmite <span className="narrative-gradient-text">confianza</span>
           </h1>
-          <p
-            key={`subtitle-${currentStep}`}
-            className="narrative-hero-subtitle"
-          >
-            {currentStepData.subtext}
+          <p className="narrative-hero-subtitle">
+            Creo sitios web estratégicos que convierten visitantes en clientes. Diseño, desarrollo y SEO que funcionan juntos para hacer crecer tu negocio.
           </p>
         </div>
 
-        {/* Controles de navegación */}
-        <div className="narrative-controls">
-          <div className="narrative-dots-container">
-            {steps.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToStep(index)}
-                className={`narrative-dot ${index === currentStep ? "narrative-active" : ""}`}
-                aria-label={`Ir al paso ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Button */}
+        {/* CTA Buttons */}
         <div className="narrative-cta-container">
-          <button className="narrative-cta-button">Hablemos</button>
+          <a
+            href="https://calendar.app.google/7zL3cZ713aYB9tCW6"
+            className="narrative-cta-button narrative-cta-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Agendar llamada estratégica - Abre en nueva ventana"
+          >
+            Agendar llamada estratégica
+          </a>
+          <a
+            href="/proyectos"
+            className="narrative-cta-button narrative-cta-secondary"
+            aria-label="Ver proyectos anteriores"
+          >
+            Ver proyectos
+          </a>
         </div>
 
         {/* Badge decorativo */}
-        <div className="narrative-badge">✨ 100% Creativo</div>
+        <div className="narrative-badge">✨ Respuesta en menos de 24h</div>
       </div>
     </div>
   );
