@@ -60,14 +60,6 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
             Páginas modernas, rápidas y seguras que transmiten tu esencia y
             funcionan como tu mejor carta de presentación digital.
           </p>
-          <a
-            href="#contacto"
-            class="service-link"
-            aria-label="Solicitar servicio de diseño y desarrollo web"
-          >
-            Quiero este servicio
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
         </div>
         <div class="card-number" aria-hidden="true">01</div>
       </article>
@@ -84,14 +76,6 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
             Tiendas online optimizadas para vender más, con una experiencia de
             compra fluida y segura.
           </p>
-          <a
-            href="#contacto"
-            class="service-link"
-            aria-label="Solicitar servicio de e-commerce"
-          >
-            Quiero este servicio
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
         </div>
         <div class="card-number" aria-hidden="true">02</div>
       </article>
@@ -108,14 +92,6 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
             Sistemas integrados para que tus clientes reserven citas y realicen
             pagos online con confianza.
           </p>
-          <a
-            href="#contacto"
-            class="service-link"
-            aria-label="Solicitar servicio de agendamiento y pago"
-          >
-            Quiero este servicio
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
         </div>
         <div class="card-number" aria-hidden="true">03</div>
       </article>
@@ -132,14 +108,6 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
             Optimización para aparecer en Google y atraer clientes de manera
             orgánica y constante.
           </p>
-          <a
-            href="#contacto"
-            class="service-link"
-            aria-label="Solicitar servicio de SEO"
-          >
-            Quiero este servicio
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
         </div>
         <div class="card-number" aria-hidden="true">04</div>
       </article>
@@ -156,14 +124,6 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
             Actualización, seguridad y soporte continuo para que tu web funcione
             siempre al máximo.
           </p>
-          <a
-            href="#contacto"
-            class="service-link"
-            aria-label="Solicitar servicio de mantenimiento web"
-          >
-            Quiero este servicio
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
         </div>
         <div class="card-number" aria-hidden="true">05</div>
       </article>
@@ -180,14 +140,6 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
             Paleta de colores, tipografías y elementos visuales para dar
             coherencia y personalidad a tu marca.
           </p>
-          <a
-            href="#contacto"
-            class="service-link"
-            aria-label="Solicitar servicio de branding y diseño visual"
-          >
-            Quiero este servicio
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
         </div>
         <div class="card-number" aria-hidden="true">06</div>
       </article>
@@ -204,14 +156,6 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
             Mejora de tiempos de carga y rendimiento para ofrecer la mejor
             experiencia y escalar en SEO.
           </p>
-          <a
-            href="#contacto"
-            class="service-link"
-            aria-label="Solicitar servicio de optimización de velocidad"
-          >
-            Quiero este servicio
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
         </div>
         <div class="card-number" aria-hidden="true">07</div>
       </article>
@@ -228,17 +172,30 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
             Datos claros y métricas accionables para entender a tu audiencia y
             tomar mejores decisiones.
           </p>
-          <a
-            href="#contacto"
-            class="service-link"
-            aria-label="Solicitar servicio de analítica web y reportes"
-          >
-            Quiero este servicio
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
         </div>
         <div class="card-number" aria-hidden="true">08</div>
       </article>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="services-cta">
+      <div class="cta-content-services">
+        <h3>¿Tu negocio necesita alguno de estos servicios?</h3>
+        <p>Conversemos sobre cómo puedo ayudarte a alcanzar tus objetivos</p>
+        <a
+          href="https://calendar.app.google/7zL3cZ713aYB9tCW6"
+          class="cta-button-services"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Agendar llamada estratégica - Abre en nueva ventana"
+        >
+          <span>Agendar llamada estratégica</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -269,7 +226,7 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
   .services-section {
     overflow: hidden;
     min-height: 100vh;
-    padding: 8rem 1.5rem;
+    padding: 12rem 1.5rem;
   }
 
   /* Background Blobs */
@@ -360,12 +317,8 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
 
   .services-title {
     margin-bottom: 1.5rem;
-
-    font-size: 3.5rem;
-    font-weight: bold;
     line-height: 1.1;
     color: light-dark(#0f172a, #fff);
-
     animation: fadeInUp 0.6s ease-out 0.1s both;
   }
 
@@ -613,11 +566,6 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
     animation-delay: 0.7s;
   }
 
-  @media (width >= 768px) {
-    .services-title {
-      font-size: 4.5rem;
-    }
-  }
 
   @media (width >= 768px) {
     .services-grid {
@@ -705,6 +653,77 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
 
     66% {
       transform: translateY(20px) translateX(-20px);
+    }
+  }
+
+  /* Services CTA Section */
+  .services-cta {
+    max-width: 800px;
+    margin: 4rem auto 0;
+    text-align: center;
+  }
+
+  .cta-content-services {
+    padding: 3rem 2rem;
+    border: 2px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 40%));
+    border-radius: 2rem;
+    background: light-dark(
+      linear-gradient(135deg, rgb(255 255 255 / 80%), rgb(248 250 252 / 80%)),
+      linear-gradient(135deg, rgb(30 27 75 / 60%), rgb(15 23 42 / 60%))
+    );
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 40px -12px rgb(0 0 0 / 15%);
+  }
+
+  .cta-content-services h3 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 800;
+    color: light-dark(#0f172a, #fff);
+  }
+
+  .cta-content-services p {
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+    color: light-dark(#64748b, #cbd5e1);
+  }
+
+  .cta-button-services {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.125rem 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 20px 40px rgb(168 85 247 / 30%);
+    transition: all 0.3s ease;
+  }
+
+  .cta-button-services:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 25px 50px rgb(168 85 247 / 40%);
+  }
+
+  .cta-button-services svg {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-button-services:hover svg {
+    transform: translateX(5px);
+  }
+
+  @media (width <= 767px) {
+    .cta-content-services {
+      padding: 2rem 1.5rem;
+    }
+
+    .cta-content-services h3 {
+      font-size: 1.5rem;
     }
   }
 </style>
