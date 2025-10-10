@@ -4,7 +4,7 @@ import Qr from "../assets/icons/qr.svg";
 import Contrast from "../assets/icons/contrast.svg";
 ---
 
-<section class="tools-section">
+<section class="tools-section content-grid">
   <div class="container">
     <h2 class="subtitle">
       Herramientas para <span class="subtitle__span">emprendedores</span>
@@ -101,15 +101,12 @@ import Contrast from "../assets/icons/contrast.svg";
   }
 
   .tool-card {
+    position: relative;
+
+    overflow: hidden;
+
     padding: 2rem 1.5rem;
-    border: 6px solid transparent;
-    border-radius: 1rem; /* Se aplica también al border-image */
-    border-image: linear-gradient(
-        135deg,
-        var(--deanny-purpura),
-        var(--deanny-cian)
-      )
-      1;
+    border-radius: 1rem;
 
     color: #1b184c;
     text-align: left;
@@ -119,6 +116,29 @@ import Contrast from "../assets/icons/contrast.svg";
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
+  }
+
+  .tool-card::before {
+    pointer-events: none;
+    content: "";
+
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+
+    border: 6px solid transparent;
+    border-radius: 1rem;
+
+    /* gradient border without mask */
+    background:
+      linear-gradient(#fff, #fff) padding-box,
+      linear-gradient(135deg, var(--deanny-purpura), var(--deanny-cian))
+        border-box;
+  }
+
+  .tool-card > * {
+    position: relative;
+    z-index: 2;
   }
 
   .tool-card:hover {

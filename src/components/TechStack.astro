@@ -11,87 +11,577 @@ import Github from "../assets/icons/github.svg";
 import Bootstrap from "../assets/icons/bootstrap.svg";
 ---
 
-<section class="tech-stack content-grid">
-  <h2 class="subtitle">
-    Tecnologías que <span class="subtitle__span">uso</span>
-  </h2>
+<section class="tech-section content-grid" aria-labelledby="tech-title">
+  <!-- Background Blobs -->
+  <div class="tech-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
 
-  <div class="tech-iconos-color">
-    <div class="iconos-color">
-      <Html width="100%" height="100%" />
+  <div class="tech-container">
+    <!-- Header -->
+    <div class="tech-header">
+      <div class="header-badge">
+        <svg class="badge-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        <span>Stack Tecnológico</span>
+      </div>
+      <h2 id="tech-title" class="tech-title">
+        Tecnologías que <span class="gradient-text">domino</span>
+      </h2>
+      <p class="tech-subtitle">
+        Herramientas modernas para crear experiencias digitales excepcionales
+      </p>
     </div>
-    <div class="iconos-color">
-      <Css width="100%" height="100%" />
+
+    <!-- Tech Grid -->
+    <div class="tech-grid" role="list">
+      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: HTML5">
+        <div class="tech-icon-wrapper">
+          <Html />
+        </div>
+        <div class="tech-glow" aria-hidden="true"></div>
+        <span class="tech-name">HTML5</span>
+      </article>
+
+      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: CSS3">
+        <div class="tech-icon-wrapper">
+          <Css />
+        </div>
+        <div class="tech-glow" aria-hidden="true"></div>
+        <span class="tech-name">CSS3</span>
+      </article>
+
+      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: JavaScript">
+        <div class="tech-icon-wrapper">
+          <Js />
+        </div>
+        <div class="tech-glow" aria-hidden="true"></div>
+        <span class="tech-name">JavaScript</span>
+      </article>
+
+      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: TypeScript">
+        <div class="tech-icon-wrapper">
+          <Typescript />
+        </div>
+        <div class="tech-glow" aria-hidden="true"></div>
+        <span class="tech-name">TypeScript</span>
+      </article>
+
+      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: React">
+        <div class="tech-icon-wrapper">
+          <React />
+        </div>
+        <div class="tech-glow" aria-hidden="true"></div>
+        <span class="tech-name">React</span>
+      </article>
+
+      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: Astro">
+        <div class="tech-icon-wrapper">
+          <AstroIcon />
+        </div>
+        <div class="tech-glow" aria-hidden="true"></div>
+        <span class="tech-name">Astro</span>
+      </article>
+
+      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: Tailwind CSS">
+        <div class="tech-icon-wrapper">
+          <Tailwind />
+        </div>
+        <div class="tech-glow" aria-hidden="true"></div>
+        <span class="tech-name">Tailwind CSS</span>
+      </article>
+
+      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: Bootstrap">
+        <div class="tech-icon-wrapper">
+          <Bootstrap />
+        </div>
+        <div class="tech-glow" aria-hidden="true"></div>
+        <span class="tech-name">Bootstrap</span>
+      </article>
+
+      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: WordPress">
+        <div class="tech-icon-wrapper">
+          <Wordpress />
+        </div>
+        <div class="tech-glow" aria-hidden="true"></div>
+        <span class="tech-name">WordPress</span>
+      </article>
+
+      <article class="tech-card" role="listitem" tabindex="0" aria-label="Tecnología: GitHub">
+        <div class="tech-icon-wrapper">
+          <Github />
+        </div>
+        <div class="tech-glow" aria-hidden="true"></div>
+        <span class="tech-name">GitHub</span>
+      </article>
     </div>
-    <div class="iconos-color">
-      <Tailwind width="100%" height="80%" />
-    </div>
-    <div class="iconos-color">
-      <Bootstrap width="100%" height="100%" />
-    </div>
-    <div class="iconos-color">
-      <Js width="100%" height="100%" />
-    </div>
-    <div class="iconos-color">
-      <Typescript width="100%" height="100%" />
-    </div>
-    <div class="iconos-color">
-      <AstroIcon width="100%" height="100%" />
-    </div>
-    <div class="iconos-color">
-      <React width="100%" height="100%" />
-    </div>
-    <div class="iconos-color">
-      <Github width="100%" height="100%" />
-    </div>
-    <div class="iconos-color">
-      <Wordpress width="100%" height="100%" />
+
+    <!-- Stats -->
+    <div class="tech-stats">
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Tecnologías</div>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Años de Experiencia</div>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Aprendizaje Continuo</div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  /* Tech Iconos */
+  /* Variables */
+  :root {
+    --tech-purple: #a855f7;
+    --tech-cyan: #06b6d4;
+    --tech-pink: #ec4899;
+    --tech-orange: #f97316;
+  }
 
-  .tech-stack {
+  /* Section */
+  .tech-section {
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 1.5rem;
+    background: light-dark(
+      linear-gradient(135deg, #f5f3ff, #eff6ff),
+      linear-gradient(135deg, #1e1b4b, #0f172a)
+    );
+    transition: background 0.3s ease;
+  }
+
+  /* Background Blobs */
+  .tech-blobs {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .blob {
+    position: absolute;
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    opacity: 0.2;
+    filter: blur(140px);
+    animation: floatTech 12s ease-in-out infinite;
+  }
+
+  .blob-1 {
+    top: 20%;
+    left: -15%;
+    background: linear-gradient(135deg, var(--tech-purple), var(--tech-pink));
+    animation-delay: 0s;
+  }
+
+  .blob-2 {
+    bottom: 20%;
+    right: -15%;
+    background: linear-gradient(135deg, var(--tech-cyan), var(--tech-orange));
+    animation-delay: 4s;
+  }
+
+  /* Container */
+  .tech-container {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .tech-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.5rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    background: light-dark(
+      rgba(168, 85, 247, 0.1),
+      rgba(168, 85, 247, 0.2)
+    );
+    color: light-dark(#7c3aed, #e9d5ff);
+    border: 1px solid light-dark(
+      rgba(168, 85, 247, 0.2),
+      rgba(168, 85, 247, 0.3)
+    );
+    animation: fadeInDown 0.6s ease-out;
+  }
+
+  .badge-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .tech-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: light-dark(#0f172a, #ffffff);
+    animation: fadeInUp 0.6s ease-out 0.1s both;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--tech-purple), var(--tech-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tech-subtitle {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: light-dark(#64748b, #94a3b8);
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+  }
+
+  @media (min-width: 768px) {
+    .tech-title {
+      font-size: 4rem;
+    }
+  }
+
+  /* Tech Grid */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 2rem;
+    margin-bottom: 5rem;
+  }
+
+  @media (min-width: 640px) {
+    .tech-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .tech-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .tech-grid {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2.5rem;
+    }
+  }
+
+  /* Tech Card */
+  .tech-card {
+    position: relative;
     display: flex;
     flex-direction: column;
-
-    margin: 4rem;
-    padding: 50px 0;
-    border: 1px solid var(--deanny-border-color);
-    border-radius: 20px;
-  }
-
-  .subtitle {
-    width: 100%;
-    padding-bottom: 50px;
-    text-align: center;
-  }
-
-  .subtitle__span {
-    color: var(--deanny-lila);
-  }
-
-  .tech-iconos-color {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 1rem;
     align-items: center;
     justify-content: center;
-
-    padding: 30px;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    background: light-dark(
+      rgba(255, 255, 255, 0.6),
+      rgba(30, 27, 75, 0.4)
+    );
+    border: 2px solid light-dark(
+      rgba(168, 85, 247, 0.1),
+      rgba(168, 85, 247, 0.2)
+    );
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: fadeInScale 0.6s ease-out both;
   }
 
-  .iconos-color {
-    color: var(--secondary-color);
+  .tech-card:focus {
+    outline: 3px solid light-dark(var(--tech-purple), var(--tech-cyan));
+    outline-offset: 4px;
+  }
+
+  .tech-card:hover {
+    transform: translateY(-12px) scale(1.05);
+    border-color: light-dark(
+      rgba(168, 85, 247, 0.4),
+      rgba(168, 85, 247, 0.6)
+    );
+    background: light-dark(
+      rgba(255, 255, 255, 0.9),
+      rgba(30, 27, 75, 0.7)
+    );
+    box-shadow: light-dark(
+      0 25px 50px -12px rgba(168, 85, 247, 0.3),
+      0 25px 50px -12px rgba(168, 85, 247, 0.5)
+    );
+  }
+
+  .tech-card:hover .tech-icon-wrapper {
+    transform: scale(1.15) rotate(5deg);
+  }
+
+  .tech-card:hover .tech-glow {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+
+  .tech-card:hover .tech-name {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Tech Icon Wrapper */
+  .tech-icon-wrapper {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .tech-icon-wrapper :global(svg) {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  }
+
+  /* Tech Glow */
+  .tech-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 1.5rem;
+    opacity: 0;
+    background: radial-gradient(
+      circle at center,
+      light-dark(rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.3)),
+      transparent 70%
+    );
+    transition: all 0.4s ease;
+    pointer-events: none;
+  }
+
+  /* Tech Name */
+  .tech-name {
+    font-size: 0.875rem;
+    font-weight: 600;
     text-align: center;
-    filter: drop-shadow(5px 5px 5px rgb(255 255 255 / 50%));
+    color: light-dark(#475569, #cbd5e1);
+    opacity: 0.8;
+    transform: translateY(4px);
+    transition: all 0.3s ease;
   }
 
-  :global(.iconos-color svg) {
-    width: clamp(50px, 5vw, 70px);
-    height: clamp(50px, 5vw, 70px);
-    transition: transform 0.3s ease-in-out;
+  /* Stats Section */
+  .tech-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    background: light-dark(
+      rgba(255, 255, 255, 0.6),
+      rgba(30, 27, 75, 0.4)
+    );
+    border: 2px solid light-dark(
+      rgba(168, 85, 247, 0.1),
+      rgba(168, 85, 247, 0.2)
+    );
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.6s ease-out 0.5s both;
   }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--tech-purple), var(--tech-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: light-dark(#64748b, #94a3b8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .stat-divider {
+    width: 2px;
+    height: 3rem;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      light-dark(rgba(168, 85, 247, 0.3), rgba(168, 85, 247, 0.5)),
+      transparent
+    );
+  }
+
+  /* Animations */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes floatTech {
+    0%, 100% {
+      transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-50px) translateX(40px) rotate(5deg);
+    }
+    66% {
+      transform: translateY(40px) translateX(-40px) rotate(-5deg);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 767px) {
+    .tech-section {
+      padding: 4rem 1rem;
+    }
+
+    .tech-title {
+      font-size: 2.5rem;
+    }
+
+    .tech-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .tech-stats {
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem 1.5rem;
+    }
+
+    .stat-divider {
+      width: 3rem;
+      height: 2px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        light-dark(rgba(168, 85, 247, 0.3), rgba(168, 85, 247, 0.5)),
+        transparent
+      );
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+    }
+  }
+
+  /* Stagger animation delays for cards */
+  .tech-card:nth-child(1) { animation-delay: 0s; }
+  .tech-card:nth-child(2) { animation-delay: 0.1s; }
+  .tech-card:nth-child(3) { animation-delay: 0.15s; }
+  .tech-card:nth-child(4) { animation-delay: 0.2s; }
+  .tech-card:nth-child(5) { animation-delay: 0.25s; }
+  .tech-card:nth-child(6) { animation-delay: 0.3s; }
+  .tech-card:nth-child(7) { animation-delay: 0.35s; }
+  .tech-card:nth-child(8) { animation-delay: 0.4s; }
+  .tech-card:nth-child(9) { animation-delay: 0.45s; }
+  .tech-card:nth-child(10) { animation-delay: 0.5s; }
 </style>
+
+<script>
+  // Intersection Observer for scroll animations
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.tech-card');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    cards.forEach((card) => {
+      card.style.animationPlayState = 'paused';
+      observer.observe(card);
+    });
+
+    // Enhanced keyboard navigation
+    cards.forEach((card, index) => {
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+
+        // Arrow key navigation
+        if (e.key === 'ArrowRight' && cards[index + 1]) {
+          cards[index + 1].focus();
+        }
+        if (e.key === 'ArrowLeft' && cards[index - 1]) {
+          cards[index - 1].focus();
+        }
+        if (e.key === 'ArrowDown' && cards[index + 5]) {
+          cards[index + 5].focus();
+        }
+        if (e.key === 'ArrowUp' && cards[index - 5]) {
+          cards[index - 5].focus();
+        }
+      });
+    });
+  });
+</script>
