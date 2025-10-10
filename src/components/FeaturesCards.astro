@@ -4,38 +4,41 @@ import Hands from "../assets/icons/hands.svg";
 import Web from "../assets/icons/www.svg";
 ---
 
-<section class="features">
-  <div class="card">
-    <div class="icon">
-      <!-- Bombilla (idea) -->
-      <Bombilla />
+<section class="content-grid">
+  <div class="features">
+    <div class="card">
+      <div class="icon">
+        <!-- Bombilla (idea) -->
+        <Bombilla />
+      </div>
+
+      <h3>Transformo tus ideas</h3>
+      <p>
+        De la inspiración a la acción, convierto tus conceptos en proyectos
+        digitales reales.
+      </p>
     </div>
 
-    <h3>Transformo tus ideas</h3>
-    <p>
-      De la inspiración a la acción, convierto tus conceptos en proyectos
-      digitales reales.
-    </p>
-  </div>
-
-  <div class="card">
-    <div class="icon">
-      <!-- Globo terráqueo (digital) -->
-      <Web />
+    <div class="card">
+      <div class="icon">
+        <!-- Globo terráqueo (digital) -->
+        <Web />
+      </div>
+      <h3>En experiencias digitales</h3>
+      <p>Diseño páginas web con UX/UI optimizadas para conectar y vender.</p>
     </div>
-    <h3>En experiencias digitales</h3>
-    <p>Diseño páginas web con UX/UI optimizadas para conectar y vender.</p>
-  </div>
 
-  <div class="card">
-    <div class="icon">
-      <!-- Manos (conectar) -->
-      <Hands />
+    <div class="card">
+      <div class="icon">
+        <!-- Manos (conectar) -->
+        <Hands />
+      </div>
+      <h3>Que conectan y venden</h3>
+      <p>
+        Integro estrategias digitales que generan confianza y resultados
+        medibles.
+      </p>
     </div>
-    <h3>Que conectan y venden</h3>
-    <p>
-      Integro estrategias digitales que generan confianza y resultados medibles.
-    </p>
   </div>
 </section>
 <style>
@@ -47,15 +50,12 @@ import Web from "../assets/icons/www.svg";
   }
 
   .card {
+    position: relative;
+
+    overflow: hidden;
+
     padding: 2rem;
-    border: 6px solid transparent;
-    border-radius: 1rem; /* Se aplica también al border-image */
-    border-image: linear-gradient(
-        135deg,
-        var(--deanny-purpura),
-        var(--deanny-cian)
-      )
-      1;
+    border-radius: 1rem;
 
     text-align: center;
 
@@ -64,6 +64,30 @@ import Web from "../assets/icons/www.svg";
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
+  }
+
+  .card::before {
+    pointer-events: none;
+    content: "";
+
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+
+    border: 6px solid transparent;
+    border-radius: 1rem;
+
+    /* Create a gradient border using two backgrounds and background-clip */
+    background:
+      linear-gradient(var(--deanny-bg-color), var(--deanny-bg-color))
+        padding-box,
+      linear-gradient(135deg, var(--deanny-purpura), var(--deanny-cian))
+        border-box;
+  }
+
+  .card > * {
+    position: relative;
+    z-index: 2;
   }
 
   .card:hover {
