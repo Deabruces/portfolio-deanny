@@ -2,7 +2,7 @@
 /* No imports necesarios */
 ---
 
-<section class="hero">
+<section class="hero content-grid">
   <!-- 1) Registrar los Web Components (CDN) -->
   <script
     type="module"
@@ -11,7 +11,7 @@
 
   <!-- 2) Swiper Web Component -->
   <swiper-container
-    class="hero-swiper"
+    class="hero-swiper full-width"
     slides-per-view="1"
     navigation="true"
     pagination="true"
@@ -22,13 +22,16 @@
   >
     <!-- Slide 1 - General SEO (único H1 para SEO) -->
     <swiper-slide>
-      <div class="slide-content bg-img" style="
+      <div class="slide-content bg-img" style="--bg:url('/hero-business.jpg')">
+        <!-- Floating gradient blobs -->
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
 
---bg:url('/hero-business.jpg')">
-        <h1 class="title-main">
+        <h1 class="title-main animate-text">
           Creo páginas web que venden y hacen crecer tu negocio
         </h1>
-        <p class="subtitle">
+        <p class="subtitle animate-text">
           Diseño web + SEO + experiencia de usuario para que tu marca tenga
           presencia digital real y resultados medibles.
         </p>
@@ -38,48 +41,54 @@
 
     <!-- Slide 2 -->
     <swiper-slide>
-      <div class="slide-content bg-img" style="
+      <div class="slide-content bg-img" style="--bg:url('/hero-startup.jpg')">
+        <!-- Floating gradient blobs -->
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
 
---bg:url('/hero-startup.jpg')">
-        <h2 class="title-second">
+        <h2 class="title-second animate-text">
           Tu primera página web, simple y profesional
         </h2>
-        <p class="subtitle">
+        <p class="subtitle animate-text">
           Si recién comienzas, te ayudo a tener una web clara, accesible y lista
           para atraer clientes.
         </p>
-        <a href="
-          #contacto" class="btn"> Quiero mi primera web </a>
+        <a href="#contacto" class="btn">Quiero mi primera web</a>
       </div>
     </swiper-slide>
 
     <!-- Slide 3 -->
     <swiper-slide>
-      <div class="slide-content bg-img" style="
+      <div class="slide-content bg-img" style="--bg:url('/hero-growth.jpg')">
+        <!-- Floating gradient blobs -->
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
 
---bg:url('/hero-growth.jpg')">
-        <h2 class="title-second">Convierte tu web en tu mejor vendedor</h2>
-        <p class="subtitle">
+        <h2 class="title-second animate-text">Convierte tu web en tu mejor vendedor</h2>
+        <p class="subtitle animate-text">
           Optimización, posicionamiento SEO y diseño estratégico para aumentar
           tus ventas en línea.
         </p>
-        <a href="
-          #contacto" class="btn"> Impulsa tus ventas ahora </a>
+        <a href="#contacto" class="btn">Impulsa tus ventas ahora</a>
       </div>
     </swiper-slide>
 
     <!-- Slide 4 -->
     <swiper-slide>
-      <div class="slide-content bg-img" style="
+      <div class="slide-content bg-img" style="--bg:url('/hero-personal.jpg')">
+        <!-- Floating gradient blobs -->
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
 
---bg:url('/hero-personal.jpg')">
-        <h2 class="title-second">Haz que tu marca personal brille online</h2>
-        <p class="subtitle">
+        <h2 class="title-second animate-text">Haz que tu marca personal brille online</h2>
+        <p class="subtitle animate-text">
           Creo webs que transmiten tu esencia y conectan con tu audiencia en
           cada detalle.
         </p>
-        <a href="
-          #contacto" class="btn">
+        <a href="#contacto" class="btn">
           Construyamos tu marca online
         </a>
       </div>
@@ -103,7 +112,6 @@
 
   .slide-content {
     position: relative;
-
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -131,20 +139,108 @@
     color: #fff;
   }
 
-  /* Overlay morado de marca */
+  /* Dynamic gradient overlay - More creative colors */
   .slide-content::before {
     content: "";
-
     position: absolute;
     z-index: 0;
     inset: 0;
+    background: radial-gradient(
+        circle at 20% 50%,
+        rgba(255, 102, 200, 0.6),
+        transparent 50%
+      ),
+      radial-gradient(circle at 80% 80%, rgba(51, 202, 255, 0.5), transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(129, 105, 255, 0.4), transparent 50%),
+      linear-gradient(135deg, rgba(75, 192, 200, 0.85), rgba(142, 68, 173, 0.7));
+  }
 
-    background: linear-gradient(rgb(75 192 200 / 85%), rgb(142 68 173 / 60%));
+  /* Floating gradient blobs */
+  .blob {
+    position: absolute;
+    border-radius: 50% 40% 60% 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+    z-index: 1;
+    will-change: transform;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .blob-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 15%;
+    background: radial-gradient(circle, #ff66c8, #8169ff);
+    animation-delay: 0s;
+    animation-duration: 25s;
+  }
+
+  .blob-2 {
+    width: 250px;
+    height: 250px;
+    top: 60%;
+    right: 20%;
+    background: radial-gradient(circle, #33caff, #8169ff);
+    animation-delay: 5s;
+    animation-duration: 20s;
+  }
+
+  .blob-3 {
+    width: 200px;
+    height: 200px;
+    bottom: 15%;
+    left: 50%;
+    background: radial-gradient(circle, #ff66c8, #33caff);
+    animation-delay: 10s;
+    animation-duration: 30s;
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    25% {
+      transform: translate(30px, -30px) scale(1.1);
+    }
+    50% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    75% {
+      transform: translate(40px, 10px) scale(1.05);
+    }
+  }
+
+  /* Text animation */
+  .animate-text {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-text:nth-child(4) {
+    animation-delay: 0.2s;
+  }
+
+  .animate-text:nth-child(5) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .slide-content > * {
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   .slide-content h1,
@@ -153,6 +249,7 @@
     font-family: Poppins, system-ui, sans-serif;
     font-size: clamp(1.8rem, 4vw, 2.8rem);
     font-weight: 700;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
   }
 
   .slide-content p {
@@ -160,11 +257,12 @@
     margin: 0 0 2rem;
     font-family: Inter, system-ui, sans-serif;
     font-size: clamp(1rem, 2vw, 1.2rem);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   }
 
+  /* Enhanced button with micro-interactions */
   .btn {
     display: inline-block;
-
     padding: 0.9rem 1.4rem;
     border-radius: 60px;
 
@@ -174,17 +272,69 @@
     text-decoration: none;
 
     background: var(--deanny-cian);
+    box-shadow: 0 4px 15px rgba(51, 202, 255, 0.3);
 
-    transition: background 0.25s ease;
+    transition: all 0.3s ease;
+    will-change: transform;
   }
 
   .btn:hover {
     background: var(--deanny-cian-hover);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(51, 202, 255, 0.5);
+  }
+
+  .btn:active {
+    transform: scale(0.98) translateY(0);
+  }
+
+  .btn:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 4px;
+  }
+
+  /* Accessibility - Respect user motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .blob {
+      animation: none;
+    }
+
+    .animate-text {
+      animation: none;
+      opacity: 1;
+    }
+
+    .btn {
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: none;
+    }
   }
 
   @media (width <= 768px) {
     .slide-content {
       padding: 2rem;
+    }
+
+    .blob {
+      filter: blur(40px);
+    }
+
+    .blob-1 {
+      width: 200px;
+      height: 200px;
+    }
+
+    .blob-2 {
+      width: 180px;
+      height: 180px;
+    }
+
+    .blob-3 {
+      width: 150px;
+      height: 150px;
     }
   }
 </style>
