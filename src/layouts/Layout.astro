@@ -120,6 +120,53 @@ import "../assets/styles/Header.css";
       modifiedTime={modifiedTime}
       author={author}
     />
+    <style>
+      /* Skip Navigation Link */
+      .skip-nav {
+        position: absolute;
+        z-index: 1000;
+        top: -40px;
+        left: 6px;
+
+        padding: 8px;
+        border-radius: 4px;
+
+        color: white;
+        text-decoration: none;
+
+        background-color: var(--acento-btn);
+
+        transition: top 0.3s;
+      }
+
+      .skip-nav:focus {
+        top: 6px;
+      }
+
+      body {
+        overflow-x: hidden;
+        font-family: Lato, sans-serif;
+        color: var(--bg-color);
+        background-color: var(--background-color);
+      }
+
+      /* Focus styles for better accessibility */
+      *:focus {
+        outline: 2px solid var(--acento-btn);
+        outline-offset: 2px;
+      }
+
+      /* Better focus for interactive elements */
+      a:focus,
+      button:focus,
+      input:focus,
+      textarea:focus,
+      select:focus {
+        border-radius: 4px;
+        outline: 2px solid var(--acento-btn);
+        outline-offset: 2px;
+      }
+    </style>
   </head>
 
   <body>
@@ -164,71 +211,20 @@ import "../assets/styles/Header.css";
     <WhatsAppButton />
 
     <Footer />
+
+    <script>
+      // Header scroll behavior
+      const header = document.getElementById("main-header");
+
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 50) {
+          header?.classList.add("scrolled");
+        } else {
+          header?.classList.remove("scrolled");
+        }
+      });
+    </script>
   </body>
 </html>
-
-<style>
-  /* Skip Navigation Link */
-  .skip-nav {
-    position: absolute;
-    z-index: 1000;
-    top: -40px;
-    left: 6px;
-
-    padding: 8px;
-    border-radius: 4px;
-
-    color: white;
-    text-decoration: none;
-
-    background-color: var(--acento-btn);
-
-    transition: top 0.3s;
-  }
-
-  .skip-nav:focus {
-    top: 6px;
-  }
-
-  body {
-    overflow-x: hidden;
-    font-family: Lato, sans-serif;
-    color: var(--bg-color);
-    background-color: var(--background-color);
-  }
-
-  /* Focus styles for better accessibility */
-  *:focus {
-    outline: 2px solid var(--acento-btn);
-    outline-offset: 2px;
-  }
-
-  /* Better focus for interactive elements */
-  a:focus,
-  button:focus,
-  input:focus,
-  textarea:focus,
-  select:focus {
-    border-radius: 4px;
-    outline: 2px solid var(--acento-btn);
-    outline-offset: 2px;
-  }
-</style>
-
-<script>
-  // Header scroll behavior
-  const header = document.getElementById("main-header");
-  let lastScroll = 0;
-
-  window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 50) {
-      header?.classList.add("scrolled");
-    } else {
-      header?.classList.remove("scrolled");
-    }
-
-    lastScroll = currentScroll;
-  });
-</script>
