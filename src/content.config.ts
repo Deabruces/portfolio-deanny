@@ -36,7 +36,7 @@ const posts = defineCollection({
 });
 
 const tools = defineCollection({
-  loader: glob({ pattern: "**/*.(md|mdx)", base: "./src/content/tools" }),
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/tools" }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
