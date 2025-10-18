@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+  <!-- Outer circle -->
+  <circle cx="256" cy="256" r="240" fill="none" stroke="currentColor" stroke-width="20" opacity="0.3"/>
+
+  <!-- Person figure -->
+  <!-- Head -->
+  <circle cx="256" cy="140" r="50"/>
+
+  <!-- Body -->
+  <path d="M256 210c-60 0-100 20-100 40v20h200v-20c0-20-40-40-100-40z" opacity="0.8"/>
+
+  <!-- Arms spread (accessibility pose) -->
+  <path d="M140 250c-10-5-20-5-30 0l-40 20c-15 8-20 25-12 40s25 20 40 12l42-21z" opacity="0.8"/>
+  <path d="M372 250c10-5 20-5 30 0l40 20c15 8 20 25 12 40s-25 20-40 12l-42-21z" opacity="0.8"/>
+
+  <!-- Legs -->
+  <path d="M220 270l-40 140c-5 17 5 35 22 40s35-5 40-22l38-138z" opacity="0.8"/>
+  <path d="M292 270l40 140c5 17-5 35-22 40s-35-5-40-22l-38-138z" opacity="0.8"/>
+
+  <!-- Checkmark overlay (AI verification) -->
+  <path d="M380 120l-100 120-40-40" fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+</svg>
