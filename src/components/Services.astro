@@ -7,6 +7,9 @@ import Time from "../assets/icons/time.svg";
 import Analisis from "../assets/icons/analisis.svg";
 import Pago from "../assets/icons/pago.svg";
 import Ecommerce from "../assets/icons/ecommerce.svg";
+import Automation from "../assets/icons/automation.svg";
+import AiBrain from "../assets/icons/ai-brain.svg";
+import Accessibility from "../assets/icons/accessibility.svg";
 ---
 
 <section class="content-grid gradient-bg" aria-labelledby="services-title">
@@ -175,6 +178,54 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
         </div>
         <div class="card-number" aria-hidden="true">08</div>
       </article>
+
+      <!-- Automatización Inteligente -->
+      <article class="service-card" tabindex="0">
+        <div class="card-gradient"></div>
+        <div class="card-content">
+          <div class="icon-wrapper gradient-teal">
+            <Automation />
+          </div>
+          <h3>Automatización Inteligente</h3>
+          <p>
+            Workflows con n8n y Zapier que automatizan tareas repetitivas,
+            ahorran tiempo y escalan tu negocio sin contratar más personal.
+          </p>
+        </div>
+        <div class="card-number" aria-hidden="true">09</div>
+      </article>
+
+      <!-- AI y Asistentes Virtuales -->
+      <article class="service-card" tabindex="0">
+        <div class="card-gradient"></div>
+        <div class="card-content">
+          <div class="icon-wrapper gradient-violet">
+            <AiBrain />
+          </div>
+          <h3>AI y Asistentes Virtuales</h3>
+          <p>
+            Chatbots inteligentes con Model Context Protocol (MCP) que
+            atienden clientes 24/7, responden preguntas y ejecutan acciones.
+          </p>
+        </div>
+        <div class="card-number" aria-hidden="true">10</div>
+      </article>
+
+      <!-- Accesibilidad Web AI -->
+      <article class="service-card" tabindex="0">
+        <div class="card-gradient"></div>
+        <div class="card-content">
+          <div class="icon-wrapper gradient-emerald">
+            <Accessibility />
+          </div>
+          <h3>Accesibilidad Web AI</h3>
+          <p>
+            Cumplimiento WCAG 2.1 automatizado con IA. Expande tu mercado,
+            evita demandas y mejora el SEO. EAA obligatorio en junio 2025.
+          </p>
+        </div>
+        <div class="card-number" aria-hidden="true">11</div>
+      </article>
     </div>
 
     <!-- CTA Section -->
@@ -211,6 +262,9 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
     --service-orange: #f97316;
     --service-yellow: #fbbf24;
     --service-indigo: #6366f1;
+    --service-teal: #14b8a6;
+    --service-violet: #8b5cf6;
+    --service-emerald: #10b981;
   }
 
   .gradient-bg {
@@ -469,6 +523,18 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
     background: linear-gradient(135deg, var(--service-indigo), #4f46e5);
   }
 
+  .gradient-teal {
+    background: linear-gradient(135deg, var(--service-teal), #0d9488);
+  }
+
+  .gradient-violet {
+    background: linear-gradient(135deg, var(--service-violet), #7c3aed);
+  }
+
+  .gradient-emerald {
+    background: linear-gradient(135deg, var(--service-emerald), #059669);
+  }
+
   /* Typography */
   .service-card h3 {
     margin-bottom: 1rem;
@@ -564,6 +630,18 @@ import Ecommerce from "../assets/icons/ecommerce.svg";
 
   .service-card:nth-child(8) {
     animation-delay: 0.7s;
+  }
+
+  .service-card:nth-child(9) {
+    animation-delay: 0.8s;
+  }
+
+  .service-card:nth-child(10) {
+    animation-delay: 0.9s;
+  }
+
+  .service-card:nth-child(11) {
+    animation-delay: 1s;
   }
 
 
