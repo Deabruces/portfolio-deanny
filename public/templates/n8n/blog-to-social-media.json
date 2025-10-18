@@ -1,0 +1,142 @@
+{
+  "name": "Blog to Social Media Auto-Poster",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://tu-sitio.com/rss",
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyHour"
+            }
+          ]
+        }
+      },
+      "id": "1",
+      "name": "RSS Feed Trigger",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": null
+    },
+    {
+      "parameters": {
+        "operation": "summarize",
+        "text": "={{ $json.contentSnippet }}",
+        "options": {
+          "maxLength": 280
+        }
+      },
+      "id": "2",
+      "name": "AI Summarizer (OpenAI)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "credentials": {
+        "openAiApi": {
+          "id": "1",
+          "name": "OpenAI Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "text": "🚀 Nuevo artículo en el blog:\n\n{{ $json.title }}\n\n{{ $('AI Summarizer (OpenAI)').item.json.summary }}\n\n🔗 Lee más: {{ $json.link }}\n\n#Blog #Contenido",
+        "additionalFields": {}
+      },
+      "id": "3",
+      "name": "Post to Twitter",
+      "type": "n8n-nodes-base.twitter",
+      "typeVersion": 1,
+      "position": [650, 200],
+      "credentials": {
+        "twitterOAuth2Api": {
+          "id": "2",
+          "name": "Twitter OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "text": "📝 ¡Nuevo post en nuestro blog!\n\n{{ $json.title }}\n\n{{ $('AI Summarizer (OpenAI)').item.json.summary }}\n\nLee el artículo completo aquí 👉 {{ $json.link }}\n\n#Marketing #Contenido #Blog",
+        "additionalFields": {}
+      },
+      "id": "4",
+      "name": "Post to LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "typeVersion": 1,
+      "position": [650, 300],
+      "credentials": {
+        "linkedInOAuth2Api": {
+          "id": "3",
+          "name": "LinkedIn OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "feed",
+        "operation": "create",
+        "message": "{{ $json.title }}\n\n{{ $('AI Summarizer (OpenAI)').item.json.summary }}\n\n{{ $json.link }}",
+        "additionalFields": {}
+      },
+      "id": "5",
+      "name": "Post to Facebook",
+      "type": "n8n-nodes-base.facebook",
+      "typeVersion": 1,
+      "position": [650, 400],
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "4",
+          "name": "Facebook Graph API"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "RSS Feed Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Summarizer (OpenAI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Summarizer (OpenAI)": {
+      "main": [
+        [
+          {
+            "node": "Post to Twitter",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Post to LinkedIn",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Post to Facebook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-10-16T19:00:00.000Z",
+  "versionId": "1"
+}

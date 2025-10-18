@@ -1,0 +1,69 @@
+{
+  "name": "deanny-services-mcp",
+  "version": "1.0.0",
+  "description": "MCP Server for Deanny's service recommendation system",
+  "tools": [
+    {
+      "name": "get_services",
+      "description": "Retrieve all available services with their details, keywords, and benefits",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Optional filter by category (web, automation, ai, etc.)",
+            "enum": ["web", "automation", "ai", "seo", "all"]
+          }
+        }
+      }
+    },
+    {
+      "name": "recommend_services",
+      "description": "Analyze user requirements and recommend the best matching services",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_description": {
+            "type": "string",
+            "description": "User's description of their project or business needs"
+          },
+          "max_recommendations": {
+            "type": "number",
+            "description": "Maximum number of services to recommend (default: 3)",
+            "default": 3
+          }
+        },
+        "required": ["user_description"]
+      }
+    },
+    {
+      "name": "get_service_details":  {
+        "description": "Get detailed information about a specific service",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "service_id": {
+              "type": "string",
+              "description": "The ID of the service to get details for"
+            }
+          },
+          "required": ["service_id"]
+        }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "services://all",
+      "name": "All Services Database",
+      "description": "Complete database of all available services",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "templates://automation",
+      "name": "Automation Templates",
+      "description": "n8n and Zapier workflow templates",
+      "mimeType": "application/json"
+    }
+  ]
+}
