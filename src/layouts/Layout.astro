@@ -31,6 +31,7 @@ const pageImage = image
   : new URL("/favicon_dea-logo.png", Astro.url.origin).href;
 
 import WhatsAppButton from "../components/WhatsAppButton.astro";
+import ServicesChatbot from "../components/ServicesChatbot.jsx";
 import SEOStructuredData from "../components/SEOStructuredData.astro";
 import LogoDeanny from "../assets/images/logo-deanny.png";
 import { Image } from "astro:assets";
@@ -209,6 +210,8 @@ import "../assets/styles/Header.css";
     <main id="main-content" style="margin-top: 85px;"><slot /></main>
 
     <WhatsAppButton />
+
+    <ServicesChatbot client:load />
 
     <Footer />
 
