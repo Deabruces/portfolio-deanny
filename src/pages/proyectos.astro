@@ -1,5 +1,4 @@
 ---
-import PageTitle from "components/PageTitle.astro";
 import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
@@ -11,24 +10,66 @@ const projects = await getCollection("projects");
   description="Explora los proyectos de desarrollo web de Deanny Bruces. Una colección de aplicaciones web, sitios web y otros proyectos que demuestran mis habilidades y experiencia."
   keywords="proyectos web, portfolio, desarrollo web, aplicaciones web, sitios web, React, Astro, JavaScript, frontend"
 >
-  <section class="projects content-grid">
-    <div class="breakout">
-      <PageTitle>
-        Algunos de mis <span>Proyectos Recientes</span>
-      </PageTitle>
+  <section class="projects-page content-grid">
+    <!-- Background Elements -->
+    <div class="projects-background full-width" aria-hidden="true">
+      <div class="floating-blob blob-1"></div>
+      <div class="floating-blob blob-2"></div>
+      <div class="floating-blob blob-3"></div>
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+    </div>
+
+    <div class="projects-container">
+      <!-- Hero Section -->
+      <div class="projects-hero">
+        <div class="hero-badge">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <path
+              d="M3 3h7v7H3V3zm11 0h7v7h-7V3zM3 14h7v7H3v-7zm11 0h7v7h-7v-7z"
+            ></path>
+          </svg>
+          <span>Portafolio</span>
+        </div>
+
+        <h1 class="page-title">
+          Algunos de mis <span class="page-title__span"
+            >Proyectos Recientes</span
+          >
+        </h1>
+        <p class="page-subtitle">
+          Una colección de aplicaciones web, sitios web y proyectos que
+          demuestran mi experiencia en desarrollo frontend, diseño UI/UX y
+          soluciones digitales innovadoras.
+        </p>
+      </div>
+
+      <!-- Projects Grid -->
       <div class="cards">
         {
-          projects.map((project) => {
+          projects.map((project, index) => {
             return (
-              <Card
-                link={`/projects/${project.id}`}
-                image={project.data.image}
-                title={project.data.title}
-                summary={project.data.summary}
-                date={project.data.date}
-                tags={project.data.tags || []}
-                identifier={project.id}
-              />
+              <div
+                class="card-wrapper"
+                style={`animation-delay: ${index * 0.1}s`}
+              >
+                <Card
+                  link={`/projects/${project.id}`}
+                  image={project.data.image}
+                  title={project.data.title}
+                  summary={project.data.summary}
+                  date={project.data.date}
+                  tags={project.data.tags || []}
+                  identifier={project.id}
+                />
+              </div>
             );
           })
         }
@@ -38,36 +79,276 @@ const projects = await getCollection("projects");
 </Layout>
 
 <style>
-  /** Mobile First **/
+  /* ============================================
+   Projects Page Styles - Modern Glassmorphic Design
+   ============================================ */
 
+  /* Main Section */
+  .projects-page {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    padding: 12rem 0 6rem;
+    background: light-dark(
+      radial-gradient(circle at bottom left, #e0f2fe, #ddd6fe, #fce7f3),
+      radial-gradient(circle at bottom left, #0c4a6e, #3730a3, #831843)
+    );
+  }
+
+  /* Background Elements */
+  .projects-background {
+    pointer-events: none;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Floating Blobs */
+  .floating-blob {
+    position: absolute;
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    opacity: 0.14;
+    filter: blur(115px);
+    animation: blobFloat 22s ease-in-out infinite;
+  }
+
+  .blob-1 {
+    top: -8%;
+    left: -12%;
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    animation-delay: 0s;
+  }
+
+  .blob-2 {
+    top: 45%;
+    right: -10%;
+    background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+    animation-delay: 7s;
+  }
+
+  .blob-3 {
+    bottom: -15%;
+    left: 35%;
+    background: linear-gradient(135deg, #f43f5e, #a855f7);
+    animation-delay: 14s;
+  }
+
+  /* Gradient Orbs */
+  .gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.2;
+    filter: blur(75px);
+    animation: orbPulse 16s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    top: 15%;
+    right: 15%;
+    width: 22rem;
+    height: 22rem;
+    background: radial-gradient(circle, #06b6d4, transparent);
+  }
+
+  .orb-2 {
+    bottom: 20%;
+    left: 10%;
+    width: 28rem;
+    height: 28rem;
+    background: radial-gradient(circle, #a855f7, transparent);
+  }
+
+  /* Container */
+  .projects-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Hero Section */
+  .projects-hero {
+    text-align: center;
+    margin-bottom: 5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 30%));
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: light-dark(#8b5cf6, #a78bfa);
+    background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 15%));
+    backdrop-filter: blur(10px);
+    animation: badgeGlow 3s ease-in-out infinite;
+  }
+
+  .hero-badge svg {
+    width: 18px;
+    height: 18px;
+    color: light-dark(#8b5cf6, #a78bfa);
+  }
+
+  .page-title {
+    margin-bottom: 1.5rem;
+    font-family: Poppins, sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: light-dark(#1e1b4b, #f8fafc);
+  }
+
+  .page-title__span {
+    background: linear-gradient(135deg, #a855f7, #06b6d4, #ec4899);
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .page-subtitle {
+    max-width: 850px;
+    margin: 0 auto;
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    line-height: 1.7;
+    color: light-dark(#64748b, #cbd5e1);
+  }
+
+  /* Cards Grid */
   .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 340px);
-    flex-wrap: wrap;
-    gap: 60px;
-    justify-content: center;
-
-    padding: 0;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
   }
 
-  .projects-title {
-    margin-top: 9rem;
-    margin-bottom: 4rem;
-    color: var(--text-color);
-    text-align: center;
+  .card-wrapper {
+    opacity: 0;
+    animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  .projects-title span {
-    color: var(--acento-btn);
-  }
-
-  /* Tablet 
+  /* Responsive */
   @media (width >= 768px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
-*/
 
-  /* desktop 
-  @media (width >= 1024px) {
+  @media (width >= 1200px) {
+    .cards {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
   }
-  */
+
+  @media (width <= 767px) {
+    .projects-page {
+      padding: 6rem 0 4rem;
+    }
+
+    .projects-hero {
+      margin-bottom: 3rem;
+    }
+
+    .cards {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  /* Animations */
+  @keyframes blobFloat {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(-32px, -48px) scale(1.1);
+    }
+    66% {
+      transform: translate(42px, 32px) scale(0.9);
+    }
+  }
+
+  @keyframes orbPulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.2;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes badgeGlow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgb(168 85 247 / 20%);
+    }
+    50% {
+      box-shadow: 0 0 30px rgb(168 85 247 / 40%);
+    }
+  }
+
+  @keyframes gradientShift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 </style>
