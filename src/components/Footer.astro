@@ -3,7 +3,6 @@ import Love from "../assets/icons/love.svg";
 import SocialIcons from "./SocialIcons.astro";
 import LogoDeanny from "../assets/images/logo-deanny.png";
 import { Image } from "astro:assets";
-import "../assets/styles/Footer.css";
 ---
 
 <footer class="footer">
@@ -142,12 +141,8 @@ import "../assets/styles/Footer.css";
   /* Main Footer */
   .footer {
     position: relative;
-
     overflow: hidden;
-
-    margin-top: 6rem;
     padding: 0;
-
     background: linear-gradient(
       135deg,
       light-dark(rgb(168 85 247 / 8%), rgb(30 27 75 / 95%)),
@@ -255,7 +250,7 @@ import "../assets/styles/Footer.css";
 
   .footer-logo:hover {
     transform: scale(1.08) rotate(-5deg);
-    border-color: transparent;
+    border-color: var(--deanny-cian);
     background: linear-gradient(135deg, #a855f7, #06b6d4);
     box-shadow: 0 8px 25px rgb(168 85 247 / 30%);
   }
@@ -291,7 +286,7 @@ import "../assets/styles/Footer.css";
     align-self: flex-start;
 
     padding: 1rem 2rem;
-    border: 2px solid transparent;
+    border: 2px solid var(--deanny-cian);
     border-radius: 2.5rem;
 
     font-size: 1rem;
@@ -463,7 +458,7 @@ import "../assets/styles/Footer.css";
 
   .contact-item:hover .contact-icon {
     transform: scale(1.1);
-    border-color: transparent;
+    border-color: var(--deanny-cian);
     color: #fff;
     background: linear-gradient(135deg, #a855f7, #06b6d4);
   }

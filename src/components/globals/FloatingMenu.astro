@@ -1,0 +1,152 @@
+---
+import TrabajemosJuntos from "@components/globals/TrabajemosJuntos.astro";
+import Image from "astro/components/Image.astro";
+import LogoDeanny from "@images/logo-deanny.png";
+---
+
+<div class="floating-menu">
+  <div class="content-grid">
+    <nav>
+      <ul>
+        <li>
+          <a href="/" class="logo-link" aria-label="Ir a la página de inicio">
+            <Image
+              src={LogoDeanny}
+              alt="Logo de Deanny Bruces"
+              class="logo-image"
+            />
+            <span class="logo-text">Deanny Bruces</span>
+          </a>
+        </li>
+        <li>
+          <TrabajemosJuntos />
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<style>
+  .floating-menu {
+    position: fixed;
+    z-index: 100;
+    top: 10px;
+    left: 0;
+    transform: translateY(-200%);
+
+    width: 100%;
+
+    transition: transform 1s;
+  }
+
+  .floating-menu.scrolled {
+    transform: translateY(0);
+  }
+
+  .logo-image {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .logo-text {
+    color: light-dark(var(--deanny-purpura), var(--deanny-lila));
+  }
+
+  .logo-link {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+  }
+
+  nav {
+    place-self: center center;
+
+    width: 780px;
+    max-width: calc(100vw - 2rem);
+    padding: 0.5rem;
+    border: 1px solid var(--deanny-border-color);
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+  }
+
+  nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0;
+
+    list-style: none;
+  }
+
+  /* Responsive adjustments for FloatingMenu */
+  @media (width <= 480px) {
+    nav {
+      width: calc(100vw - 2rem);
+      padding: 0.4rem;
+      border-radius: 15px;
+    }
+
+    .logo-image {
+      width: 24px;
+      height: 24px;
+    }
+
+    .logo-text {
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (width >= 481px) and (width < 768px) {
+    nav {
+      width: calc(100vw - 3rem);
+      padding: 0.45rem;
+    }
+
+    .logo-image {
+      width: 26px;
+      height: 26px;
+    }
+
+    .logo-text {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (width >= 768px) and (width < 1024px) {
+    nav {
+      width: min(720px, calc(100vw - 4rem));
+      padding: 0.5rem;
+    }
+
+    .logo-image {
+      width: 28px;
+      height: 28px;
+    }
+
+    .logo-text {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (width >= 1024px) and (width < 1200px) {
+    nav {
+      width: min(760px, calc(100vw - 4rem));
+    }
+  }
+</style>
+
+<script>
+  const element = document.querySelector(".floating-menu")!;
+  const initFloating = document.getElementById("init-floating")!;
+  window.addEventListener("scroll", function () {
+    const rect = initFloating.getBoundingClientRect();
+
+    if (window.scrollY > rect.top) {
+      element.classList.add("scrolled"); // Replace 'yourClassName' with the class you want to add
+    } else {
+      element.classList.remove("scrolled"); // Replace 'yourClassName' with the class you want to remove
+    }
+  });
+</script>

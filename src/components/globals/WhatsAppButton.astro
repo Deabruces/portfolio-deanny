@@ -68,6 +68,46 @@ const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     visibility: visible;
     opacity: 1;
   }
+
+  /* Responsive adjustments for mobile devices */
+  @media (width <= 767px) {
+    .whatsapp-btn {
+      right: 20px;
+      bottom: 20px;
+      width: 52px;
+      height: 52px;
+    }
+
+    .whatsapp-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Hide tooltip on mobile to save space */
+    .tooltip {
+      display: none;
+    }
+  }
+
+  @media (width >= 768px) and (width < 1024px) {
+    .whatsapp-btn {
+      right: 30px;
+      bottom: 30px;
+      width: 56px;
+      height: 56px;
+    }
+
+    .whatsapp-icon {
+      width: 26px;
+      height: 26px;
+    }
+  }
+
+  /* Focus states for accessibility */
+  .whatsapp-btn:focus-visible {
+    outline: 3px solid var(--acento-btn);
+    outline-offset: 4px;
+  }
 </style>
 
 <a

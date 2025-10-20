@@ -1,0 +1,197 @@
+---
+import Person from "@icons/person.svg";
+import Projects from "@icons/projects.svg";
+import Blog from "@icons/blog.svg";
+import Tool from "@icons/tool.svg";
+import Services from "@icons/services.svg";
+import LogoDeanny from "@images/logo-deanny.png"
+import Image from "astro/components/Image.astro";
+import TrabajemosJuntos from "@components/globals/TrabajemosJuntos.astro";
+interface MenuElement {
+  name: string;
+  icon: unknown;
+  path: string;
+}
+const menuElements: MenuElement[] = [
+{ name: "Quién soy!", icon: Person, path: "/sobre-mi" },
+{ name: "Servicios", icon: Services, path: "/servicios" },
+{ name: "Proyectos", icon: Projects, path: "/proyectos" },
+{ name: "Blog", icon: Blog, path: "/blog" },
+{ name: "Herramientas", icon: Tool, path: "/tools" },
+];
+const isActualPage = (element: Partial<MenuElement>) => {
+  return Astro.url.pathname === element.path;
+};
+---
+<div class="header-desktop">
+  <div>
+    <a href="/" class="logo-link" aria-label="Ir a la página de inicio">
+      <Image
+      src={LogoDeanny}
+      alt="Logo de Deanny Bruces"
+      class="logo-image"
+      />
+      <span class="logo-text">Deanny Bruces</span>
+    </a>
+  </div>
+  
+  <nav role="navigation" aria-label="Navegación principal">
+    <ul>
+      
+      {
+        menuElements.map((element) => (
+        <li class:list={["li__nav", { active: isActualPage(element) }]}>
+          <a href={element.path}>
+            <!-- @ts-ignore -->
+            <element.icon />
+            {element.name}
+          </a>
+        </li>
+        ))
+      }
+      <li class="btn-header">
+        <TrabajemosJuntos />
+      </li>
+      
+    </ul>
+  </nav>
+</div>
+<style>
+  .header-desktop {
+    display: none;
+  }
+
+  .header-desktop a {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+
+    font-size: 1rem;
+    color: light-dark(var(--deanny-purpura), var(--deanny-lila));
+  }
+
+  .logo-image {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .logo-text {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  nav {
+    display: flex;
+
+    height: min-content;
+    border-radius: 30px;
+
+    font-size: 20px;
+
+    background-color: light-dark(#faf8ffa9, #26122ba5);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+    align-items: center;
+    justify-content: space-evenly;
+
+    margin: 0;
+    padding-inline-start: 0;
+  }
+
+  li {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+
+    padding: 3px 6px;
+
+    list-style-type: none;
+  }
+
+  .li__nav a{
+    --_border-color: var(--li-border-color, transparent);
+
+    padding: 0 8px;
+    border: 1px solid var(--_border-color);
+    border-radius: 20px;
+    transition: all 300ms ease-in-out;
+  }
+
+  .li__nav:hover a, .li__nav.active a{
+    display: inline-flex;
+    gap: 0.75rem;
+    align-items: center;
+    align-self: flex-start;
+
+    padding: 3px 6px;
+    border: 2px solid var(--deanny-cian);
+
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--deanny-cian);
+    text-decoration: none;
+
+    box-shadow: 0 8px 30px rgb(168 85 247 / 30%), 0 0 0 1px rgb(255 255 255 / 20%) inset;
+
+    transition: all 0.4s
+    cubic-bezier(0.16, 1, 0.3, 1);
+
+  }
+
+  .btn-header{
+    padding: 0;
+  }
+
+  /* Focus styles for accessibility */
+  .li__nav a:focus-visible {
+    outline: 3px solid var(--deanny-cian);
+    outline-offset: 4px;
+  }
+
+  @media (width >= 1280px) {
+    .header-desktop {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  /* Responsive adjustments for desktop navigation */
+  @media (width >= 1280px) and (width <= 1400px) {
+    .header-desktop a {
+      font-size: 0.95rem;
+    }
+
+    ul {
+      gap: 0.25rem;
+    }
+
+    li {
+      padding: 2px 4px;
+    }
+
+    .li__nav a {
+      padding: 0 7px;
+    }
+
+    .li__nav:hover a, .li__nav.active a {
+      gap: 0.6rem;
+      padding: 0.28rem 0.45rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (width >= 1400px) and (width <= 1600px) {
+    ul {
+      gap: 0.3rem;
+    }
+  }
+
+</style>
