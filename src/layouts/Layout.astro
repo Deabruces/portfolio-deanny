@@ -1,10 +1,13 @@
 ---
-import Footer from "../components/Footer.astro";
-import Navigation from "../components/Navigation.astro";
-import BurgerMenu from "../components/BurgerMenu.astro";
-import "../assets/styles/reset.css";
-import "../assets/styles/grid.css";
-import "../assets/styles/global.css";
+import Footer from "@components/Footer.astro";
+import WhatsAppButton from "../components/globals/WhatsAppButton.astro";
+import ServicesChatbot from "@components/ServicesChatbot.jsx";
+import SEOStructuredData from "@components/SEOStructuredData.astro";
+import Header from "@components/globals/Header.astro";
+import "@styles/reset.css";
+import "@styles/grid.css";
+import "@styles/global.css";
+import FloatingMenu from "@components/globals/FloatingMenu.astro";
 interface Props {
   title?: string;
   description: string;
@@ -29,13 +32,6 @@ const pageTitle = title ? `${title} | Deanny Bruces` : "Deanny Bruces";
 const pageImage = image
   ? new URL(image, Astro.url.origin).href
   : new URL("/favicon_dea-logo.png", Astro.url.origin).href;
-
-import WhatsAppButton from "../components/WhatsAppButton.astro";
-import ServicesChatbot from "../components/ServicesChatbot.jsx";
-import SEOStructuredData from "../components/SEOStructuredData.astro";
-import LogoDeanny from "../assets/images/logo-deanny.png";
-import { Image } from "astro:assets";
-import "../assets/styles/Header.css";
 ---
 
 <!doctype html>
@@ -121,53 +117,6 @@ import "../assets/styles/Header.css";
       modifiedTime={modifiedTime}
       author={author}
     />
-    <style>
-      /* Skip Navigation Link */
-      .skip-nav {
-        position: absolute;
-        z-index: 1000;
-        top: -40px;
-        left: 6px;
-
-        padding: 8px;
-        border-radius: 4px;
-
-        color: white;
-        text-decoration: none;
-
-        background-color: var(--acento-btn);
-
-        transition: top 0.3s;
-      }
-
-      .skip-nav:focus {
-        top: 6px;
-      }
-
-      body {
-        overflow-x: hidden;
-        font-family: Lato, sans-serif;
-        color: var(--bg-color);
-        background-color: var(--background-color);
-      }
-
-      /* Focus styles for better accessibility */
-      *:focus {
-        outline: 2px solid var(--acento-btn);
-        outline-offset: 2px;
-      }
-
-      /* Better focus for interactive elements */
-      a:focus,
-      button:focus,
-      input:focus,
-      textarea:focus,
-      select:focus {
-        border-radius: 4px;
-        outline: 2px solid var(--acento-btn);
-        outline-offset: 2px;
-      }
-    </style>
   </head>
 
   <body>
@@ -184,34 +133,11 @@ import "../assets/styles/Header.css";
         style="display:none;visibility:hidden"></iframe></noscript
     >
     <!-- End Google Tag Manager (noscript) -->
-    <header class="header" id="main-header">
-      <div class="header-container">
-        <div class="logo-section">
-          <a href="/" class="logo-link" aria-label="Ir a la página de inicio">
-            <Image
-              src={LogoDeanny}
-              alt="Logo de Deanny Bruces"
-              class="logo-image"
-            />
-            <span class="logo-text">Deanny Bruces</span>
-          </a>
-        </div>
 
-        <div class="header-desktop">
-          <Navigation />
-        </div>
-
-        <div class="header-mobile">
-          <BurgerMenu />
-        </div>
-      </div>
-    </header>
-
-    <main id="main-content" style="margin-top: 85px;"><slot /></main>
+    <Header />
+    <main id="main-content"><slot /></main>
 
     <WhatsAppButton />
-
-    <ServicesChatbot client:load />
 
     <Footer />
 
@@ -231,3 +157,51 @@ import "../assets/styles/Header.css";
     </script>
   </body>
 </html>
+
+<style>
+  /* Skip Navigation Link */
+  .skip-nav {
+    position: absolute;
+    z-index: 1000;
+    top: -40px;
+    left: 6px;
+
+    padding: 8px;
+    border-radius: 4px;
+
+    color: white;
+    text-decoration: none;
+
+    background-color: var(--acento-btn);
+
+    transition: top 0.3s;
+  }
+
+  .skip-nav:focus {
+    top: 6px;
+  }
+
+  body {
+    overflow-x: hidden;
+    font-family: Lato, sans-serif;
+    color: var(--bg-color);
+    background-color: var(--background-color);
+  }
+
+  /* Focus styles for better accessibility */
+  *:focus {
+    outline: 2px solid var(--acento-btn);
+    outline-offset: 2px;
+  }
+
+  /* Better focus for interactive elements */
+  a:focus,
+  button:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border-radius: 4px;
+    outline: 2px solid var(--acento-btn);
+    outline-offset: 2px;
+  }
+</style>
