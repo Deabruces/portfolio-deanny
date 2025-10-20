@@ -40,9 +40,7 @@ const projects = await getCollection("projects");
         </div>
 
         <h1 class="page-title">
-          Algunos de mis <span class="page-title__span"
-            >Proyectos Recientes</span
-          >
+          Algunos de mis <span class="page-title__span">Proyectos</span>
         </h1>
         <p class="page-subtitle">
           Una colección de aplicaciones web, sitios web y proyectos que
@@ -51,6 +49,7 @@ const projects = await getCollection("projects");
         </p>
       </div>
 
+      <div id="init-floating"></div>
       <!-- Projects Grid -->
       <div class="cards">
         {
@@ -86,9 +85,12 @@ const projects = await getCollection("projects");
   /* Main Section */
   .projects-page {
     position: relative;
+
     overflow: hidden;
+
     min-height: 100vh;
     padding: 12rem 0 6rem;
+
     background: light-dark(
       radial-gradient(circle at bottom left, #e0f2fe, #ddd6fe, #fce7f3),
       radial-gradient(circle at bottom left, #0c4a6e, #3730a3, #831843)
@@ -98,11 +100,14 @@ const projects = await getCollection("projects");
   /* Background Elements */
   .projects-background {
     pointer-events: none;
+
     position: absolute;
     z-index: 0;
     top: 0;
     left: 0;
+
     overflow: hidden;
+
     width: 100%;
     height: 100%;
   }
@@ -110,11 +115,14 @@ const projects = await getCollection("projects");
   /* Floating Blobs */
   .floating-blob {
     position: absolute;
+
     width: 40rem;
     height: 40rem;
     border-radius: 50%;
+
     opacity: 0.14;
     filter: blur(115px);
+
     animation: blobFloat 22s ease-in-out infinite;
   }
 
@@ -142,25 +150,32 @@ const projects = await getCollection("projects");
   /* Gradient Orbs */
   .gradient-orb {
     position: absolute;
+
     border-radius: 50%;
+
     opacity: 0.2;
     filter: blur(75px);
+
     animation: orbPulse 16s ease-in-out infinite;
   }
 
   .orb-1 {
     top: 15%;
     right: 15%;
+
     width: 22rem;
     height: 22rem;
+
     background: radial-gradient(circle, #06b6d4, transparent);
   }
 
   .orb-2 {
     bottom: 20%;
     left: 10%;
+
     width: 28rem;
     height: 28rem;
+
     background: radial-gradient(circle, #a855f7, transparent);
   }
 
@@ -168,6 +183,7 @@ const projects = await getCollection("projects");
   .projects-container {
     position: relative;
     z-index: 1;
+
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
@@ -176,8 +192,8 @@ const projects = await getCollection("projects");
 
   /* Hero Section */
   .projects-hero {
-    text-align: center;
     margin-bottom: 5rem;
+    text-align: center;
     opacity: 0;
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
@@ -186,15 +202,19 @@ const projects = await getCollection("projects");
     display: inline-flex;
     gap: 0.5rem;
     align-items: center;
+
     margin-bottom: 1.5rem;
     padding: 0.6rem 1.2rem;
     border: 1px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 30%));
     border-radius: 2rem;
+
     font-size: 0.9rem;
     font-weight: 600;
     color: light-dark(#8b5cf6, #a78bfa);
+
     background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 15%));
     backdrop-filter: blur(10px);
+
     animation: badgeGlow 3s ease-in-out infinite;
   }
 
@@ -206,6 +226,7 @@ const projects = await getCollection("projects");
 
   .page-title {
     margin-bottom: 1.5rem;
+
     font-family: Poppins, sans-serif;
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 800;
@@ -217,13 +238,16 @@ const projects = await getCollection("projects");
     background: linear-gradient(135deg, #a855f7, #06b6d4, #ec4899);
     background-clip: text;
     background-size: 200% 200%;
+
     animation: gradientShift 8s ease infinite;
+
     -webkit-text-fill-color: transparent;
   }
 
   .page-subtitle {
     max-width: 850px;
     margin: 0 auto;
+
     font-size: clamp(1.1rem, 2vw, 1.25rem);
     line-height: 1.7;
     color: light-dark(#64748b, #cbd5e1);
@@ -234,7 +258,9 @@ const projects = await getCollection("projects");
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 2.5rem;
+
     opacity: 0;
+
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     animation-delay: 0.2s;
   }
@@ -290,9 +316,11 @@ const projects = await getCollection("projects");
     100% {
       transform: translate(0, 0) scale(1);
     }
+
     33% {
       transform: translate(-32px, -48px) scale(1.1);
     }
+
     66% {
       transform: translate(42px, 32px) scale(0.9);
     }
@@ -304,6 +332,7 @@ const projects = await getCollection("projects");
       transform: scale(1);
       opacity: 0.2;
     }
+
     50% {
       transform: scale(1.15);
       opacity: 0.3;
@@ -315,6 +344,7 @@ const projects = await getCollection("projects");
     100% {
       box-shadow: 0 0 20px rgb(168 85 247 / 20%);
     }
+
     50% {
       box-shadow: 0 0 30px rgb(168 85 247 / 40%);
     }
@@ -325,6 +355,7 @@ const projects = await getCollection("projects");
     100% {
       background-position: 0% 50%;
     }
+
     50% {
       background-position: 100% 50%;
     }
@@ -335,6 +366,7 @@ const projects = await getCollection("projects");
       transform: translateY(30px);
       opacity: 0;
     }
+
     to {
       transform: translateY(0);
       opacity: 1;
@@ -346,6 +378,7 @@ const projects = await getCollection("projects");
       transform: scale(0.95);
       opacity: 0;
     }
+
     to {
       transform: scale(1);
       opacity: 1;

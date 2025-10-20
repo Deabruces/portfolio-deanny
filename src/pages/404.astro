@@ -45,8 +45,12 @@ import Layout from "../layouts/Layout.astro";
           <!-- Game Instructions (moved to top) -->
           <div class="game-instructions">
             <p><strong>Controles:</strong></p>
-            <p class="desktop-controls">🎮 Escritorio: ← → Mover | ↑ Rotar | ↓ Bajar rápido</p>
-            <p class="mobile-controls">📱 Móvil: Usa los botones táctiles debajo del juego</p>
+            <p class="desktop-controls">
+              🎮 Escritorio: ← → Mover | ↑ Rotar | ↓ Bajar rápido
+            </p>
+            <p class="mobile-controls">
+              📱 Móvil: Usa los botones táctiles debajo del juego
+            </p>
           </div>
 
           <div class="tetris-header">
@@ -61,20 +65,30 @@ import Layout from "../layouts/Layout.astro";
           </div>
 
           <!-- Game Status Message -->
-          <div id="gameStatus" class="game-status" aria-live="assertive" aria-atomic="true"></div>
+          <div
+            id="gameStatus"
+            class="game-status"
+            aria-live="assertive"
+            aria-atomic="true"
+          >
+          </div>
 
           <canvas
             id="tetris"
             width="240"
             height="400"
             role="img"
-            aria-label="Área de juego de Tetris"
-          ></canvas>
+            aria-label="Área de juego de Tetris"></canvas>
 
           <!-- Pause Overlay -->
           <div id="pauseOverlay" class="pause-overlay" style="display: none;">
             <div class="pause-message">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
                 <rect x="6" y="4" width="4" height="16"></rect>
                 <rect x="14" y="4" width="4" height="16"></rect>
               </svg>
@@ -83,7 +97,11 @@ import Layout from "../layouts/Layout.astro";
           </div>
 
           <div class="game-controls">
-            <button id="startBtn" class="control-btn" aria-label="Iniciar nuevo juego">
+            <button
+              id="startBtn"
+              class="control-btn"
+              aria-label="Iniciar nuevo juego"
+            >
               <svg
                 width="20"
                 height="20"
@@ -95,7 +113,12 @@ import Layout from "../layouts/Layout.astro";
               </svg>
               Iniciar
             </button>
-            <button id="pauseBtn" class="control-btn" disabled aria-label="Pausar juego">
+            <button
+              id="pauseBtn"
+              class="control-btn"
+              disabled
+              aria-label="Pausar juego"
+            >
               <svg
                 width="20"
                 height="20"
@@ -114,15 +137,32 @@ import Layout from "../layouts/Layout.astro";
           <div class="touch-controls" id="touchControls">
             <div class="touch-row">
               <button class="touch-btn" id="rotateBtn" aria-label="Rotar pieza">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"
+                  ></path>
                 </svg>
               </button>
             </div>
             <div class="touch-row">
-              <button class="touch-btn" id="leftBtn" aria-label="Mover izquierda">◄</button>
-              <button class="touch-btn" id="downBtn" aria-label="Bajar rápido">▼</button>
-              <button class="touch-btn" id="rightBtn" aria-label="Mover derecha">►</button>
+              <button
+                class="touch-btn"
+                id="leftBtn"
+                aria-label="Mover izquierda">◄</button
+              >
+              <button class="touch-btn" id="downBtn" aria-label="Bajar rápido"
+                >▼</button
+              >
+              <button class="touch-btn" id="rightBtn" aria-label="Mover derecha"
+                >►</button
+              >
             </div>
           </div>
         </div>
@@ -154,12 +194,15 @@ import Layout from "../layouts/Layout.astro";
 
     .not-found-page {
       position: relative;
+
       overflow: hidden;
-      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+
+      min-height: 100vh;
       padding: 2rem 1rem;
+
       background: light-dark(
         radial-gradient(circle at center, #e0f2fe, #ddd6fe, #fce7f3),
         radial-gradient(circle at center, #0c4a6e, #3730a3, #831843)
@@ -169,22 +212,28 @@ import Layout from "../layouts/Layout.astro";
     /* Background Elements */
     .not-found-background {
       pointer-events: none;
+
       position: absolute;
       z-index: 0;
       top: 0;
       left: 0;
+
       overflow: hidden;
+
       width: 100%;
       height: 100%;
     }
 
     .floating-blob {
       position: absolute;
+
       width: 35rem;
       height: 35rem;
       border-radius: 50%;
+
       opacity: 0.15;
       filter: blur(100px);
+
       animation: blobFloat 18s ease-in-out infinite;
     }
 
@@ -222,12 +271,16 @@ import Layout from "../layouts/Layout.astro";
       padding: 3rem 2rem;
       border: 2px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 35%));
       border-radius: 2rem;
+
       text-align: center;
+
       background: light-dark(rgb(255 255 255 / 85%), rgb(30 27 75 / 50%));
       backdrop-filter: blur(20px);
       box-shadow:
         0 20px 60px light-dark(rgb(168 85 247 / 15%), rgb(0 0 0 / 30%)),
-        0 0 0 1px light-dark(rgb(255 255 255 / 60%), rgb(255 255 255 / 5%)) inset;
+        0 0 0 1px light-dark(rgb(255 255 255 / 60%), rgb(255 255 255 / 5%))
+          inset;
+
       animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
@@ -236,14 +289,18 @@ import Layout from "../layouts/Layout.astro";
       display: inline-flex;
       gap: 0.5rem;
       align-items: center;
+
       margin-bottom: 1.5rem;
       padding: 0.6rem 1.2rem;
       border: 1px solid light-dark(rgb(239 68 68 / 30%), rgb(239 68 68 / 40%));
       border-radius: 2rem;
+
       font-size: 0.9rem;
       font-weight: 600;
       color: light-dark(#dc2626, #fca5a5);
+
       background: light-dark(rgb(239 68 68 / 10%), rgb(239 68 68 / 15%));
+
       animation: badgeGlow 3s ease-in-out infinite;
     }
 
@@ -255,14 +312,18 @@ import Layout from "../layouts/Layout.astro";
     /* Title */
     .error-title {
       margin-bottom: 1rem;
+
       font-family: Poppins, sans-serif;
       font-size: clamp(2rem, 5vw, 2.5rem);
       font-weight: 800;
       line-height: 1.2;
+
       background: linear-gradient(135deg, #a855f7, #06b6d4, #ec4899);
       background-clip: text;
       background-size: 200% 200%;
+
       animation: gradientShift 8s ease infinite;
+
       -webkit-text-fill-color: transparent;
     }
 
@@ -280,6 +341,7 @@ import Layout from "../layouts/Layout.astro";
       padding: 1.5rem;
       border: 2px solid light-dark(rgb(168 85 247 / 15%), rgb(168 85 247 / 30%));
       border-radius: 1.5rem;
+
       background: light-dark(rgb(248 250 252 / 60%), rgb(15 23 42 / 40%));
       backdrop-filter: blur(10px);
     }
@@ -288,9 +350,11 @@ import Layout from "../layouts/Layout.astro";
     .tetris-header {
       display: flex;
       justify-content: space-around;
+
       margin-bottom: 1rem;
       padding-bottom: 1rem;
-      border-bottom: 2px solid light-dark(rgb(168 85 247 / 15%), rgb(168 85 247 / 25%));
+      border-bottom: 2px solid
+        light-dark(rgb(168 85 247 / 15%), rgb(168 85 247 / 25%));
     }
 
     .score-display,
@@ -319,9 +383,11 @@ import Layout from "../layouts/Layout.astro";
     /* Canvas */
     #tetris {
       display: block;
+
       margin: 0 auto 1rem;
       border: 3px solid light-dark(rgb(168 85 247 / 30%), rgb(168 85 247 / 50%));
       border-radius: 1rem;
+
       background: light-dark(#1e293b, #0f172a);
       box-shadow: 0 8px 25px light-dark(rgb(168 85 247 / 20%), rgb(0 0 0 / 40%));
     }
@@ -335,31 +401,39 @@ import Layout from "../layouts/Layout.astro";
     }
 
     .control-btn {
+      cursor: pointer;
+
       display: inline-flex;
       gap: 0.5rem;
       align-items: center;
+
       padding: 0.75rem 1.5rem;
       border: 1px solid light-dark(rgb(168 85 247 / 25%), rgb(168 85 247 / 35%));
       border-radius: 2rem;
+
       font-size: 0.9rem;
       font-weight: 600;
       color: light-dark(#8b5cf6, #a78bfa);
+
       background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 15%));
-      cursor: pointer;
+
       transition: all 0.3s ease;
     }
 
     .control-btn:hover:not(:disabled) {
-      color: #fff;
-      background: linear-gradient(135deg, #a855f7, #06b6d4);
-      border-color: transparent;
-      box-shadow: 0 6px 20px rgb(168 85 247 / 30%);
       transform: translateY(-2px);
+
+      border-color: transparent;
+
+      color: #fff;
+
+      background: linear-gradient(135deg, #a855f7, #06b6d4);
+      box-shadow: 0 6px 20px rgb(168 85 247 / 30%);
     }
 
     .control-btn:disabled {
-      opacity: 0.5;
       cursor: not-allowed;
+      opacity: 0.5;
     }
 
     .control-btn svg {
@@ -369,12 +443,14 @@ import Layout from "../layouts/Layout.astro";
 
     /* Game Instructions */
     .game-instructions {
-      padding: 1rem;
       margin-bottom: 1rem;
+      padding: 1rem;
       border-radius: 1rem;
-      background: light-dark(rgb(168 85 247 / 8%), rgb(168 85 247 / 15%));
+
       font-size: 0.9rem;
       color: light-dark(#475569, #e2e8f0);
+
+      background: light-dark(rgb(168 85 247 / 8%), rgb(168 85 247 / 15%));
     }
 
     .game-instructions p {
@@ -389,19 +465,11 @@ import Layout from "../layouts/Layout.astro";
       display: none;
     }
 
-    @media (width <= 768px) {
-      .desktop-controls {
-        display: none;
-      }
-      .mobile-controls {
-        display: block;
-      }
-    }
-
     /* Game Status */
     .game-status {
       min-height: 1.5rem;
       margin-bottom: 0.5rem;
+
       font-size: 0.95rem;
       font-weight: 600;
       color: light-dark(#7c3aed, #c4b5fd);
@@ -411,23 +479,26 @@ import Layout from "../layouts/Layout.astro";
     /* Pause Overlay */
     .pause-overlay {
       position: absolute;
+      z-index: 10;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       width: 240px;
       height: 400px;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
       border-radius: 1rem;
-      z-index: 10;
+
+      background: rgb(0 0 0 / 85%);
+      backdrop-filter: blur(8px);
     }
 
     .pause-message {
-      text-align: center;
       color: #fff;
+      text-align: center;
     }
 
     .pause-message svg {
@@ -457,27 +528,32 @@ import Layout from "../layouts/Layout.astro";
     }
 
     .touch-btn {
+      cursor: pointer;
+      user-select: none;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       width: 60px;
       height: 60px;
       border: 2px solid light-dark(rgb(168 85 247 / 30%), rgb(168 85 247 / 50%));
       border-radius: 1rem;
+
       font-size: 1.5rem;
       font-weight: 700;
       color: light-dark(#8b5cf6, #a78bfa);
+
       background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 20%));
-      cursor: pointer;
+
       transition: all 0.2s ease;
-      user-select: none;
     }
 
     .touch-btn:active {
       transform: scale(0.95);
-      background: linear-gradient(135deg, #a855f7, #06b6d4);
-      color: #fff;
       border-color: transparent;
+      color: #fff;
+      background: linear-gradient(135deg, #a855f7, #06b6d4);
     }
 
     .touch-btn svg {
@@ -485,23 +561,17 @@ import Layout from "../layouts/Layout.astro";
       height: 28px;
     }
 
-    @media (width <= 768px) {
-      .touch-controls {
-        display: flex;
-      }
-    }
-
     /* Improved Error Badge Contrast */
     .error-badge {
-      color: light-dark(#b91c1c, #fecaca);
       border-color: light-dark(rgb(220 38 38 / 35%), rgb(220 38 38 / 45%));
+      color: light-dark(#b91c1c, #fecaca);
       background: light-dark(rgb(220 38 38 / 12%), rgb(220 38 38 / 18%));
     }
 
     /* Better Disabled State */
     .control-btn:disabled {
-      opacity: 0.4;
       cursor: not-allowed;
+      opacity: 0.4;
       background: light-dark(rgb(168 85 247 / 5%), rgb(168 85 247 / 8%));
     }
 
@@ -514,15 +584,19 @@ import Layout from "../layouts/Layout.astro";
       display: inline-flex;
       gap: 0.75rem;
       align-items: center;
+
       padding: 1rem 2rem;
       border: 2px solid transparent;
       border-radius: 3rem;
+
       font-size: 1rem;
       font-weight: 700;
       color: #fff;
       text-decoration: none;
+
       background: linear-gradient(135deg, #a855f7, #06b6d4);
       box-shadow: 0 10px 30px rgb(168 85 247 / 30%);
+
       transition: all 0.3s ease;
     }
 
@@ -534,6 +608,22 @@ import Layout from "../layouts/Layout.astro";
     .btn-home svg {
       width: 20px;
       height: 20px;
+    }
+
+    @media (width <= 768px) {
+      .desktop-controls {
+        display: none;
+      }
+
+      .mobile-controls {
+        display: block;
+      }
+    }
+
+    @media (width <= 768px) {
+      .touch-controls {
+        display: flex;
+      }
     }
 
     /* Responsive */
@@ -556,8 +646,8 @@ import Layout from "../layouts/Layout.astro";
       }
 
       .control-btn {
-        width: 100%;
         justify-content: center;
+        width: 100%;
       }
     }
 
@@ -567,9 +657,11 @@ import Layout from "../layouts/Layout.astro";
       100% {
         transform: translate(0, 0) scale(1);
       }
+
       33% {
         transform: translate(-25px, -40px) scale(1.1);
       }
+
       66% {
         transform: translate(35px, 25px) scale(0.9);
       }
@@ -580,6 +672,7 @@ import Layout from "../layouts/Layout.astro";
         transform: translateY(30px);
         opacity: 0;
       }
+
       to {
         transform: translateY(0);
         opacity: 1;
@@ -591,6 +684,7 @@ import Layout from "../layouts/Layout.astro";
       100% {
         box-shadow: 0 0 15px rgb(239 68 68 / 20%);
       }
+
       50% {
         box-shadow: 0 0 25px rgb(239 68 68 / 35%);
       }
@@ -601,6 +695,7 @@ import Layout from "../layouts/Layout.astro";
       100% {
         background-position: 0% 50%;
       }
+
       50% {
         background-position: 100% 50%;
       }
@@ -612,6 +707,7 @@ import Layout from "../layouts/Layout.astro";
         transform: scale(1);
         opacity: 0.9;
       }
+
       50% {
         transform: scale(1.1);
         opacity: 1;
@@ -627,8 +723,12 @@ import Layout from "../layouts/Layout.astro";
     const levelElement = document.getElementById("level");
     const startBtn = document.getElementById("startBtn") as HTMLButtonElement;
     const pauseBtn = document.getElementById("pauseBtn") as HTMLButtonElement;
-    const pauseBtnText = document.getElementById("pauseBtnText") as HTMLSpanElement;
-    const pauseOverlay = document.getElementById("pauseOverlay") as HTMLDivElement;
+    const pauseBtnText = document.getElementById(
+      "pauseBtnText",
+    ) as HTMLSpanElement;
+    const pauseOverlay = document.getElementById(
+      "pauseOverlay",
+    ) as HTMLDivElement;
     const gameStatus = document.getElementById("gameStatus") as HTMLDivElement;
 
     // Touch controls
@@ -842,6 +942,14 @@ import Layout from "../layouts/Layout.astro";
     }
 
     function startGame() {
+      document.addEventListener("keydown", (e) => {
+        e.preventDefault();
+        if (!currentPiece || isPaused) return;
+        if (e.key === "ArrowLeft") movePiece(-1);
+        if (e.key === "ArrowRight") movePiece(1);
+        if (e.key === "ArrowDown") drop();
+        if (e.key === "ArrowUp") rotatePiece();
+      });
       initBoard();
       score = 0;
       level = 1;
@@ -896,14 +1004,6 @@ import Layout from "../layouts/Layout.astro";
     // Event listeners
     startBtn.addEventListener("click", startGame);
     pauseBtn.addEventListener("click", pauseGame);
-
-    document.addEventListener("keydown", (e) => {
-      if (!currentPiece || isPaused) return;
-      if (e.key === "ArrowLeft") movePiece(-1);
-      if (e.key === "ArrowRight") movePiece(1);
-      if (e.key === "ArrowDown") drop();
-      if (e.key === "ArrowUp") rotatePiece();
-    });
 
     // Touch control event listeners for mobile
     if (rotateBtn) {

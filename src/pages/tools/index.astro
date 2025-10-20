@@ -47,6 +47,7 @@ const tools = await getCollection("tools");
         </p>
       </div>
 
+      <div id="init-floating"></div>
       <!-- Tools Grid -->
       <div class="tool-list">
         {
@@ -57,7 +58,7 @@ const tools = await getCollection("tools");
               style={`animation-delay: ${index * 0.1}s`}
               aria-label={`Ver herramienta: ${tool.data.title}`}
             >
-              <div class="card-gradient"></div>
+              <div class="card-gradient" />
               <div class="tool-image-wrapper">
                 <Image
                   src={tool.data.image}
@@ -81,8 +82,8 @@ const tools = await getCollection("tools");
                     stroke="currentColor"
                     stroke-width="2.5"
                   >
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
                   </svg>
                 </span>
               </div>
@@ -102,9 +103,12 @@ const tools = await getCollection("tools");
   /* Main Section */
   .tools-page {
     position: relative;
+
     overflow: hidden;
+
     min-height: 100vh;
     padding: 12rem 0 6rem;
+
     background: light-dark(
       radial-gradient(circle at top right, #e0f2fe, #ddd6fe, #fce7f3),
       radial-gradient(circle at top right, #0c4a6e, #3730a3, #831843)
@@ -114,11 +118,14 @@ const tools = await getCollection("tools");
   /* Background Elements */
   .tools-background {
     pointer-events: none;
+
     position: absolute;
     z-index: 0;
     top: 0;
     left: 0;
+
     overflow: hidden;
+
     width: 100%;
     height: 100%;
   }
@@ -126,11 +133,14 @@ const tools = await getCollection("tools");
   /* Floating Blobs */
   .floating-blob {
     position: absolute;
+
     width: 40rem;
     height: 40rem;
     border-radius: 50%;
+
     opacity: 0.14;
     filter: blur(115px);
+
     animation: blobFloat 22s ease-in-out infinite;
   }
 
@@ -158,25 +168,32 @@ const tools = await getCollection("tools");
   /* Gradient Orbs */
   .gradient-orb {
     position: absolute;
+
     border-radius: 50%;
+
     opacity: 0.2;
     filter: blur(75px);
+
     animation: orbPulse 16s ease-in-out infinite;
   }
 
   .orb-1 {
     top: 15%;
     right: 15%;
+
     width: 22rem;
     height: 22rem;
+
     background: radial-gradient(circle, #06b6d4, transparent);
   }
 
   .orb-2 {
     bottom: 20%;
     left: 10%;
+
     width: 28rem;
     height: 28rem;
+
     background: radial-gradient(circle, #a855f7, transparent);
   }
 
@@ -184,6 +201,7 @@ const tools = await getCollection("tools");
   .tools-container {
     position: relative;
     z-index: 1;
+
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
@@ -192,8 +210,8 @@ const tools = await getCollection("tools");
 
   /* Hero Section */
   .tools-hero {
-    text-align: center;
     margin-bottom: 5rem;
+    text-align: center;
     opacity: 0;
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
@@ -202,15 +220,19 @@ const tools = await getCollection("tools");
     display: inline-flex;
     gap: 0.5rem;
     align-items: center;
+
     margin-bottom: 1.5rem;
     padding: 0.6rem 1.2rem;
     border: 1px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 30%));
     border-radius: 2rem;
+
     font-size: 0.9rem;
     font-weight: 600;
     color: light-dark(#8b5cf6, #a78bfa);
+
     background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 15%));
     backdrop-filter: blur(10px);
+
     animation: badgeGlow 3s ease-in-out infinite;
   }
 
@@ -222,6 +244,7 @@ const tools = await getCollection("tools");
 
   .page-title {
     margin-bottom: 1.5rem;
+
     font-family: Poppins, sans-serif;
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 800;
@@ -233,13 +256,16 @@ const tools = await getCollection("tools");
     background: linear-gradient(135deg, #a855f7, #06b6d4, #ec4899);
     background-clip: text;
     background-size: 200% 200%;
+
     animation: gradientShift 8s ease infinite;
+
     -webkit-text-fill-color: transparent;
   }
 
   .page-subtitle {
     max-width: 850px;
     margin: 0 auto;
+
     font-size: clamp(1.1rem, 2vw, 1.25rem);
     line-height: 1.7;
     color: light-dark(#64748b, #cbd5e1);
@@ -250,7 +276,9 @@ const tools = await getCollection("tools");
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 2.5rem;
+
     opacity: 0;
+
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     animation-delay: 0.2s;
   }
@@ -258,35 +286,44 @@ const tools = await getCollection("tools");
   /* Tool Card */
   .tool-card {
     position: relative;
+
     overflow: hidden;
     display: flex;
     flex-direction: column;
+
     border: 2px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 35%));
     border-radius: 1.5rem;
+
     text-decoration: none;
+
+    opacity: 0;
     background: light-dark(rgb(255 255 255 / 85%), rgb(30 27 75 / 50%));
     backdrop-filter: blur(20px);
     box-shadow:
       0 10px 40px light-dark(rgb(168 85 247 / 10%), rgb(0 0 0 / 25%)),
       0 0 0 1px light-dark(rgb(255 255 255 / 60%), rgb(255 255 255 / 5%)) inset;
+
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    opacity: 0;
     animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .tool-card::before {
     content: "";
+
     position: absolute;
     top: -50%;
     right: -50%;
+
     width: 200%;
     height: 200%;
+
     opacity: 0;
     background: radial-gradient(
       circle,
       rgb(6 182 212 / 10%) 0%,
       transparent 70%
     );
+
     transition: opacity 0.4s ease;
   }
 
@@ -311,9 +348,9 @@ const tools = await getCollection("tools");
   }
 
   .tool-card:hover .tool-link {
+    border-color: transparent;
     color: #fff;
     background: linear-gradient(135deg, #a855f7, #06b6d4);
-    border-color: transparent;
     box-shadow: 0 6px 20px rgb(168 85 247 / 30%);
   }
 
@@ -325,22 +362,27 @@ const tools = await getCollection("tools");
   .card-gradient {
     position: absolute;
     inset: 0;
+
     opacity: 0;
     background: radial-gradient(
       circle at top right,
       light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 20%)),
       transparent
     );
+
     transition: opacity 0.5s ease;
   }
 
   /* Tool Image */
   .tool-image-wrapper {
     position: relative;
+
     overflow: hidden;
-    width: 100%;
+
     aspect-ratio: 16 / 9;
+    width: 100%;
     border-radius: 1rem 1rem 0 0;
+
     background: light-dark(#f1f5f9, #1e293b);
   }
 
@@ -355,24 +397,28 @@ const tools = await getCollection("tools");
   .tool-content {
     position: relative;
     z-index: 1;
+
     display: flex;
-    flex-direction: column;
     flex: 1;
+    flex-direction: column;
     gap: 1rem;
-    padding: 1.75rem;
+
     min-height: 0;
+    padding: 1.75rem;
   }
 
   .tool-title {
     margin: 0;
+
     font-family: Poppins, sans-serif;
     font-size: clamp(1.25rem, 2vw, 1.5rem);
     font-weight: 700;
     line-height: 1.3;
-    color: light-dark(#1e1b4b, #f8fafc);
-    transition: color 0.3s ease;
-    overflow-wrap: break-word;
     hyphens: auto;
+    color: light-dark(#1e1b4b, #f8fafc);
+    overflow-wrap: break-word;
+
+    transition: color 0.3s ease;
   }
 
   .tool-card:hover .tool-title {
@@ -380,16 +426,18 @@ const tools = await getCollection("tools");
   }
 
   .tool-description {
+    overflow: hidden;
+    display: -webkit-box;
     flex: 1 1 auto;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+
     margin: 0;
+
     font-size: 0.95rem;
     line-height: 1.6;
     color: light-dark(#64748b, #cbd5e1);
     overflow-wrap: break-word;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
   /* Tool Link Button */
@@ -398,22 +446,26 @@ const tools = await getCollection("tools");
     gap: 0.5rem;
     align-items: center;
     align-self: flex-start;
+
     padding: 0.75rem 1.25rem;
     border: 1px solid light-dark(rgb(168 85 247 / 25%), rgb(168 85 247 / 35%));
     border-radius: 2rem;
+
     font-size: 0.9rem;
     font-weight: 600;
     color: light-dark(#8b5cf6, #a78bfa);
-    background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 15%));
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     white-space: nowrap;
+
+    background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 15%));
+
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .tool-link svg {
+    flex-shrink: 0;
     width: 16px;
     height: 16px;
     transition: transform 0.3s ease;
-    flex-shrink: 0;
   }
 
   /* Focus Styles */
@@ -451,8 +503,8 @@ const tools = await getCollection("tools");
     }
 
     .tool-content {
-      padding: 1.5rem;
       gap: 0.875rem;
+      padding: 1.5rem;
     }
 
     .tool-title {
@@ -481,9 +533,11 @@ const tools = await getCollection("tools");
     100% {
       transform: translate(0, 0) scale(1);
     }
+
     33% {
       transform: translate(-32px, -48px) scale(1.1);
     }
+
     66% {
       transform: translate(42px, 32px) scale(0.9);
     }
@@ -495,6 +549,7 @@ const tools = await getCollection("tools");
       transform: scale(1);
       opacity: 0.2;
     }
+
     50% {
       transform: scale(1.15);
       opacity: 0.3;
@@ -506,6 +561,7 @@ const tools = await getCollection("tools");
     100% {
       box-shadow: 0 0 20px rgb(168 85 247 / 20%);
     }
+
     50% {
       box-shadow: 0 0 30px rgb(168 85 247 / 40%);
     }
@@ -516,6 +572,7 @@ const tools = await getCollection("tools");
     100% {
       background-position: 0% 50%;
     }
+
     50% {
       background-position: 100% 50%;
     }
@@ -526,6 +583,7 @@ const tools = await getCollection("tools");
       transform: translateY(30px);
       opacity: 0;
     }
+
     to {
       transform: translateY(0);
       opacity: 1;
@@ -537,6 +595,7 @@ const tools = await getCollection("tools");
       transform: scale(0.95);
       opacity: 0;
     }
+
     to {
       transform: scale(1);
       opacity: 1;

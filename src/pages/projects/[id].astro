@@ -13,6 +13,7 @@ export async function getStaticPaths() {
 }
 // 2. For your template, you can get the entry directly from the prop
 const { project } = Astro.props;
+console.log(project);
 const { Content } = await render(project);
 const ImgAnimationName = "image--" + project.id;
 const TitleAnimationName = "title--" + project.id;
