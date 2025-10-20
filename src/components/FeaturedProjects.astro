@@ -5,9 +5,9 @@ const projects = await getCollection("projects");
 const featuredProjects = projects.filter((project) => project.data?.starred);
 ---
 
-<section class="featured-section content-grid" aria-labelledby="projects-title">
+<section class="featured-section full-width" aria-labelledby="projects-title">
   <!-- Background Elements -->
-  <div class="projects-background full-width" aria-hidden="true">
+  <div class="projects-background" aria-hidden="true">
     <div class="mega-blob blob-1"></div>
     <div class="mega-blob blob-2"></div>
     <div class="mega-blob blob-3"></div>
@@ -15,7 +15,7 @@ const featuredProjects = projects.filter((project) => project.data?.starred);
     <div class="gradient-orb orb-2"></div>
   </div>
 
-  <div class="featured-container">
+  <div class="featured-container content-grid">
     <!-- Header with Creative Layout -->
     <div class="projects-header">
       <div class="header-content">
@@ -291,9 +291,11 @@ const featuredProjects = projects.filter((project) => project.data?.starred);
 
   .projects-title {
     margin-bottom: 2.5rem;
+
     font-weight: 900;
     line-height: 1.1;
     color: light-dark(#0f172a, #fff);
+
     animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
   }
 
@@ -304,7 +306,6 @@ const featuredProjects = projects.filter((project) => project.data?.starred);
       var(--project-pink),
       var(--project-yellow)
     );
-    background-clip: text;
     background-clip: text;
     background-size: 200% 200%;
 
@@ -354,7 +355,6 @@ const featuredProjects = projects.filter((project) => project.data?.starred);
       var(--project-purple),
       var(--project-cyan)
     );
-    background-clip: text;
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
@@ -597,7 +597,6 @@ const featuredProjects = projects.filter((project) => project.data?.starred);
       font-size: 2rem;
     }
   }
-
 
   /* Animations */
   @keyframes megaFloat {

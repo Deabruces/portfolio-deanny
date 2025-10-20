@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import "../assets/styles/BlogHome.css";
 
 // Traer todas las categorias
 const categoryList = await getCollection("categories");
@@ -13,7 +12,7 @@ const posts = (await getCollection("posts"))
   .slice(0, 3);
 ---
 
-<section class="blog-section content-grid" aria-labelledby="blog-title">
+<section class="blog-section full-width" aria-labelledby="blog-title">
   <!-- Background Elements -->
   <div class="blog-background" aria-hidden="true">
     <div class="floating-blob blob-1"></div>
@@ -23,7 +22,7 @@ const posts = (await getCollection("posts"))
     <div class="gradient-orb orb-2"></div>
   </div>
 
-  <div class="blog-container">
+  <div class="blog-container content-grid">
     <!-- Hero Section -->
     <div class="blog-hero">
       <div class="hero-badge">
@@ -309,7 +308,6 @@ const posts = (await getCollection("posts"))
   .gradient-text {
     background: linear-gradient(135deg, #a855f7, #06b6d4, #ec4899);
     background-clip: text;
-    background-clip: text;
     background-size: 200% 200%;
 
     animation: gradientShift 8s ease infinite;
@@ -569,7 +567,7 @@ const posts = (await getCollection("posts"))
     align-items: center;
 
     padding: 1.25rem 2.5rem;
-    border: 2px solid transparent;
+    border: 2px solid var(--deanny-cian);
     border-radius: 3rem;
 
     font-size: 1.1rem;

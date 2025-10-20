@@ -52,7 +52,8 @@ import Instagram from "../assets/icons/instagram.svg";
       justify-content: center;
     }
 
-    contenedor-icon {
+    .icons,
+    .contenedor-icon {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -69,13 +70,11 @@ import Instagram from "../assets/icons/instagram.svg";
       transition: all 0.3s ease;
     }
 
-    .icons {
-      width: 20px;
-      height: 20px;
-    }
-
-    .contenedor-icon:hover {
+    .contenedor-icon:hover,
+    .icons:hover {
       transform: scale(1.1);
+      border-color: var(--deanny-cian);
+      color: #fff;
       background: linear-gradient(135deg, #a855f7, #06b6d4);
     }
   </style>
