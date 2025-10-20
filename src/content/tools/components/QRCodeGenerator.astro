@@ -38,7 +38,8 @@
         Generador de <span class="generator-title-gradient">Códigos QR</span>
       </h2>
       <p class="generator-subtitle">
-        Crea códigos QR personalizados para compartir URLs, textos o información de contacto fácilmente
+        Crea códigos QR personalizados para compartir URLs, textos o información
+        de contacto fácilmente
       </p>
     </div>
 
@@ -59,7 +60,8 @@
           aria-describedby="url-help"
         />
         <small id="url-help" class="form-help">
-          Ingresa una URL completa o cualquier texto que quieras convertir en código QR
+          Ingresa una URL completa o cualquier texto que quieras convertir en
+          código QR
         </small>
       </div>
 
@@ -119,7 +121,12 @@
     </form>
 
     <!-- Output Section -->
-    <div id="output-section" class="output-section hidden" aria-live="polite" aria-atomic="true">
+    <div
+      id="output-section"
+      class="output-section hidden"
+      aria-live="polite"
+      aria-atomic="true"
+    >
       <div class="output-header">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -143,11 +150,7 @@
       </div>
 
       <div class="output-actions">
-        <a
-          id="download-link"
-          download="codigo-qr.png"
-          class="btn btn-success"
-        >
+        <a id="download-link" download="codigo-qr.png" class="btn btn-success">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -180,7 +183,8 @@
             aria-hidden="true"
           >
             <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
-            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+            ></path>
           </svg>
           Copiar Imagen
         </button>
@@ -194,6 +198,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     min-height: 60vh;
     padding: 2rem 1rem;
   }
@@ -202,33 +207,38 @@
     width: 100%;
     max-width: 700px;
     padding: 2rem;
+    border: 1px solid light-dark(rgb(195 140 246 / 30%), rgb(195 140 246 / 20%));
     border-radius: 1.5rem;
-    background: light-dark(rgba(242, 233, 242, 0.9), rgba(113, 58, 126, 0.3));
+
+    background: light-dark(rgb(242 233 242 / 90%), rgb(113 58 126 / 30%));
     backdrop-filter: blur(10px);
-    border: 1px solid light-dark(
-      rgba(195, 140, 246, 0.3),
-      rgba(195, 140, 246, 0.2)
-    );
-    box-shadow: 0 20px 60px rgba(142, 68, 173, 0.1);
+    box-shadow: 0 20px 60px rgb(142 68 173 / 10%);
   }
 
   /* Header */
   .generator-header {
-    text-align: center;
     margin-bottom: 2rem;
+    text-align: center;
   }
 
   .header-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     width: 56px;
     height: 56px;
     margin-bottom: 1rem;
     border-radius: 0.875rem;
-    background: linear-gradient(135deg, var(--deanny-purpura), var(--deanny-cian));
-    box-shadow: 0 10px 30px rgba(142, 68, 173, 0.3);
+
     color: white;
+
+    background: linear-gradient(
+      135deg,
+      var(--deanny-purpura),
+      var(--deanny-cian)
+    );
+    box-shadow: 0 10px 30px rgb(142 68 173 / 30%);
   }
 
   .header-icon svg {
@@ -237,7 +247,8 @@
   }
 
   .generator-title {
-    margin: 0 0 0.75rem 0;
+    margin: 0 0 0.75rem;
+
     font-size: 1.875rem;
     font-weight: 900;
     line-height: 1.2;
@@ -247,49 +258,22 @@
   .generator-title-gradient {
     background: linear-gradient(135deg, #a855f7, #06b6d4, #ec4899);
     background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text;
     background-size: 200% 200%;
+
     animation: gradientShift 8s ease infinite;
-  }
 
-  @keyframes gradientShift {
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  /* Reduce animations for users with motion sensitivity */
-  @media (prefers-reduced-motion: reduce) {
-    .generator-title-gradient {
-      animation: none;
-      background-position: 0% 50%;
-    }
-
-    .btn:hover,
-    a.btn:hover {
-      transform: none;
-    }
-
-    * {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
+    -webkit-text-fill-color: transparent;
   }
 
   .generator-subtitle {
-    margin: 0;
-    font-size: 0.95rem;
-    color: var(--medium-contrast-text);
     max-width: 550px;
+    margin: 0;
     margin: 0 auto;
+
+    font-size: 0.95rem;
     line-height: 1.5;
+    color: var(--medium-contrast-text);
   }
 
   /* Form */
@@ -307,10 +291,11 @@
 
   .form-label {
     display: flex;
-    align-items: center;
     gap: 0.5rem;
-    font-weight: 700;
+    align-items: center;
+
     font-size: 0.875rem;
+    font-weight: 700;
     color: var(--deanny-text-color);
   }
 
@@ -321,15 +306,15 @@
   .form-input,
   .form-select {
     padding: 0.75rem 1rem;
-    border: 2px solid light-dark(
-      rgba(195, 140, 246, 0.3),
-      rgba(195, 140, 246, 0.2)
-    );
+    border: 2px solid light-dark(rgb(195 140 246 / 30%), rgb(195 140 246 / 20%));
     border-radius: 0.75rem;
-    background: light-dark(rgba(255, 255, 255, 0.8), rgba(26, 26, 26, 0.5));
-    color: var(--deanny-text-color);
-    font-size: 0.95rem;
+
     font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--deanny-text-color);
+
+    background: light-dark(rgb(255 255 255 / 80%), rgb(26 26 26 / 50%));
+
     transition: all 0.3s ease;
   }
 
@@ -339,9 +324,9 @@
 
   .form-input:focus,
   .form-select:focus {
-    outline: none;
     border-color: var(--deanny-purpura);
-    box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.1);
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(142 68 173 / 10%);
   }
 
   .form-input:focus-visible,
@@ -355,9 +340,9 @@
   }
 
   .form-help {
+    margin-top: -0.25rem;
     font-size: 0.8125rem;
     color: var(--low-contrast-text);
-    margin-top: -0.25rem;
   }
 
   /* Buttons */
@@ -369,18 +354,22 @@
 
   .btn {
     cursor: pointer;
+
     display: inline-flex;
+    flex: 1;
+    gap: 0.5rem;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+
     padding: 0.75rem 1.5rem;
+    border: 2px solid var(--deanny-cian);
     border-radius: 0.75rem;
+
     font-size: 0.95rem;
     font-weight: 700;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-    flex: 1;
     text-decoration: none;
+
+    transition: all 0.3s ease;
   }
 
   .btn svg {
@@ -389,14 +378,18 @@
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, var(--deanny-purpura), var(--deanny-cian));
     color: white;
-    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+    background: linear-gradient(
+      135deg,
+      var(--deanny-purpura),
+      var(--deanny-cian)
+    );
+    box-shadow: 0 4px 15px rgb(142 68 173 / 30%);
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(142, 68, 173, 0.4);
+    box-shadow: 0 6px 20px rgb(142 68 173 / 40%);
   }
 
   .btn:focus-visible,
@@ -407,33 +400,34 @@
 
   .btn-secondary {
     border: 2px solid var(--deanny-border-color);
-    background: transparent;
     color: var(--deanny-text-color);
+    background: transparent;
   }
 
   .btn-secondary:hover {
-    background: light-dark(rgba(195, 140, 246, 0.1), rgba(195, 140, 246, 0.2));
     transform: translateY(-2px);
+    background: light-dark(rgb(195 140 246 / 10%), rgb(195 140 246 / 20%));
   }
 
   .btn-success {
-    background: var(--success-color);
     color: white;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    background: var(--success-color);
+    box-shadow: 0 4px 15px rgb(16 185 129 / 30%);
   }
 
   .btn-success:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 6px 20px rgb(16 185 129 / 40%);
   }
 
   /* Output Section */
   .output-section {
     margin-top: 2rem;
     padding: 1.5rem;
-    border-radius: 1rem;
-    background: light-dark(rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.1));
     border: 2px solid var(--success-color);
+    border-radius: 1rem;
+
+    background: light-dark(rgb(16 185 129 / 5%), rgb(16 185 129 / 10%));
   }
 
   .output-section.hidden {
@@ -442,11 +436,13 @@
 
   .output-header {
     display: flex;
-    align-items: center;
     gap: 0.75rem;
+    align-items: center;
+
     margin-bottom: 1.5rem;
-    font-weight: 700;
+
     font-size: 1.125rem;
+    font-weight: 700;
     color: var(--success-color);
   }
 
@@ -456,33 +452,52 @@
 
   .qr-preview {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 2rem;
+    justify-content: center;
+
     margin-bottom: 1.5rem;
+    padding: 2rem;
+    border: 1px solid light-dark(rgb(195 140 246 / 20%), rgb(195 140 246 / 10%));
     border-radius: 0.75rem;
+
     background: white;
-    border: 1px solid light-dark(
-      rgba(195, 140, 246, 0.2),
-      rgba(195, 140, 246, 0.1)
-    );
   }
 
   .qr-code {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
   }
 
   .qr-code canvas {
-    border-radius: 0.5rem;
     max-width: 100%;
     height: auto;
+    border-radius: 0.5rem;
   }
 
   .output-actions {
     display: flex;
     gap: 1rem;
+  }
+
+  /* Reduce animations for users with motion sensitivity */
+  @media (prefers-reduced-motion: reduce) {
+    .generator-title-gradient {
+      background-position: 0% 50%;
+      animation: none;
+    }
+
+    .btn:hover,
+    a.btn:hover {
+      transform: none;
+    }
+
+    * {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
   }
 
   /* Responsive */
@@ -530,12 +545,23 @@
 
     .form-input,
     .form-select {
-      font-size: 0.875rem;
       padding: 0.625rem 0.875rem;
+      font-size: 0.875rem;
     }
 
     .qr-preview {
       padding: 1rem;
+    }
+  }
+
+  @keyframes gradientShift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
     }
   }
 </style>
@@ -548,7 +574,9 @@
   const sizeSelect = document.getElementById("qr-size")! as HTMLSelectElement;
   const qrCodeContainer = document.getElementById("qr-code")!;
   const outputSection = document.getElementById("output-section")!;
-  const downloadLink = document.getElementById("download-link")! as HTMLAnchorElement;
+  const downloadLink = document.getElementById(
+    "download-link",
+  )! as HTMLAnchorElement;
   const copyBtn = document.getElementById("copy-btn")! as HTMLButtonElement;
   const originalCopyText = copyBtn.innerHTML;
 
@@ -570,14 +598,14 @@
         width: size,
         margin: 2,
         color: {
-          dark: '#000000',
-          light: '#FFFFFF'
-        }
+          dark: "#000000",
+          light: "#FFFFFF",
+        },
       });
 
       // Add canvas to container
-      canvas.setAttribute('role', 'img');
-      canvas.setAttribute('aria-label', `Código QR para: ${url}`);
+      canvas.setAttribute("role", "img");
+      canvas.setAttribute("aria-label", `Código QR para: ${url}`);
       qrCodeContainer.appendChild(canvas);
 
       // Setup download link
@@ -591,7 +619,9 @@
       outputSection.scrollIntoView({ behavior: "smooth", block: "nearest" });
     } catch (err) {
       console.error("Error generating QR code:", err);
-      alert("Hubo un error al generar el código QR. Por favor, intenta de nuevo.");
+      alert(
+        "Hubo un error al generar el código QR. Por favor, intenta de nuevo.",
+      );
     }
   });
 
@@ -607,7 +637,7 @@
 
         try {
           await navigator.clipboard.write([
-            new ClipboardItem({ "image/png": blob })
+            new ClipboardItem({ "image/png": blob }),
           ]);
 
           copyBtn.innerHTML = `
@@ -622,7 +652,9 @@
           }, 2000);
         } catch (err) {
           console.error("Error copying image:", err);
-          alert("No se pudo copiar la imagen. Intenta descargarla en su lugar.");
+          alert(
+            "No se pudo copiar la imagen. Intenta descargarla en su lugar.",
+          );
         }
       });
     } catch (err) {

@@ -34,7 +34,6 @@ import { Image } from "astro:assets";
 
   /* Main Header */
   .header {
-    position: fixed;
     z-index: 1000;
     top: 0;
     right: 0;
@@ -244,8 +243,7 @@ import { Image } from "astro:assets";
     left: 0;
     transform: translateX(-100%);
 
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden auto;
 
     width: 100%;
     height: 100vh;
@@ -253,12 +251,11 @@ import { Image } from "astro:assets";
     min-height: 100vh; /* Fallback for browsers without dvh support */
     padding: 6rem 2rem 2rem;
 
-    opacity: 0;
-
     /* High contrast solid backgrounds for accessibility (WCAG AAA) */
     color: light-dark(#111827, #f9fafb);
-    background: light-dark(#ffffff, #1e1b4b);
 
+    opacity: 0;
+    background: light-dark(#fff, #1e1b4b);
     box-shadow: 2px 0 30px light-dark(rgb(0 0 0 / 10%), rgb(0 0 0 / 50%));
 
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -342,7 +339,7 @@ import { Image } from "astro:assets";
 
     border-color: light-dark(#a855f7, #4bc0c8);
 
-    color: #ffffff;
+    color: #fff;
 
     background: linear-gradient(135deg, #a855f7, #06b6d4);
     box-shadow: 0 8px 25px rgb(168 85 247 / 30%);
@@ -351,9 +348,9 @@ import { Image } from "astro:assets";
   /* Active/Current page state */
   .nav-burger-link.active {
     border-color: light-dark(#a855f7, #4bc0c8);
+    font-weight: 700;
     color: light-dark(#7c3aed, #4bc0c8);
     background: light-dark(#f3e8ff, rgb(75 192 200 / 15%));
-    font-weight: 700;
   }
 
   .nav-burger-link :global(svg) {
@@ -482,8 +479,8 @@ import { Image } from "astro:assets";
     }
 
     .nav-burger-menu {
-      max-width: 100%;
       gap: 0.65rem;
+      max-width: 100%;
     }
   }
 
@@ -520,9 +517,9 @@ import { Image } from "astro:assets";
     }
 
     .nav-burger-menu {
+      gap: 1rem;
       max-width: 700px;
       margin: 0 auto;
-      gap: 1rem;
     }
 
     .nav-burger-link {
@@ -532,7 +529,7 @@ import { Image } from "astro:assets";
   }
 
   /* Landscape orientation adjustments */
-  @media (max-height: 600px) and (orientation: landscape) {
+  @media (height <= 600px) and (orientation: landscape) {
     .nav-burger {
       padding: 4rem 2rem 1.5rem;
     }
