@@ -1,117 +1,693 @@
 ---
-import { useState } from "react";
-import tinycolor from "tinycolor2"; // npm install tinycolor2
+// Modern Contrast Checker Component
 ---
 
-<div class="container">
-  <div class="card">
-    <h1>🔍 Verifica el contraste de colores</h1>
-    <p>
-      Elige un color de fondo y un color de texto para revisar la accesibilidad.
-    </p>
-
-    <form id="contrastForm">
-      <label>
-        Color de Fondo:
-        <input type="color" id="bgColor" value="#4B2E83" />
-      </label>
-      <label>
-        Color de Texto:
-        <input type="color" id="textColor" value="#FFFFFF" />
-      </label>
-      <button type="button" id="checkBtn">Verificar</button>
-    </form>
-
-    <div id="preview" class="preview">
-      <p id="previewText">Este es un ejemplo de texto</p>
+<div class="contrast-checker-container">
+  <div class="contrast-checker-card">
+    <!-- Header -->
+    <div class="checker-header">
+      <div class="header-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          role="img"
+        >
+          <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
+        </svg>
+      </div>
+      <h2 class="checker-title">
+        Verificador de <span class="checker-title-gradient">Contraste</span>
+      </h2>
+      <p class="checker-subtitle">
+        Asegura que tus combinaciones de colores cumplan con los estándares WCAG
+        de accesibilidad
+      </p>
     </div>
 
-    <div id="result" class="result"></div>
+    <!-- Color Inputs -->
+    <div class="color-inputs-section">
+      <div class="color-input-group">
+        <label for="bgColor" class="color-label">
+          <span class="label-icon">🎨</span>
+          Color de Fondo
+        </label>
+        <div class="color-input-wrapper">
+          <input
+            type="color"
+            id="bgColor"
+            value="#8e44ad"
+            class="color-picker"
+          />
+          <input
+            type="text"
+            id="bgColorHex"
+            value="#8e44ad"
+            class="hex-input"
+            maxlength="7"
+            pattern="^#[0-9A-Fa-f]{6}$"
+          />
+        </div>
+      </div>
+
+      <div class="swap-button-container">
+        <button type="button" id="swapBtn" class="swap-button" aria-label="Intercambiar colores">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M7 16V4M7 4L3 8M7 4l4 4"></path>
+            <path d="M17 8v12m0 0l4-4m-4 4l-4-4"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="color-input-group">
+        <label for="textColor" class="color-label">
+          <span class="label-icon">✏️</span>
+          Color de Texto
+        </label>
+        <div class="color-input-wrapper">
+          <input
+            type="color"
+            id="textColor"
+            value="#ffffff"
+            class="color-picker"
+          />
+          <input
+            type="text"
+            id="textColorHex"
+            value="#ffffff"
+            class="hex-input"
+            maxlength="7"
+            pattern="^#[0-9A-Fa-f]{6}$"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Preview Section -->
+    <div class="preview-section">
+      <div id="preview" class="preview-box">
+        <p id="previewTextNormal" class="preview-text-normal">
+          Texto Normal (16px)
+        </p>
+        <p id="previewTextLarge" class="preview-text-large">
+          Texto Grande (24px+)
+        </p>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <div id="resultSection" class="result-section" aria-live="polite" aria-atomic="true">
+      <div class="ratio-display">
+        <span class="ratio-label">Ratio de Contraste</span>
+        <span id="ratioValue" class="ratio-value">-</span>
+      </div>
+
+      <div class="wcag-compliance">
+        <div class="compliance-row">
+          <div class="compliance-item">
+            <span class="compliance-label">WCAG AA (Normal)</span>
+            <span id="wcagAA" class="compliance-badge">-</span>
+          </div>
+          <div class="compliance-item">
+            <span class="compliance-label">WCAG AA (Grande)</span>
+            <span id="wcagAALarge" class="compliance-badge">-</span>
+          </div>
+        </div>
+        <div class="compliance-row">
+          <div class="compliance-item">
+            <span class="compliance-label">WCAG AAA (Normal)</span>
+            <span id="wcagAAA" class="compliance-badge">-</span>
+          </div>
+          <div class="compliance-item">
+            <span class="compliance-label">WCAG AAA (Grande)</span>
+            <span id="wcagAAALarge" class="compliance-badge">-</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="recommendation" class="recommendation"></div>
+    </div>
   </div>
 </div>
 
 <script>
   import tinycolor from "tinycolor2";
 
-  const btn = document.querySelector("#checkBtn");
-  const bgInput = document.querySelector("#bgColor");
-  const textInput = document.querySelector("#textColor");
-  const preview = document.querySelector("#preview");
-  const previewText = document.querySelector("#previewText");
-  const result = document.querySelector("#result");
+  // Elements
+  const bgColorInput = document.querySelector("#bgColor") as HTMLInputElement;
+  const textColorInput = document.querySelector("#textColor") as HTMLInputElement;
+  const bgColorHex = document.querySelector("#bgColorHex") as HTMLInputElement;
+  const textColorHex = document.querySelector("#textColorHex") as HTMLInputElement;
+  const swapBtn = document.querySelector("#swapBtn") as HTMLButtonElement;
+  const preview = document.querySelector("#preview") as HTMLDivElement;
+  const previewTextNormal = document.querySelector("#previewTextNormal") as HTMLParagraphElement;
+  const previewTextLarge = document.querySelector("#previewTextLarge") as HTMLParagraphElement;
+  const ratioValue = document.querySelector("#ratioValue") as HTMLSpanElement;
+  const wcagAA = document.querySelector("#wcagAA") as HTMLSpanElement;
+  const wcagAALarge = document.querySelector("#wcagAALarge") as HTMLSpanElement;
+  const wcagAAA = document.querySelector("#wcagAAA") as HTMLSpanElement;
+  const wcagAAALarge = document.querySelector("#wcagAAALarge") as HTMLSpanElement;
+  const recommendation = document.querySelector("#recommendation") as HTMLDivElement;
 
-  function getContrast(bg, text) {
+  function getContrast(bg: string, text: string): number {
     return tinycolor.readability(bg, text);
   }
 
-  btn.addEventListener("click", () => {
-    const bg = bgInput.value;
-    const text = textInput.value;
+  function updateComplianceBadge(
+    element: HTMLSpanElement,
+    passes: boolean,
+    ratio: number,
+    threshold: number
+  ) {
+    if (passes) {
+      element.textContent = "✓ Cumple";
+      element.className = "compliance-badge badge-pass";
+    } else {
+      element.textContent = `✗ No cumple (necesita ${threshold}:1)`;
+      element.className = "compliance-badge badge-fail";
+    }
+  }
+
+  function getRecommendation(ratio: number): string {
+    if (ratio >= 7) {
+      return "🎉 <strong>¡Excelente!</strong> Esta combinación cumple con todos los estándares de accesibilidad (WCAG AAA).";
+    } else if (ratio >= 4.5) {
+      return "✅ <strong>Muy bien.</strong> Esta combinación cumple con WCAG AA para texto normal y AAA para texto grande.";
+    } else if (ratio >= 3) {
+      return "⚠️ <strong>Atención.</strong> Esta combinación solo cumple para texto grande (18px+ o 14px+ en negrita).";
+    } else {
+      return "❌ <strong>Contraste insuficiente.</strong> Esta combinación no cumple con los estándares de accesibilidad. Considera usar colores con mayor contraste.";
+    }
+  }
+
+  function updateChecker() {
+    const bg = bgColorInput.value;
+    const text = textColorInput.value;
     const contrast = getContrast(bg, text);
 
+    // Update preview
     preview.style.background = bg;
-    previewText.style.color = text;
+    previewTextNormal.style.color = text;
+    previewTextLarge.style.color = text;
 
-    if (contrast >= 7) {
-      result.innerHTML = `✅ Contraste excelente (Nivel AAA). Ratio: ${contrast.toFixed(2)}`;
-    } else if (contrast >= 4.5) {
-      result.innerHTML = `👌 Contraste aceptable (Nivel AA). Ratio: ${contrast.toFixed(2)}`;
-    } else {
-      result.innerHTML = `⚠️ Contraste insuficiente. Ratio: ${contrast.toFixed(2)}. Elige otros colores.`;
+    // Update hex inputs
+    bgColorHex.value = bg.toUpperCase();
+    textColorHex.value = text.toUpperCase();
+
+    // Update ratio
+    ratioValue.textContent = contrast.toFixed(2) + ":1";
+
+    // Update compliance badges
+    updateComplianceBadge(wcagAA, contrast >= 4.5, contrast, 4.5);
+    updateComplianceBadge(wcagAALarge, contrast >= 3, contrast, 3);
+    updateComplianceBadge(wcagAAA, contrast >= 7, contrast, 7);
+    updateComplianceBadge(wcagAAALarge, contrast >= 4.5, contrast, 4.5);
+
+    // Update recommendation
+    recommendation.innerHTML = getRecommendation(contrast);
+  }
+
+  // Sync color picker with hex input
+  bgColorInput.addEventListener("input", updateChecker);
+  textColorInput.addEventListener("input", updateChecker);
+
+  bgColorHex.addEventListener("input", (e) => {
+    const value = (e.target as HTMLInputElement).value;
+    if (/^#[0-9A-Fa-f]{6}$/.test(value)) {
+      bgColorInput.value = value;
+      updateChecker();
     }
   });
+
+  textColorHex.addEventListener("input", (e) => {
+    const value = (e.target as HTMLInputElement).value;
+    if (/^#[0-9A-Fa-f]{6}$/.test(value)) {
+      textColorInput.value = value;
+      updateChecker();
+    }
+  });
+
+  // Swap colors
+  swapBtn.addEventListener("click", () => {
+    const tempBg = bgColorInput.value;
+    bgColorInput.value = textColorInput.value;
+    textColorInput.value = tempBg;
+    updateChecker();
+  });
+
+  // Initialize
+  updateChecker();
 </script>
 
 <style>
-  .container {
+  .contrast-checker-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 2rem 1rem;
+  }
+
+  .contrast-checker-card {
+    width: 100%;
+    max-width: 800px;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    background: light-dark(
+      rgba(242, 233, 242, 0.9),
+      rgba(113, 58, 126, 0.3)
+    );
+    backdrop-filter: blur(10px);
+    border: 1px solid light-dark(
+      rgba(195, 140, 246, 0.3),
+      rgba(195, 140, 246, 0.2)
+    );
+    box-shadow: 0 20px 60px rgba(142, 68, 173, 0.1);
+  }
+
+  /* Header */
+  .checker-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .header-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 1rem;
+    border-radius: 0.875rem;
+    background: linear-gradient(135deg, var(--deanny-purpura), var(--deanny-cian));
+    box-shadow: 0 10px 30px rgba(142, 68, 173, 0.3);
+    color: white;
+  }
+
+  .header-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .checker-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.875rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--deanny-encabezados-text-color);
+  }
+
+  .checker-title-gradient {
+    background: linear-gradient(135deg, #a855f7, #06b6d4, #ec4899);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Reduce animations for users with motion sensitivity */
+  @media (prefers-reduced-motion: reduce) {
+    .checker-title-gradient {
+      animation: none;
+      background-position: 0% 50%;
+    }
+
+    .color-picker:hover,
+    .hex-input:hover,
+    .swap-button:hover {
+      transform: none;
+    }
+
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  .checker-subtitle {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--medium-contrast-text);
+    max-width: 550px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* Color Inputs */
+  .color-inputs-section {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1.5rem;
+    align-items: end;
+    margin-bottom: 2rem;
+  }
+
+  .color-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .color-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--deanny-text-color);
+  }
+
+  .label-icon {
+    font-size: 1.125rem;
+  }
+
+  .color-input-wrapper {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .color-picker {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border: 2px solid var(--deanny-border-color);
+    border-radius: 0.5rem;
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .color-picker:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(142, 68, 173, 0.2);
+  }
+
+  .color-picker:focus-visible {
+    outline: 3px solid var(--deanny-purpura);
+    outline-offset: 2px;
+  }
+
+  .hex-input {
+    flex: 1;
+    min-width: 0;
+    max-width: 150px;
+    padding: 0.625rem 0.875rem;
+    border: 2px solid light-dark(
+      rgba(195, 140, 246, 0.3),
+      rgba(195, 140, 246, 0.2)
+    );
+    border-radius: 0.5rem;
+    background: light-dark(rgba(255, 255, 255, 0.8), rgba(26, 26, 26, 0.5));
+    color: var(--deanny-text-color);
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+
+  .hex-input:focus {
+    outline: none;
+    border-color: var(--deanny-purpura);
+    box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.1);
+  }
+
+  .hex-input:focus-visible {
+    outline: 3px solid var(--deanny-purpura);
+    outline-offset: 2px;
+  }
+
+  .swap-button-container {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .card {
-    width: 700px;
+  .swap-button {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    padding: 0;
+    border: 2px solid var(--deanny-border-color);
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--deanny-purpura), var(--deanny-cian));
+    color: white;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .swap-button:hover {
+    transform: rotate(180deg) scale(1.1);
+    box-shadow: 0 5px 20px rgba(142, 68, 173, 0.4);
+  }
+
+  .swap-button:focus-visible {
+    outline: 3px solid var(--deanny-purpura);
+    outline-offset: 3px;
+  }
+
+  .swap-button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Preview Section */
+  .preview-section {
+    margin-bottom: 2rem;
+  }
+
+  .preview-box {
     padding: 2rem;
     border-radius: 1rem;
-
-    text-align: center;
-
-    background: var(--bg-color-tools);
-    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+    border: 2px solid var(--deanny-border-color);
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
   }
 
-  form {
+  .preview-text-normal {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .preview-text-large {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  /* Results Section */
+  .result-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .ratio-display {
     display: flex;
     justify-content: space-between;
-    margin: 1rem 0;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: light-dark(
+      rgba(255, 255, 255, 0.6),
+      rgba(26, 26, 26, 0.4)
+    );
+    border: 2px solid var(--deanny-border-color);
   }
 
-  .preview {
-    margin: 1rem 0;
+  .ratio-label {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--deanny-text-color);
+  }
+
+  .ratio-value {
+    font-weight: 900;
+    font-size: 1.75rem;
+    background: linear-gradient(135deg, var(--deanny-purpura), var(--deanny-cian));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* WCAG Compliance */
+  .wcag-compliance {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .compliance-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .compliance-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     padding: 1rem;
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
+    background: light-dark(
+      rgba(255, 255, 255, 0.6),
+      rgba(26, 26, 26, 0.4)
+    );
+    border: 1px solid light-dark(
+      rgba(195, 140, 246, 0.2),
+      rgba(195, 140, 246, 0.1)
+    );
   }
 
-  button {
-    cursor: pointer;
+  .compliance-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--medium-contrast-text);
+  }
 
-    padding: 0.5rem 1rem;
-    border: none;
+  .compliance-badge {
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 0.5rem 0.75rem;
     border-radius: 0.5rem;
+    text-align: center;
+  }
 
+  .badge-pass {
+    background: var(--success-color);
     color: white;
-
-    background: #4b2e83;
   }
 
-  button:hover {
-    background: #9a7dcc;
+  .badge-fail {
+    background: var(--error-color);
+    color: white;
   }
 
-  .result {
-    margin-top: 1rem;
-    border: 1px solid var(--border-color);
-    font-weight: bold;
-    color: var(--text-color);
+  /* Recommendation */
+  .recommendation {
+    padding: 1.25rem;
+    border-radius: 1rem;
+    border-left: 4px solid var(--deanny-purpura);
+    background: light-dark(
+      rgba(142, 68, 173, 0.05),
+      rgba(142, 68, 173, 0.1)
+    );
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--deanny-text-color);
+  }
+
+  /* Responsive */
+  @media (width < 768px) {
+    .contrast-checker-card {
+      padding: 1.5rem;
+    }
+
+    .color-inputs-section {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .swap-button-container {
+      order: -1;
+    }
+
+    .swap-button {
+      transform: rotate(90deg);
+    }
+
+    .swap-button:hover {
+      transform: rotate(270deg) scale(1.1);
+    }
+
+    .compliance-row {
+      grid-template-columns: 1fr;
+    }
+
+    .checker-title {
+      font-size: 1.75rem;
+    }
+
+    .checker-subtitle {
+      font-size: 0.875rem;
+    }
+  }
+
+  @media (width < 480px) {
+    .contrast-checker-card {
+      padding: 1.25rem;
+    }
+
+    .color-input-wrapper {
+      gap: 0.5rem;
+    }
+
+    .color-picker {
+      width: 45px;
+      height: 45px;
+      min-width: 45px;
+    }
+
+    .hex-input {
+      font-size: 0.8125rem;
+      padding: 0.5rem 0.75rem;
+      max-width: none;
+    }
+
+    .checker-title {
+      font-size: 1.5rem;
+    }
+
+    .header-icon {
+      width: 48px;
+      height: 48px;
+    }
+
+    .header-icon svg {
+      width: 24px;
+      height: 24px;
+    }
   }
 </style>
