@@ -1,0 +1,295 @@
+---
+// Trust bar component - Social proof metrics
+---
+
+<section class="trust-bar content-grid">
+  <div class="trust-container">
+    <div class="trust-items">
+      <!-- Metric 1 -->
+      <div class="trust-item">
+        <div class="trust-icon" aria-hidden="true">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+        <div class="trust-content">
+          <div class="trust-number">+50</div>
+          <div class="trust-label">Proyectos entregados</div>
+        </div>
+      </div>
+
+      <!-- Metric 2 -->
+      <div class="trust-item">
+        <div class="trust-icon" aria-hidden="true">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+            ></polygon>
+          </svg>
+        </div>
+        <div class="trust-content">
+          <div class="trust-number">100%</div>
+          <div class="trust-label">Clientes satisfechos</div>
+        </div>
+      </div>
+
+      <!-- Metric 3 -->
+      <div class="trust-item">
+        <div class="trust-icon" aria-hidden="true">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <div class="trust-content">
+          <div class="trust-number">+40%</div>
+          <div class="trust-label">Más conversiones promedio</div>
+        </div>
+      </div>
+
+      <!-- Metric 4 -->
+      <div class="trust-item">
+        <div class="trust-icon" aria-hidden="true">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="trust-content">
+          <div class="trust-number">2-4 sem</div>
+          <div class="trust-label">Tiempo de entrega</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Trust Bar Section */
+  .trust-bar {
+    position: relative;
+    padding: 3rem 0 4rem;
+    background: light-dark(
+      linear-gradient(to bottom, #fafafa, #ffffff),
+      linear-gradient(to bottom, #0f172a, #1a1a2e)
+    );
+  }
+
+  .trust-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Trust Items Grid */
+  .trust-items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  }
+
+  /* Individual Trust Item */
+  .trust-item {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 2rem;
+    border: 2px solid light-dark(rgb(168 85 247 / 15%), rgb(168 85 247 / 25%));
+    border-radius: 1.25rem;
+    background: light-dark(rgb(255 255 255 / 90%), rgb(30 27 75 / 40%));
+    backdrop-filter: blur(10px);
+    box-shadow:
+      0 4px 20px light-dark(rgb(168 85 247 / 8%), rgb(0 0 0 / 20%)),
+      0 0 0 1px light-dark(rgb(255 255 255 / 60%), rgb(255 255 255 / 5%)) inset;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .trust-item:hover {
+    transform: translateY(-5px);
+    border-color: light-dark(rgb(168 85 247 / 30%), rgb(168 85 247 / 40%));
+    box-shadow:
+      0 8px 30px light-dark(rgb(168 85 247 / 15%), rgb(0 0 0 / 30%)),
+      0 0 0 1px light-dark(rgb(255 255 255 / 80%), rgb(255 255 255 / 8%)) inset;
+  }
+
+  /* Trust Icon */
+  .trust-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    box-shadow: 0 4px 16px rgb(168 85 247 / 25%);
+  }
+
+  .trust-icon svg {
+    width: 28px;
+    height: 28px;
+    color: white;
+  }
+
+  /* Trust Content */
+  .trust-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: left;
+  }
+
+  .trust-number {
+    font-family: Poppins, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1;
+    color: light-dark(#1e1b4b, #f8fafc);
+  }
+
+  .trust-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: light-dark(#64748b, #94a3b8);
+  }
+
+  /* Staggered animations */
+  .trust-item:nth-child(1) {
+    animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  }
+
+  .trust-item:nth-child(2) {
+    animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  }
+
+  .trust-item:nth-child(3) {
+    animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  }
+
+  .trust-item:nth-child(4) {
+    animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+  }
+
+  /* Responsive */
+  @media (width >= 640px) {
+    .trust-items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (width >= 1024px) {
+    .trust-items {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .trust-item {
+      flex-direction: column;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .trust-content {
+      align-items: center;
+      text-align: center;
+    }
+
+    .trust-number {
+      font-size: 2rem;
+    }
+
+    .trust-label {
+      font-size: 0.813rem;
+    }
+  }
+
+  @media (width <= 639px) {
+    .trust-bar {
+      padding: 2rem 0 3rem;
+    }
+
+    .trust-item {
+      padding: 1.25rem 1.5rem;
+    }
+
+    .trust-icon {
+      width: 48px;
+      height: 48px;
+    }
+
+    .trust-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .trust-number {
+      font-size: 1.5rem;
+    }
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+</style>
