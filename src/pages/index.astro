@@ -11,6 +11,10 @@ import CtaFinal from "components/CtaFinal.astro";
 import BlogHome from "components/BlogHome.astro";
 import ToolsHome from "components/ToolsHome.astro";
 import NarrativeHeroWrapper from "components/NarrativeHeroWrapper.astro";
+import TrustBar from "components/TrustBar.astro";
+import ProblemAgitate from "components/ProblemAgitate.astro";
+import Testimonials from "components/Testimonials.astro";
+import FaqHome from "components/FaqHome.astro";
 ---
 
 <Layout
@@ -19,14 +23,15 @@ import NarrativeHeroWrapper from "components/NarrativeHeroWrapper.astro";
   keywords="Deanny Bruces, desarrolladora web, frontend developer, portfolio, proyectos web, React, Astro, JavaScript, CSS, HTML"
 >
   <NarrativeHeroWrapper />
+  <TrustBar />
   <FeaturesCards />
   <div id="init-floating"></div>
-  <AboutMeHome />
-  <Services />
+  <ProblemAgitate />
+  <Testimonials />
   <Process />
-  <TechStack />
   <FeaturedProjects />
-  <BlogHome />
-  <ToolsHome />
+  <Services />
+  <AboutMeHome />
+  <FaqHome />
   <CtaFinal />
 </Layout>
