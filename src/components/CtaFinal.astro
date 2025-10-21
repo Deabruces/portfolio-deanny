@@ -38,14 +38,35 @@ import "../assets/styles/CtaFinal.css";
         Construyamos junt@s una página web estratégica que transmita tu valor,
         atraiga clientes y convierta visitas en ventas.
       </p>
+
+      <!-- Urgency Badge -->
+      <div class="urgency-badge">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span
+          >Agenda esta semana y recibe <strong
+            >auditoría SEO GRATIS</strong
+          > ($150 de valor)</span
+        >
+      </div>
+
       <a
         href="https://calendar.app.google/7zL3cZ713aYB9tCW6"
         class="btn-cta"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Solicitar propuesta - Abre en nueva ventana"
+        aria-label="Agendar consulta gratuita - Abre en nueva ventana"
       >
-        <span>Solicitar propuesta</span>
+        <span>Agendar consulta gratuita</span>
         <svg
           width="22"
           height="22"
@@ -58,7 +79,57 @@ import "../assets/styles/CtaFinal.css";
           <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
       </a>
-      <p class="cta-note">🎯 Respuesta en menos de 24 horas</p>
+
+      <!-- Guarantees -->
+      <div class="guarantees">
+        <div class="guarantee-item">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <span>Primera consulta 100% gratis</span>
+        </div>
+        <div class="guarantee-item">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <span>Sin compromiso ni presión</span>
+        </div>
+        <div class="guarantee-item">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <span>Respuesta en menos de 24 horas</span>
+        </div>
+      </div>
+
+      <!-- Social Proof -->
+      <p class="cta-note">
+        🔥 <strong>7 emprendedores</strong> agendaron su consulta esta semana
+      </p>
     </div>
   </div>
 </section>
@@ -336,12 +407,46 @@ import "../assets/styles/CtaFinal.css";
 
     max-width: 650px;
     margin-right: auto;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     margin-left: auto;
 
     font-size: clamp(1rem, 2vw, 1.2rem);
     line-height: 1.7;
     color: light-dark(#64748b, #cbd5e1);
+  }
+
+  /* Urgency Badge */
+  .urgency-badge {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    gap: 0.75rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem 1.75rem;
+    border: 2px solid light-dark(rgb(245 158 11 / 30%), rgb(245 158 11 / 40%));
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: light-dark(#92400e, #fde68a);
+    background: light-dark(
+      linear-gradient(135deg, rgb(254 243 199 / 80%), rgb(255 251 235 / 80%)),
+      linear-gradient(135deg, rgb(120 53 15 / 25%), rgb(180 83 9 / 20%))
+    );
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgb(245 158 11 / 20%);
+    animation: urgencyPulse 2s ease-in-out infinite;
+  }
+
+  .urgency-badge svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: light-dark(#f59e0b, #fbbf24);
+  }
+
+  .urgency-badge strong {
+    color: light-dark(#78350f, #fbbf24);
   }
 
   /* CTA Button */
@@ -413,15 +518,47 @@ import "../assets/styles/CtaFinal.css";
     transform: translateX(8px);
   }
 
+  /* Guarantees */
+  .guarantees {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .guarantee-item {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: light-dark(#64748b, #cbd5e1);
+  }
+
+  .guarantee-item svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: #10b981;
+  }
+
   /* Secondary Text */
   .cta-note {
     position: relative;
     z-index: 1;
+    margin-top: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: light-dark(#475569, #cbd5e1);
+  }
 
-    margin-top: 1.5rem;
-
-    font-size: 0.9rem;
-    color: light-dark(#94a3b8, #94a3b8);
+  .cta-note strong {
+    color: light-dark(#1e1b4b, #f8fafc);
   }
 
   /* Focus Styles */
@@ -460,6 +597,23 @@ import "../assets/styles/CtaFinal.css";
     .icon-badge svg {
       width: 32px;
       height: 32px;
+    }
+
+    .urgency-badge {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem 1.5rem;
+      font-size: 0.875rem;
+      text-align: center;
+    }
+
+    .guarantees {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .guarantee-item {
+      font-size: 0.85rem;
     }
 
     .btn-cta {
@@ -537,6 +691,17 @@ import "../assets/styles/CtaFinal.css";
 
     50% {
       background-position: 100% 50%;
+    }
+  }
+
+  @keyframes urgencyPulse {
+    0%,
+    100% {
+      box-shadow: 0 4px 16px rgb(245 158 11 / 20%);
+    }
+
+    50% {
+      box-shadow: 0 6px 24px rgb(245 158 11 / 35%);
     }
   }
 
