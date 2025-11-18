@@ -1,0 +1,744 @@
+---
+import Link from "../assets/icons/link.svg";
+import Qr from "../assets/icons/qr.svg";
+import Contrast from "../assets/icons/contrast.svg";
+import "../assets/styles/ToolsHome.css";
+---
+
+<section class="tools-section content-grid">
+  <!-- Background Elements -->
+  <div class="tools-background full-width" aria-hidden="true">
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
+    <div class="floating-blob blob-3"></div>
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+  </div>
+
+  <div class="tools-container">
+    <!-- Hero Section -->
+    <div class="tools-hero">
+      <div class="hero-badge">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <path
+            d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+          ></path>
+        </svg>
+        <span>Herramientas</span>
+      </div>
+
+      <h2 class="subtitle">
+        Herramientas para <span class="subtitle__span">emprendedores</span>
+      </h2>
+      <p class="text">
+        Recursos gratuitos que te ayudarán a optimizar tu comunicación, mejorar
+        la accesibilidad y potenciar tu marca online.
+      </p>
+    </div>
+
+    <!-- Tools Grid -->
+    <div class="tools-grid">
+      <!-- Herramienta 1 -->
+      <article class="tool-card">
+        <div class="container-icon" aria-hidden="true">
+          <Link class="icon" />
+        </div>
+        <h3>Generador de links de WhatsApp</h3>
+        <p>
+          Crea enlaces con mensajes personalizados para conectar directamente
+          con tus clientes en un clic.
+        </p>
+        <a
+          href="/tools/whatsapp-generator"
+          class="btn-tool"
+          aria-label="Probar generador de links de WhatsApp"
+        >
+          Probar ahora
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </article>
+
+      <!-- Herramienta 2 -->
+      <article class="tool-card">
+        <div class="container-icon" aria-hidden="true">
+          <Qr class="icon" />
+        </div>
+        <h3>Generador de código QR</h3>
+        <p>
+          Convierte tus links en códigos QR listos para imprimir o compartir y
+          facilita la interacción.
+        </p>
+        <a
+          href="/tools/qr-code-generator"
+          class="btn-tool"
+          aria-label="Probar generador de código QR"
+        >
+          Probar ahora
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </article>
+
+      <!-- Herramienta 3 -->
+      <article class="tool-card">
+        <div class="container-icon" aria-hidden="true">
+          <Contrast class="icon" />
+        </div>
+        <h3>Comprobador de contraste</h3>
+        <p>
+          Verifica si la combinación de colores de tu web cumple con la
+          accesibilidad y mejora la experiencia de tus usuarios.
+        </p>
+        <a
+          href="/tools/contrast-checker"
+          class="btn-tool"
+          aria-label="Probar comprobador de contraste"
+        >
+          Probar ahora
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </article>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-tools">
+      <a
+        href="/tools"
+        class="btn-main"
+        aria-label="Descubrir todas las herramientas disponibles"
+      >
+        <span>Descubre todas las herramientas</span>
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+<style>
+  /* ============================================
+   Tools Home Styles - Modern Glassmorphic Design
+   ============================================ */
+
+  /* Main Section */
+  .tools-section {
+    position: relative;
+    overflow: hidden;
+    padding: 12rem 0;
+    background: light-dark(
+      radial-gradient(circle at top right, #e0f2fe, #ddd6fe, #fce7f3),
+      radial-gradient(circle at top right, #0c4a6e, #3730a3, #831843)
+    );
+  }
+
+  /* Background Elements */
+  .tools-background {
+    pointer-events: none;
+
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Floating Blobs */
+  .floating-blob {
+    position: absolute;
+
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+
+    opacity: 0.14;
+    filter: blur(115px);
+
+    animation: blobFloat 22s ease-in-out infinite;
+  }
+
+  .blob-1 {
+    top: -8%;
+    left: -12%;
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    animation-delay: 0s;
+  }
+
+  .blob-2 {
+    top: 45%;
+    right: -10%;
+    background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+    animation-delay: 7s;
+  }
+
+  .blob-3 {
+    bottom: -15%;
+    left: 35%;
+    background: linear-gradient(135deg, #f43f5e, #a855f7);
+    animation-delay: 14s;
+  }
+
+  /* Gradient Orbs */
+  .gradient-orb {
+    position: absolute;
+
+    border-radius: 50%;
+
+    opacity: 0.2;
+    filter: blur(75px);
+
+    animation: orbPulse 16s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    top: 15%;
+    right: 15%;
+
+    width: 22rem;
+    height: 22rem;
+
+    background: radial-gradient(circle, #06b6d4, transparent);
+  }
+
+  .orb-2 {
+    bottom: 20%;
+    left: 10%;
+
+    width: 28rem;
+    height: 28rem;
+
+    background: radial-gradient(circle, #a855f7, transparent);
+  }
+
+  /* Container */
+  .tools-container {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+
+    text-align: center;
+  }
+
+  /* Hero Section */
+  .tools-hero {
+    margin-bottom: 4rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    margin-bottom: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 30%));
+    border-radius: 2rem;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: light-dark(#8b5cf6, #a78bfa);
+
+    background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 15%));
+    backdrop-filter: blur(10px);
+
+    animation: badgeGlow 3s ease-in-out infinite;
+  }
+
+  .hero-badge svg {
+    width: 18px;
+    height: 18px;
+    color: light-dark(#8b5cf6, #a78bfa);
+  }
+
+  .subtitle {
+    margin-bottom: 1rem;
+
+    font-family: Poppins, sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: light-dark(#1e1b4b, #f8fafc);
+  }
+
+  .subtitle__span {
+    background: linear-gradient(135deg, #a855f7, #06b6d4, #ec4899);
+    background-clip: text;
+    background-size: 200% 200%;
+
+    animation: gradientShift 8s ease infinite;
+
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text {
+    max-width: 750px;
+    margin: 0 auto 3rem;
+
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.7;
+    color: light-dark(#64748b, #cbd5e1);
+  }
+
+  /* Tools Grid */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    margin-bottom: 3rem;
+
+    opacity: 0;
+
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
+  }
+
+  /* Tool Card */
+  .tool-card {
+    position: relative;
+
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    padding: 2.5rem 2rem;
+    border: 2px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 35%));
+    border-radius: 1.5rem;
+
+    text-align: left;
+
+    background: light-dark(rgb(255 255 255 / 85%), rgb(30 27 75 / 50%));
+    backdrop-filter: blur(20px);
+    box-shadow:
+      0 10px 40px light-dark(rgb(168 85 247 / 10%), rgb(0 0 0 / 25%)),
+      0 0 0 1px light-dark(rgb(255 255 255 / 60%), rgb(255 255 255 / 5%)) inset;
+
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .tool-card::before {
+    content: "";
+
+    position: absolute;
+    top: -50%;
+    right: -50%;
+
+    width: 200%;
+    height: 200%;
+
+    opacity: 0;
+    background: radial-gradient(
+      circle,
+      rgb(6 182 212 / 10%) 0%,
+      transparent 70%
+    );
+
+    transition: opacity 0.4s ease;
+  }
+
+  .tool-card:hover::before {
+    opacity: 1;
+  }
+
+  .tool-card:hover {
+    transform: translateY(-10px);
+    border-color: light-dark(rgb(168 85 247 / 40%), rgb(168 85 247 / 60%));
+    box-shadow:
+      0 20px 60px light-dark(rgb(168 85 247 / 20%), rgb(0 0 0 / 40%)),
+      0 0 0 1px light-dark(rgb(255 255 255 / 90%), rgb(255 255 255 / 10%)) inset;
+  }
+
+  /* Icon Container */
+  .container-icon {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 75px;
+    height: 75px;
+    margin-bottom: 1.5rem;
+    border: 2px solid light-dark(rgb(168 85 247 / 25%), rgb(168 85 247 / 40%));
+    border-radius: 1.25rem;
+
+    color: light-dark(#8b5cf6, #a78bfa);
+
+    background: light-dark(rgb(168 85 247 / 12%), rgb(168 85 247 / 20%));
+
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .tool-card:hover .container-icon {
+    transform: scale(1.1) rotate(-5deg);
+
+    border-color: var(--deanny-cian);
+
+    color: #fff;
+
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    box-shadow: 0 8px 25px rgb(168 85 247 / 40%);
+  }
+
+  .icon {
+    width: 45px;
+    height: 45px;
+    transition: none !important;
+  }
+
+  .icon :global(svg),
+  .icon :global(svg *) {
+    transition: none !important;
+  }
+
+  /* Card Title */
+  .tool-card h3 {
+    position: relative;
+    z-index: 1;
+
+    margin: 0 0 1rem;
+
+    font-family: Poppins, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: light-dark(#1e1b4b, #f8fafc);
+
+    transition: color 0.3s ease;
+  }
+
+  .tool-card:hover h3 {
+    color: light-dark(#8b5cf6, #a78bfa);
+  }
+
+  /* Card Description */
+  .tool-card p {
+    position: relative;
+    z-index: 1;
+
+    flex: 1;
+
+    margin: 0 0 1.5rem;
+
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: light-dark(#64748b, #cbd5e1);
+  }
+
+  /* Tool Button */
+  .btn-tool {
+    position: relative;
+    z-index: 1;
+
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    align-self: flex-start;
+
+    padding: 0.85rem 1.5rem;
+    border: 1px solid light-dark(rgb(168 85 247 / 25%), rgb(168 85 247 / 35%));
+    border-radius: 2rem;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: light-dark(#8b5cf6, #a78bfa);
+    text-decoration: none;
+
+    background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 15%));
+
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-tool svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-tool:hover {
+    transform: translateX(3px);
+
+    border-color: var(--deanny-cian);
+
+    color: #fff;
+
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    box-shadow: 0 6px 20px rgb(168 85 247 / 30%);
+  }
+
+  .btn-tool:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* CTA Section */
+  .cta-tools {
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.4s;
+  }
+
+  .btn-main {
+    position: relative;
+
+    overflow: hidden;
+    display: inline-flex;
+    gap: 0.75rem;
+    align-items: center;
+
+    padding: 1.25rem 2.5rem;
+    border: 2px solid var(--deanny-cian);
+    border-radius: 3rem;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    box-shadow:
+      0 10px 40px rgb(168 85 247 / 30%),
+      0 0 0 1px rgb(255 255 255 / 20%) inset;
+
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-main::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 255 255 / 30%),
+      transparent
+    );
+
+    transition: left 0.6s ease;
+  }
+
+  .btn-main:hover::before {
+    left: 100%;
+  }
+
+  .btn-main svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-main:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+      0 15px 50px rgb(168 85 247 / 40%),
+      0 0 0 1px rgb(255 255 255 / 30%) inset;
+  }
+
+  .btn-main:hover svg {
+    transform: translateX(5px);
+  }
+
+  /* Staggered Animation Delays */
+  .tool-card:nth-child(1) {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
+  }
+
+  .tool-card:nth-child(2) {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.3s;
+  }
+
+  .tool-card:nth-child(3) {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.4s;
+  }
+
+  /* Focus Styles */
+  .btn-tool:focus-visible,
+  .btn-main:focus-visible {
+    outline: 3px solid light-dark(#a855f7, #a78bfa);
+    outline-offset: 4px;
+  }
+
+  @media (width >= 768px) {
+    .tools-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (width >= 1024px) {
+    .tools-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  /* Responsive Adjustments */
+  @media (width <= 767px) {
+    .tools-section {
+      padding: 4rem 0;
+    }
+
+    .tools-hero {
+      margin-bottom: 3rem;
+    }
+
+    .tool-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .container-icon {
+      width: 65px;
+      height: 65px;
+    }
+
+    .icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (width >= 1400px) {
+    .tools-container {
+      padding: 0 2rem;
+    }
+  }
+
+  @keyframes blobFloat {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+      transform: translate(-32px, -48px) scale(1.1);
+    }
+
+    66% {
+      transform: translate(42px, 32px) scale(0.9);
+    }
+  }
+
+  @keyframes orbPulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.2;
+    }
+
+    50% {
+      transform: scale(1.15);
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes badgeGlow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgb(168 85 247 / 20%);
+    }
+
+    50% {
+      box-shadow: 0 0 30px rgb(168 85 247 / 40%);
+    }
+  }
+
+  @keyframes gradientShift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>

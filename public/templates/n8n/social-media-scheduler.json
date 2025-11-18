@@ -1,0 +1,324 @@
+{
+  "name": "AI Social Media Content Generator & Scheduler",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 0 1 * * *"
+            }
+          ]
+        }
+      },
+      "id": "1",
+      "name": "Schedule (Monthly - 1st day)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4-turbo-preview",
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "Eres un experto en marketing de contenidos y redes sociales. Tu tarea es generar 30 posts creativos y atractivos para redes sociales basados en el tema proporcionado."
+            },
+            {
+              "role": "user",
+              "content": "Tema: {{ $json.topic || 'Desarrollo web y tecnología' }}\n\nGenera 30 posts para redes sociales (280 caracteres máximo cada uno) que sean:\n- Educativos y de valor\n- Variados en formato (tips, preguntas, datos, inspiración)\n- Incluyan emojis relevantes\n- Incluyan 2-3 hashtags por post\n\nFormato de respuesta: JSON array con objetos que contengan 'day' (1-30), 'content', 'hashtags', 'best_time' (hora óptima de publicación)"
+            }
+          ]
+        },
+        "options": {
+          "temperature": 0.8,
+          "maxTokens": 3000
+        }
+      },
+      "id": "2",
+      "name": "Generate 30 Posts (ChatGPT)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "credentials": {
+        "openAiApi": {
+          "id": "1",
+          "name": "OpenAI Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "functionCode": "// Parse AI response and create individual posts\nconst response = $input.item.json.choices[0].message.content;\nlet posts;\n\ntry {\n  posts = JSON.parse(response);\n} catch (e) {\n  // If not valid JSON, extract posts manually\n  posts = [];\n  for (let i = 1; i <= 30; i++) {\n    posts.push({\n      day: i,\n      content: `Post del día ${i} - Contenido generado`,\n      hashtags: ['#SocialMedia', '#Content', '#Marketing'],\n      best_time: '09:00'\n    });\n  }\n}\n\nreturn posts.map(post => ({ json: post }));"
+      },
+      "id": "3",
+      "name": "Parse & Split Posts",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SPREADSHEET_ID",
+          "mode": "list"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Content Calendar",
+          "mode": "list"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Day": "={{ $json.day }}",
+            "Content": "={{ $json.content }}",
+            "Hashtags": "={{ $json.hashtags.join(' ') }}",
+            "Best Time": "={{ $json.best_time }}",
+            "Status": "Scheduled",
+            "Platform": "All",
+            "Created": "={{ $now.toISO() }}"
+          }
+        }
+      },
+      "id": "4",
+      "name": "Save to Content Calendar",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [850, 300],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2",
+          "name": "Google Sheets OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 {{ $json.best_time.split(':')[1] }} {{ $json.best_time.split(':')[0] }} * * *"
+            }
+          ]
+        }
+      },
+      "id": "5",
+      "name": "Daily Posting Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [250, 500]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SPREADSHEET_ID",
+          "mode": "list"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Content Calendar",
+          "mode": "list"
+        },
+        "filters": {
+          "values": [
+            {
+              "column": "Day",
+              "condition": "equal",
+              "value": "={{ $now.day }}"
+            },
+            {
+              "column": "Status",
+              "condition": "equal",
+              "value": "Scheduled"
+            }
+          ]
+        }
+      },
+      "id": "6",
+      "name": "Get Today's Post",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [450, 500],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2",
+          "name": "Google Sheets OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "text": "={{ $json.content }}\n\n={{ $json.hashtags }}",
+        "additionalFields": {}
+      },
+      "id": "7",
+      "name": "Post to Twitter",
+      "type": "n8n-nodes-base.twitter",
+      "typeVersion": 1,
+      "position": [650, 450],
+      "credentials": {
+        "twitterOAuth2Api": {
+          "id": "3",
+          "name": "Twitter OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "text": "={{ $json.content }}\n\n={{ $json.hashtags }}",
+        "additionalFields": {}
+      },
+      "id": "8",
+      "name": "Post to LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "typeVersion": 1,
+      "position": [650, 550],
+      "credentials": {
+        "linkedInOAuth2Api": {
+          "id": "4",
+          "name": "LinkedIn OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SPREADSHEET_ID",
+          "mode": "list"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Content Calendar",
+          "mode": "list"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Status": "Posted",
+            "Posted At": "={{ $now.toISO() }}"
+          }
+        },
+        "options": {
+          "dataMode": "autoMap"
+        }
+      },
+      "id": "9",
+      "name": "Mark as Posted",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [850, 500],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2",
+          "name": "Google Sheets OAuth2"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Schedule (Monthly - 1st day)": {
+      "main": [
+        [
+          {
+            "node": "Generate 30 Posts (ChatGPT)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate 30 Posts (ChatGPT)": {
+      "main": [
+        [
+          {
+            "node": "Parse & Split Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse & Split Posts": {
+      "main": [
+        [
+          {
+            "node": "Save to Content Calendar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily Posting Schedule": {
+      "main": [
+        [
+          {
+            "node": "Get Today's Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Today's Post": {
+      "main": [
+        [
+          {
+            "node": "Post to Twitter",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Post to LinkedIn",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post to Twitter": {
+      "main": [
+        [
+          {
+            "node": "Mark as Posted",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post to LinkedIn": {
+      "main": [
+        [
+          {
+            "node": "Mark as Posted",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2025-10-16T19:00:00.000Z",
+  "versionId": "1"
+}

@@ -38,5 +38,6 @@
   "prettier.documentSelectors": ["md", "astro", "js", "css"],
   "prettier.enableDebugLogs": true,
   "prettier.quoteProps": "consistent",
-  "prettier.resolveGlobalModules": true
+  "prettier.resolveGlobalModules": true,
+  "CodeGPT.apiKey": "OpenAI"
 }

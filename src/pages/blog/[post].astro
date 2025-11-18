@@ -1,6 +1,7 @@
 ---
 import { getCollection, render, getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import PageTitle from "components/PageTitle.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -28,9 +29,9 @@ const categories = await Promise.all(
 >
   <div class="markdown">
     <div class="container">
-      <h1 class="title" style={`view-transition-name: ${post.id}-title;`}>
-        {post.data.title}
-      </h1>
+      <PageTitle>
+        <h1>{post.data.title}</h1>
+      </PageTitle>
       <div class="pill-container">
         {
           categories.map((cat) => (
@@ -45,7 +46,6 @@ const categories = await Promise.all(
         }
       </div>
       <img
-        src={post.data.image.src}
         alt={`Imagen del artículo: ${post.data.title} - Blog de Deanny Bruces`}
         width={800}
         height={450}

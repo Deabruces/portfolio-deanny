@@ -1,0 +1,639 @@
+---
+import Rocket from "../assets/icons/rocket.svg";
+---
+
+<section class="narrative-hero-container">
+  <!-- Elementos decorativos de fondo -->
+  <div class="narrative-background-blobs" aria-hidden="true">
+    <div class="narrative-blob narrative-blob-1"></div>
+    <div class="narrative-blob narrative-blob-2"></div>
+    <div class="narrative-blob narrative-blob-3"></div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="narrative-hero-content">
+    <!-- Icono animado -->
+    <div class="narrative-icon-container">
+      <div class="narrative-icon-wrapper narrative-gradient-purple-pink">
+        <Rocket class="narrative-icon-large" />
+      </div>
+    </div>
+
+    <!-- Texto principal con animación -->
+    <div class="narrative-text-container">
+      <div class="narrative-eyebrow">
+        Para emprendedores, marcas personales y negocios
+      </div>
+      <h1 class="narrative-hero-title">
+        Convierte tu web en tu mejor{" "}
+        <span class="narrative-gradient-text">vendedor 24/7</span>
+      </h1>
+      <p class="narrative-hero-subtitle">
+        Sitios web estratégicos que atraen clientes ideales y generan ventas
+        mientras duermes. <strong>Diseño + Desarrollo + SEO</strong> que funcionan
+        juntos para hacer crecer tu negocio.
+      </p>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="narrative-cta-container">
+      <a
+        href="https://calendar.app.google/7zL3cZ713aYB9tCW6"
+        class="narrative-cta-button narrative-cta-primary"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Ver cómo funciona - Consulta gratis - Abre en nueva ventana"
+      >
+        Ver cómo funciona (Consulta gratis)
+      </a>
+      <a
+        href="/proyectos"
+        class="narrative-cta-button narrative-cta-secondary"
+        aria-label="Ver proyectos anteriores"
+      >
+        Ver proyectos
+      </a>
+    </div>
+
+    <!-- Badge decorativo -->
+    <div class="narrative-badge" aria-hidden="true">
+      ⚡ Resultados garantizados
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Variables de color */
+  :root {
+    --narrative-dark-bg-start: #0f172a;
+    --narrative-dark-bg-mid: #581c87;
+    --narrative-dark-bg-end: #0f172a;
+    --narrative-dark-text: #fff;
+    --narrative-dark-subtext: #d1d5db;
+    --narrative-dark-badge-bg: #facc15;
+    --narrative-dark-badge-text: #000;
+    --narrative-dark-button-bg: #fff;
+    --narrative-dark-button-text: #581c87;
+    --narrative-dark-controls-bg: rgb(255 255 255 / 10%);
+    --narrative-dark-controls-hover: rgb(255 255 255 / 20%);
+    --narrative-dark-dots: #fff;
+    --narrative-dark-dots-inactive: rgb(255 255 255 / 30%);
+    --narrative-dark-blob-1: #a855f7;
+    --narrative-dark-blob-2: #ec4899;
+    --narrative-dark-blob-3: #4bc0c8;
+    --narrative-light-bg-start: #eff6ff;
+    --narrative-light-bg-mid: #faf5ff;
+    --narrative-light-bg-end: #fdf2f8;
+    --narrative-light-text: #111827;
+    --narrative-light-subtext: #4b5563;
+    --narrative-light-badge-bg: #7c3aed;
+    --narrative-light-badge-text: #fff;
+    --narrative-light-button-bg: #7c3aed;
+    --narrative-light-button-text: #fff;
+    --narrative-light-controls-bg: rgb(124 58 237 / 10%);
+    --narrative-light-controls-hover: rgb(124 58 237 / 20%);
+    --narrative-light-dots: #7c3aed;
+    --narrative-light-dots-inactive: rgb(124 58 237 / 30%);
+    --narrative-light-blob-1: #d8b4fe;
+    --narrative-light-blob-2: #fbcfe8;
+    --narrative-light-blob-3: #d3fcff;
+  }
+
+  /* Contenedor principal */
+  .narrative-hero-container {
+    position: relative;
+
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+    padding: 1.5rem;
+
+    /* Light theme by default */
+    background: linear-gradient(
+      to bottom right,
+      var(--narrative-light-bg-start),
+      var(--narrative-light-bg-mid),
+      var(--narrative-light-bg-end)
+    );
+
+    transition: background 0.5s ease;
+  }
+
+  /* Burbujas de fondo */
+  .narrative-background-blobs {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .narrative-blob {
+    position: absolute;
+
+    width: 24rem;
+    height: 24rem;
+    border-radius: 9999px;
+
+    opacity: 0.5;
+    filter: blur(80px);
+
+    animation: narrativePulse 6s ease-in-out infinite;
+  }
+
+  .narrative-blob-1 {
+    top: 0;
+    left: -12rem;
+  }
+
+  .narrative-blob-2 {
+    right: -12rem;
+    bottom: 0;
+    animation-delay: 1s;
+  }
+
+  .narrative-blob-3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: 2s;
+  }
+
+  /* Light theme blobs */
+  .narrative-blob-1 {
+    background: var(--narrative-light-blob-1);
+  }
+
+  .narrative-blob-2 {
+    background: var(--narrative-light-blob-2);
+  }
+
+  .narrative-blob-3 {
+    background: var(--narrative-light-blob-3);
+  }
+
+  /* Contenido principal */
+  .narrative-hero-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 56rem;
+  }
+
+  /* Icono animado */
+  .narrative-icon-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .narrative-icon-wrapper {
+    transform: scale(1);
+
+    margin-top: 7rem;
+    padding: 1rem;
+    border-radius: 1.5rem;
+
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 25%);
+
+    transition: all 0.7s ease;
+    animation: narrativeIconBounce 1s ease-in-out;
+  }
+
+  .narrative-icon-large {
+    width: 4rem;
+    height: 4rem;
+    color: white;
+  }
+
+  /* Gradientes para iconos */
+  .narrative-gradient-purple-pink {
+    background: linear-gradient(to right, #a855f7, #ec4899);
+  }
+
+  .narrative-gradient-blue-cyan {
+    background: linear-gradient(to right, #3b82f6, #06b6d4);
+  }
+
+  .narrative-gradient-orange-red {
+    background: linear-gradient(to right, #f97316, #ef4444);
+  }
+
+  .narrative-gradient-green-emerald {
+    background: linear-gradient(to right, #22c55e, #10b981);
+  }
+
+  /* Texto principal */
+  .narrative-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 200px;
+    margin-bottom: 2rem;
+
+    text-align: center;
+  }
+
+  .narrative-eyebrow {
+    margin-bottom: 1rem;
+
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--narrative-light-button-bg);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+
+    animation: narrativeFadeInUp 0.7s ease-out;
+  }
+
+  .narrative-hero-title {
+    margin-bottom: 1.5rem;
+
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+
+    animation: narrativeFadeInUp 0.7s ease-out 0.1s both;
+  }
+
+  .narrative-gradient-text {
+    background: linear-gradient(135deg, #a855f7, #ec4899, #06b6d4);
+    background-clip: text;
+    background-size: 200% 200%;
+
+    animation: gradientShift 8s ease infinite;
+
+    -webkit-text-fill-color: transparent;
+  }
+
+  .narrative-hero-subtitle {
+    max-width: 42rem;
+    margin: 0 auto;
+
+    font-size: 1.125rem;
+    line-height: 1.7;
+
+    animation: narrativeFadeInUp 0.7s ease-out 0.2s both;
+  }
+
+  .narrative-hero-title {
+    color: var(--narrative-light-text);
+  }
+
+  .narrative-hero-subtitle {
+    color: var(--narrative-light-subtext);
+  }
+
+  /* CTA Buttons */
+  .narrative-cta-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 2.5rem;
+    margin-bottom: 2rem;
+
+    animation: narrativeFadeInUp 0.7s ease-out 0.4s both;
+  }
+
+  .narrative-cta-button {
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1.125rem 2.5rem;
+    border-radius: 9999px;
+
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+  }
+
+  /* Primary CTA */
+  .narrative-cta-primary {
+    border: 2px solid var(--deanny-cian);
+    color: white;
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    box-shadow: 0 20px 40px rgb(168 85 247 / 30%);
+  }
+
+  .narrative-cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 25px 50px rgb(168 85 247 / 40%);
+  }
+
+  .narrative-cta-primary:focus-visible {
+    outline: 3px solid #06b6d4;
+    outline-offset: 4px;
+  }
+
+  /* Secondary CTA */
+  .narrative-cta-secondary {
+    border: 2px solid var(--narrative-light-button-bg);
+    color: var(--narrative-light-button-bg);
+    background: transparent;
+  }
+
+  .narrative-cta-secondary:hover {
+    transform: translateY(-3px);
+    background: rgb(124 58 237 / 10%);
+    box-shadow: 0 20px 40px rgb(124 58 237 / 20%);
+  }
+
+  .narrative-cta-secondary:focus-visible {
+    outline: 3px solid var(--narrative-light-button-bg);
+    outline-offset: 4px;
+  }
+
+  /* Controles de navegación */
+  .narrative-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 0;
+  }
+
+  /* Dots de navegación */
+  .narrative-dots-container {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .narrative-dot {
+    cursor: pointer;
+
+    width: 0.75rem;
+    height: 0.75rem;
+    padding: 0;
+    border: none;
+    border-radius: 9999px;
+
+    background: var(--narrative-light-dots-inactive);
+
+    transition: all 0.3s ease;
+  }
+
+  .narrative-dot:hover:not(.narrative-active) {
+    background: rgb(124 58 237 / 50%);
+  }
+
+  .narrative-dot.narrative-active {
+    width: 2rem;
+    background: var(--narrative-light-dots);
+  }
+
+  /* Badge decorativo */
+  .narrative-badge {
+    position: absolute;
+    top: 8rem;
+    right: 3rem;
+    transform: rotate(12deg);
+
+    display: none;
+
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+
+    font-size: 0.875rem;
+    font-weight: bold;
+
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%);
+
+    animation: narrativeBounce 2s ease-in-out infinite;
+  }
+
+  .narrative-badge {
+    color: var(--narrative-light-badge-text);
+    background: var(--narrative-light-badge-bg);
+  }
+
+  /* Dark theme */
+  @media (prefers-color-scheme: dark) {
+    .narrative-hero-container {
+      background: linear-gradient(
+        to bottom right,
+        var(--narrative-dark-bg-start),
+        var(--narrative-dark-bg-mid),
+        var(--narrative-dark-bg-end)
+      );
+    }
+  }
+
+  /* Dark theme blobs */
+  @media (prefers-color-scheme: dark) {
+    .narrative-blob-1 {
+      background: var(--narrative-dark-blob-1);
+    }
+
+    .narrative-blob-2 {
+      background: var(--narrative-dark-blob-2);
+    }
+
+    .narrative-blob-3 {
+      background: var(--narrative-dark-blob-3);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .narrative-eyebrow {
+      color: var(--narrative-dark-badge-bg);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .narrative-hero-title {
+      color: var(--narrative-dark-text);
+    }
+
+    .narrative-hero-subtitle {
+      color: var(--narrative-dark-subtext);
+    }
+  }
+
+  @media (width >= 768px) {
+    .narrative-hero-title {
+      font-size: 4rem;
+    }
+
+    .narrative-hero-subtitle {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (width >= 1024px) {
+    .narrative-hero-title {
+      font-size: 5rem;
+    }
+  }
+
+  @media (width >= 640px) {
+    .narrative-cta-container {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .narrative-cta-secondary {
+      border-color: var(--narrative-dark-button-bg);
+      color: var(--narrative-dark-button-bg);
+    }
+
+    .narrative-cta-secondary:hover {
+      background: rgb(255 255 255 / 10%);
+      box-shadow: 0 20px 40px rgb(255 255 255 / 20%);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .narrative-dot {
+      background: var(--narrative-dark-dots-inactive);
+    }
+
+    .narrative-dot:hover:not(.narrative-active) {
+      background: rgb(255 255 255 / 50%);
+    }
+
+    .narrative-dot.narrative-active {
+      background: var(--narrative-dark-dots);
+    }
+  }
+
+  @media (width >= 768px) {
+    .narrative-badge {
+      display: block;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .narrative-badge {
+      color: var(--narrative-dark-badge-text);
+      background: var(--narrative-dark-badge-bg);
+    }
+  }
+
+  /* Animaciones */
+  @keyframes narrativeFadeInUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes narrativeBounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes narrativeIconBounce {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes narrativePulse {
+    0%,
+    100% {
+      opacity: 0.4;
+    }
+
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes narrativeRotate {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes gradientShift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Reduce animations for users with motion sensitivity */
+  @media (prefers-reduced-motion: reduce) {
+    .narrative-gradient-text {
+      background-position: 0% 50%;
+      animation: none;
+    }
+
+    .narrative-badge {
+      transform: rotate(12deg);
+      animation: none;
+    }
+
+    .narrative-icon-wrapper {
+      animation: none;
+    }
+
+    .narrative-blob {
+      opacity: 0.4;
+      animation: none;
+    }
+
+    .narrative-cta-button:hover {
+      transform: none;
+    }
+
+    .narrative-eyebrow,
+    .narrative-hero-title,
+    .narrative-hero-subtitle,
+    .narrative-cta-container {
+      transform: none;
+      opacity: 1;
+      animation: none;
+    }
+
+    * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .narrative-cta-secondary:focus-visible {
+      outline-color: var(--narrative-dark-button-bg);
+    }
+  }
+</style>

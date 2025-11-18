@@ -1,0 +1,401 @@
+---
+import Bombilla from "../assets/icons/bulb.svg";
+import Hands from "../assets/icons/hands.svg";
+import Web from "../assets/icons/www.svg";
+import "../assets/styles/FeaturesCards.css";
+---
+
+<section class="features-section content-grid">
+  <!-- Background Elements -->
+  <div class="features-background full-width" aria-hidden="true">
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
+    <div class="floating-blob blob-3"></div>
+    <div class="gradient-orb"></div>
+  </div>
+
+  <div class="features-container">
+    <div class="features">
+      <article class="card">
+        <div class="icon" aria-hidden="true">
+          <Bombilla />
+        </div>
+        <h3>Transformo tus ideas</h3>
+        <p>
+          De la inspiración a la acción, convierto tus conceptos en proyectos
+          digitales reales.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon" aria-hidden="true">
+          <Web />
+        </div>
+        <h3>En experiencias digitales</h3>
+        <p>Diseño páginas web con UX/UI optimizadas para conectar y vender.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon" aria-hidden="true">
+          <Hands />
+        </div>
+        <h3>Que conectan y venden</h3>
+        <p>
+          Integro estrategias digitales que generan confianza y resultados
+          medibles.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+<style>
+  /* ============================================
+   Features Cards Styles - Modern Glassmorphic Design
+   ============================================ */
+
+  /* Main Section */
+  .features-section {
+    position: relative;
+    overflow: hidden;
+    padding: 12rem 0;
+    background: light-dark(
+      radial-gradient(circle at bottom left, #fef3c7, #fff7ed, #fefce8),
+      radial-gradient(circle at bottom left, #1e1b4b, #0f172a, #172554)
+    );
+  }
+
+  /* Background Elements */
+  .features-background {
+    pointer-events: none;
+
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Floating Blobs */
+  .floating-blob {
+    position: absolute;
+
+    width: 35rem;
+    height: 35rem;
+    border-radius: 50%;
+
+    opacity: 0.12;
+    filter: blur(100px);
+
+    animation: blobFloat 18s ease-in-out infinite;
+  }
+
+  .blob-1 {
+    top: -15%;
+    left: -10%;
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    animation-delay: 0s;
+  }
+
+  .blob-2 {
+    top: 50%;
+    right: -12%;
+    background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+    animation-delay: 6s;
+  }
+
+  .blob-3 {
+    bottom: -10%;
+    left: 40%;
+    background: linear-gradient(135deg, #f43f5e, #a855f7);
+    animation-delay: 12s;
+  }
+
+  /* Gradient Orb */
+  .gradient-orb {
+    position: absolute;
+    top: 30%;
+    right: 20%;
+
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+
+    opacity: 0.15;
+    background: radial-gradient(circle, #06b6d4, transparent);
+    filter: blur(60px);
+
+    animation: orbPulse 12s ease-in-out infinite;
+  }
+
+  /* Container */
+  .features-container {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Features Grid */
+  .features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    opacity: 0;
+
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Feature Card */
+  .card {
+    position: relative;
+
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 3rem 2rem;
+    border: 2px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 35%));
+    border-radius: 1.5rem;
+
+    text-align: center;
+
+    background: light-dark(rgb(255 255 255 / 85%), rgb(30 27 75 / 50%));
+    backdrop-filter: blur(20px);
+    box-shadow:
+      0 10px 40px light-dark(rgb(168 85 247 / 10%), rgb(0 0 0 / 25%)),
+      0 0 0 1px light-dark(rgb(255 255 255 / 60%), rgb(255 255 255 / 5%)) inset;
+
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card::before {
+    content: "";
+
+    position: absolute;
+    top: -50%;
+    left: -50%;
+
+    width: 200%;
+    height: 200%;
+
+    opacity: 0;
+    background: radial-gradient(
+      circle,
+      rgb(168 85 247 / 8%) 0%,
+      transparent 70%
+    );
+
+    transition: opacity 0.4s ease;
+  }
+
+  .card:hover::before {
+    opacity: 1;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    border-color: light-dark(rgb(168 85 247 / 40%), rgb(168 85 247 / 60%));
+    box-shadow:
+      0 20px 60px light-dark(rgb(168 85 247 / 20%), rgb(0 0 0 / 40%)),
+      0 0 0 1px light-dark(rgb(255 255 255 / 90%), rgb(255 255 255 / 10%)) inset;
+  }
+
+  /* Icon Container */
+  .icon {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 80px;
+    height: 80px;
+    border: 2px solid light-dark(rgb(168 85 247 / 25%), rgb(168 85 247 / 40%));
+    border-radius: 1.25rem;
+
+    color: light-dark(#8b5cf6, #a78bfa);
+
+    background: light-dark(rgb(168 85 247 / 12%), rgb(168 85 247 / 20%));
+
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card:hover .icon {
+    transform: scale(1.1) rotate(5deg);
+
+    border-color: transparent;
+
+    color: #fff;
+
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    box-shadow: 0 8px 25px rgb(168 85 247 / 40%);
+  }
+
+  .icon :global(svg) {
+    width: 48px;
+    height: 48px;
+    transition: none !important;
+  }
+
+  .icon :global(svg *) {
+    transition: none !important;
+  }
+
+  /* Card Title */
+  .card h3 {
+    position: relative;
+    z-index: 1;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    font-family: Poppins, sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: light-dark(#1e1b4b, #f8fafc);
+
+    transition: color 0.3s ease;
+  }
+
+  .card:hover h3 {
+    color: light-dark(#8b5cf6, #a78bfa);
+  }
+
+  /* Card Description */
+  .card p {
+    position: relative;
+    z-index: 1;
+
+    margin: 0;
+
+    font-size: 1rem;
+    line-height: 1.7;
+    color: light-dark(#64748b, #cbd5e1);
+  }
+
+  /* Staggered Animation Delays */
+  .card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  /* Focus Styles */
+  .card:focus-within {
+    outline: 3px solid light-dark(#a855f7, #a78bfa);
+    outline-offset: 4px;
+  }
+
+  @media (width >= 768px) {
+    .features {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (width >= 1024px) {
+    .features {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  /* Responsive Adjustments */
+  @media (width <= 767px) {
+    .features-section {
+      padding: 4rem 0;
+    }
+
+    .card {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .icon {
+      width: 70px;
+      height: 70px;
+    }
+
+    .icon :global(svg) {
+      width: 42px;
+      height: 42px;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (width >= 1400px) {
+    .features-container {
+      padding: 0 2rem;
+    }
+  }
+
+  @keyframes blobFloat {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+      transform: translate(-25px, -40px) scale(1.08);
+    }
+
+    66% {
+      transform: translate(35px, 25px) scale(0.92);
+    }
+  }
+
+  @keyframes orbPulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.15;
+    }
+
+    50% {
+      transform: scale(1.15);
+      opacity: 0.25;
+    }
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>

@@ -1,0 +1,1054 @@
+---
+// Modern WhatsApp Link Generator Component
+---
+
+<div class="whatsapp-generator-container">
+  <div class="whatsapp-generator-card">
+    <!-- Header -->
+    <div class="generator-header">
+      <div class="header-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          role="img"
+        >
+          <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"></path>
+          <path
+            d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"
+          ></path>
+        </svg>
+      </div>
+      <h2 class="generator-title">
+        Generador de Enlaces de <span class="generator-title-gradient"
+          >WhatsApp</span
+        >
+      </h2>
+      <p class="generator-subtitle">
+        Crea enlaces directos de WhatsApp con mensajes personalizados listos
+        para compartir
+      </p>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="generator-content-grid">
+      <!-- Form Section -->
+      <div class="form-section">
+        <form id="link-generator" class="generator-form">
+          <div class="form-group">
+            <label for="phone" class="form-label">
+              <span class="label-icon" role="img" aria-label="Teléfono">📱</span
+              >
+              Número de Teléfono
+            </label>
+            <input
+              id="phone"
+              type="tel"
+              name="phone"
+              class="form-input"
+              placeholder="Ejemplo: 56912345678"
+              inputmode="tel"
+              pattern="[0-9]{6,15}"
+              required
+              aria-describedby="phone-help"
+            />
+            <small id="phone-help" class="form-help"
+              >Sin +, solo dígitos (código de país + número)</small
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">
+              <span class="label-icon" role="img" aria-label="Mensaje">💬</span>
+              Mensaje Personalizado
+            </label>
+            <textarea
+              id="message"
+              rows="5"
+              name="message"
+              class="form-textarea"
+              required
+              placeholder="Hola, me interesa tu servicio de diseño y desarrollo web..."
+            ></textarea>
+            <small class="form-help"
+              >Este mensaje aparecerá automáticamente en WhatsApp</small
+            >
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" x2="12" y1="15" y2="3"></line>
+              </svg>
+              Generar Enlace
+            </button>
+            <button type="reset" class="btn btn-secondary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M3 6h18"></path>
+                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+              </svg>
+              Limpiar
+            </button>
+          </div>
+
+          <!-- Result Section -->
+          <div
+            id="result"
+            class="result-section hidden"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            <div class="result-header">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>¡Enlace Generado!</span>
+            </div>
+
+            <div class="result-link-container">
+              <label for="link" class="result-label"
+                >Tu enlace de WhatsApp:</label
+              >
+              <output id="link" class="result-output"
+                >https://wa.me/56912345678</output
+              >
+            </div>
+
+            <div class="result-actions">
+              <button id="copy" class="btn btn-success" type="button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                  <path
+                    d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+                  ></path>
+                </svg>
+                Copiar Enlace
+              </button>
+              <button id="open" class="btn btn-whatsapp" type="button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                  ></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" x2="21" y1="14" y2="3"></line>
+                </svg>
+                Abrir en WhatsApp
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Phone Mockup Section -->
+      <div class="mockup-section">
+        <div class="phone-mockup">
+          <!-- Phone Frame -->
+          <div class="phone-frame">
+            <!-- Phone Notch -->
+            <div class="phone-notch"></div>
+
+            <!-- WhatsApp Header -->
+            <div class="whatsapp-header">
+              <div class="header-back">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m15 18-6-6 6-6"></path>
+                </svg>
+              </div>
+              <div class="header-contact">
+                <div class="contact-avatar">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <div class="contact-info">
+                  <div class="contact-name" id="preview-phone">
+                    +56 9 1234 5678
+                  </div>
+                  <div class="contact-status">en línea</div>
+                </div>
+              </div>
+              <div class="header-actions">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="1"></circle>
+                  <circle cx="12" cy="5" r="1"></circle>
+                  <circle cx="12" cy="19" r="1"></circle>
+                </svg>
+              </div>
+            </div>
+
+            <!-- WhatsApp Chat Background -->
+            <div class="whatsapp-chat">
+              <!-- Date Indicator -->
+              <div class="chat-date">HOY</div>
+
+              <!-- Message Bubble -->
+              <div class="message-bubble">
+                <div class="message-text" id="preview-message">
+                  Escribe tu mensaje personalizado para ver aquí la vista
+                  previa...
+                </div>
+                <div class="message-time">
+                  <span id="preview-time">12:00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- WhatsApp Input Bar -->
+            <div class="whatsapp-input-bar">
+              <div class="input-emoji">😊</div>
+              <div class="input-text">Escribe un mensaje</div>
+              <div class="input-actions">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .whatsapp-generator-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 60vh;
+    padding: 2rem 1rem;
+  }
+
+  .whatsapp-generator-card {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    border: 1px solid light-dark(rgb(195 140 246 / 30%), rgb(195 140 246 / 20%));
+    border-radius: 1.5rem;
+
+    background: light-dark(rgb(242 233 242 / 90%), rgb(113 58 126 / 30%));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 60px rgb(142 68 173 / 10%);
+  }
+
+  /* Header */
+  .generator-header {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .header-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 56px;
+    height: 56px;
+    margin-bottom: 1rem;
+    border-radius: 0.875rem;
+
+    color: white;
+
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    box-shadow: 0 10px 30px rgb(37 211 102 / 30%);
+  }
+
+  .header-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .generator-title {
+    margin: 0 0 0.75rem;
+
+    font-size: 1.875rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--deanny-encabezados-text-color);
+  }
+
+  .generator-title-gradient {
+    background: linear-gradient(135deg, #25d366, #128c7e, #075e54);
+    background-clip: text;
+    background-size: 200% 200%;
+
+    animation: gradient-shift 8s ease infinite;
+
+    -webkit-text-fill-color: transparent;
+  }
+
+  .generator-subtitle {
+    max-width: 650px;
+    margin: 0;
+    margin: 0 auto;
+
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--medium-contrast-text);
+  }
+
+  /* Content Grid */
+  .generator-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  /* Form Section */
+  .form-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .generator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-label {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--deanny-text-color);
+  }
+
+  .label-icon {
+    font-size: 1.125rem;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 0.75rem 1rem;
+    border: 2px solid light-dark(rgb(195 140 246 / 30%), rgb(195 140 246 / 20%));
+    border-radius: 0.75rem;
+
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--deanny-text-color);
+
+    background: light-dark(rgb(255 255 255 / 80%), rgb(26 26 26 / 50%));
+
+    transition: all 0.3s ease;
+  }
+
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    color: var(--deanny-placeholder-text-color);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-input:focus,
+  .form-textarea:focus {
+    border-color: #25d366;
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(37 211 102 / 10%);
+  }
+
+  .form-input:focus-visible,
+  .form-textarea:focus-visible {
+    outline: 3px solid #25d366;
+    outline-offset: 2px;
+  }
+
+  .form-help {
+    margin-top: -0.25rem;
+    font-size: 0.8125rem;
+    color: var(--low-contrast-text);
+  }
+
+  /* Buttons */
+  .form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .btn {
+    cursor: pointer;
+
+    display: inline-flex;
+    flex: 1;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--deanny-cian);
+    border-radius: 0.75rem;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    transition: all 0.3s ease;
+  }
+
+  .btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .btn-primary {
+    color: white;
+    background: linear-gradient(
+      135deg,
+      var(--deanny-purpura),
+      var(--deanny-cian)
+    );
+    box-shadow: 0 4px 15px rgb(142 68 173 / 30%);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgb(142 68 173 / 40%);
+  }
+
+  .btn:focus-visible {
+    outline: 3px solid var(--deanny-purpura);
+    outline-offset: 3px;
+  }
+
+  .btn-secondary {
+    border: 2px solid var(--deanny-border-color);
+    color: var(--deanny-text-color);
+    background: transparent;
+  }
+
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    background: light-dark(rgb(195 140 246 / 10%), rgb(195 140 246 / 20%));
+  }
+
+  .btn-success {
+    color: white;
+    background: var(--success-color);
+    box-shadow: 0 4px 15px rgb(16 185 129 / 30%);
+  }
+
+  .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgb(16 185 129 / 40%);
+  }
+
+  .btn-whatsapp {
+    color: white;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    box-shadow: 0 4px 15px rgb(37 211 102 / 30%);
+  }
+
+  .btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgb(37 211 102 / 40%);
+  }
+
+  /* Result Section */
+  .result-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 2px solid var(--success-color);
+    border-radius: 1rem;
+
+    background: light-dark(rgb(16 185 129 / 5%), rgb(16 185 129 / 10%));
+  }
+
+  .result-section.hidden {
+    display: none;
+  }
+
+  .result-header {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+
+    margin-bottom: 1.25rem;
+
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--success-color);
+  }
+
+  .result-header svg {
+    flex-shrink: 0;
+  }
+
+  .result-link-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .result-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--deanny-text-color);
+  }
+
+  .result-output {
+    padding: 0.875rem 1rem;
+    border: 1px solid light-dark(rgb(195 140 246 / 30%), rgb(195 140 246 / 20%));
+    border-radius: 0.5rem;
+
+    font-family: "Courier New", monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--deanny-text-color);
+    word-break: break-all;
+
+    background: light-dark(rgb(255 255 255 / 80%), rgb(26 26 26 / 50%));
+  }
+
+  .result-actions {
+    display: flex;
+    gap: 1rem;
+  }
+
+  /* Phone Mockup Section */
+  .mockup-section {
+    position: sticky;
+    top: 2rem;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .phone-mockup {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .phone-frame {
+    position: relative;
+
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    aspect-ratio: 9 / 19;
+    width: 100%;
+    border-radius: 2rem;
+
+    background: #000;
+    box-shadow:
+      0 0 0 8px #1a1a1a,
+      0 20px 60px rgb(0 0 0 / 40%);
+  }
+
+  .phone-notch {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 120px;
+    height: 24px;
+    border-radius: 0 0 1rem 1rem;
+
+    background: #000;
+  }
+
+  /* WhatsApp Header */
+  .whatsapp-header {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+
+    padding: 2rem 1rem 0.75rem;
+
+    color: white;
+
+    background: #075e54;
+  }
+
+  .header-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-contact {
+    display: flex;
+    flex: 1;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .contact-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+
+    background: light-dark(rgb(255 255 255 / 20%), rgb(255 255 255 / 15%));
+  }
+
+  .contact-avatar svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-info {
+    flex: 1;
+  }
+
+  .contact-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .contact-status {
+    font-size: 0.75rem;
+    opacity: 0.8;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+  }
+
+  /* WhatsApp Chat */
+  .whatsapp-chat {
+    overflow-y: auto;
+    flex: 1;
+
+    padding: 1rem;
+
+    background-color: #ece5dd;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23dcf8c6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .chat-date {
+    display: inline-block;
+    display: block;
+
+    width: fit-content;
+    margin: 0 auto 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+
+    font-size: 0.75rem;
+    color: #667781;
+    text-align: center;
+
+    background: rgb(255 255 255 / 90%);
+  }
+
+  .message-bubble {
+    position: relative;
+
+    max-width: 85%;
+    margin-left: auto;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+
+    background: #dcf8c6;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+  }
+
+  .message-bubble::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: -6px;
+
+    width: 0;
+    height: 0;
+    border-color: transparent transparent transparent #dcf8c6;
+    border-style: solid;
+    border-width: 0 0 12px 12px;
+  }
+
+  .message-text {
+    margin-bottom: 0.25rem;
+
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: #000;
+    overflow-wrap: break-word;
+  }
+
+  .message-time {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    justify-content: flex-end;
+
+    font-size: 0.6875rem;
+    color: #667781;
+  }
+
+  /* WhatsApp Input Bar */
+  .whatsapp-input-bar {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+
+    padding: 0.5rem;
+    border-top: 1px solid #ddd;
+
+    background: #f0f0f0;
+  }
+
+  .input-emoji {
+    cursor: pointer;
+    font-size: 1.25rem;
+  }
+
+  .input-text {
+    flex: 1;
+
+    padding: 0.5rem 0.75rem;
+    border-radius: 1.25rem;
+
+    font-size: 0.875rem;
+    color: #667781;
+
+    background: white;
+  }
+
+  .input-actions {
+    display: flex;
+    align-items: center;
+    color: #54656f;
+  }
+
+  /* Reduce animations for users with motion sensitivity */
+  @media (prefers-reduced-motion: reduce) {
+    .generator-title-gradient {
+      background-position: 0% 50%;
+      animation: none;
+    }
+
+    .btn:hover {
+      transform: none;
+    }
+
+    * {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  /* Responsive */
+  @media (width < 1024px) {
+    .generator-content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .mockup-section {
+      position: relative;
+      top: 0;
+    }
+
+    .phone-mockup {
+      max-width: 280px;
+    }
+  }
+
+  @media (width < 768px) {
+    .whatsapp-generator-card {
+      padding: 1.5rem;
+    }
+
+    .generator-title {
+      font-size: 1.75rem;
+    }
+
+    .generator-subtitle {
+      font-size: 0.875rem;
+    }
+
+    .form-actions,
+    .result-actions {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+
+  @media (width < 480px) {
+    .whatsapp-generator-card {
+      padding: 1.25rem;
+    }
+
+    .generator-title {
+      font-size: 1.5rem;
+    }
+
+    .header-icon {
+      width: 48px;
+      height: 48px;
+    }
+
+    .header-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .form-input,
+    .form-textarea {
+      padding: 0.625rem 0.875rem;
+      font-size: 0.875rem;
+    }
+
+    .phone-mockup {
+      max-width: 260px;
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+</style>
+
+<script>
+  const sanitize = (v: string) => (v || "").toString().replace(/[^0-9]/g, "");
+  const form = document.getElementById("link-generator")! as HTMLFormElement;
+  const result = document.getElementById("result")! as HTMLDivElement;
+  const phoneInput = document.getElementById("phone")! as HTMLInputElement;
+  const messageInput = document.getElementById(
+    "message",
+  )! as HTMLTextAreaElement;
+  const previewPhone = document.getElementById("preview-phone")!;
+  const previewMessage = document.getElementById("preview-message")!;
+  const previewTime = document.getElementById("preview-time")!;
+
+  // Update time
+  function updateTime() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    previewTime.textContent = `${hours}:${minutes}`;
+  }
+
+  updateTime();
+  setInterval(updateTime, 60000); // Update every minute
+
+  // Format phone number for display
+  function formatPhoneForDisplay(phone: string): string {
+    const clean = sanitize(phone);
+    if (clean.length === 0) return "+56 9 1234 5678";
+    if (clean.length <= 3) return `+${clean}`;
+    if (clean.length <= 6) return `+${clean.slice(0, 2)} ${clean.slice(2)}`;
+    return `+${clean.slice(0, 2)} ${clean.slice(2, 3)} ${clean.slice(3, 7)} ${clean.slice(7, 11)}`;
+  }
+
+  // Update phone preview
+  phoneInput.addEventListener("input", () => {
+    const formatted = formatPhoneForDisplay(phoneInput.value);
+    previewPhone.textContent = formatted;
+  });
+
+  // Update message preview
+  messageInput.addEventListener("input", () => {
+    const message = messageInput.value.trim();
+    previewMessage.textContent =
+      message || "Escribe tu mensaje aquí para ver la vista previa...";
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const phoneNumber = sanitize(data.get("phone") as string);
+    const message = data.get("message") as string;
+
+    const whatsappURL = new URL("https://wa.me/" + phoneNumber);
+    if (message) {
+      whatsappURL.searchParams.set("text", message);
+    }
+
+    const waLink = document.getElementById("link")! as HTMLOutputElement;
+
+    // If form is valid
+    if (form.checkValidity()) {
+      waLink.value = whatsappURL.toString();
+      result.classList.remove("hidden");
+
+      // Scroll to result smoothly
+      result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  });
+
+  const copyButton = document.getElementById("copy")! as HTMLButtonElement;
+  const originalCopyText = copyButton.innerHTML;
+
+  copyButton.addEventListener("click", async () => {
+    const waLink = document.getElementById("link")! as HTMLOutputElement;
+    try {
+      await navigator.clipboard.writeText(waLink.value);
+      copyButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        ¡Copiado!
+      `;
+      setTimeout(() => {
+        copyButton.innerHTML = originalCopyText;
+      }, 2000);
+    } catch {
+      alert(
+        "No se pudo copiar automáticamente. Copia manualmente: " + waLink.value,
+      );
+    }
+  });
+
+  form.addEventListener("reset", () => {
+    const waLink = document.getElementById("link")! as HTMLOutputElement;
+    waLink.value = "";
+    result.classList.add("hidden");
+    previewPhone.textContent = "+56 9 1234 5678";
+    previewMessage.textContent =
+      "Escribe tu mensaje aquí para ver la vista previa...";
+  });
+
+  const openButton = document.getElementById("open")! as HTMLButtonElement;
+  openButton.addEventListener("click", () => {
+    const waLink = document.getElementById("link")! as HTMLOutputElement;
+    if (waLink.value) {
+      window.open(waLink.value, "_blank");
+    }
+  });
+</script>

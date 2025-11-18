@@ -4,44 +4,124 @@
   justify-content: center;
 
   width: 100%;
-  padding-block-start: 6lh;
   padding-inline: 2rem;
 }
 
 .container {
-  max-width: 43.75rem;
+  max-width: 50rem;
 }
 
+/* Typography Hierarchy - Aligned with Brand */
+
 * :global(h1) {
-  margin-bottom: 2rem;
-  font-size: clamp(1.6rem, 2.25vw, 2.5rem);
+  margin-bottom: 1.5rem;
+  font-family: Poppins, sans-serif;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 800;
   line-height: 1.2;
+  color: light-dark(#1e1b4b, #f8fafc);
   text-align: center;
 }
 
 * :global(h2) {
-  margin-bottom: 1lh;
-  font-size: clamp(1.4rem, 1.8vw, 3rem);
-  line-height: 1.2;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  font-family: Poppins, sans-serif;
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: light-dark(#6d2d8a, #c38cf6); /* Brand purple/lilac - darkened for contrast */
 }
 
 * :global(h3) {
-  margin-bottom: 1lh;
-  font-size: clamp(1.2rem, 1.6vw, 2.5rem);
-  line-height: 1.2;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-family: Poppins, sans-serif;
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: light-dark(#2a8f99, #84eef6); /* Brand cyan - darkened for contrast */
+}
+
+* :global(h4) {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-family: Poppins, sans-serif;
+  font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: light-dark(#6b7280, #d1d5db);
 }
 
 * :global(p) {
-  margin-bottom: 1lh;
+  margin-bottom: 1.25rem;
+  font-family: Lato, sans-serif;
+  font-size: clamp(1rem, 1.1vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.8;
+  color: light-dark(#374151, #e5e7eb);
+}
+
+* :global(strong) {
+  font-weight: 700;
+  color: light-dark(#1e1b4b, #f8fafc);
+}
+
+* :global(em) {
+  font-style: italic;
+  color: light-dark(#4b5563, #d1d5db);
 }
 
 * :global(a) {
-  font-size: clamp(1.4rem, 1.5vw, 1.6rem);
+  font-size: inherit;
+  font-weight: 600;
+  color: light-dark(#6d2d8a, #c38cf6); /* Darkened for WCAG AA */
   text-decoration: none;
+  border-bottom: 2px solid light-dark(rgb(109 45 138 / 30%), rgb(195 140 246 / 30%));
+  transition: all 0.2s ease;
+}
+
+* :global(a:hover) {
+  color: light-dark(#2a8f99, #84eef6); /* Darkened cyan for contrast */
+  border-bottom-color: light-dark(rgb(42 143 153 / 60%), rgb(132 238 246 / 60%));
+}
+
+/* Lists */
+
+* :global(ul),
+* :global(ol) {
+  margin-bottom: 1.5rem;
+  padding-left: 1.75rem;
+  font-size: clamp(1rem, 1.1vw, 1.125rem);
+  line-height: 1.8;
+  color: light-dark(#374151, #e5e7eb);
+}
+
+* :global(li) {
+  margin-bottom: 0.5rem;
 }
 
 * :global(li:last-child) {
-  margin-bottom: 1lh;
+  margin-bottom: 0;
+}
+
+* :global(li > p) {
+  margin-bottom: 0.5rem;
+}
+
+* :global(ul ul),
+* :global(ol ol),
+* :global(ul ol),
+* :global(ol ul) {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Checkboxes for task lists */
+
+* :global(input[type="checkbox"]) {
+  margin-right: 0.5rem;
+  accent-color: light-dark(#6d2d8a, #c38cf6); /* Darkened for better visibility */
 }
 
 * :global(.post-image) {
@@ -71,14 +151,130 @@
   border-radius: 8px;
 }
 
+/* Code Blocks and Inline Code */
+
+* :global(code) {
+  padding: 0.2em 0.4em;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9em;
+  color: light-dark(#6d2d8a, #c38cf6);
+  background: light-dark(rgb(109 45 138 / 8%), rgb(195 140 246 / 12%));
+  border-radius: 4px;
+}
+
+* :global(pre) {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid light-dark(rgb(142 68 173 / 20%), rgb(195 140 246 / 20%));
+  border-radius: 8px;
+  background: light-dark(#f8f9fa, #1a1a2e);
+  box-shadow: 0 2px 8px light-dark(rgb(0 0 0 / 5%), rgb(0 0 0 / 20%));
+}
+
+* :global(pre code) {
+  padding: 0;
+  font-size: 0.95em;
+  color: light-dark(#2d2d2d, #f8f8f2);
+  background: transparent;
+  border-radius: 0;
+}
+
 * :global(pre.astro-code) {
   overflow-x: auto;
-
-  margin-bottom: 1rem;
-  padding: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid light-dark(rgb(142 68 173 / 20%), rgb(195 140 246 / 20%));
   border-radius: 8px;
-
   color: #f8f8f2;
-
   background: #2d2d2d;
+}
+
+/* Blockquotes */
+
+* :global(blockquote) {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid light-dark(#6d2d8a, #c38cf6);
+  background: light-dark(rgb(109 45 138 / 5%), rgb(195 140 246 / 8%));
+  border-radius: 0 8px 8px 0;
+}
+
+* :global(blockquote p) {
+  margin-bottom: 0.75rem;
+  font-style: italic;
+  color: light-dark(#4b5563, #d1d5db);
+}
+
+* :global(blockquote p:last-child) {
+  margin-bottom: 0;
+}
+
+* :global(blockquote strong) {
+  color: light-dark(#6d2d8a, #c38cf6); /* Darkened for contrast */
+}
+
+/* Tables */
+
+* :global(table) {
+  width: 100%;
+  margin: 2rem 0;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px light-dark(rgb(0 0 0 / 8%), rgb(0 0 0 / 20%));
+}
+
+* :global(thead) {
+  background: light-dark(#6d2d8a, #c38cf6); /* Darkened purple with better contrast */
+}
+
+* :global(th) {
+  padding: 1rem;
+  font-family: Poppins, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: left;
+  color: #ffffff;
+}
+
+* :global(tbody tr) {
+  border-bottom: 1px solid light-dark(rgb(142 68 173 / 15%), rgb(195 140 246 / 15%));
+  transition: background-color 0.2s ease;
+}
+
+* :global(tbody tr:hover) {
+  background: light-dark(rgb(142 68 173 / 5%), rgb(195 140 246 / 8%));
+}
+
+* :global(tbody tr:last-child) {
+  border-bottom: none;
+}
+
+* :global(td) {
+  padding: 0.875rem 1rem;
+  font-size: 0.95rem;
+  color: light-dark(#374151, #e5e7eb);
+}
+
+* :global(td code) {
+  font-size: 0.85em;
+}
+
+/* Horizontal Rules */
+
+* :global(hr) {
+  margin: 3rem 0;
+  border: none;
+  border-top: 2px solid light-dark(rgb(142 68 173 / 20%), rgb(195 140 246 / 20%));
+}
+
+/* Images within Content */
+
+* :global(img) {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px light-dark(rgb(0 0 0 / 10%), rgb(0 0 0 / 25%));
 }

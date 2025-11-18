@@ -6,14 +6,42 @@ import Instagram from "../assets/icons/instagram.svg";
 ---
 
 <div class="social-icons">
-  <a href="https://github.com/deabruces/" class="icons" aria-label="Visitar mi perfil de GitHub" target="_blank" rel="noopener noreferrer"><Github aria-hidden="true" /></a>
-  <a href="https://www.linkedin.com/in/deannybruces/" class="icons" aria-label="Conectar en LinkedIn" target="_blank" rel="noopener noreferrer"
-    ><Linkedin aria-hidden="true" /></a
-  >
-  <a href="https://x.com/deannybruces" class="icons" aria-label="Seguir en X (Twitter)" target="_blank" rel="noopener noreferrer"><Twitter aria-hidden="true" /></a>
-  <a href="https://www.instagram.com/itsdeannybruces" class="icons" aria-label="Ver mi Instagram" target="_blank" rel="noopener noreferrer"
-    ><Instagram aria-hidden="true" /></a
-  >
+  <div class="contenedor-icon">
+    <a
+      href="https://github.com/deabruces/"
+      class="icons"
+      aria-label="Visitar mi perfil de GitHub"
+      target="_blank"
+      rel="noopener noreferrer"><Github aria-hidden="true" /></a
+    >
+  </div>
+  <div class="contenedor-icon">
+    <a
+      href="https://www.linkedin.com/in/deannybruces/"
+      class="icons"
+      aria-label="Conectar en LinkedIn"
+      target="_blank"
+      rel="noopener noreferrer"><Linkedin aria-hidden="true" /></a
+    >
+  </div>
+  <div class="contenedor-icon">
+    <a
+      href="https://x.com/deannybruces"
+      class="icons"
+      aria-label="Seguir en X (Twitter)"
+      target="_blank"
+      rel="noopener noreferrer"><Twitter aria-hidden="true" /></a
+    >
+  </div>
+  <div class="contenedor-icon">
+    <a
+      href="https://www.instagram.com/deannybruces"
+      class="icons"
+      aria-label="Ver mi Instagram"
+      target="_blank"
+      rel="noopener noreferrer"><Instagram aria-hidden="true" /></a
+    >
+  </div>
 
   <style>
     .social-icons {
@@ -24,29 +52,30 @@ import Instagram from "../assets/icons/instagram.svg";
       justify-content: center;
     }
 
-    .icons {
+    .icons,
+    .contenedor-icon {
       display: flex;
-      gap: 5px;
       align-items: center;
       justify-content: center;
 
-      padding: 5px;
-      border: 1px solid var(--acento-btn);
-      border-radius: 20px;
+      width: 40px;
+      height: 40px;
+      border: 1px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 30%));
+      border-radius: 0.75rem;
 
-      color: var(--acento-btn);
-      text-decoration: none;
+      color: light-dark(#8b5cf6, #a78bfa);
 
-      background-color: var(--section-dark);
+      background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 15%));
 
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
     }
 
+    .contenedor-icon:hover,
     .icons:hover {
-      transform: scale(1.05);
-      border: 1px solid var(--acento-btn-hover);
-      color: var(--acento-btn-hover);
-      background-color: var(--section-light);
+      transform: scale(1.1);
+      border-color: var(--deanny-cian);
+      color: #fff;
+      background: linear-gradient(135deg, #a855f7, #06b6d4);
     }
   </style>
 </div>

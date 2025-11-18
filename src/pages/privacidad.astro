@@ -1,0 +1,525 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Política de Privacidad"
+  description="Política de privacidad del sitio web de Deanny Bruces. Información sobre el tratamiento de datos personales y protección de la privacidad."
+  keywords="política de privacidad, protección de datos, GDPR, privacidad, datos personales"
+>
+  <section class="legal-page content-grid">
+    <!-- Background Elements -->
+    <div class="legal-background full-width" aria-hidden="true">
+      <div class="floating-blob blob-1"></div>
+      <div class="floating-blob blob-2"></div>
+    </div>
+
+    <div class="legal-container">
+      <!-- Hero Section -->
+      <div class="legal-hero">
+        <h1 class="page-title">Política de Privacidad</h1>
+        <p class="page-subtitle">
+          Última actualización: {
+            new Date().toLocaleDateString("es-ES", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })
+          }
+        </p>
+      </div>
+
+      <div id="init-floating"></div>
+
+      <!-- Content -->
+      <article class="legal-content">
+        <section class="legal-section">
+          <h2>1. Información General</h2>
+          <p>
+            La presente Política de Privacidad establece los términos en que
+            <strong>Deanny Bruces</strong> usa y protege la información que es proporcionada
+            por sus usuarios al utilizar este sitio web. Este sitio web está comprometido
+            con la seguridad de los datos de sus usuarios.
+          </p>
+          <p>
+            Cuando le pedimos que llene campos de información personal con la
+            cual usted pueda ser identificado, lo hacemos asegurando que sólo se
+            empleará de acuerdo con los términos de este documento. Sin embargo,
+            esta Política de Privacidad puede cambiar con el tiempo o ser
+            actualizada, por lo que le recomendamos y enfatizamos revisar
+            continuamente esta página para asegurarse que está de acuerdo con
+            dichos cambios.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>2. Responsable del Tratamiento</h2>
+          <ul>
+            <li><strong>Nombre:</strong> Deanny Bruces</li>
+            <li><strong>Sitio web:</strong> www.deannybruces.com</li>
+            <li>
+              <strong>Email de contacto:</strong> deannybruces@gmail.com
+            </li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>3. Información que Recopilamos</h2>
+          <p>
+            Este sitio web puede recopilar información personal, por ejemplo:
+          </p>
+          <ul>
+            <li>Nombre y apellidos</li>
+            <li>Dirección de correo electrónico</li>
+            <li>Información de contacto (teléfono, WhatsApp)</li>
+            <li>Información demográfica y de interés</li>
+            <li>
+              Datos de navegación y cookies (dirección IP, tipo de navegador,
+              páginas visitadas, tiempo de permanencia)
+            </li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>4. Uso de la Información Recopilada</h2>
+          <p>
+            Nuestro sitio web emplea la información con el fin de proporcionar
+            el mejor servicio posible, particularmente para:
+          </p>
+          <ul>
+            <li>Mantener un registro de usuarios y servicios</li>
+            <li>Responder a consultas y solicitudes de información</li>
+            <li>Enviar emails periódicos con información relevante</li>
+            <li>Mejorar nuestros productos y servicios</li>
+            <li>
+              Personalizar la experiencia de usuario y entender mejor las
+              necesidades
+            </li>
+            <li>Realizar análisis de datos para mejorar el sitio web</li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>5. Cookies</h2>
+          <p>
+            Una cookie es un pequeño archivo que se almacena en el ordenador del
+            usuario y nos permite reconocerle. El conjunto de "cookies" nos
+            ayuda a mejorar la calidad de nuestra web, permitiéndonos
+            personalizar en cierta medida la experiencia del usuario.
+          </p>
+          <p>Este sitio web utiliza cookies para:</p>
+          <ul>
+            <li>
+              <strong>Cookies analíticas:</strong> Permitir el análisis anónimo del
+              comportamiento de los usuarios (Google Analytics)
+            </li>
+            <li>
+              <strong>Cookies técnicas:</strong> Necesarias para el funcionamiento
+              del sitio web
+            </li>
+            <li>
+              <strong>Cookies de personalización:</strong> Recordar preferencias
+              del usuario (tema oscuro/claro, idioma)
+            </li>
+          </ul>
+          <p>
+            Usted puede aceptar o rechazar el uso de cookies. La mayoría de los
+            navegadores web aceptan cookies automáticamente, pero usted puede
+            modificar la configuración de su navegador para rechazar cookies si
+            lo prefiere.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>6. Terceros</h2>
+          <p>
+            Este sitio web puede incluir enlaces a sitios web de terceros. Al
+            hacer clic en estos enlaces, le redireccionará fuera de nuestro
+            sitio. Estos sitios tienen sus propias políticas de privacidad
+            independientes, por lo que no tenemos responsabilidad sobre el
+            contenido y actividades de estos sitios enlazados.
+          </p>
+          <p>Servicios de terceros utilizados:</p>
+          <ul>
+            <li>
+              <strong>Google Tag Manager / Google Analytics:</strong> Para análisis
+              de tráfico web
+            </li>
+            <li>
+              <strong>Google Fonts:</strong> Para la tipografía del sitio
+            </li>
+            <li>
+              <strong>Vercel:</strong> Proveedor de hosting
+            </li>
+            <li>
+              <strong>FormSubmit.co:</strong> Para el procesamiento de formularios
+              de contacto
+            </li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>7. Control de su Información Personal</h2>
+          <p>
+            Este sitio web no venderá, cederá ni distribuirá la información
+            personal que es recopilada sin su consentimiento, salvo que sea
+            requerido por un juez con una orden judicial.
+          </p>
+          <p>Derechos del usuario:</p>
+          <ul>
+            <li>
+              <strong>Derecho de acceso:</strong> Conocer qué datos personales tenemos
+              sobre usted
+            </li>
+            <li>
+              <strong>Derecho de rectificación:</strong> Corregir datos inexactos
+              o incompletos
+            </li>
+            <li>
+              <strong>Derecho de supresión:</strong> Solicitar la eliminación de
+              sus datos
+            </li>
+            <li>
+              <strong>Derecho de oposición:</strong> Oponerse al tratamiento de sus
+              datos
+            </li>
+            <li>
+              <strong>Derecho de portabilidad:</strong> Recibir sus datos en formato
+              estructurado
+            </li>
+          </ul>
+          <p>
+            Para ejercer cualquiera de estos derechos, puede contactar con
+            nosotros en: <a href="mailto:deannybruces@gmail.com"
+              >deannybruces@gmail.com</a
+            >
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>8. Seguridad de los Datos</h2>
+          <p>
+            Nos comprometemos a garantizar que su información esté segura. Con
+            el fin de prevenir el acceso no autorizado o divulgación, hemos
+            puesto en marcha procedimientos físicos, electrónicos y
+            administrativos adecuados para salvaguardar y asegurar la
+            información que recopilamos en línea.
+          </p>
+          <p>Medidas de seguridad implementadas:</p>
+          <ul>
+            <li>Conexión segura HTTPS/SSL en todo el sitio</li>
+            <li>Cifrado de datos sensibles</li>
+            <li>Protección contra ataques DDoS</li>
+            <li>Backups regulares de la información</li>
+            <li>Acceso restringido a información personal</li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>9. Consentimiento</h2>
+          <p>
+            Al utilizar nuestro sitio web, usted consiente nuestra política de
+            privacidad y acepta sus términos. Si desea retirar su
+            consentimiento, puede hacerlo contactándonos.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>10. Contacto</h2>
+          <p>
+            Si tiene alguna pregunta sobre esta Política de Privacidad o sobre
+            el tratamiento de sus datos personales, puede contactarnos a través
+            de:
+          </p>
+          <ul>
+            <li>
+              <strong>Email:</strong>
+              <a href="mailto:deannybruces@gmail.com">deannybruces@gmail.com</a>
+            </li>
+            <li>
+              <strong>WhatsApp:</strong>
+              <a
+                href="https://wa.me/56993068782"
+                target="_blank"
+                rel="noopener noreferrer">+56 9 9306 8782</a
+              >
+            </li>
+            <li>
+              <strong>Formulario de contacto:</strong>
+              <a href="/contacto">www.deannybruces.com/contacto</a>
+            </li>
+          </ul>
+        </section>
+
+        <div class="legal-footer">
+          <p>
+            Esta Política de Privacidad se actualiza periódicamente para
+            reflejar cambios en nuestras prácticas de información.
+          </p>
+          <a href="/" class="btn-back">Volver al inicio</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ============================================
+   Legal Page Styles - Accessible & Responsive
+   ============================================ */
+
+  /* Main Section */
+  .legal-page {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 100vh;
+    padding: 12rem 0 6rem;
+
+    background: light-dark(
+      linear-gradient(to bottom, #fafafa, #f5f5f5),
+      linear-gradient(to bottom, #1a1a2e, #16213e)
+    );
+  }
+
+  /* Background Elements */
+  .legal-background {
+    pointer-events: none;
+
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Floating Blobs */
+  .floating-blob {
+    position: absolute;
+
+    width: 35rem;
+    height: 35rem;
+    border-radius: 50%;
+
+    opacity: 0.08;
+    filter: blur(100px);
+
+    animation: blobFloat 20s ease-in-out infinite;
+  }
+
+  .blob-1 {
+    top: -10%;
+    left: -10%;
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    animation-delay: 0s;
+  }
+
+  .blob-2 {
+    right: -10%;
+    bottom: -10%;
+    background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+    animation-delay: 10s;
+  }
+
+  /* Container */
+  .legal-container {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Hero Section */
+  .legal-hero {
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+  .page-title {
+    margin-bottom: 1rem;
+
+    font-family: Poppins, sans-serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: light-dark(#1e1b4b, #f8fafc);
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+    color: light-dark(#64748b, #cbd5e1);
+  }
+
+  /* Content */
+  .legal-content {
+    padding: 3rem;
+    border: 1px solid light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 20%));
+    border-radius: 1.5rem;
+
+    background: light-dark(rgb(255 255 255 / 90%), rgb(30 27 75 / 50%));
+    backdrop-filter: blur(10px);
+    box-shadow:
+      0 10px 40px light-dark(rgb(0 0 0 / 5%), rgb(0 0 0 / 20%)),
+      0 0 0 1px light-dark(rgb(255 255 255 / 60%), rgb(255 255 255 / 5%)) inset;
+  }
+
+  /* Sections */
+  .legal-section {
+    margin-bottom: 3rem;
+  }
+
+  .legal-section:last-of-type {
+    margin-bottom: 2rem;
+  }
+
+  .legal-section h2 {
+    margin-bottom: 1.5rem;
+
+    font-family: Poppins, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: light-dark(#8b5cf6, #a78bfa);
+  }
+
+  .legal-section p {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: light-dark(#374151, #e5e7eb);
+  }
+
+  .legal-section ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+  }
+
+  .legal-section li {
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: light-dark(#374151, #e5e7eb);
+  }
+
+  .legal-section a {
+    color: light-dark(#8b5cf6, #a78bfa);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+
+  .legal-section a:hover {
+    color: light-dark(#7c3aed, #c4b5fd);
+  }
+
+  .legal-section strong {
+    font-weight: 700;
+    color: light-dark(#1e1b4b, #f8fafc);
+  }
+
+  /* Footer */
+  .legal-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid
+      light-dark(rgb(168 85 247 / 15%), rgb(168 85 247 / 25%));
+    text-align: center;
+  }
+
+  .legal-footer p {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: light-dark(#64748b, #cbd5e1);
+  }
+
+  .btn-back {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    padding: 0.875rem 2rem;
+    border: 2px solid var(--deanny-cian);
+    border-radius: 2rem;
+
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    box-shadow: 0 8px 25px rgb(168 85 247 / 25%);
+
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-back:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgb(168 85 247 / 35%);
+  }
+
+  .btn-back:focus-visible {
+    outline: 3px solid light-dark(#a855f7, #a78bfa);
+    outline-offset: 4px;
+  }
+
+  /* Responsive */
+  @media (width <= 767px) {
+    .legal-page {
+      padding: 8rem 0 4rem;
+    }
+
+    .legal-hero {
+      margin-bottom: 2.5rem;
+    }
+
+    .legal-content {
+      padding: 2rem 1.5rem;
+    }
+
+    .legal-section h2 {
+      font-size: 1.5rem;
+    }
+
+    .legal-section p,
+    .legal-section li {
+      font-size: 1rem;
+    }
+
+    .legal-section ul {
+      padding-left: 1.5rem;
+    }
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  /* Animations */
+  @keyframes blobFloat {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+      transform: translate(-25px, -40px) scale(1.08);
+    }
+
+    66% {
+      transform: translate(30px, 25px) scale(0.92);
+    }
+  }
+</style>

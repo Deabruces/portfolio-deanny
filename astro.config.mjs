@@ -7,9 +7,12 @@ import vercel from "@astrojs/vercel";
 
 import sitemap from "@astrojs/sitemap";
 
+import mdx from "@astrojs/mdx";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.deannybruces.com",
-  integrations: [react(), sitemap()],
+  output: "static", // Enables server-side rendering for API endpoints
+  integrations: [react(), sitemap(), mdx()],
   adapter: vercel(),
 });

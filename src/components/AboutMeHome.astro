@@ -1,75 +1,503 @@
 ---
-import ButtonCta from "../components/ButtonCta.astro";
+import { Image } from "astro:assets";
+import DeannyPerfil from "../assets/images/deanny-perfil.jpg";
+import "../assets/styles/AboutMeHome.css";
 ---
 
-<section class="sobre-mi content-grid">
-  <div class="breakout">
-    <div class="breakout"></div>
-    <h2 class="about-me__title">¡Quién Soy!</h2>
-    <div class="about-me__body">
-      <div class="about-me__text">
-        <p class="about-me__text--description">
-          Soy Deanny, desarrolladora frontend y apasionada por el diseño web
-          creativo. Me encanta transformar ideas en experiencias digitales
-          únicas que conecten con las personas y transmitan emociones.
-        </p>
-        <p class="about-me__text--description">
-          Además de programar, disfruto del arte, la ilustración y la buena
-          cocina, lo que me inspira a crear proyectos llenos de color, armonía y
-          funcionalidad.
-        </p>
-        <p class="about-me__text--description">
-          Mi misión es ayudar a emprendedores, marcas y negocios a construir su
-          presencia digital con páginas web modernas, optimizadas y con
-          identidad propia.
-        </p>
-        <p>Lo que me define:</p>
-        <ul>
-          <li>Creatividad y pasión por el diseño</li>
-          <li>Atención al detalle y calidad</li>
-          <li>Empatía y enfoque en el usuario</li>
-          <li>Colaboración y comunicación efectiva</li>
-          <li>Aprendizaje continuo y adaptación</li>
-        </ul>
+<section class="about-me-section content-grid">
+  <!-- Background Elements -->
+  <div class="about-background full-width" aria-hidden="true">
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
+    <div class="gradient-orb"></div>
+  </div>
+
+  <div class="about-container">
+    <div class="about-content">
+      <div class="about-image">
+        <div class="image-wrapper">
+          <div class="image-glow" aria-hidden="true"></div>
+          <Image
+            src={DeannyPerfil}
+            alt="Deanny Bruces - Desarrolladora Frontend especializada en crear experiencias web memorables"
+            class="img-about"
+            loading="lazy"
+          />
+        </div>
       </div>
-      <ButtonCta href="/sobre-mi"> Conoce más sobre mi</ButtonCta>
+
+      <div class="about-text">
+        <h2 class="saludo">¡Hola! Soy Deanny</h2>
+        <p>
+          Creo páginas <strong>web claras, humanas y estratégicas</strong> que ayudan
+          a emprendedores a comunicar mejor, conectar con su audiencia y avanzar
+          con seguridad en lo digital.
+        </p>
+        <p>
+          Soy <strong
+            >desarrolladora frontend con un enfoque creativo y práctico</strong
+          >. Me encanta transformar ideas en experiencias digitales simples,
+          modernas y fáciles de navegar. Combino diseño, tecnología y narrativa
+          para que tu web no solo se vea bien, sino que también diga lo
+          correcto, a las personas correctas.
+        </p>
+        <p>
+          Me inspiro en el arte, la ilustración y los detalles que cuentan
+          historias. Por eso, además de diseño y desarrollo, también comparto
+          contenido sobre <strong
+            >tech fácil, productividad, claridad y marca personal</strong
+          >, porque creo que emprender no debería sentirse caótico, sino claro y
+          posible.
+        </p>
+        <p>
+          Mi misión es ayudarte a construir una presencia digital con identidad
+          propia, estrategia y simplicidad—sin complicarte con la tecnología y
+          sin perder tu esencia.
+        </p>
+        <a
+          href="/sobre-mi"
+          class="btn"
+          aria-label="Conocer más sobre Deanny Bruces"
+        >
+          <span>Conóceme más</span>
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
-
 <style>
-  .sobre-mi {
-    padding: 50px 0;
+  /* ============================================
+   About Me Home Styles - Modern Glassmorphic Design
+   ============================================ */
+
+  /* Main Section */
+  .about-me-section {
+    position: relative;
+    overflow: hidden;
+    padding: 12rem 0;
+    background: light-dark(
+      linear-gradient(165deg, #f0fdfa, #f0f9ff, #faf5ff),
+      linear-gradient(165deg, #0f172a, #042f2e, #1e1b4b)
+    );
   }
 
-  .about-me__title {
-    margin-bottom: 2rem;
-    padding-top: 5px;
-    text-align: center;
+  /* Background Elements */
+  .about-background {
+    pointer-events: none;
+
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
   }
 
-  .about-me__body {
+  /* Floating Blobs */
+  .floating-blob {
+    position: absolute;
+
+    width: 38rem;
+    height: 38rem;
+    border-radius: 50%;
+
+    opacity: 0.13;
+    filter: blur(110px);
+
+    animation: blobFloat 20s ease-in-out infinite;
+  }
+
+  .blob-1 {
+    top: -12%;
+    right: -8%;
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    animation-delay: 0s;
+  }
+
+  .blob-2 {
+    bottom: -10%;
+    left: -10%;
+    background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+    animation-delay: 10s;
+  }
+
+  /* Gradient Orb */
+  .gradient-orb {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+
+    opacity: 0.18;
+    background: radial-gradient(circle, #a855f7, transparent);
+    filter: blur(70px);
+
+    animation: orbPulse 14s ease-in-out infinite;
+  }
+
+  /* Container */
+  .about-container {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* About Content */
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+
+    opacity: 0;
+
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* About Image */
+  .about-image {
     display: flex;
-    flex-flow: column wrap;
     align-items: center;
     justify-content: center;
 
+    opacity: 0;
+
+    animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
+  }
+
+  .image-wrapper {
+    position: relative;
+
+    overflow: hidden;
+
+    width: 280px;
+    height: 280px;
+    border: 5px solid light-dark(rgb(168 85 247 / 40%), rgb(168 85 247 / 60%));
+    border-radius: 50%;
+
+    object-fit: cover;
+    box-shadow:
+      0 15px 50px light-dark(rgb(168 85 247 / 20%), rgb(0 0 0 / 40%)),
+      0 0 0 2px light-dark(rgb(255 255 255 / 80%), rgb(255 255 255 / 10%)) inset;
+
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Glow Effect */
+  .image-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 110%;
+    height: 110%;
+    border-radius: 50%;
+
+    opacity: 0.3;
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    filter: blur(30px);
+
+    animation: glowPulse 4s ease-in-out infinite;
+  }
+
+  /* Profile Image */
+  .img-about {
+    scale: 1.2;
     width: 100%;
+    height: 100%;
   }
 
-  .about-me__text {
-    padding-inline: 2rem;
+  .image-wrapper:hover .img-about {
+    transform: scale(1.05);
+    border-color: light-dark(rgb(6 182 212 / 60%), rgb(6 182 212 / 80%));
+    box-shadow:
+      0 20px 60px light-dark(rgb(168 85 247 / 30%), rgb(0 0 0 / 50%)),
+      0 0 0 2px light-dark(rgb(255 255 255 / 100%), rgb(255 255 255 / 15%))
+        inset;
   }
 
-  .about-me__text--description {
-    margin-bottom: 15px;
-    line-height: 1.3;
-    color: var(--text-color);
+  /* About Text */
+  .about-text {
+    opacity: 0;
+    animation: fadeInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.3s;
   }
 
-  ul {
-    margin-top: 10px;
-    line-height: 1.5;
-    color: var(--text-color);
+  /* Greeting */
+  .saludo {
+    margin-bottom: 1.5rem;
+
+    font-family: Poppins, sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.2;
+
+    background: linear-gradient(135deg, #a855f7, #06b6d4, #ec4899);
+    background-clip: text;
+    background-size: 200% 200%;
+
+    animation: gradientShift 6s ease infinite;
+
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Paragraphs */
+  .about-text p {
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: light-dark(#64748b, #cbd5e1);
+  }
+
+  .about-text p:last-of-type {
+    margin-bottom: 2rem;
+  }
+
+  /* Button */
+  .btn {
+    position: relative;
+
+    overflow: hidden;
+    display: inline-flex;
+    gap: 0.75rem;
+    align-items: center;
+
+    padding: 1rem 2rem;
+    border: 2px solid var(--deanny-cian);
+    border-radius: 2.5rem;
+
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    box-shadow:
+      0 8px 30px rgb(168 85 247 / 30%),
+      0 0 0 1px rgb(255 255 255 / 20%) inset;
+
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 255 255 / 30%),
+      transparent
+    );
+
+    transition: left 0.6s ease;
+  }
+
+  .btn:hover::before {
+    left: 100%;
+  }
+
+  .btn svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+      0 12px 40px rgb(168 85 247 / 40%),
+      0 0 0 1px rgb(255 255 255 / 30%) inset;
+  }
+
+  .btn:hover svg {
+    transform: translateX(5px);
+  }
+
+  /* Focus Styles */
+  .btn:focus-visible {
+    outline: 3px solid light-dark(#a855f7, #a78bfa);
+    outline-offset: 4px;
+  }
+
+  @media (width >= 768px) {
+    .about-content {
+      grid-template-columns: auto 1fr;
+      gap: 4rem;
+    }
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  /* Responsive Adjustments */
+  @media (width <= 767px) {
+    .about-me-section {
+      padding: 4rem 0;
+    }
+
+    .about-content {
+      gap: 2.5rem;
+      text-align: center;
+    }
+
+    .image-wrapper {
+      width: 220px;
+      height: 220px;
+    }
+
+    .img-about {
+      width: 220px;
+      height: 220px;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (width >= 1024px) {
+    .image-wrapper {
+      width: 320px;
+      height: 320px;
+    }
+
+    .img-about {
+      width: 320px;
+      height: 320px;
+    }
+  }
+
+  @media (width >= 1400px) {
+    .about-container {
+      padding: 0 2rem;
+    }
+  }
+
+  @keyframes blobFloat {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+      transform: translate(-28px, -45px) scale(1.09);
+    }
+
+    66% {
+      transform: translate(38px, 28px) scale(0.91);
+    }
+  }
+
+  @keyframes orbPulse {
+    0%,
+    100% {
+      transform: translateX(-50%) scale(1);
+      opacity: 0.18;
+    }
+
+    50% {
+      transform: translateX(-50%) scale(1.12);
+      opacity: 0.28;
+    }
+  }
+
+  @keyframes glowPulse {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.3;
+    }
+
+    50% {
+      transform: translate(-50%, -50%) scale(1.1);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes gradientShift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      transform: translateX(-30px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      transform: translateX(30px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 </style>

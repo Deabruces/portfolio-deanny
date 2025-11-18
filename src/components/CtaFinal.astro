@@ -1,0 +1,720 @@
+---
+import "../assets/styles/CtaFinal.css";
+---
+
+<section class="cta-final content-grid">
+  <!-- Background Elements -->
+  <div class="cta-background full-width" aria-hidden="true">
+    <div class="grid-pattern"></div>
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
+    <div class="floating-blob blob-3"></div>
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+  </div>
+
+  <div class="cta-container">
+    <div class="cta-content">
+      <!-- Icon Badge -->
+      <div class="icon-badge" aria-hidden="true">
+        <svg
+          width="40"
+          height="40"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+
+      <h2>
+        ¿List@ para que tu web <span class="gradient-text">venda más</span> y refleje
+        tu esencia?
+      </h2>
+      <p>
+        Construyamos junt@s una página web estratégica que transmita tu valor,
+        atraiga clientes y convierta visitas en ventas.
+      </p>
+
+      <!-- Urgency Badge -->
+      <div class="urgency-badge">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span
+          >Agenda esta semana y recibe <strong
+            >auditoría SEO GRATIS</strong
+          > ($150 de valor)</span
+        >
+      </div>
+
+      <a
+        href="https://calendar.app.google/7zL3cZ713aYB9tCW6"
+        class="btn-cta"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Agendar consulta gratuita - Abre en nueva ventana"
+      >
+        <span>Agendar consulta gratuita</span>
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+
+      <!-- Guarantees -->
+      <div class="guarantees">
+        <div class="guarantee-item">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <span>Primera consulta 100% gratis</span>
+        </div>
+        <div class="guarantee-item">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <span>Sin compromiso ni presión</span>
+        </div>
+        <div class="guarantee-item">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <span>Respuesta en menos de 24 horas</span>
+        </div>
+      </div>
+
+      <!-- Social Proof -->
+      <p class="cta-note">
+        🔥 <strong>7 emprendedores</strong> agendaron su consulta esta semana
+      </p>
+    </div>
+  </div>
+</section>
+<style>
+  /* ============================================
+   CTA Final Styles - Modern Glassmorphic Design
+   ============================================ */
+
+  /* Main Section */
+  .cta-final {
+    position: relative;
+
+    overflow: hidden;
+
+    margin-bottom: 0;
+    padding: 12rem 0;
+
+    background: light-dark(
+      linear-gradient(180deg, rgb(168 85 247 / 5%), rgb(255 255 255 / 90%)),
+      linear-gradient(180deg, rgb(30 27 75 / 80%), rgb(17 17 17 / 95%))
+    );
+  }
+
+  /* Background Elements */
+  .cta-background {
+    pointer-events: none;
+
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Animated Grid */
+  .grid-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0.5;
+    background-image:
+      linear-gradient(
+        light-dark(rgb(168 85 247 / 5%), rgb(168 85 247 / 8%)) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        light-dark(rgb(168 85 247 / 5%), rgb(168 85 247 / 8%)) 1px,
+        transparent 1px
+      );
+    background-size: 50px 50px;
+
+    animation: gridSlide 20s linear infinite;
+  }
+
+  /* Floating Blobs */
+  .floating-blob {
+    position: absolute;
+
+    border-radius: 50%;
+
+    opacity: 0.2;
+    filter: blur(100px);
+
+    animation: blobFloat 25s ease-in-out infinite;
+  }
+
+  .blob-1 {
+    top: -20%;
+    left: -15%;
+
+    width: 45rem;
+    height: 45rem;
+
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+
+    animation-delay: 0s;
+  }
+
+  .blob-2 {
+    top: 50%;
+    right: -18%;
+
+    width: 50rem;
+    height: 50rem;
+
+    background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+
+    animation-delay: 8s;
+  }
+
+  .blob-3 {
+    bottom: -25%;
+    left: 40%;
+
+    width: 40rem;
+    height: 40rem;
+
+    background: linear-gradient(135deg, #f43f5e, #a855f7);
+
+    animation-delay: 16s;
+  }
+
+  /* Gradient Orbs */
+  .gradient-orb {
+    position: absolute;
+
+    border-radius: 50%;
+
+    opacity: 0.25;
+    filter: blur(80px);
+
+    animation: orbPulse 18s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    top: 20%;
+    right: 25%;
+
+    width: 30rem;
+    height: 30rem;
+
+    background: radial-gradient(circle, #06b6d4, transparent);
+  }
+
+  .orb-2 {
+    bottom: 15%;
+    left: 20%;
+
+    width: 35rem;
+    height: 35rem;
+
+    background: radial-gradient(circle, #a855f7, transparent);
+  }
+
+  /* Container */
+  .cta-container {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* CTA Content */
+  .cta-content {
+    position: relative;
+
+    padding: 4rem 3rem;
+    border: 2px solid light-dark(rgb(168 85 247 / 25%), rgb(168 85 247 / 40%));
+    border-radius: 2.5rem;
+
+    text-align: center;
+
+    opacity: 0;
+    background: light-dark(rgb(255 255 255 / 70%), rgb(30 27 75 / 60%));
+    backdrop-filter: blur(30px);
+    box-shadow:
+      0 25px 80px light-dark(rgb(168 85 247 / 15%), rgb(0 0 0 / 50%)),
+      0 0 0 1px light-dark(rgb(255 255 255 / 80%), rgb(255 255 255 / 10%)) inset;
+
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Decorative Elements */
+  .cta-content::before {
+    content: "";
+
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 60%;
+    height: 3px;
+    border-radius: 3px;
+
+    opacity: 0.8;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      #a855f7,
+      #06b6d4,
+      transparent
+    );
+  }
+
+  .cta-content::after {
+    pointer-events: none;
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 2.5rem;
+
+    background: radial-gradient(
+      circle at top center,
+      rgb(168 85 247 / 15%) 0%,
+      transparent 60%
+    );
+  }
+
+  /* Icon Badge */
+  .icon-badge {
+    position: relative;
+    z-index: 1;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 80px;
+    height: 80px;
+    margin-bottom: 2rem;
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    box-shadow:
+      0 15px 40px rgb(168 85 247 / 40%),
+      0 0 0 4px light-dark(rgb(255 255 255 / 40%), rgb(255 255 255 / 10%));
+
+    animation: iconFloat 3s ease-in-out infinite;
+  }
+
+  .icon-badge svg {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    filter: drop-shadow(0 2px 8px rgb(0 0 0 / 20%));
+  }
+
+  /* Title */
+  .cta-content h2 {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 1.5rem;
+
+    font-family: Poppins, sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: light-dark(#1e1b4b, #f8fafc);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #a855f7, #06b6d4, #ec4899);
+    background-clip: text;
+    background-clip: text;
+    background-size: 200% 200%;
+
+    animation: gradientShift 6s ease infinite;
+
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Description */
+  .cta-content p {
+    position: relative;
+    z-index: 1;
+
+    max-width: 650px;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    margin-left: auto;
+
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.7;
+    color: light-dark(#64748b, #cbd5e1);
+  }
+
+  /* Urgency Badge */
+  .urgency-badge {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    gap: 0.75rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem 1.75rem;
+    border: 2px solid light-dark(rgb(245 158 11 / 30%), rgb(245 158 11 / 40%));
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: light-dark(#92400e, #fde68a);
+    background: light-dark(
+      linear-gradient(135deg, rgb(254 243 199 / 80%), rgb(255 251 235 / 80%)),
+      linear-gradient(135deg, rgb(120 53 15 / 25%), rgb(180 83 9 / 20%))
+    );
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgb(245 158 11 / 20%);
+    animation: urgencyPulse 2s ease-in-out infinite;
+  }
+
+  .urgency-badge svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: light-dark(#f59e0b, #fbbf24);
+  }
+
+  .urgency-badge strong {
+    color: light-dark(#78350f, #fbbf24);
+  }
+
+  /* CTA Button */
+  .btn-cta {
+    position: relative;
+    z-index: 1;
+
+    overflow: hidden;
+    display: inline-flex;
+    gap: 1rem;
+    align-items: center;
+
+    padding: 1.4rem 3rem;
+    border: 2px solid transparent;
+    border-radius: 3.5rem;
+
+    font-family: Poppins, sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    box-shadow:
+      0 15px 50px rgb(168 85 247 / 40%),
+      0 0 0 1px rgb(255 255 255 / 30%) inset;
+
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-cta::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 255 255 / 40%),
+      transparent
+    );
+
+    transition: left 0.6s ease;
+  }
+
+  .btn-cta:hover::before {
+    left: 100%;
+  }
+
+  .btn-cta svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-cta:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow:
+      0 20px 60px rgb(168 85 247 / 50%),
+      0 0 0 2px rgb(255 255 255 / 50%) inset;
+  }
+
+  .btn-cta:hover svg {
+    transform: translateX(8px);
+  }
+
+  /* Guarantees */
+  .guarantees {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .guarantee-item {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: light-dark(#64748b, #cbd5e1);
+  }
+
+  .guarantee-item svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: #10b981;
+  }
+
+  /* Secondary Text */
+  .cta-note {
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: light-dark(#475569, #cbd5e1);
+  }
+
+  .cta-note strong {
+    color: light-dark(#1e1b4b, #f8fafc);
+  }
+
+  /* Focus Styles */
+  .btn-cta:focus-visible {
+    outline: 3px solid light-dark(#a855f7, #a78bfa);
+    outline-offset: 6px;
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  /* Responsive Adjustments */
+  @media (width <= 767px) {
+    .cta-final {
+      padding: 5rem 0;
+    }
+
+    .cta-content {
+      padding: 3rem 2rem;
+    }
+
+    .icon-badge {
+      width: 65px;
+      height: 65px;
+      margin-bottom: 1.5rem;
+    }
+
+    .icon-badge svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .urgency-badge {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem 1.5rem;
+      font-size: 0.875rem;
+      text-align: center;
+    }
+
+    .guarantees {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .guarantee-item {
+      font-size: 0.85rem;
+    }
+
+    .btn-cta {
+      padding: 1.2rem 2.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  @media (width >= 768px) and (width <= 1023px) {
+    .cta-content {
+      padding: 3.5rem 2.5rem;
+    }
+  }
+
+  @media (width >= 1400px) {
+    .cta-container {
+      padding: 0 2rem;
+    }
+  }
+
+  @keyframes gridSlide {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate(50px, 50px);
+    }
+  }
+
+  @keyframes blobFloat {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    33% {
+      transform: translate(-35px, -55px) scale(1.15) rotate(120deg);
+    }
+
+    66% {
+      transform: translate(45px, 35px) scale(0.85) rotate(240deg);
+    }
+  }
+
+  @keyframes orbPulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.25;
+    }
+
+    50% {
+      transform: scale(1.2);
+      opacity: 0.35;
+    }
+  }
+
+  @keyframes iconFloat {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-10px) rotate(5deg);
+    }
+  }
+
+  @keyframes gradientShift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes urgencyPulse {
+    0%,
+    100% {
+      box-shadow: 0 4px 16px rgb(245 158 11 / 20%);
+    }
+
+    50% {
+      box-shadow: 0 6px 24px rgb(245 158 11 / 35%);
+    }
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>

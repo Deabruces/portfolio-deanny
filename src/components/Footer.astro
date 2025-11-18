@@ -1,76 +1,654 @@
 ---
 import Love from "../assets/icons/love.svg";
 import SocialIcons from "./SocialIcons.astro";
+import LogoDeanny from "../assets/images/logo-deanny.png";
+import { Image } from "astro:assets";
 ---
 
-<div class="footer">
-  <p class="text">
-    &copy; 2025 | Hecho con <span><Love aria-hidden="true" /></span> por Deanny Bruces
-  </p>
-
-  <div class="social-icons">
-    <SocialIcons />
+<footer class="footer">
+  <!-- Background Elements -->
+  <div class="footer-background" aria-hidden="true">
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
   </div>
-</div>
 
+  <div class="footer-main">
+    <div class="footer-container">
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        <div class="brand-top">
+          <Image
+            src={LogoDeanny}
+            alt="Logo de Deanny Bruces"
+            class="footer-logo"
+          />
+          <h2>Deanny Bruces</h2>
+          <p>Desarrolladora Frontend · SEO · UX/UI</p>
+        </div>
+
+        <a
+          href="https://calendar.app.google/7zL3cZ713aYB9tCW6"
+          class="btn-footer"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Agendar una cita - Abre en nueva ventana"
+        >
+          <span>Agendar cita</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Navigation Column -->
+      <nav class="footer-nav" aria-label="Navegación del footer">
+        <h4>Navegación</h4>
+        <ul class="nav-grid">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/sobre-mi">Sobre mí</a></li>
+          <li><a href="/servicios">Servicios</a></li>
+          <li><a href="/proyectos">Proyectos</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/tools">Herramientas</a></li>
+          <li><a href="/contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contact Column -->
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <a href="mailto:deannybruces@gmail.com">deannybruces@gmail.com</a>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                ></path>
+              </svg>
+            </div>
+            <a
+              href="https://wa.me/56993068782?text=Hola%20Deanny,%20quiero%20información%20sobre%20tu%20servicio%20web"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="social-icons">
+          <SocialIcons />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-container">
+      <p class="copy">
+        &copy; 2025 Hecho con <Love aria-hidden="true" /> por Deanny Bruces
+      </p>
+      <div class="footer-links">
+        <a href="/aviso-legal">Aviso legal</a>
+        <span aria-hidden="true">|</span>
+        <a href="/privacidad">Política de privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
 <style>
+  /* ============================================
+   Footer Styles - Modern Glassmorphic Design
+   ============================================ */
+
+  /* Main Footer */
   .footer {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    background: linear-gradient(
+      135deg,
+      light-dark(rgb(168 85 247 / 8%), rgb(30 27 75 / 95%)),
+      light-dark(rgb(6 182 212 / 8%), rgb(17 17 17 / 98%))
+    );
+  }
+
+  /* Background Elements */
+  .footer-background {
+    pointer-events: none;
+
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Floating Blobs */
+  .floating-blob {
+    position: absolute;
+
+    border-radius: 50%;
+
+    opacity: 0.15;
+    filter: blur(90px);
+
+    animation: blobFloat 20s ease-in-out infinite;
+  }
+
+  .blob-1 {
+    top: -20%;
+    left: -10%;
+
+    width: 35rem;
+    height: 35rem;
+
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+
+    animation-delay: 0s;
+  }
+
+  .blob-2 {
+    right: -12%;
+    bottom: -15%;
+
+    width: 40rem;
+    height: 40rem;
+
+    background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+
+    animation-delay: 10s;
+  }
+
+  /* Footer Container */
+  .footer-main {
+    position: relative;
+    z-index: 1;
+
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem 2rem;
+  }
+
+  /* Footer Grid */
+  .footer-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  /* Footer Brand */
+  .footer-brand {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    opacity: 0;
+
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .brand-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-logo {
+    width: 60px;
+    height: 60px;
+    padding: 0.75rem;
+    border: 2px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 30%));
+    border-radius: 1rem;
+
+    background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 20%));
+
+    transition: all 0.3s ease;
+  }
+
+  .footer-logo:hover {
+    transform: scale(1.08) rotate(-5deg);
+    border-color: var(--deanny-cian);
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    box-shadow: 0 8px 25px rgb(168 85 247 / 30%);
+  }
+
+  .footer-brand h2 {
+    margin: 0;
+
+    font-family: Poppins, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: light-dark(#1e1b4b, #f8fafc);
+
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+  }
+
+  .footer-brand p {
+    margin: 0;
+    font-size: 1rem;
+    color: light-dark(#64748b, #cbd5e1);
+  }
+
+  /* CTA Button */
+  .btn-footer {
+    position: relative;
+
+    overflow: hidden;
+    display: inline-flex;
+    gap: 0.75rem;
     align-items: center;
-    justify-content: space-between;
+    align-self: flex-start;
 
-    height: auto;
-    margin-top: 100px;
-    padding: 10px 20px;
-    border-top: 1px solid #1806283b;
+    padding: 1rem 2rem;
+    border: 2px solid var(--deanny-cian);
+    border-radius: 2.5rem;
 
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    box-shadow:
+      0 8px 30px rgb(168 85 247 / 30%),
+      0 0 0 1px rgb(255 255 255 / 20%) inset;
+
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-footer::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 255 255 / 30%),
+      transparent
+    );
+
+    transition: left 0.6s ease;
+  }
+
+  .btn-footer:hover::before {
+    left: 100%;
+  }
+
+  .btn-footer svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-footer:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+      0 12px 40px rgb(168 85 247 / 40%),
+      0 0 0 1px rgb(255 255 255 / 30%) inset;
+  }
+
+  .btn-footer:hover svg {
+    transform: translateX(5px);
+  }
+
+  /* Footer Nav */
+  .footer-nav {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.1s;
+  }
+
+  .footer-nav h4 {
+    margin-bottom: 1.5rem;
+
+    font-family: Poppins, sans-serif;
     font-size: 1.2rem;
-    font-weight: 500;
+    font-weight: 700;
+    color: light-dark(#1e1b4b, #f8fafc);
+  }
 
-    background-color: var(--section-dark);
+  .nav-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 1.5rem;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  .nav-grid li {
+    display: flex;
+  }
+
+  .nav-grid a {
+    position: relative;
+
+    padding: 0.5rem 0;
+
+    font-size: 1rem;
+    color: light-dark(#64748b, #cbd5e1);
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+  }
+
+  .nav-grid a::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: linear-gradient(90deg, #a855f7, #06b6d4);
+
+    transition: width 0.3s ease;
+  }
+
+  .nav-grid a:hover {
+    transform: translateX(5px);
+    color: light-dark(#a855f7, #a78bfa);
+  }
+
+  .nav-grid a:hover::after {
+    width: 100%;
+  }
+
+  /* Footer Contact */
+  .footer-contact {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
+  }
+
+  .footer-contact h4 {
+    margin-bottom: 1.5rem;
+
+    font-family: Poppins, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: light-dark(#1e1b4b, #f8fafc);
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+    border: 1px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 30%));
+    border-radius: 0.75rem;
+
+    color: light-dark(#8b5cf6, #a78bfa);
+
+    background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 15%));
+
+    transition: all 0.3s ease;
+  }
+
+  .contact-item:hover .contact-icon {
+    transform: scale(1.1);
+    border-color: var(--deanny-cian);
+    color: #fff;
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+  }
+
+  .contact-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-item a {
+    font-size: 1rem;
+    color: light-dark(#64748b, #cbd5e1);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .contact-item:hover a {
+    color: light-dark(#a855f7, #a78bfa);
+  }
+
+  /* Social Icons */
+  .social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  /* Footer Bottom */
+  .footer-bottom {
+    position: relative;
+    z-index: 1;
+
+    padding: 2rem;
+    border-top: 1px solid
+      light-dark(rgb(168 85 247 / 15%), rgb(168 85 247 / 25%));
+
+    background: light-dark(rgb(255 255 255 / 50%), rgb(17 17 17 / 80%));
     backdrop-filter: blur(10px);
   }
 
-  .text {
+  .footer-bottom-container {
     display: flex;
-    flex-direction: row;
-    gap: 5px;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 1400px;
+    margin: 0 auto;
+
+    text-align: center;
+  }
+
+  .copy {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     align-items: center;
     justify-content: center;
 
     margin: 0;
-    padding: 10px 0;
 
-    font-size: clamp(0.8rem, 1.8vw, 1rem);
-    color: var(--acento-btn);
+    font-size: 0.9rem;
+    color: light-dark(#64748b, #cbd5e1);
   }
 
-  .text svg {
-    width: clamp(16px, 2vw, 20px);
-    height: clamp(16px, 2vw, 20px);
-    vertical-align: middle;
+  .copy svg {
+    width: 18px;
+    height: 18px;
+    color: #ec4899;
   }
 
-  span {
-    display: inline-flex;
-    align-items: center;
-    margin: 5px;
-  }
-
-  .social-icons {
+  .footer-links {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
     justify-content: center;
   }
 
+  .footer-links a {
+    font-size: 0.9rem;
+    color: light-dark(#64748b, #cbd5e1);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-links a:hover {
+    color: light-dark(#a855f7, #a78bfa);
+  }
+
+  /* Focus Styles */
+  .btn-footer:focus-visible,
+  .nav-grid a:focus-visible,
+  .contact-item a:focus-visible,
+  .footer-links a:focus-visible {
+    border-radius: 4px;
+    outline: 3px solid light-dark(#a855f7, #a78bfa);
+    outline-offset: 4px;
+  }
+
   @media (width >= 768px) {
-    .footer {
+    .footer-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+  }
+
+  @media (width >= 1024px) {
+    .footer-container {
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  @media (width >= 768px) {
+    .footer-bottom-container {
       flex-direction: row;
-      align-items: center;
       justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  @media (width >= 768px) {
+    .copy {
+      justify-content: flex-start;
+    }
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  /* Responsive Adjustments */
+  @media (width <= 767px) {
+    .footer-main {
+      padding: 3rem 1.5rem 1.5rem;
+    }
+
+    .footer-container {
+      gap: 2.5rem;
+    }
+
+    .nav-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .btn-footer {
+      justify-content: center;
+      width: 100%;
+    }
+
+    .footer-bottom {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (width >= 1400px) {
+    .footer-main {
+      padding: 5rem 3rem 2rem;
+    }
+  }
+
+  @keyframes blobFloat {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+      transform: translate(-25px, -35px) scale(1.08);
+    }
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
     }
   }
 </style>

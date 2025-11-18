@@ -1,0 +1,514 @@
+---
+import Blog from "@icons/blog.svg";
+import Tool from "@icons/tool.svg";
+import Person from "@icons/person.svg";
+import Projects from "@icons/projects.svg";
+import Send from "@icons/send.svg";
+---
+
+<button
+  class="menu-burger-button"
+  aria-label="Abrir menú de navegación"
+  aria-expanded="false"
+>
+  <svg width="35" height="35" viewBox="0 0 100 100">
+    <path
+      class="line line1"
+      d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"
+    ></path>
+    <path class="line line2" d="M 20,50 H 80"></path>
+    <path
+      class="line line3"
+      d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"
+    ></path>
+  </svg>
+</button>
+
+<nav class="nav-burger" role="navigation" aria-label="Menú de navegación móvil">
+  <ul class="nav-burger-menu">
+    <li class="nav-burger-item">
+      <a
+        href="/sobre-mi"
+        class="nav-burger-link"
+        aria-label="Ir a la página Sobre mí"
+      >
+        <Person />
+        <span>Sobre mí</span>
+      </a>
+    </li>
+    <li class="nav-burger-item">
+      <a href="/proyectos" class="nav-burger-link" aria-label="Ver proyectos">
+        <Projects />
+        <span>Proyectos</span>
+      </a>
+    </li>
+    <li class="nav-burger-item">
+      <a href="/blog" class="nav-burger-link" aria-label="Leer el blog">
+        <Blog />
+        <span>Blog</span>
+      </a>
+    </li>
+    <li class="nav-burger-item">
+      <a href="/tools" class="nav-burger-link" aria-label="Ver herramientas">
+        <Tool />
+        <span>Herramientas</span>
+      </a>
+    </li>
+    <li class="nav-burger-item">
+      <a href="/contacto" class="nav-burger-link" aria-label="Ir a contacto">
+        <Send />
+        <span>Trabajemos juntas/os</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  /* Mobile Header */
+  .header-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* Mobile Logo */
+  .mobile-logo-link {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    text-decoration: none;
+
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-logo-link:hover {
+    transform: scale(1.05);
+  }
+
+  .mobile-logo-image {
+    width: 36px;
+    height: 36px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .mobile-logo-link:hover .mobile-logo-image {
+    transform: rotate(-5deg);
+  }
+
+  .mobile-logo-text {
+    font-family: Poppins, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: light-dark(var(--deanny-purpura), var(--deanny-lila));
+  }
+
+  /* Burger Menu Button */
+  .menu-burger-button {
+    --_stroke: var(--stroke, light-dark(#8b5cf6, #a78bfa));
+
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1001;
+
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.5rem;
+    border: 1px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 30%));
+    border-radius: 0.75rem;
+
+    background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 15%));
+    box-shadow: 0 2px 8px light-dark(rgb(168 85 247 / 8%), rgb(0 0 0 / 15%));
+
+    transition: all 0.3s ease;
+  }
+
+  .menu-burger-button:hover {
+    transform: scale(1.05);
+    background: light-dark(rgb(168 85 247 / 15%), rgb(168 85 247 / 25%));
+    box-shadow: 0 4px 12px light-dark(rgb(168 85 247 / 15%), rgb(0 0 0 / 25%));
+  }
+
+  .menu-burger-button:active {
+    transform: scale(0.98);
+  }
+
+  .menu-burger-button svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .line {
+    fill: none;
+    stroke: var(--_stroke);
+    stroke-width: 3;
+    transition:
+      stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+      stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .line1 {
+    stroke-dasharray: 60 207;
+  }
+
+  .line2 {
+    stroke-dasharray: 60 60;
+  }
+
+  .line3 {
+    stroke-dasharray: 60 207;
+  }
+
+  .active .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+  }
+
+  .active .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+  }
+
+  .active .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+  }
+
+  /* Mobile Navigation */
+  .nav-burger {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+
+    overflow-y: auto;
+
+    width: 100%;
+    height: 100vh;
+    padding: 6rem 2rem 2rem;
+
+    opacity: 0;
+    background: var(--deanny-bg-color);
+    backdrop-filter: blur(30px);
+    box-shadow: 2px 0 20px light-dark(rgb(0 0 0 / 8%), rgb(0 0 0 / 40%));
+
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-burger.active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .nav-burger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  .nav-burger-item {
+    opacity: 0;
+    animation: slideInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .nav-burger.active .nav-burger-item:nth-child(1) {
+    animation-delay: 0.15s;
+  }
+
+  .nav-burger.active .nav-burger-item:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .nav-burger.active .nav-burger-item:nth-child(3) {
+    animation-delay: 0.25s;
+  }
+
+  .nav-burger.active .nav-burger-item:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+
+  .nav-burger.active .nav-burger-item:nth-child(5) {
+    animation-delay: 0.35s;
+  }
+
+  .nav-burger-link {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    /* Ensure minimum touch target size for accessibility */
+    min-height: 44px;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 20%));
+    border-radius: 1rem;
+
+    font-family: Poppins, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: light-dark(#1e1b4b, #f8fafc);
+    text-decoration: none;
+
+    background: light-dark(rgb(168 85 247 / 5%), rgb(168 85 247 / 10%));
+
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-burger-link:hover,
+  .nav-burger-link:focus {
+    transform: translateX(8px);
+
+    border-color: transparent;
+
+    color: #fff;
+
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    box-shadow: 0 8px 25px rgb(168 85 247 / 30%);
+  }
+
+  .nav-burger-link :global(svg) {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-burger-link:hover :global(svg) {
+    transform: scale(1.1);
+  }
+
+  /* Focus Styles */
+  .logo-link:focus-visible,
+  .menu-burger-button:focus-visible,
+  .nav-burger-link:focus-visible {
+    outline: 3px solid light-dark(#a855f7, #a78bfa);
+    outline-offset: 4px;
+  }
+
+  /* Responsive Header Padding */
+  @media (width <= 480px) {
+    .header {
+      padding: 0.75rem;
+    }
+
+    .mobile-logo-image {
+      width: 32px;
+      height: 32px;
+    }
+
+    .mobile-logo-text {
+      font-size: 1rem;
+    }
+  }
+
+  @media (width >= 481px) and (width < 768px) {
+    .header {
+      padding: 0.75rem 1rem;
+    }
+
+    .mobile-logo-image {
+      width: 34px;
+      height: 34px;
+    }
+
+    .mobile-logo-text {
+      font-size: 1.05rem;
+    }
+  }
+
+  @media (width >= 768px) and (width < 1024px) {
+    .header {
+      padding: 0.75rem 1.5rem;
+    }
+
+    .mobile-logo-image {
+      width: 38px;
+      height: 38px;
+    }
+
+    .mobile-logo-text {
+      font-size: 1.15rem;
+    }
+  }
+
+  @media (width >= 1024px) and (width < 1280px) {
+    .header {
+      padding: 0.75rem 1.75rem;
+    }
+
+    .mobile-logo-image {
+      width: 40px;
+      height: 40px;
+    }
+
+    .mobile-logo-text {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (width >= 1280px) {
+    .header {
+      padding: 0.75rem 2rem;
+    }
+
+    .header-mobile {
+      display: none;
+    }
+  }
+
+  @media (width >= 1400px) {
+    .header {
+      padding: 1rem 3rem;
+    }
+  }
+
+  @media (width <= 480px) {
+    .menu-burger-button {
+      padding: 0.4rem;
+      border-radius: 0.65rem;
+    }
+
+    .menu-burger-button svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  @media (width >= 768px) and (width < 1024px) {
+    .menu-burger-button svg {
+      width: 34px;
+      height: 34px;
+    }
+  }
+
+  /* Mobile responsive adjustments for burger menu */
+  @media (width <= 480px) {
+    .nav-burger {
+      padding: 5rem 1rem 2rem;
+    }
+
+    .nav-burger-link {
+      padding: 1rem 1.25rem;
+      font-size: 1rem;
+    }
+
+    .nav-burger-menu {
+      max-width: 100%;
+    }
+  }
+
+  @media (width >= 481px) and (width < 768px) {
+    .nav-burger {
+      padding: 5.5rem 1.5rem 2rem;
+    }
+
+    .nav-burger-link {
+      padding: 1.15rem 1.4rem;
+      font-size: 1.05rem;
+    }
+  }
+
+  @media (width >= 768px) and (width < 1024px) {
+    .nav-burger {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 6rem 2rem 2rem;
+    }
+
+    .nav-burger-link {
+      padding: 1.35rem 1.75rem;
+      font-size: 1.15rem;
+    }
+  }
+
+  @media (width >= 1024px) and (width < 1280px) {
+    .nav-burger {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 6rem 3rem 2rem;
+    }
+
+    .nav-burger-link {
+      padding: 1.4rem 2rem;
+      font-size: 1.2rem;
+    }
+
+    .nav-burger-menu {
+      gap: 1rem;
+    }
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+
+    .nav-burger-item {
+      animation: none !important;
+    }
+  }
+
+  /* Animation Keyframes */
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-30px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  const burger = document.querySelector(".menu-burger-button");
+  const menuBurger = document.querySelector(".nav-burger");
+
+  burger?.addEventListener("click", () => {
+    const isActive = menuBurger?.classList.toggle("active");
+    burger?.setAttribute("aria-expanded", isActive ? "true" : "false");
+    burger?.classList.toggle("active", isActive);
+  });
+
+  // Close menu when clicking on a link
+  const menuLinks = document.querySelectorAll(".nav-burger-link");
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      menuBurger?.classList.remove("active");
+      burger?.classList.remove("active");
+      burger?.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    if (
+      !target.closest(".menu-burger-button") &&
+      !target.closest(".nav-burger")
+    ) {
+      menuBurger?.classList.remove("active");
+      burger?.classList.remove("active");
+      burger?.setAttribute("aria-expanded", "false");
+    }
+  });
+</script>

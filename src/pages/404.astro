@@ -7,207 +7,1024 @@ import Layout from "../layouts/Layout.astro";
   description="La página que buscas no existe. Regresa al inicio del portfolio de Deanny Bruces para explorar proyectos y contenido sobre desarrollo web."
   keywords="404, página no encontrada, error, Deanny Bruces"
 >
+  <section class="not-found-page">
+    <!-- Background Elements -->
+    <div class="not-found-background" aria-hidden="true">
+      <div class="floating-blob blob-1"></div>
+      <div class="floating-blob blob-2"></div>
+      <div class="floating-blob blob-3"></div>
+    </div>
+
+    <div class="not-found-container">
+      <!-- 404 Content -->
+      <div class="not-found-content">
+        <div class="error-badge">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <span>Error 404</span>
+        </div>
+
+        <h1 class="error-title">¡Ups! Página no encontrada</h1>
+        <p class="error-description">
+          La página que buscas no existe, pero mientras regresas... ¿Qué tal un
+          juego de Tetris?
+        </p>
+
+        <!-- Tetris Game -->
+        <div class="tetris-container">
+          <!-- Game Instructions (moved to top) -->
+          <div class="game-instructions">
+            <p><strong>Controles:</strong></p>
+            <p class="desktop-controls">
+              🎮 Escritorio: ← → Mover | ↑ Rotar | ↓ Bajar rápido
+            </p>
+            <p class="mobile-controls">
+              📱 Móvil: Usa los botones táctiles debajo del juego
+            </p>
+          </div>
+
+          <div class="tetris-header">
+            <div class="score-display">
+              <span class="score-label">Puntos:</span>
+              <span id="score" aria-live="polite" aria-atomic="true">0</span>
+            </div>
+            <div class="level-display">
+              <span class="level-label">Nivel:</span>
+              <span id="level" aria-live="polite" aria-atomic="true">1</span>
+            </div>
+          </div>
+
+          <!-- Game Status Message -->
+          <div
+            id="gameStatus"
+            class="game-status"
+            aria-live="assertive"
+            aria-atomic="true"
+          >
+          </div>
+
+          <canvas
+            id="tetris"
+            width="240"
+            height="400"
+            role="img"
+            aria-label="Área de juego de Tetris"></canvas>
+
+          <!-- Pause Overlay -->
+          <div id="pauseOverlay" class="pause-overlay" style="display: none;">
+            <div class="pause-message">
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+              </svg>
+              <p>Juego en pausa</p>
+            </div>
+          </div>
+
+          <div class="game-controls">
+            <button
+              id="startBtn"
+              class="control-btn"
+              aria-label="Iniciar nuevo juego"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              Iniciar
+            </button>
+            <button
+              id="pauseBtn"
+              class="control-btn"
+              disabled
+              aria-label="Pausar juego"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+              </svg>
+              <span id="pauseBtnText">Pausar</span>
+            </button>
+          </div>
+
+          <!-- Mobile Touch Controls -->
+          <div class="touch-controls" id="touchControls">
+            <div class="touch-row">
+              <button class="touch-btn" id="rotateBtn" aria-label="Rotar pieza">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div class="touch-row">
+              <button
+                class="touch-btn"
+                id="leftBtn"
+                aria-label="Mover izquierda">◄</button
+              >
+              <button class="touch-btn" id="downBtn" aria-label="Bajar rápido"
+                >▼</button
+              >
+              <button class="touch-btn" id="rightBtn" aria-label="Mover derecha"
+                >►</button
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <a href="/" class="btn-home">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Volver al inicio
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <style>
-    .not-found {
+    /* ============================================
+     404 Page with Tetris Game - Glassmorphic Design
+     ============================================ */
+
+    .not-found-page {
       position: relative;
 
       overflow: hidden;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
 
-      width: 100vw;
       min-height: 100vh;
-      margin: 0;
-      padding: 0;
-      border-radius: 0;
+      padding: 2rem 1rem;
 
-      color: var(--h1-h2-color, #6e6b6b);
-
-      background: var(--bg-color, #f2e9f2);
-      box-shadow: none;
-
-      animation: fade-in-move 1.2s cubic-bezier(0.77, 0, 0.175, 1) both;
+      background: light-dark(
+        radial-gradient(circle at center, #e0f2fe, #ddd6fe, #fce7f3),
+        radial-gradient(circle at center, #0c4a6e, #3730a3, #831843)
+      );
     }
 
-    .not-found-content {
-      z-index: 1;
-
-      width: 90vw;
-      max-width: 500px;
-      padding: 3rem 2rem;
-      border-radius: var(--border-radius, 20px);
-
-      text-align: center;
-
-      background: rgb(255 255 255 / 85%);
-      box-shadow: 0 4px 24px rgb(80 12 75 / 12%);
-    }
-
-    .not-found h1 {
-      cursor: pointer;
-
-      margin-bottom: 0.5rem;
-
-      font-size: 6rem;
-      color: var(--secondary-color, #c38cf6);
-      text-shadow: 0 2px 16px var(--secondary-color, #c38cf6);
-      letter-spacing: 0.1em;
-
-      transition: transform 0.3s;
-      animation: bounce404 1.5s infinite alternate;
-    }
-
-    .not-found h1:hover {
-      transform: scale(1.15) rotate(-5deg);
-      filter: brightness(1.2);
-    }
-
-    .not-found h2 {
-      margin-bottom: 1rem;
-      font-size: 2rem;
-      color: var(--primary-color, #2d0c4b);
-      animation: fade-in-text 1.5s 0.5s both;
-    }
-
-    .not-found p {
-      margin-bottom: 2rem;
-      color: var(--secondary-color, #817d7d);
-      animation: fade-in-text 1.5s 0.8s both;
-    }
-
-    .not-found a {
-      display: inline-block;
-
-      padding: 0.75rem 2rem;
-      border-radius: 8px;
-
-      font-weight: bold;
-      color: #fff;
-      text-decoration: none;
-
-      background: var(--acento-btn, #dda0dd);
-      box-shadow: 0 2px 8px rgb(195 140 246 / 15%);
-
-      transition:
-        background 0.3s,
-        transform 0.2s;
-      animation: fade-in-text 1.5s 1.1s both;
-    }
-
-    .not-found a:hover {
-      transform: scale(1.08);
-      background: var(--acento-btn-hover, #c38cf6);
-    }
-
-    /* Decorative SVGs */
-    .svg-deco {
+    /* Background Elements */
+    .not-found-background {
       pointer-events: none;
 
       position: absolute;
       z-index: 0;
+      top: 0;
+      left: 0;
 
-      opacity: 0.18;
+      overflow: hidden;
 
-      animation: float-deco 6s ease-in-out infinite alternate;
+      width: 100%;
+      height: 100%;
     }
 
-    .svg-deco.top {
-      top: -40px;
-      left: -40px;
+    .floating-blob {
+      position: absolute;
 
-      width: 120px;
-      height: 120px;
+      width: 35rem;
+      height: 35rem;
+      border-radius: 50%;
 
-      fill: var(--secondary-color, #c38cf6);
+      opacity: 0.15;
+      filter: blur(100px);
+
+      animation: blobFloat 18s ease-in-out infinite;
     }
 
-    .svg-deco.bottom {
-      right: -40px;
-      bottom: -40px;
+    .blob-1 {
+      top: -10%;
+      left: -10%;
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+      animation-delay: 0s;
+    }
 
-      width: 100px;
-      height: 100px;
+    .blob-2 {
+      top: 50%;
+      right: -10%;
+      background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+      animation-delay: 6s;
+    }
 
-      fill: var(--primary-color, #2d0c4b);
+    .blob-3 {
+      bottom: -10%;
+      left: 40%;
+      background: linear-gradient(135deg, #f43f5e, #a855f7);
+      animation-delay: 12s;
+    }
 
-      animation-delay: 2s;
+    /* Container */
+    .not-found-container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    /* Content Card */
+    .not-found-content {
+      padding: 3rem 2rem;
+      border: 2px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 35%));
+      border-radius: 2rem;
+
+      text-align: center;
+
+      background: light-dark(rgb(255 255 255 / 85%), rgb(30 27 75 / 50%));
+      backdrop-filter: blur(20px);
+      box-shadow:
+        0 20px 60px light-dark(rgb(168 85 247 / 15%), rgb(0 0 0 / 30%)),
+        0 0 0 1px light-dark(rgb(255 255 255 / 60%), rgb(255 255 255 / 5%))
+          inset;
+
+      animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Error Badge */
+    .error-badge {
+      display: inline-flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      margin-bottom: 1.5rem;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid light-dark(rgb(239 68 68 / 30%), rgb(239 68 68 / 40%));
+      border-radius: 2rem;
+
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: light-dark(#dc2626, #fca5a5);
+
+      background: light-dark(rgb(239 68 68 / 10%), rgb(239 68 68 / 15%));
+
+      animation: badgeGlow 3s ease-in-out infinite;
+    }
+
+    .error-badge svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Title */
+    .error-title {
+      margin-bottom: 1rem;
+
+      font-family: Poppins, sans-serif;
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+
+      background: linear-gradient(135deg, #a855f7, #06b6d4, #ec4899);
+      background-clip: text;
+      background-size: 200% 200%;
+
+      animation: gradientShift 8s ease infinite;
+
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Description */
+    .error-description {
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: light-dark(#64748b, #cbd5e1);
+    }
+
+    /* Tetris Container */
+    .tetris-container {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      border: 2px solid light-dark(rgb(168 85 247 / 15%), rgb(168 85 247 / 30%));
+      border-radius: 1.5rem;
+
+      background: light-dark(rgb(248 250 252 / 60%), rgb(15 23 42 / 40%));
+      backdrop-filter: blur(10px);
+    }
+
+    /* Tetris Header */
+    .tetris-header {
+      display: flex;
+      justify-content: space-around;
+
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid
+        light-dark(rgb(168 85 247 / 15%), rgb(168 85 247 / 25%));
+    }
+
+    .score-display,
+    .level-display {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .score-label,
+    .level-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: light-dark(#64748b, #94a3b8);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    #score,
+    #level {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: light-dark(#8b5cf6, #a78bfa);
+    }
+
+    /* Canvas */
+    #tetris {
+      display: block;
+
+      margin: 0 auto 1rem;
+      border: 3px solid light-dark(rgb(168 85 247 / 30%), rgb(168 85 247 / 50%));
+      border-radius: 1rem;
+
+      background: light-dark(#1e293b, #0f172a);
+      box-shadow: 0 8px 25px light-dark(rgb(168 85 247 / 20%), rgb(0 0 0 / 40%));
+    }
+
+    /* Game Controls */
+    .game-controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .control-btn {
+      cursor: pointer;
+
+      display: inline-flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      padding: 0.75rem 1.5rem;
+      border: 1px solid light-dark(rgb(168 85 247 / 25%), rgb(168 85 247 / 35%));
+      border-radius: 2rem;
+
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: light-dark(#8b5cf6, #a78bfa);
+
+      background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 15%));
+
+      transition: all 0.3s ease;
+    }
+
+    .control-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+
+      border-color: transparent;
+
+      color: #fff;
+
+      background: linear-gradient(135deg, #a855f7, #06b6d4);
+      box-shadow: 0 6px 20px rgb(168 85 247 / 30%);
+    }
+
+    .control-btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .control-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Game Instructions */
+    .game-instructions {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 1rem;
+
+      font-size: 0.9rem;
+      color: light-dark(#475569, #e2e8f0);
+
+      background: light-dark(rgb(168 85 247 / 8%), rgb(168 85 247 / 15%));
+    }
+
+    .game-instructions p {
+      margin: 0.25rem 0;
+    }
+
+    .game-instructions strong {
+      color: light-dark(#7c3aed, #c4b5fd);
+    }
+
+    .mobile-controls {
+      display: none;
+    }
+
+    /* Game Status */
+    .game-status {
+      min-height: 1.5rem;
+      margin-bottom: 0.5rem;
+
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: light-dark(#7c3aed, #c4b5fd);
+      text-align: center;
+    }
+
+    /* Pause Overlay */
+    .pause-overlay {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 240px;
+      height: 400px;
+      border-radius: 1rem;
+
+      background: rgb(0 0 0 / 85%);
+      backdrop-filter: blur(8px);
+    }
+
+    .pause-message {
+      color: #fff;
+      text-align: center;
+    }
+
+    .pause-message svg {
+      margin-bottom: 1rem;
+      opacity: 0.9;
+      animation: pulsePause 1.5s ease-in-out infinite;
+    }
+
+    .pause-message p {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    /* Touch Controls */
+    .touch-controls {
+      display: none;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .touch-row {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .touch-btn {
+      cursor: pointer;
+      user-select: none;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 60px;
+      height: 60px;
+      border: 2px solid light-dark(rgb(168 85 247 / 30%), rgb(168 85 247 / 50%));
+      border-radius: 1rem;
+
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: light-dark(#8b5cf6, #a78bfa);
+
+      background: light-dark(rgb(168 85 247 / 10%), rgb(168 85 247 / 20%));
+
+      transition: all 0.2s ease;
+    }
+
+    .touch-btn:active {
+      transform: scale(0.95);
+      border-color: transparent;
+      color: #fff;
+      background: linear-gradient(135deg, #a855f7, #06b6d4);
+    }
+
+    .touch-btn svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* Improved Error Badge Contrast */
+    .error-badge {
+      border-color: light-dark(rgb(220 38 38 / 35%), rgb(220 38 38 / 45%));
+      color: light-dark(#b91c1c, #fecaca);
+      background: light-dark(rgb(220 38 38 / 12%), rgb(220 38 38 / 18%));
+    }
+
+    /* Better Disabled State */
+    .control-btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.4;
+      background: light-dark(rgb(168 85 247 / 5%), rgb(168 85 247 / 8%));
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      margin-top: 2rem;
+    }
+
+    .btn-home {
+      display: inline-flex;
+      gap: 0.75rem;
+      align-items: center;
+
+      padding: 1rem 2rem;
+      border: 2px solid transparent;
+      border-radius: 3rem;
+
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+
+      background: linear-gradient(135deg, #a855f7, #06b6d4);
+      box-shadow: 0 10px 30px rgb(168 85 247 / 30%);
+
+      transition: all 0.3s ease;
+    }
+
+    .btn-home:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgb(168 85 247 / 40%);
+    }
+
+    .btn-home svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (width <= 768px) {
+      .desktop-controls {
+        display: none;
+      }
+
+      .mobile-controls {
+        display: block;
+      }
+    }
+
+    @media (width <= 768px) {
+      .touch-controls {
+        display: flex;
+      }
     }
 
     /* Responsive */
-    @media (width <= 600px) {
+    @media (width <= 640px) {
       .not-found-content {
-        max-width: 98vw;
-        padding: 2rem 0.5rem;
+        padding: 2rem 1.5rem;
       }
 
-      .not-found h1 {
-        font-size: 3.5rem;
+      .tetris-container {
+        padding: 1rem;
       }
 
-      .not-found h2 {
-        font-size: 1.2rem;
+      #tetris {
+        width: 200px;
+        height: 333px;
+      }
+
+      .game-controls {
+        flex-direction: column;
+      }
+
+      .control-btn {
+        justify-content: center;
+        width: 100%;
       }
     }
 
-    @keyframes fade-in-move {
-      0% {
-        transform: translateY(40px) scale(0.95);
+    /* Animations */
+    @keyframes blobFloat {
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      33% {
+        transform: translate(-25px, -40px) scale(1.1);
+      }
+
+      66% {
+        transform: translate(35px, 25px) scale(0.9);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(30px);
         opacity: 0;
       }
 
-      100% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-    }
-
-    @keyframes bounce404 {
-      0% {
-        transform: scale(1) translateY(0);
-      }
-
-      100% {
-        transform: scale(1.08) translateY(-10px);
-      }
-    }
-
-    @keyframes fade-in-text {
-      0% {
-        transform: translateY(20px);
-        opacity: 0;
-      }
-
-      100% {
+      to {
         transform: translateY(0);
         opacity: 1;
       }
     }
 
-    @keyframes float-deco {
-      0% {
-        transform: translateY(0) scale(1);
+    @keyframes badgeGlow {
+      0%,
+      100% {
+        box-shadow: 0 0 15px rgb(239 68 68 / 20%);
       }
 
+      50% {
+        box-shadow: 0 0 25px rgb(239 68 68 / 35%);
+      }
+    }
+
+    @keyframes gradientShift {
+      0%,
       100% {
-        transform: translateY(20px) scale(1.08);
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes pulsePause {
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.9;
+      }
+
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
       }
     }
   </style>
 
-  <section class="not-found">
-    <svg class="svg-deco top" viewBox="0 0 100 100"
-      ><circle cx="50" cy="50" r="50"></circle></svg
-    >
-    <svg class="svg-deco bottom" viewBox="0 0 100 100"
-      ><rect x="10" y="10" width="80" height="80" rx="20"></rect></svg
-    >
-    <div class="not-found-content">
-      <h1>404</h1>
-      <h2>Página no encontrada</h2>
-      <p>Lo sentimos, la página que buscas no existe o fue movida.</p>
-      <a href="/">Volver al inicio</a>
-    </div>
-  </section>
+  <script>
+    // Tetris Game Logic
+    const canvas = document.getElementById("tetris") as HTMLCanvasElement;
+    const ctx = canvas.getContext("2d");
+    const scoreElement = document.getElementById("score");
+    const levelElement = document.getElementById("level");
+    const startBtn = document.getElementById("startBtn") as HTMLButtonElement;
+    const pauseBtn = document.getElementById("pauseBtn") as HTMLButtonElement;
+    const pauseBtnText = document.getElementById(
+      "pauseBtnText",
+    ) as HTMLSpanElement;
+    const pauseOverlay = document.getElementById(
+      "pauseOverlay",
+    ) as HTMLDivElement;
+    const gameStatus = document.getElementById("gameStatus") as HTMLDivElement;
+
+    // Touch controls
+    const rotateBtn = document.getElementById("rotateBtn") as HTMLButtonElement;
+    const leftBtn = document.getElementById("leftBtn") as HTMLButtonElement;
+    const rightBtn = document.getElementById("rightBtn") as HTMLButtonElement;
+    const downBtn = document.getElementById("downBtn") as HTMLButtonElement;
+
+    const ROWS = 20;
+    const COLS = 12;
+    const BLOCK_SIZE = 20;
+    const COLORS = [
+      "#a855f7", // Purple
+      "#ec4899", // Pink
+      "#06b6d4", // Cyan
+      "#22c55e", // Green
+      "#f97316", // Orange
+      "#fbbf24", // Yellow
+      "#3b82f6", // Blue
+    ];
+
+    // Tetromino shapes
+    const SHAPES = [
+      [[1, 1, 1, 1]], // I
+      [
+        [1, 1],
+        [1, 1],
+      ], // O
+      [
+        [0, 1, 0],
+        [1, 1, 1],
+      ], // T
+      [
+        [1, 0, 0],
+        [1, 1, 1],
+      ], // L
+      [
+        [0, 0, 1],
+        [1, 1, 1],
+      ], // J
+      [
+        [1, 1, 0],
+        [0, 1, 1],
+      ], // S
+      [
+        [0, 1, 1],
+        [1, 1, 0],
+      ], // Z
+    ];
+
+    let board: number[][] = [];
+    let score = 0;
+    let level = 1;
+    let gameLoop: number | null = null;
+    let isPaused = false;
+    let currentPiece: any = null;
+    let dropCounter = 0;
+    let dropInterval = 1000;
+    let lastTime = 0;
+
+    function initBoard() {
+      board = Array(ROWS)
+        .fill(null)
+        .map(() => Array(COLS).fill(0));
+    }
+
+    function drawBlock(x: number, y: number, color: string) {
+      if (!ctx) return;
+      ctx.fillStyle = color;
+      ctx.fillRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+      ctx.strokeStyle = "rgba(0,0,0,0.3)";
+      ctx.strokeRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+    }
+
+    function drawBoard() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let y = 0; y < ROWS; y++) {
+        for (let x = 0; x < COLS; x++) {
+          if (board[y][x]) {
+            drawBlock(x, y, COLORS[board[y][x] - 1]);
+          }
+        }
+      }
+    }
+
+    function createPiece() {
+      const shapeIndex = Math.floor(Math.random() * SHAPES.length);
+      return {
+        shape: SHAPES[shapeIndex],
+        color: shapeIndex + 1,
+        x: Math.floor(COLS / 2) - 1,
+        y: 0,
+      };
+    }
+
+    function drawPiece() {
+      if (!currentPiece || !ctx) return;
+      currentPiece.shape.forEach((row: number[], y: number) => {
+        row.forEach((value, x) => {
+          if (value) {
+            drawBlock(
+              currentPiece.x + x,
+              currentPiece.y + y,
+              COLORS[currentPiece.color - 1],
+            );
+          }
+        });
+      });
+    }
+
+    function collision() {
+      if (!currentPiece) return false;
+      for (let y = 0; y < currentPiece.shape.length; y++) {
+        for (let x = 0; x < currentPiece.shape[y].length; x++) {
+          if (currentPiece.shape[y][x]) {
+            const newX = currentPiece.x + x;
+            const newY = currentPiece.y + y;
+            if (
+              newX < 0 ||
+              newX >= COLS ||
+              newY >= ROWS ||
+              (newY >= 0 && board[newY][newX])
+            ) {
+              return true;
+            }
+          }
+        }
+      }
+      return false;
+    }
+
+    function merge() {
+      if (!currentPiece) return;
+      currentPiece.shape.forEach((row: number[], y: number) => {
+        row.forEach((value, x) => {
+          if (value) {
+            board[currentPiece.y + y][currentPiece.x + x] = currentPiece.color;
+          }
+        });
+      });
+    }
+
+    function clearLines() {
+      let linesCleared = 0;
+      for (let y = ROWS - 1; y >= 0; y--) {
+        if (board[y].every((cell) => cell !== 0)) {
+          board.splice(y, 1);
+          board.unshift(Array(COLS).fill(0));
+          linesCleared++;
+          y++;
+        }
+      }
+      if (linesCleared > 0) {
+        score += linesCleared * 100 * level;
+        if (scoreElement) scoreElement.textContent = score.toString();
+        if (score > level * 1000) {
+          level++;
+          dropInterval = Math.max(100, dropInterval - 100);
+          if (levelElement) levelElement.textContent = level.toString();
+        }
+      }
+    }
+
+    function movePiece(dir: number) {
+      if (!currentPiece) return;
+      currentPiece.x += dir;
+      if (collision()) {
+        currentPiece.x -= dir;
+      }
+    }
+
+    function rotatePiece() {
+      if (!currentPiece) return;
+      const rotated = currentPiece.shape[0].map((_: any, i: number) =>
+        currentPiece.shape.map((row: number[]) => row[i]).reverse(),
+      );
+      const previousShape = currentPiece.shape;
+      currentPiece.shape = rotated;
+      if (collision()) {
+        currentPiece.shape = previousShape;
+      }
+    }
+
+    function drop() {
+      if (!currentPiece) return;
+      currentPiece.y++;
+      if (collision()) {
+        currentPiece.y--;
+        merge();
+        clearLines();
+        currentPiece = createPiece();
+        if (collision()) {
+          gameOver();
+        }
+      }
+    }
+
+    function update(time = 0) {
+      if (isPaused) return;
+      const deltaTime = time - lastTime;
+      lastTime = time;
+      dropCounter += deltaTime;
+      if (dropCounter > dropInterval) {
+        drop();
+        dropCounter = 0;
+      }
+      drawBoard();
+      drawPiece();
+      gameLoop = requestAnimationFrame(update);
+    }
+
+    function startGame() {
+      document.addEventListener("keydown", (e) => {
+        e.preventDefault();
+        if (!currentPiece || isPaused) return;
+        if (e.key === "ArrowLeft") movePiece(-1);
+        if (e.key === "ArrowRight") movePiece(1);
+        if (e.key === "ArrowDown") drop();
+        if (e.key === "ArrowUp") rotatePiece();
+      });
+      initBoard();
+      score = 0;
+      level = 1;
+      dropInterval = 1000;
+      if (scoreElement) scoreElement.textContent = "0";
+      if (levelElement) levelElement.textContent = "1";
+      if (gameStatus) gameStatus.textContent = "¡Juego iniciado!";
+      currentPiece = createPiece();
+      isPaused = false;
+      pauseOverlay.style.display = "none";
+      startBtn.disabled = true;
+      pauseBtn.disabled = false;
+      pauseBtn.setAttribute("aria-label", "Pausar juego");
+      if (pauseBtnText) pauseBtnText.textContent = "Pausar";
+      gameLoop = requestAnimationFrame(update);
+    }
+
+    function pauseGame() {
+      isPaused = !isPaused;
+      if (isPaused) {
+        pauseOverlay.style.display = "flex";
+        if (pauseBtnText) pauseBtnText.textContent = "Reanudar";
+        pauseBtn.setAttribute("aria-label", "Reanudar juego");
+        if (gameStatus) gameStatus.textContent = "Juego pausado";
+      } else {
+        pauseOverlay.style.display = "none";
+        if (pauseBtnText) pauseBtnText.textContent = "Pausar";
+        pauseBtn.setAttribute("aria-label", "Pausar juego");
+        if (gameStatus) gameStatus.textContent = "Juego reanudado";
+        gameLoop = requestAnimationFrame(update);
+      }
+    }
+
+    function gameOver() {
+      if (gameLoop) {
+        cancelAnimationFrame(gameLoop);
+      }
+      if (gameStatus) {
+        gameStatus.textContent = `¡Game Over! Puntuación final: ${score}`;
+        gameStatus.style.color = "light-dark(#dc2626, #fca5a5)";
+      }
+      setTimeout(() => {
+        if (gameStatus) {
+          gameStatus.textContent = "";
+          gameStatus.style.color = "";
+        }
+      }, 5000);
+      startBtn.disabled = false;
+      pauseBtn.disabled = true;
+    }
+
+    // Event listeners
+    startBtn.addEventListener("click", startGame);
+    pauseBtn.addEventListener("click", pauseGame);
+
+    // Touch control event listeners for mobile
+    if (rotateBtn) {
+      rotateBtn.addEventListener("click", () => {
+        if (currentPiece && !isPaused) rotatePiece();
+      });
+    }
+    if (leftBtn) {
+      leftBtn.addEventListener("click", () => {
+        if (currentPiece && !isPaused) movePiece(-1);
+      });
+    }
+    if (rightBtn) {
+      rightBtn.addEventListener("click", () => {
+        if (currentPiece && !isPaused) movePiece(1);
+      });
+    }
+    if (downBtn) {
+      downBtn.addEventListener("click", () => {
+        if (currentPiece && !isPaused) drop();
+      });
+    }
+  </script>
 </Layout>

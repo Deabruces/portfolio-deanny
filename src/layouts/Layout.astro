@@ -1,12 +1,13 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import Hora from "../components/Hora.astro";
-import Navigation from "../components/Navigation.astro";
-import "../assets/styles/reset.css";
-import "../assets/styles/grid.css";
-import "../assets/styles/global.css";
-import BurgerMenu from "../components/BurgerMenu.astro";
+import Footer from "@components/Footer.astro";
+import WhatsAppButton from "../components/globals/WhatsAppButton.astro";
+import ServicesChatbot from "@components/ServicesChatbot.jsx";
+import SEOStructuredData from "@components/SEOStructuredData.astro";
+import Header from "@components/globals/Header.astro";
+import "@styles/reset.css";
+import "@styles/grid.css";
+import "@styles/global.css";
+import FloatingMenu from "@components/globals/FloatingMenu.astro";
 interface Props {
   title?: string;
   description: string;
@@ -31,9 +32,6 @@ const pageTitle = title ? `${title} | Deanny Bruces` : "Deanny Bruces";
 const pageImage = image
   ? new URL(image, Astro.url.origin).href
   : new URL("/favicon_dea-logo.png", Astro.url.origin).href;
-
-import WhatsAppButton from "../components/WhatsAppButton.astro";
-import SEOStructuredData from "../components/SEOStructuredData.astro";
 ---
 
 <!doctype html>
@@ -60,7 +58,7 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon_dea-logo.png" />
+    <link rel="icon" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -135,32 +133,67 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
         style="display:none;visibility:hidden"></iframe></noscript
     >
     <!-- End Google Tag Manager (noscript) -->
-    <header class="full-width">
-      <div class="header-desktop">
-        <Header>
-          <div class="container-logo">
-            <a href="/" class="logo">Deanny Bruces</a>
-          </div>
-          <Navigation />
-          <Hora slot="widget-right" />
-        </Header>
-      </div>
-      <div class="header-mobile">
-        <div class="container-logo">
-          <a href="/" class="logo">Deanny Bruces</a>
-        </div>
-        <div class="burger-menu">
-          <BurgerMenu />
-        </div>
-      </div>
-    </header>
-  </body><main id="main-content"><slot /></main>
 
-  <WhatsAppButton />
+    <Header />
+    <main id="main-content"><slot /></main>
 
-  <footer class="full-width footer">
+    <WhatsAppButton />
+
+    <!-- Scroll to Top Button -->
+    <button
+      id="scroll-to-top"
+      class="scroll-to-top"
+      aria-label="Volver arriba"
+      title="Volver arriba"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
     <Footer />
-  </footer>
+
+    <script>
+      // Header scroll behavior
+      const header = document.getElementById("main-header");
+      const scrollToTopBtn = document.getElementById("scroll-to-top");
+
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        // Header scroll behavior
+        if (currentScroll > 50) {
+          header?.classList.add("scrolled");
+        } else {
+          header?.classList.remove("scrolled");
+        }
+
+        // Scroll to top button visibility
+        if (currentScroll > 300) {
+          scrollToTopBtn?.classList.add("visible");
+        } else {
+          scrollToTopBtn?.classList.remove("visible");
+        }
+      });
+
+      // Scroll to top functionality
+      scrollToTopBtn?.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
+  </body>
 </html>
 
 <style>
@@ -210,54 +243,111 @@ import SEOStructuredData from "../components/SEOStructuredData.astro";
     outline-offset: 2px;
   }
 
-  header {
+  /* Scroll to Top Button */
+  .scroll-to-top {
+    cursor: pointer;
+
     position: fixed;
-    z-index: 100;
-    top: 0;
-    width: 100%;
-  }
+    z-index: 9998;
+    right: 40px;
+    bottom: 120px;
 
-  .header-desktop {
-    display: none;
-  }
-
-  .header-mobile {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    width: 100%;
-    padding: 20px;
-
-    opacity: 0.8;
-    background-color: var(--primary-color);
-  }
-
-  .burger-menu {
-    display: flex;
-    justify-content: end;
-  }
-
-  .container-logo {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+
+    width: 56px;
+    height: 56px;
+    border: 2px solid light-dark(rgb(168 85 247 / 25%), rgb(168 85 247 / 40%));
+    border-radius: 50%;
+
+    color: light-dark(#8b5cf6, #a78bfa);
+
+    visibility: hidden;
+    opacity: 0;
+    background: light-dark(rgb(255 255 255 / 90%), rgb(30 27 75 / 80%));
+    backdrop-filter: blur(12px);
+    box-shadow:
+      0 8px 32px light-dark(rgb(168 85 247 / 15%), rgb(0 0 0 / 30%)),
+      0 0 0 1px light-dark(rgb(255 255 255 / 60%), rgb(255 255 255 / 8%)) inset;
+
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .logo {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--acento-btn);
+  .scroll-to-top.visible {
+    visibility: visible;
+    opacity: 1;
   }
 
-  @media (width >= 768px) {
-    .header-desktop {
-      display: block;
+  .scroll-to-top:hover {
+    transform: translateY(-5px) scale(1.05);
+
+    border-color: var(--deanny-cian);
+
+    color: #fff;
+
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    box-shadow:
+      0 12px 40px light-dark(rgb(168 85 247 / 30%), rgb(0 0 0 / 40%)),
+      0 0 0 1px rgb(255 255 255 / 20%) inset;
+  }
+
+  .scroll-to-top:active {
+    transform: translateY(-3px) scale(1.02);
+  }
+
+  .scroll-to-top svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+  }
+
+  .scroll-to-top:hover svg {
+    transform: translateY(-2px);
+  }
+
+  .scroll-to-top:focus-visible {
+    outline: 3px solid light-dark(#a855f7, #a78bfa);
+    outline-offset: 4px;
+  }
+
+  /* Responsive adjustments */
+  @media (width <= 767px) {
+    .scroll-to-top {
+      right: 20px;
+      bottom: 90px;
+      width: 48px;
+      height: 48px;
     }
 
-    .header-mobile {
-      display: none;
+    .scroll-to-top svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  @media (width >= 768px) and (width < 1024px) {
+    .scroll-to-top {
+      right: 30px;
+      bottom: 100px;
+      width: 52px;
+      height: 52px;
+    }
+
+    .scroll-to-top svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  /* Accessibility - Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-to-top {
+      transition-duration: 0.01ms !important;
+    }
+
+    .scroll-to-top svg {
+      transition: none !important;
     }
   }
 </style>

@@ -1,0 +1,181 @@
+{
+  "name": "Lead Management Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "lead-capture",
+        "options": {}
+      },
+      "id": "1",
+      "name": "Webhook (Form Submission)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "lead-capture-webhook"
+    },
+    {
+      "parameters": {
+        "functionCode": "// Extract and format lead data\nconst lead = {\n  name: $input.item.json.name,\n  email: $input.item.json.email,\n  phone: $input.item.json.phone || 'Not provided',\n  company: $input.item.json.company || 'Not provided',\n  message: $input.item.json.message,\n  source: $input.item.json.source || 'Website Form',\n  timestamp: new Date().toISOString(),\n  lead_score: calculateLeadScore($input.item.json)\n};\n\nfunction calculateLeadScore(data) {\n  let score = 50;\n  if (data.company) score += 20;\n  if (data.phone) score += 15;\n  if (data.message && data.message.length > 100) score += 15;\n  return Math.min(score, 100);\n}\n\nreturn { json: lead };"
+      },
+      "id": "2",
+      "name": "Process Lead Data",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "¡Gracias por contactarnos!",
+        "emailType": "html",
+        "message": "<!DOCTYPE html>\n<html>\n<head>\n  <style>\n    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }\n    .container { max-width: 600px; margin: 0 auto; padding: 20px; }\n    .header { background: linear-gradient(135deg, #14b8a6, #06b6d4); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }\n    .content { background: #f8fafc; padding: 30px; border-radius: 0 0 10px 10px; }\n    .button { display: inline-block; padding: 12px 30px; background: #14b8a6; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <h1>¡Hola {{ $json.name }}!</h1>\n    </div>\n    <div class=\"content\">\n      <p>Gracias por contactarnos. Hemos recibido tu mensaje y nos pondremos en contacto contigo dentro de las próximas 24 horas.</p>\n      <p><strong>Resumen de tu consulta:</strong></p>\n      <p>{{ $json.message }}</p>\n      <p>Mientras tanto, puedes explorar nuestro blog o agendar una llamada directamente:</p>\n      <a href=\"https://calendar.app.google/7zL3cZ713aYB9tCW6\" class=\"button\">Agendar Llamada</a>\n      <p>Saludos,<br>El Equipo</p>\n    </div>\n  </div>\n</body>\n</html>",
+        "options": {}
+      },
+      "id": "3",
+      "name": "Send Auto-Reply Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "position": [650, 200],
+      "credentials": {
+        "smtp": {
+          "id": "1",
+          "name": "SMTP Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SPREADSHEET_ID",
+          "mode": "list"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Leads",
+          "mode": "list"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{ $json.timestamp }}",
+            "Name": "={{ $json.name }}",
+            "Email": "={{ $json.email }}",
+            "Phone": "={{ $json.phone }}",
+            "Company": "={{ $json.company }}",
+            "Message": "={{ $json.message }}",
+            "Source": "={{ $json.source }}",
+            "Lead Score": "={{ $json.lead_score }}"
+          }
+        },
+        "options": {}
+      },
+      "id": "4",
+      "name": "Add to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [650, 300],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2",
+          "name": "Google Sheets OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "channel": "#leads",
+        "text": "🎯 *Nuevo Lead Capturado*\n\n*Nombre:* {{ $json.name }}\n*Email:* {{ $json.email }}\n*Teléfono:* {{ $json.phone }}\n*Empresa:* {{ $json.company }}\n*Lead Score:* {{ $json.lead_score }}/100\n\n*Mensaje:*\n{{ $json.message }}\n\n*Fuente:* {{ $json.source }}\n*Hora:* {{ $json.timestamp }}",
+        "attachments": [],
+        "otherOptions": {}
+      },
+      "id": "5",
+      "name": "Notify Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2,
+      "position": [650, 400],
+      "credentials": {
+        "slackWebhookApi": {
+          "id": "3",
+          "name": "Slack Webhook"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "contact",
+        "operation": "create",
+        "email": "={{ $json.email }}",
+        "additionalFields": {
+          "firstName": "={{ $json.name.split(' ')[0] }}",
+          "lastName": "={{ $json.name.split(' ').slice(1).join(' ') }}",
+          "phone": "={{ $json.phone }}",
+          "company": "={{ $json.company }}",
+          "leadStatus": "new",
+          "lifecycleStage": "lead"
+        }
+      },
+      "id": "6",
+      "name": "Create HubSpot Contact",
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2,
+      "position": [650, 500],
+      "credentials": {
+        "hubspotApi": {
+          "id": "4",
+          "name": "HubSpot API"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook (Form Submission)": {
+      "main": [
+        [
+          {
+            "node": "Process Lead Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Lead Data": {
+      "main": [
+        [
+          {
+            "node": "Send Auto-Reply Email",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Add to Google Sheets",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notify Slack",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Create HubSpot Contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-10-16T19:00:00.000Z",
+  "versionId": "1"
+}
