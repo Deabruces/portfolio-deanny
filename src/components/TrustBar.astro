@@ -21,9 +21,9 @@
           </svg>
         </div>
         <div class="trust-content">
-          <div class="trust-number">+50</div>
+          <div class="trust-number">+4</div>
           <div class="trust-label">Proyectos entregados</div>
-        </div>
+        </div>  
       </div>
 
       <!-- Metric 2 -->
@@ -98,7 +98,7 @@
     position: relative;
     padding: 3rem 0 4rem;
     background: light-dark(
-      linear-gradient(to bottom, #fafafa, #ffffff),
+      linear-gradient(to bottom, #fafafa, #fff),
       linear-gradient(to bottom, #0f172a, #1a1a2e)
     );
   }
@@ -115,7 +115,9 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
+
     opacity: 0;
+
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
   }
 
@@ -125,14 +127,17 @@
     gap: 1.25rem;
     align-items: center;
     justify-content: center;
+
     padding: 1.5rem 2rem;
     border: 2px solid light-dark(rgb(168 85 247 / 15%), rgb(168 85 247 / 25%));
     border-radius: 1.25rem;
+
     background: light-dark(rgb(255 255 255 / 90%), rgb(30 27 75 / 40%));
     backdrop-filter: blur(10px);
     box-shadow:
       0 4px 20px light-dark(rgb(168 85 247 / 8%), rgb(0 0 0 / 20%)),
       0 0 0 1px light-dark(rgb(255 255 255 / 60%), rgb(255 255 255 / 5%)) inset;
+
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -146,13 +151,15 @@
 
   /* Trust Icon */
   .trust-icon {
-    flex-shrink: 0;
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
+
     width: 56px;
     height: 56px;
     border-radius: 1rem;
+
     background: linear-gradient(135deg, #a855f7, #06b6d4);
     box-shadow: 0 4px 16px rgb(168 85 247 / 25%);
   }
@@ -276,6 +283,7 @@
       transform: translateY(20px);
       opacity: 0;
     }
+
     to {
       transform: translateY(0);
       opacity: 1;
@@ -287,6 +295,7 @@
       transform: scale(0.95);
       opacity: 0;
     }
+
     to {
       transform: scale(1);
       opacity: 1;

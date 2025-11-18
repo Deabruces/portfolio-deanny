@@ -1,4 +1,8 @@
 ---
+import Image from "astro/components/Image.astro";
+import Yoga from "../assets/images/yoga.png";
+import Joya from "../assets/images/joya.png";
+
 // Testimonials & Social Proof component
 ---
 
@@ -34,7 +38,8 @@
         <span class="gradient-text">trabajan conmigo</span>
       </h2>
       <p class="testimonials-subtitle">
-        Resultados reales de emprendedores que transformaron su presencia digital
+        Resultados reales de emprendedores que transformaron su presencia
+        digital
       </p>
     </div>
 
@@ -44,17 +49,12 @@
       <article class="testimonial-card featured">
         <div class="card-header">
           <div class="avatar">
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
+            <Image
+              src={Yoga}
+              alt="logo de estudio de yoga"
+              width={80}
+              height={80}
+            />
           </div>
           <div class="client-info">
             <h3 class="client-name">María González</h3>
@@ -132,17 +132,12 @@
       <article class="testimonial-card">
         <div class="card-header">
           <div class="avatar">
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
+            <Image
+              src={Joya}
+              alt="logo de tienda de joyas"
+              width={80}
+              height={80}
+            />
           </div>
           <div class="client-info">
             <h3 class="client-name">Ana Sofía Martínez</h3>
@@ -154,8 +149,7 @@
         </div>
         <blockquote class="testimonial-text">
           "Invertí en un e-commerce profesional y fue la mejor decisión. Mis
-          ventas se triplicaron y ahora aparezco en la primera página de Google.
-          ¡Increíble!"
+          ventas se triplicaron.
         </blockquote>
         <div class="result-badge">
           <svg
@@ -180,7 +174,7 @@
         <div class="stat-label">Tasa de satisfacción</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">+50</div>
+        <div class="stat-number">+4</div>
         <div class="stat-label">Clientes felices</div>
       </div>
       <div class="stat-item">
@@ -206,22 +200,28 @@
   /* Background Elements */
   .testimonials-background {
     pointer-events: none;
+
     position: absolute;
     z-index: 0;
     top: 0;
     left: 0;
+
     overflow: hidden;
+
     width: 100%;
     height: 100%;
   }
 
   .floating-blob {
     position: absolute;
+
     width: 35rem;
     height: 35rem;
     border-radius: 50%;
+
     opacity: 0.1;
     filter: blur(100px);
+
     animation: blobFloat 20s ease-in-out infinite;
   }
 
@@ -243,12 +243,15 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
     width: 25rem;
     height: 25rem;
     border-radius: 50%;
+
     opacity: 0.12;
     background: radial-gradient(circle, #f59e0b, transparent);
     filter: blur(80px);
+
     animation: orbPulse 15s ease-in-out infinite;
   }
 
@@ -256,6 +259,7 @@
   .testimonials-container {
     position: relative;
     z-index: 1;
+
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -274,25 +278,29 @@
     display: inline-flex;
     gap: 0.5rem;
     align-items: center;
+
     margin-bottom: 1.5rem;
     padding: 0.6rem 1.2rem;
     border: 1px solid light-dark(rgb(245 158 11 / 30%), rgb(245 158 11 / 40%));
     border-radius: 2rem;
+
     font-size: 0.9rem;
     font-weight: 600;
     color: light-dark(#f59e0b, #fbbf24);
+
     background: light-dark(rgb(245 158 11 / 10%), rgb(245 158 11 / 15%));
   }
 
   .badge-icon {
     width: 1rem;
     height: 1rem;
-    fill: currentColor;
+    fill: currentcolor;
     stroke: none;
   }
 
   .testimonials-title {
     margin-bottom: 1rem;
+
     font-family: Poppins, sans-serif;
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 800;
@@ -303,6 +311,7 @@
   .gradient-text {
     background: linear-gradient(135deg, #a855f7, #06b6d4);
     background-clip: text;
+
     -webkit-text-fill-color: transparent;
   }
 
@@ -316,8 +325,11 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
+
     margin-bottom: 4rem;
+
     opacity: 0;
+
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
   }
 
@@ -326,14 +338,17 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+
     padding: 2.5rem;
     border: 2px solid light-dark(rgb(168 85 247 / 15%), rgb(168 85 247 / 25%));
     border-radius: 1.5rem;
+
     background: light-dark(rgb(255 255 255 / 90%), rgb(30 27 75 / 50%));
     backdrop-filter: blur(10px);
     box-shadow:
       0 8px 30px light-dark(rgb(168 85 247 / 10%), rgb(0 0 0 / 20%)),
       0 0 0 1px light-dark(rgb(255 255 255 / 60%), rgb(255 255 255 / 5%)) inset;
+
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -356,19 +371,21 @@
   /* Card Header */
   .card-header {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
-    flex-wrap: wrap;
   }
 
   .avatar {
-    flex-shrink: 0;
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
+
     width: 64px;
     height: 64px;
     border-radius: 50%;
+
     background: linear-gradient(135deg, #a855f7, #06b6d4);
     box-shadow: 0 4px 16px rgb(168 85 247 / 25%);
   }
@@ -386,6 +403,7 @@
 
   .client-name {
     margin-bottom: 0.25rem;
+
     font-family: Poppins, sans-serif;
     font-size: 1.125rem;
     font-weight: 700;
@@ -404,6 +422,7 @@
   /* Testimonial Text */
   .testimonial-text {
     margin: 0;
+
     font-size: 1.125rem;
     font-style: italic;
     line-height: 1.7;
@@ -415,11 +434,14 @@
     display: inline-flex;
     gap: 0.5rem;
     align-items: center;
+
     padding: 0.75rem 1.25rem;
     border-radius: 9999px;
+
     font-size: 0.9rem;
     font-weight: 700;
     color: white;
+
     background: linear-gradient(135deg, #10b981, #059669);
     box-shadow: 0 4px 16px rgb(16 185 129 / 30%);
   }
@@ -434,13 +456,17 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
+
     padding: 2.5rem;
     border: 2px solid light-dark(rgb(168 85 247 / 20%), rgb(168 85 247 / 30%));
     border-radius: 1.5rem;
+
     text-align: center;
+
+    opacity: 0;
     background: light-dark(rgb(255 255 255 / 80%), rgb(30 27 75 / 40%));
     backdrop-filter: blur(10px);
-    opacity: 0;
+
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
   }
 
@@ -454,8 +480,10 @@
     font-family: Poppins, sans-serif;
     font-size: 2.5rem;
     font-weight: 800;
+
     background: linear-gradient(135deg, #a855f7, #06b6d4);
     background-clip: text;
+
     -webkit-text-fill-color: transparent;
   }
 
@@ -525,6 +553,7 @@
       transform: translateY(30px);
       opacity: 0;
     }
+
     to {
       transform: translateY(0);
       opacity: 1;
@@ -536,9 +565,11 @@
     100% {
       transform: translate(0, 0) scale(1);
     }
+
     33% {
       transform: translate(-25px, -40px) scale(1.08);
     }
+
     66% {
       transform: translate(30px, 25px) scale(0.92);
     }
@@ -550,6 +581,7 @@
       transform: translate(-50%, -50%) scale(1);
       opacity: 0.12;
     }
+
     50% {
       transform: translate(-50%, -50%) scale(1.15);
       opacity: 0.18;

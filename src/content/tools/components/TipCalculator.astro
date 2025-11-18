@@ -1,0 +1,909 @@
+---
+// Tip Calculator Component - Restaurant bill calculator with tip and split functionality
+---
+
+<div class="tip-calculator-container">
+  <div class="tip-calculator-card">
+    <!-- Header -->
+    <div class="calculator-header">
+      <div class="header-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 6v6l4 2"></path>
+        </svg>
+      </div>
+      <h2 class="calculator-title">
+        Calculadora de <span class="title-gradient">Propinas</span>
+      </h2>
+      <p class="calculator-subtitle">
+        Calcula propinas perfectas y divide cuentas de restaurante en segundos
+      </p>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="calculator-content-grid">
+      <!-- Menu Selection Section -->
+      <div class="menu-section">
+        <h3 class="section-title">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
+            <path d="M7 2v20"></path>
+            <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
+          </svg>
+          Menú del Restaurante
+        </h3>
+        <div class="menu-grid" id="menu-grid">
+          <!-- Menu items will be rendered here -->
+        </div>
+      </div>
+
+      <!-- Order Summary Section -->
+      <div class="order-section">
+        <h3 class="section-title">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+            <path d="M3 6h18"></path>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          Tu Pedido
+        </h3>
+
+        <div id="order-list" class="order-list">
+          <div class="empty-state">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              opacity="0.3"
+            >
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+              <path d="M3 6h18"></path>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <p>Agrega platillos del menú para comenzar</p>
+          </div>
+        </div>
+
+        <!-- Tip Controls -->
+        <div class="tip-controls">
+          <label class="control-label">Porcentaje de Propina</label>
+          <div class="tip-buttons">
+            <button type="button" class="tip-btn" data-tip="10">10%</button>
+            <button type="button" class="tip-btn active" data-tip="15">15%</button>
+            <button type="button" class="tip-btn" data-tip="20">20%</button>
+            <button type="button" class="tip-btn" data-tip="custom">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"
+                ></path>
+              </svg>
+              Custom
+            </button>
+          </div>
+
+          <div class="custom-tip-input" style="display: none;">
+            <label for="custom-tip-value" class="control-label">Propina Personalizada (%)</label>
+            <input
+              type="number"
+              id="custom-tip-value"
+              class="form-input"
+              min="0"
+              max="100"
+              step="1"
+              value="18"
+              placeholder="18"
+            />
+          </div>
+        </div>
+
+        <!-- Split Controls -->
+        <div class="split-controls">
+          <label for="people-count" class="control-label">Dividir entre personas</label>
+          <div class="people-counter">
+            <button type="button" class="counter-btn" id="decrease-people" aria-label="Disminuir personas">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14"></path>
+              </svg>
+            </button>
+            <input
+              type="number"
+              id="people-count"
+              class="people-input"
+              value="1"
+              min="1"
+              max="50"
+              readonly
+              aria-label="Número de personas"
+            />
+            <button type="button" class="counter-btn" id="increase-people" aria-label="Aumentar personas">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14"></path>
+                <path d="M12 5v14"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="order-summary">
+          <div class="summary-row">
+            <span class="summary-label">Subtotal</span>
+            <span class="summary-value" id="subtotal">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Propina (<span id="tip-percent">15</span>%)</span>
+            <span class="summary-value" id="tip-amount">$0.00</span>
+          </div>
+          <div class="summary-row summary-total">
+            <span class="summary-label">Total</span>
+            <span class="summary-value total-value" id="total">$0.00</span>
+          </div>
+          <div class="summary-row summary-per-person" id="per-person-row" style="display: none;">
+            <span class="summary-label">Por Persona</span>
+            <span class="summary-value per-person-value" id="per-person">$0.00</span>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="action-buttons">
+          <button type="button" class="btn btn-secondary" id="clear-order">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M3 6h18"></path>
+              <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+              <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+            </svg>
+            Limpiar Todo
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .tip-calculator-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .tip-calculator-card {
+    background: light-dark(#ffffff, rgb(30 27 75 / 50%));
+    border: 2px solid light-dark(rgb(168 85 247 / 15%), rgb(168 85 247 / 25%));
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px light-dark(rgb(142 68 173 / 10%), rgb(0 0 0 / 30%));
+  }
+
+  /* Header Styles */
+  .calculator-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .header-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #8e44ad, #4bc0c8);
+    border-radius: 1rem;
+    color: white;
+  }
+
+  .calculator-title {
+    margin-bottom: 0.75rem;
+    font-family: Poppins, sans-serif;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: light-dark(#1e1b4b, #f8fafc);
+  }
+
+  .title-gradient {
+    background: linear-gradient(135deg, #8e44ad, #4bc0c8);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .calculator-subtitle {
+    font-size: 1.05rem;
+    color: light-dark(#64748b, #cbd5e1);
+  }
+
+  /* Content Grid */
+  .calculator-content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .calculator-content-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* Section Titles */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-family: Poppins, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: light-dark(#8e44ad, #c38cf6);
+  }
+
+  .section-title svg {
+    flex-shrink: 0;
+  }
+
+  /* Menu Grid */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: light-dark(rgb(248 250 252), rgb(30 27 75 / 30%));
+    border: 1px solid light-dark(rgb(226 232 240), rgb(168 85 247 / 15%));
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .menu-item:hover {
+    border-color: light-dark(#8e44ad, #c38cf6);
+    background: light-dark(rgb(250 245 255), rgb(168 85 247 / 15%));
+    transform: translateX(4px);
+  }
+
+  .menu-item-info {
+    flex: 1;
+  }
+
+  .menu-item-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: light-dark(#1e1b4b, #f8fafc);
+    margin-bottom: 0.25rem;
+  }
+
+  .menu-item-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: light-dark(#4bc0c8, #84eef6);
+  }
+
+  .menu-item-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #8e44ad, #4bc0c8);
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .menu-item-add:hover {
+    transform: scale(1.1);
+  }
+
+  /* Order List */
+  .order-list {
+    min-height: 200px;
+    margin-bottom: 1.5rem;
+  }
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: light-dark(#94a3b8, #64748b);
+    text-align: center;
+  }
+
+  .empty-state p {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .order-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background: light-dark(rgb(250 245 255), rgb(168 85 247 / 10%));
+    border: 1px solid light-dark(rgb(226 232 240), rgb(168 85 247 / 15%));
+    border-radius: 0.75rem;
+  }
+
+  .order-item-info {
+    flex: 1;
+  }
+
+  .order-item-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: light-dark(#1e1b4b, #f8fafc);
+    margin-bottom: 0.25rem;
+  }
+
+  .order-item-price {
+    font-size: 0.9rem;
+    color: light-dark(#64748b, #cbd5e1);
+  }
+
+  .order-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .qty-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: light-dark(#f1f5f9, rgb(30 27 75 / 50%));
+    border: 1px solid light-dark(rgb(226 232 240), rgb(168 85 247 / 20%));
+    border-radius: 0.375rem;
+    color: light-dark(#64748b, #cbd5e1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .qty-btn:hover {
+    background: light-dark(#8e44ad, #c38cf6);
+    border-color: light-dark(#8e44ad, #c38cf6);
+    color: white;
+  }
+
+  .qty-display {
+    min-width: 30px;
+    text-align: center;
+    font-weight: 700;
+    color: light-dark(#1e1b4b, #f8fafc);
+  }
+
+  .remove-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: light-dark(rgb(239 68 68 / 10%), rgb(248 113 113 / 15%));
+    border: 1px solid light-dark(rgb(239 68 68 / 20%), rgb(248 113 113 / 25%));
+    border-radius: 0.375rem;
+    color: light-dark(#dc2626, #f87171);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .remove-btn:hover {
+    background: light-dark(#dc2626, #f87171);
+    border-color: light-dark(#dc2626, #f87171);
+    color: white;
+  }
+
+  /* Tip Controls */
+  .tip-controls {
+    margin-bottom: 1.5rem;
+  }
+
+  .control-label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: light-dark(#475569, #cbd5e1);
+  }
+
+  .tip-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+
+  .tip-btn {
+    padding: 0.75rem;
+    background: light-dark(#f1f5f9, rgb(30 27 75 / 30%));
+    border: 2px solid light-dark(rgb(226 232 240), rgb(168 85 247 / 20%));
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: light-dark(#475569, #cbd5e1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .tip-btn:hover {
+    border-color: light-dark(#8e44ad, #c38cf6);
+    background: light-dark(rgb(250 245 255), rgb(168 85 247 / 15%));
+  }
+
+  .tip-btn.active {
+    background: linear-gradient(135deg, #8e44ad, #4bc0c8);
+    border-color: transparent;
+    color: white;
+  }
+
+  .custom-tip-input {
+    margin-top: 1rem;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: light-dark(#f1f5f9, rgb(30 27 75 / 30%));
+    border: 2px solid light-dark(rgb(226 232 240), rgb(168 85 247 / 20%));
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: light-dark(#1e1b4b, #f8fafc);
+    transition: all 0.2s ease;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: light-dark(#8e44ad, #c38cf6);
+    background: light-dark(#ffffff, rgb(30 27 75 / 50%));
+  }
+
+  /* Split Controls */
+  .split-controls {
+    margin-bottom: 1.5rem;
+  }
+
+  .people-counter {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .counter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: light-dark(#f1f5f9, rgb(30 27 75 / 30%));
+    border: 2px solid light-dark(rgb(226 232 240), rgb(168 85 247 / 20%));
+    border-radius: 0.5rem;
+    color: light-dark(#64748b, #cbd5e1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .counter-btn:hover {
+    background: linear-gradient(135deg, #8e44ad, #4bc0c8);
+    border-color: transparent;
+    color: white;
+  }
+
+  .people-input {
+    flex: 1;
+    padding: 0.75rem;
+    background: light-dark(#f1f5f9, rgb(30 27 75 / 30%));
+    border: 2px solid light-dark(rgb(226 232 240), rgb(168 85 247 / 20%));
+    border-radius: 0.5rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: light-dark(#1e1b4b, #f8fafc);
+  }
+
+  /* Summary */
+  .order-summary {
+    padding: 1.5rem;
+    background: light-dark(rgb(248 250 252), rgb(30 27 75 / 30%));
+    border: 2px solid light-dark(rgb(226 232 240), rgb(168 85 247 / 15%));
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .summary-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .summary-label {
+    font-weight: 500;
+    color: light-dark(#64748b, #cbd5e1);
+  }
+
+  .summary-value {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: light-dark(#1e1b4b, #f8fafc);
+  }
+
+  .summary-total {
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+    border-top: 2px solid light-dark(rgb(226 232 240), rgb(168 85 247 / 20%));
+  }
+
+  .total-value {
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #8e44ad, #4bc0c8);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .summary-per-person {
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+    border-top: 2px dashed light-dark(rgb(226 232 240), rgb(168 85 247 / 20%));
+  }
+
+  .per-person-value {
+    color: light-dark(#4bc0c8, #84eef6);
+  }
+
+  /* Action Buttons */
+  .action-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary {
+    background: light-dark(rgb(239 68 68 / 10%), rgb(248 113 113 / 15%));
+    color: light-dark(#dc2626, #f87171);
+    border: 2px solid light-dark(rgb(239 68 68 / 20%), rgb(248 113 113 / 25%));
+  }
+
+  .btn-secondary:hover {
+    background: light-dark(#dc2626, #f87171);
+    border-color: light-dark(#dc2626, #f87171);
+    color: white;
+  }
+
+  /* Responsive */
+  @media (max-width: 767px) {
+    .tip-calculator-card {
+      padding: 1.5rem;
+    }
+
+    .tip-buttons {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .calculator-content-grid {
+      gap: 2rem;
+    }
+  }
+</style>
+
+<script>
+  // Menu items data
+  const menuItems = [
+    { id: 1, name: 'Pizza Hawaiana', price: 190 },
+    { id: 2, name: 'Hamburguesa Clásica', price: 150 },
+    { id: 3, name: 'Ensalada Caesar', price: 120 },
+    { id: 4, name: 'Tacos al Pastor (3)', price: 85 },
+    { id: 5, name: 'Pasta Carbonara', price: 165 },
+    { id: 6, name: 'Quesadilla', price: 95 },
+    { id: 7, name: 'Bebida', price: 45 },
+    { id: 8, name: 'Postre', price: 75 },
+  ];
+
+  // State
+  let order = [];
+  let tipPercentage = 15;
+  let peopleCount = 1;
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    renderMenu();
+    setupEventListeners();
+  });
+
+  // Render menu items
+  function renderMenu() {
+    const menuGrid = document.getElementById('menu-grid');
+    if (!menuGrid) return;
+
+    menuGrid.innerHTML = menuItems
+      .map(
+        (item) => `
+      <div class="menu-item" data-id="${item.id}">
+        <div class="menu-item-info">
+          <div class="menu-item-name">${item.name}</div>
+          <div class="menu-item-price">$${item.price.toFixed(2)}</div>
+        </div>
+        <button class="menu-item-add" aria-label="Agregar ${item.name}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14"></path>
+            <path d="M12 5v14"></path>
+          </svg>
+        </button>
+      </div>
+    `,
+      )
+      .join('');
+  }
+
+  // Setup event listeners
+  function setupEventListeners() {
+    // Menu item clicks
+    document.getElementById('menu-grid')?.addEventListener('click', (e) => {
+      const menuItem = e.target.closest('.menu-item');
+      if (menuItem) {
+        const itemId = parseInt(menuItem.dataset.id);
+        addToOrder(itemId);
+      }
+    });
+
+    // Tip buttons
+    document.querySelectorAll('.tip-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const tipValue = btn.dataset.tip;
+
+        // Remove active from all buttons
+        document.querySelectorAll('.tip-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        if (tipValue === 'custom') {
+          document.querySelector('.custom-tip-input').style.display = 'block';
+          const customValue = document.getElementById('custom-tip-value').value;
+          tipPercentage = parseFloat(customValue) || 18;
+        } else {
+          document.querySelector('.custom-tip-input').style.display = 'none';
+          tipPercentage = parseInt(tipValue);
+        }
+
+        updateSummary();
+      });
+    });
+
+    // Custom tip input
+    document.getElementById('custom-tip-value')?.addEventListener('input', (e) => {
+      tipPercentage = parseFloat(e.target.value) || 0;
+      updateSummary();
+    });
+
+    // People counter
+    document.getElementById('decrease-people')?.addEventListener('click', () => {
+      if (peopleCount > 1) {
+        peopleCount--;
+        document.getElementById('people-count').value = peopleCount;
+        updateSummary();
+      }
+    });
+
+    document.getElementById('increase-people')?.addEventListener('click', () => {
+      if (peopleCount < 50) {
+        peopleCount++;
+        document.getElementById('people-count').value = peopleCount;
+        updateSummary();
+      }
+    });
+
+    // Clear order
+    document.getElementById('clear-order')?.addEventListener('click', () => {
+      if (order.length > 0 && confirm('¿Seguro que deseas limpiar todo el pedido?')) {
+        order = [];
+        renderOrder();
+        updateSummary();
+      }
+    });
+  }
+
+  // Add item to order
+  function addToOrder(itemId) {
+    const menuItem = menuItems.find((item) => item.id === itemId);
+    if (!menuItem) return;
+
+    const existingItem = order.find((item) => item.id === itemId);
+
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      order.push({ ...menuItem, quantity: 1 });
+    }
+
+    renderOrder();
+    updateSummary();
+  }
+
+  // Remove item from order
+  function removeFromOrder(itemId) {
+    order = order.filter((item) => item.id !== itemId);
+    renderOrder();
+    updateSummary();
+  }
+
+  // Update quantity
+  function updateQuantity(itemId, delta) {
+    const item = order.find((item) => item.id === itemId);
+    if (!item) return;
+
+    item.quantity += delta;
+
+    if (item.quantity <= 0) {
+      removeFromOrder(itemId);
+    } else {
+      renderOrder();
+      updateSummary();
+    }
+  }
+
+  // Render order list
+  function renderOrder() {
+    const orderList = document.getElementById('order-list');
+    if (!orderList) return;
+
+    if (order.length === 0) {
+      orderList.innerHTML = `
+        <div class="empty-state">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+            <path d="M3 6h18"></path>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <p>Agrega platillos del menú para comenzar</p>
+        </div>
+      `;
+      return;
+    }
+
+    orderList.innerHTML = order
+      .map(
+        (item) => `
+      <div class="order-item">
+        <div class="order-item-info">
+          <div class="order-item-name">${item.name}</div>
+          <div class="order-item-price">$${item.price.toFixed(2)} × ${item.quantity} = $${(item.price * item.quantity).toFixed(2)}</div>
+        </div>
+        <div class="order-item-controls">
+          <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)" aria-label="Disminuir cantidad">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14"></path>
+            </svg>
+          </button>
+          <span class="qty-display">${item.quantity}</span>
+          <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)" aria-label="Aumentar cantidad">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14"></path>
+              <path d="M12 5v14"></path>
+            </svg>
+          </button>
+          <button class="remove-btn" onclick="removeFromOrder(${item.id})" aria-label="Eliminar ${item.name}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    `,
+      )
+      .join('');
+  }
+
+  // Update summary
+  function updateSummary() {
+    const subtotal = order.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const tipAmount = subtotal * (tipPercentage / 100);
+    const total = subtotal + tipAmount;
+    const perPerson = total / peopleCount;
+
+    document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById('tip-percent').textContent = tipPercentage.toFixed(0);
+    document.getElementById('tip-amount').textContent = `$${tipAmount.toFixed(2)}`;
+    document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+    document.getElementById('per-person').textContent = `$${perPerson.toFixed(2)}`;
+
+    // Show/hide per person row
+    const perPersonRow = document.getElementById('per-person-row');
+    if (perPersonRow) {
+      perPersonRow.style.display = peopleCount > 1 ? 'flex' : 'none';
+    }
+  }
+
+  // Make functions globally available
+  window.updateQuantity = updateQuantity;
+  window.removeFromOrder = removeFromOrder;
+</script>
